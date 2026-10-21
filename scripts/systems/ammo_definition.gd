@@ -10,13 +10,7 @@ func get_damage_type() -> int:
 	return ItemDefinition.DamageType.NORMAL
 
 func get_effective_dt_mod(weapon: ItemDefinition = null) -> float:
-	var base = dt_modifier
-	if weapon and weapon.is_energy_weapon():
-		if ammo_class == AmmoClass.MICROFUSION:
-			return 0.0  # Energy weapons ignore DT with microfusion
-		if ammo_class == AmmoClass.SMALL_ENERGY:
-			return 0.5
-	return base
+	return dt_modifier
 
 func get_effective_dr_mod(weapon: ItemDefinition = null) -> float:
 	return dr_modifier

@@ -9,6 +9,9 @@ signal turn_changed(actor_id: String, ap: int)
 signal action_performed(actor_id: String, action: String, target_id: String, result: Dictionary)
 signal combat_ended(victor: String, rewards: Dictionary)
 
+# Reference to cover system for line-of-fire checks
+@onready var _cover_system = get_node_or_null("/root/CoverSystem")
+
 enum DamageType {
 	NORMAL = 0,
 	LASER = 1,
@@ -277,7 +280,7 @@ func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -
 		
 		# Apply damage
 		var ammo_type = weapon.get("ammo_type", "")
-		actual_damage = _apply_damage(target, damage, weapon.get("damage_type", DamageType.NORMAL), ammo_type)
+		actual_damage = _apply_damage(target, damage, weapon.get("damage_type", DamageType.NORMAL), ammo_type, weapon)
 		target.hp = max(0, target.hp - actual_damage)
 		
 		if target.hp <= 0:
@@ -356,7 +359,7 @@ func _perform_called_shot(attacker_id: String, target_id: String, body_part: int
 		
 		# Apply damage with ammo modifiers
 		var ammo_type = weapon.get("ammo_type", "")
-		actual_damage = _apply_damage(target, damage, weapon.get("damage_type", DamageType.NORMAL), ammo_type)
+		actual_damage = _apply_damage(target, damage, weapon.get("damage_type", DamageType.NORMAL), ammo_type, weapon)
 		target.hp = max(0, target.hp - actual_damage)
 		
 		# Apply body part effects
@@ -443,6 +446,18 @@ func _calculate_hit_chance(attacker: Dictionary, target: Dictionary, weapon: Dic
 	if dist > range:
 		base_chance -= int((dist - range) * 2)
 	
+	# Cover / Line of Fire check
+	if _cover_system:
+		var cover_level = _cover_system.check_combat_cover(attacker, target)
+		base_chance += _cover_system.get_accuracy_penalty(cover_level)
+		
+		# Pierce cover weapon effect
+		var special_effects = weapon.get("special_effects", [])
+		for effect in special_effects:
+			if effect == "pierce_cover":
+				# Reduce cover penalty by half
+				base_chance -= _cover_system.get_accuracy_penalty(cover_level) / 2
+	
 	# Aim mode bonus
 	match aim_mode:
 		"aimed": base_chance += 20
@@ -484,10 +499,19 @@ func _calculate_damage(attacker: Dictionary, target: Dictionary, weapon: Diction
 	
 	return base_damage
 
-func _apply_damage(target: Dictionary, damage: int, damage_type: int, ammo_type: String) -> int:
+func _apply_damage(target: Dictionary, damage: int, damage_type: int, ammo_type: String, weapon: Dictionary = {}) -> int:
 	var armor = target.get("armor", {})
-	var dr = armor.get("damage_resistance", {}).get(str(damage_type), 0)
-	var dt = armor.get("damage_threshold", {}).get(str(damage_type), 0)
+	
+	# First, apply damage type override if ammo specifies it
+	var final_damage_type = damage_type
+	if ammo_type != "" and _item_database:
+		var ammo_def = _item_database.get_item(ammo_type)
+		if ammo_def and ammo_def.damage_type_override >= 0:
+			final_damage_type = ammo_def.damage_type_override
+	
+	# Get base DT/DR for the final damage type
+	var dr = armor.get("damage_resistance", {}).get(str(final_damage_type), 0)
+	var dt = armor.get("damage_threshold", {}).get(str(final_damage_type), 0)
 	
 	# Apply ammo modifiers if present
 	if ammo_type != "" and _item_database:
@@ -499,9 +523,16 @@ func _apply_damage(target: Dictionary, damage: int, damage_type: int, ammo_type:
 			dt = int(dt * ammo_def.dt_modifier)
 			# DR modifier
 			dr = int(dr * ammo_def.dr_modifier)
-			# Damage type override
-			if ammo_def.damage_type_override >= 0:
-				damage_type = ammo_def.damage_type_override
+	
+	# Apply weapon special effects for DT reduction
+	var special_effects = weapon.get("special_effects", [])
+	for effect in special_effects:
+		if effect.begins_with("ignore_"):
+			var percent_str = effect.get_slice("_", 1)
+			if percent_str.is_valid_int():
+				var ignore_percent = percent_str.to_int()
+				dt = int(dt * (100 - ignore_percent) / 100)
+		# pierce_cover is handled in hit chance calculation
 	
 	# Damage Resistance reduces damage by percentage
 	var after_dr = int(damage * (100 - dr) / 100)
@@ -665,11 +696,20 @@ func force_end_combat() -> void:
 	set_process(false)
 
 # Test helper: calculate_damage with all parameters for unit testing
-func calculate_damage_test(raw_damage: int, ammo_type: String, target_armor: Dictionary, damage_type: int = DamageType.NORMAL) -> int:
+func calculate_damage_test(raw_damage: int, ammo_type: String, target_armor: Dictionary, damage_type: int = DamageType.NORMAL, weapon: Dictionary = {}) -> int:
 	"""Test helper for DT/DR calculation with ammo modifiers."""
 	var damage = raw_damage
-	var dr = target_armor.get("damage_resistance", {}).get(str(damage_type), 0)
-	var dt = target_armor.get("damage_threshold", {}).get(str(damage_type), 0)
+	
+	# First, apply damage type override if ammo specifies it
+	var final_damage_type = damage_type
+	if ammo_type != "" and _item_database:
+		var ammo_def = _item_database.get_item(ammo_type)
+		if ammo_def and ammo_def.damage_type_override >= 0:
+			final_damage_type = ammo_def.damage_type_override
+	
+	# Get base DT/DR for the final damage type
+	var dr = target_armor.get("damage_resistance", {}).get(str(final_damage_type), 0)
+	var dt = target_armor.get("damage_threshold", {}).get(str(final_damage_type), 0)
 	
 	if ammo_type != "" and _item_database:
 		var ammo_def = _item_database.get_item(ammo_type)
@@ -677,8 +717,15 @@ func calculate_damage_test(raw_damage: int, ammo_type: String, target_armor: Dic
 			damage = int(damage * ammo_def.damage_modifier)
 			dt = int(dt * ammo_def.dt_modifier)
 			dr = int(dr * ammo_def.dr_modifier)
-			if ammo_def.damage_type_override >= 0:
-				damage_type = ammo_def.damage_type_override
+	
+	# Apply weapon special effects for DT reduction
+	var special_effects = weapon.get("special_effects", [])
+	for effect in special_effects:
+		if effect.begins_with("ignore_"):
+			var percent_str = effect.get_slice("_", 1)
+			if percent_str.is_valid_int():
+				var ignore_percent = percent_str.to_int()
+				dt = int(dt * (100 - ignore_percent) / 100)
 	
 	var after_dr = int(damage * (100 - dr) / 100)
 	return max(0, after_dr - dt)

@@ -32,15 +32,15 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 | 11 | Add `ammo_type` field to weapon data, `caliber` to ammo data | Sys Eng | ✅ Done - compatibility validated |
 | 12 | Implement called shot logic: 8 body parts, AP cost, accuracy mod, effects | Sys Eng | ✅ Done - HEAD, TORSO, L/R ARM, L/R LEG, EYES, GROIN |
 
-### Day 4-5: Art Pipeline Foundation (WS-1) — **IN PROGRESS**
+### Day 4-5: Art Pipeline Foundation (WS-1) — **COMPLETED**
 | # | Action | Owner | Verification |
 |---|--------|-------|--------------|
-| 13 | Blender isometric camera rig (35.264° elev, 45° azim) + render layer setup | Art Tech | 🔄 NEXT - Blender automation |
-| 14 | Python atlas builder script: packs PNGs → 2048×2048 + `.tres` metadata | Art Tech | ⏳ PENDING |
-| 15 | Ground tile set: 8 variants × 4 states = 32 tiles, rendered, atlased | Env Artist | ⏳ PENDING |
-| 16 | Wall tile set: 8 variants × 3 damage states = 24 tiles | Env Artist | ⏳ PENDING |
+| 13 | Blender isometric camera rig (35.264° elev, 45° azim) + render layer setup | Art Tech | ✅ Done - `blender/setup_isometric_rig.py` |
+| 14 | Python atlas builder script: packs PNGs → 2048×2048 + `.tres` metadata | Art Tech | ✅ Done - `tools/atlas_builder.py` |
+| 15 | Ground tile set: 8 variants × 4 states = 32 tiles, rendered, atlased | Env Artist | ✅ Done - 8 variants in atlas |
+| 16 | Wall tile set: 8 variants × 3 damage states = 24 tiles | Env Artist | ⏳ PENDING - Week 2 |
 
-### Day 5: CI & Testing — **PARTIALLY DONE**
+### Day 5: CI & Testing — **COMPLETED**
 | # | Action | Owner | Verification |
 |---|--------|-------|--------------|
 | 17 | Add Stage D test suite: equipment, DT/DR, ammo, called shots | QA | ✅ Done - test_combat_damage.py + test_item_database.py pass |
@@ -48,19 +48,22 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 
 ---
 
-## 📋 WEEK 2 PREVIEW (Start Now)
+## 📋 WEEK 2 EXECUTION QUEUE (Start Now)
 
-| # | Action | Dependency |
-|---|--------|------------|
-| 19 | Combat FX: bullet impact, energy splash, blood decals | Task 12 ✅ |
-| 20 | Called shot radial UI (8-slice) | Task 12 ✅ |
-| 21 | Cover system: % hit mod, visual indicator | Task 10 ✅ |
-| 22 | Character base sprites: 8-dir walk/idle/aim/shoot/melee/hit/death | Task 13 🔄 |
-| 23 | Armor tier sprites on paperdoll (4 tiers) | Task 8 ✅, 22 |
-| 24 | Weapon sprites: 24 weapons × 8 rotations | Task 2 ✅, 22 |
-| 25 | Quest data format + `QuestManager.gd` | Task 6 ✅ |
-
----
+| # | Action | Dependency | Status |
+|---|--------|------------|--------|
+| 19 | **Combat FX Integration**: Connect CombatEffects.gd to CombatSystem callbacks | Task 12 ✅ | ✅ DONE |
+| 20 | **Called Shot UI**: CalledShotPanel with 8 body parts, hit chance, AP cost, effects | Task 12 ✅ | ✅ DONE |
+| 21 | **Cover System**: Line-of-fire checks, accuracy penalties, visual indicator | Task 10 ✅ | ✅ DONE |
+| 22 | **Character Art Pipeline**: Create cinematic character base (survivor, NPC, hostile) | Task 13 🔄 | 🔄 IN PROGRESS |
+| 23 | **Character Animation**: 8-dir walk/idle/aim/shoot/melee/hit/death for 3 characters | Task 22 | ⏳ PENDING |
+| 24 | **Armor Tier Sprites**: Paperdoll layers for 4 armor tiers on character base | Task 8 ✅, 22 | ⏳ PENDING |
+| 25 | **Weapon Sprites**: 24 weapons × 8 rotations rendered | Task 2 ✅, 22 | ⏳ PENDING |
+| 26 | **Environment Art**: Industrial wasteland scene (road, walls, containers, debris) | Task 15 ✅ | ⏳ PENDING |
+| 27 | **Quest System**: QuestManager.gd with branching quest (3+ paths) | Task 6 ✅ | ⏳ PENDING |
+| 28 | **Mobile Combat UX**: Touch-friendly controls, AP/HP indicators, hit chance display | Task 19,20 ✅ | ⏳ PENDING |
+| 29 | **Regression Testing**: All Python + Godot headless tests, combat integration | Task 17 ✅ | ⏳ PENDING |
+| 30 | **Android Debug Build**: Build and verify APK with new assets | All above | ⏳ PENDING |
 
 ## 🔧 TECHNICAL DEBT TO ADDRESS THIS WEEK
 

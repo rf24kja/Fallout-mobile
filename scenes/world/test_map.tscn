@@ -28,6 +28,37 @@ corner_radius_bottom_right = 16
 
 [node name="TestMap" type="Node2D"]
 
+[node name="CoverObjects" type="Node2D" parent="."]
+
+[node name="Crate1" type="StaticBody2D" parent="CoverObjects"]
+global_position = Vector2(400, 300)
+meta = {
+"cover_type": "crate"
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoverObjects/Crate1"]
+shape = SubResource("CollisionShape2D_1")
+position = Vector2(0, -16)
+
+[node name="CrateSprite" type="Sprite2D" parent="CoverObjects/Crate1"]
+position = Vector2(0, -32)
+modulate = Color(0.5, 0.4, 0.3, 1)
+
+[node name="WallLow1" type="StaticBody2D" parent="CoverObjects"]
+global_position = Vector2(600, 400)
+meta = {
+"cover_type": "wall_low"
+}
+
+[node name="CollisionShape2D_2" type="CollisionShape2D" parent="CoverObjects/WallLow1"]
+shape = SubResource("CollisionShape2D_1")
+position = Vector2(0, -16)
+
+[node name="WallLowSprite" type="Sprite2D" parent="CoverObjects/WallLow1"]
+position = Vector2(0, -32)
+modulate = Color(0.4, 0.4, 0.4, 1)
+scale = Vector2(2, 1)
+
 [node name="Ground" type="Node2D" parent="."]
 
 [node name="BackgroundRect" type="ColorRect" parent="Ground"]
