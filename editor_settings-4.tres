@@ -1,0 +1,24 @@
+[gd_resource type="EditorSettings" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://.godot/editor_settings-4.gd" id="1"]
+
+[resource]
+config_version = 4
+android/editor/java_path = "C:/Program Files/Microsoft/jdk-21.0.12.101-hotspot"
+android/editor/sdk_path = "C:/Android/Sdk"
+android/editor/ndk_path = "C:/Android/Sdk/ndk/25.1.8937393"
+android/editor/bundletool_path = ""
+android/editor/use_custom_keystore = false
+android/editor/keystore_path = ""
+android/editor/keystore_password = ""
+android/editor/keystore_key_alias = ""
+android/editor/keystore_key_password = ""
+android/editor/keystore_debug_path = "res://keystore/debug.keystore"
+android/editor/keystore_debug_user = "android"
+android/editor/keystore_debug_password = "android"
+android/editor/ndk_version = "25.1.8937393"
+android/editor/sdk_build_tools_version = "34.0.0"
+android/editor/gles3 = true
+android/editor/gles2 = false
+android/editor/vulkan = false
+android/editor/force_32bit = false
