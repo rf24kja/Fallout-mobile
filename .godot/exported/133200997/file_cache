@@ -5,3 +5,5 @@ res://scenes/ui/inventory_ui.tscn::d2c93d4d0ddd2877cfdfb97121ddfdf8::1792475493:
 res://scenes/world/test_map.tscn::91f10cec2d0268fdfd977154bed5cf90::1792466172::res://.godot/exported/133200997/export-882b831e52b0fcd8856c48763a226141-test_map.scn
 res://tests/stage_b_test_runner.tscn::d6d5ebf3381b05191839640504e648ed::1792463478::res://.godot/exported/133200997/export-1509e29643798d33f2a2f13118856768-stage_b_test_runner.scn
 res://editor_settings-4.tres::186bbe2935b5a8c738e98a3dba2f9186::1792544607::res://.godot/exported/133200997/export-8e9e49ac9f7c6b3fc847a2d0501bdefa-editor_settings-4.res
+res://scenes/ui/combat_ui.tscn::5d53bd317c1f1c5458596dd3492fd58c::1792566884::res://.godot/exported/133200997/export-3efe383594d738ddb4f09f1b6194e643-combat_ui.scn
+res://scenes/combat.tscn::9c4ead33eec7a264f4445aeb35e2de08::1792566867::res://.godot/exported/133200997/export-0346d0d65b9d92bcf51ce1377102fc88-combat.scn

@@ -186,7 +186,7 @@ func _get_actor_name(actor_id: String) -> String:
 	var p = _get_participant(actor_id)
 	return p.name if p else actor_id
 
-func _get_participant(id: String) -> Dictionary:
+func _get_participant(id: String) -> Variant:
 	if not _combat_system:
 		return null
 	for p in _combat_system._participants:
