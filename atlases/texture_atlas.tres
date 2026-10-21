@@ -1,0 +1,51 @@
+[gd_resource type="TextureAtlas" load_steps=2 format=3 uid="uid://texture_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2"]
+atlas = ExtResource("1")
+region = Rect2(130, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3"]
+atlas = ExtResource("1")
+region = Rect2(260, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4"]
+atlas = ExtResource("1")
+region = Rect2(390, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5"]
+atlas = ExtResource("1")
+region = Rect2(520, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6"]
+atlas = ExtResource("1")
+region = Rect2(650, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7"]
+atlas = ExtResource("1")
+region = Rect2(780, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8"]
+atlas = ExtResource("1")
+region = Rect2(910, 0, 128, 128)
+
+[ext_resource path="res://atlases/atlas_000.png" type="Texture2D" id=1]
+[resource]
+tile_size = Vector2i(128, 128)
+textures = {
+    "ground_01_clean": SubResource("AtlasTexture_1"),
+    "ground_02_grid": SubResource("AtlasTexture_2"),
+    "ground_03_cracked": SubResource("AtlasTexture_3"),
+    "ground_04_rubble": SubResource("AtlasTexture_4"),
+    "ground_05_blood": SubResource("AtlasTexture_5"),
+    "ground_06_dark": SubResource("AtlasTexture_6"),
+    "ground_07_ash": SubResource("AtlasTexture_7"),
+    "ground_08_sand": SubResource("AtlasTexture_8"),
+}
