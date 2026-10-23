@@ -68,11 +68,13 @@ class DialogueConsequence:
 	var xp_amount: int = 0
 	
 	func apply(game_manager, inventory) -> void:
+		print("DialogueConsequence.apply: type=" + str(consequence_type) + ", game_manager=" + str(game_manager))
 		if not game_manager:
 			return
 		
 		match consequence_type:
 			ConsequenceType.SET_QUEST_FLAG:
+				print("DialogueConsequence.apply: SET_QUEST_FLAG quest_id=" + quest_id + ", flag=" + quest_flag + ", value=" + str(quest_flag_value))
 				game_manager.add_quest_flag(quest_id, quest_flag, quest_flag_value)
 			ConsequenceType.GIVE_ITEM:
 				if inventory:

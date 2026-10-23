@@ -26,15 +26,19 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 
 ## Test Results (2026-10-23)
 
+### Test Results (2026-10-23)
+
 | Suite | Tests | Pass | Fail | Timeout |
 |-------|-------|------|------|---------|
 | Stage B | 11 | 11 | 0 | 0 |
-| Stage C | 20 | 20 | 0 | 0 |
+| Stage C | 21 | 21 | 0 | 0 |
 | Item System | 88 items | 88 | 0 | 0 |
 | Combat DT/DR | 17 cases | 17 | 0 | 0 |
-| **Total** | **44+** | **44+** | **0** | **0** |
+| **Total** | **45+** | **45+** | **0** | **0** |
 
 **Latest APK**: `builds/fallout2_reborn_debug.apk` (37.1 MB, rebuilt 2026-10-23) — dev assets excluded
+
+---
 
 ---
 

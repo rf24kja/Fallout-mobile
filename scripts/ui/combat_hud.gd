@@ -133,13 +133,13 @@ func _refresh_ap_hp() -> void:
 	if _current_actor_id == "player":
 		var cs = get_node_or_null("/root/CharacterSystem")
 		if cs:
-			var char_data = cs.get_character_data("player")
+			var char_data = cs.get_character_sheet()
 			if char_data:
-				_max_ap = char_data.get("action_points", 10)
+				_max_ap = char_data.get("max_ap", 10)
 				var combat_sys = get_node_or_null("/root/CombatSystem")
-				_current_ap = combat_sys.get_current_ap() if combat_sys else _max_ap
+				_current_ap = combat_sys.get_current_ap() if combat_sys else char_data.get("ap", _max_ap)
 				_max_hp = char_data.get("max_hp", 100)
-				_current_hp = char_data.get("current_hp", _max_hp)
+				_current_hp = char_data.get("hp", _max_hp)
 	else:
 		var combat_sys = get_node_or_null("/root/CombatSystem")
 		if combat_sys:

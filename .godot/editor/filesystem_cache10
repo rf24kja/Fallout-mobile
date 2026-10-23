@@ -185,8 +185,8 @@ atlas_manifest.json::JSON::-1::1792575891::0::1::::<><><>0<>0<><>::
 texture_atlas.tres::TextureAtlas::-1::1792654022::0::1::::<><><>0<>0<><>::
 ::res://blender/::1792753839
 isometric_rig.blend::PackedScene::5729184093727177972::1792579170::1792753839::1::::<><><>0<>0<>5ce4408090b66478a32c1d63fae8f8a5<>res://.godot/imported/isometric_rig.blend-de1d86bf08df7463f2b5502691208ad7.scn::
-::res://builds/::1792765854
-::res://builds/android/::1792765548
+::res://builds/::1792765935
+::res://builds/android/::1792770351
 ::res://data/::1792657724
 ammo.json::JSON::-1::1792580626::0::1::::<><><>0<>0<><>::
 armor.json::JSON::-1::1792755393::0::1::::<><><>0<>0<><>::
@@ -200,7 +200,7 @@ BRANDING_AND_IP.md::TextFile::-1::1792567352::0::1::::<><><>0<>0<><>::
 DEVICE_TEST_CHECKLIST.md::TextFile::-1::1792568407::0::1::::<><><>0<>0<><>::
 GAME_VISION.md::TextFile::-1::1792571805::0::1::::<><><>0<>0<><>::
 ITEM_BALANCE_MATRIX.md::TextFile::-1::1792572082::0::1::::<><><>0<>0<><>::
-NEXT_ACTIONS.md::TextFile::-1::1792654629::0::1::::<><><>0<>0<><>::
+NEXT_ACTIONS.md::TextFile::-1::1792766055::0::1::::<><><>0<>0<><>::
 PERFORMANCE_BASELINE.md::TextFile::-1::1792570890::0::1::::<><><>0<>0<><>::
 QUEST_DESIGN_PRINCIPLES.md::TextFile::-1::1792572178::0::1::::<><><>0<>0<><>::
 STAGE_D_EXECUTION.md::TextFile::-1::1792572347::0::1::::<><><>0<>0<><>::
@@ -1462,7 +1462,7 @@ item_definition.gd::GDScript::1913037412017892654::1792755354::0::1::::ItemDefin
 weapon_definition.gd::GDScript::262216382935976095::1792574503::0::1::::WeaponDefinition<>ItemDefinition<><>0<>0<><>::
 ::res://scripts/ui/::1792619214
 called_shot_panel.gd::GDScript::8622138362895214343::1792752866::0::1::::CalledShotPanel<>PanelContainer<><>0<>0<><>::
-combat_hud.gd::GDScript::4264919108715898973::1792764751::0::1::::CombatHUD<>Control<><>0<>0<><>::
+combat_hud.gd::GDScript::4264919108715898973::1792770052::0::1::::CombatHUD<>Control<><>0<>0<><>::
 combat_ui.gd::GDScript::2678475846722938619::1792649725::0::1::::<>CanvasLayer<><>0<>0<><>::
 dialogue_ui.gd::GDScript::8671386665053104306::1792469333::0::1::::DialogueUI<>CanvasLayer<><>0<>0<><>::
 inventory_ui.gd::GDScript::2199777088444228540::1792475483::0::1::::InventoryUI<>CanvasLayer<><>0<>0<><>::

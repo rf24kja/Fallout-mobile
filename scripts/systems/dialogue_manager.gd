@@ -298,10 +298,12 @@ func _execute_action(action: String) -> void:
 				_game_manager.add_quest_flag(parts[1], "started", true)
 
 func select_option(option) -> void:
+	print("DialogueManager.select_option: option=" + option.option_id + ", consequences=" + str(option.consequences.size()))
 	if not _current_node:
 		return
 	
 	for consequence in option.consequences:
+		print("DialogueManager.select_option: applying consequence type=" + str(consequence.consequence_type))
 		consequence.apply(_game_manager, _inventory)
 	
 	for action in _current_node.on_exit:
