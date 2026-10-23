@@ -51,8 +51,8 @@ const BODY_PART_DATA: Dictionary = {
 	BodyPart.EYES: {"ap_mult": 2.0, "acc_mod": -40, "dmg_mult": 2.5, "effects": ["blind", "cripple_eyes"]},
 	BodyPart.GROIN: {"ap_mult": 1.5, "acc_mod": -15, "dmg_mult": 1.5, "effects": ["stun", "cripple_groin"]},
 }
+@export var base_ap: int = 5
 
-@export var base_ap: int = 10
 @export var ap_per_agility: float = 0.5
 
 var _participants: Array[Dictionary] = []

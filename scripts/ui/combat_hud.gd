@@ -76,9 +76,9 @@ func _ready() -> void:
 		cs.combat_started.connect(_on_combat_started)
 		cs.combat_ended.connect(_on_combat_ended)
 	
-var chs = get_node_or_null("/root/CharacterSystem")
- 	if chs:
- 		chs.stat_changed.connect(_on_stats_changed)
+	var chs = get_node_or_null("/root/CharacterSystem")
+	if chs:
+		chs.stat_changed.connect(_on_stats_changed)
 	
 	hide()
 
@@ -174,60 +174,60 @@ func _refresh_ap_hp() -> void:
 			ap_bar.add_theme_color_override("fill_color", Color(0.3, 1, 0.3))
 
 func _refresh_weapon_info() -> void:
- 	if _current_actor_id != "player":
- 		if weapon_panel:
- 			weapon_panel.visible = false
- 		return
- 	
- 	var weapon = _get_equipped_weapon()
- 	if not weapon:
- 		if weapon_panel:
- 			weapon_panel.visible = false
- 		return
- 	
- 	_equipped_weapon = weapon
- 	if weapon_panel:
- 		weapon_panel.visible = true
- 	
- 	var item_db = get_node_or_null("/root/ItemDatabase")
- 	var def = null
- 	if item_db and item_db.has_method("get_weapon_definition"):
- 		def = item_db.get_weapon_definition(weapon.id)
- 	
- 	if weapon_name:
- 		weapon_name.text = weapon.get("name", weapon.id)
- 	
- 	if def:
- 		var ammo_type = weapon.get("ammo_type", "")
- 		var ammo_count = 0
- 		var inv = get_node_or_null("/root/Inventory")
- 		if inv and ammo_type:
- 			ammo_count = inv.get_item_count(ammo_type)
- 		var mag_size = def.get("magazine_size", 0)
- 		
- 		if weapon_ammo:
- 			if mag_size > 0:
- 				weapon_ammo.bbcode_text = "[b]Боеприпасы:[/b] [color=cyan]%d/%d[/color] %s" % [ammo_count, mag_size, ammo_type]
- 			else:
- 				weapon_ammo.text = "[b]Боеприпасы:[/b] -"
- 		
- 		if weapon_ap_cost:
- 			var ap_cost = def.get("ap_cost", 5)
- 			weapon_ap_cost.bbcode_text = "[b]ОД за выстрел:[/b] [color=yellow]%d[/color]" % ap_cost
- 		
- 		if weapon_range:
- 			var range_val = def.get("range", 20)
- 			weapon_range.bbcode_text = "[b]Дальность:[/b] [color=cyan]%dм[/color]" % range_val
- 		
- 		# Update hit chance for current target
- 		_update_hit_chance_display()
- 	else:
- 		if weapon_ammo:
- 			weapon_ammo.text = "[b]Боеприпасы:[/b] -"
- 		if weapon_ap_cost:
- 			weapon_ap_cost.text = "[b]ОД за выстрел:[/b] -"
- 		if weapon_range:
- 			weapon_range.text = "[b]Дальность:[/b] -"
+	if _current_actor_id != "player":
+		if weapon_panel:
+			weapon_panel.visible = false
+		return
+	
+	var weapon = _get_equipped_weapon()
+	if not weapon:
+		if weapon_panel:
+			weapon_panel.visible = false
+		return
+	
+	_equipped_weapon = weapon
+	if weapon_panel:
+		weapon_panel.visible = true
+	
+	var item_db = get_node_or_null("/root/ItemDatabase")
+	var def = null
+	if item_db and item_db.has_method("get_weapon_definition"):
+		def = item_db.get_weapon_definition(weapon.id)
+	
+	if weapon_name:
+		weapon_name.text = weapon.get("name", weapon.id)
+	
+	if def:
+		var ammo_type = weapon.get("ammo_type", "")
+		var ammo_count = 0
+		var inv = get_node_or_null("/root/Inventory")
+		if inv and ammo_type:
+			ammo_count = inv.get_item_count(ammo_type)
+		var mag_size = def.get("magazine_size", 0)
+		
+		if weapon_ammo:
+			if mag_size > 0:
+				weapon_ammo.bbcode_text = "[b]Боеприпасы:[/b] [color=cyan]%d/%d[/color] %s" % [ammo_count, mag_size, ammo_type]
+			else:
+				weapon_ammo.text = "[b]Боеприпасы:[/b] -"
+		
+		if weapon_ap_cost:
+			var ap_cost = def.get("ap_cost", 5)
+			weapon_ap_cost.bbcode_text = "[b]ОД за выстрел:[/b] [color=yellow]%d[/color]" % ap_cost
+		
+		if weapon_range:
+			var range_val = def.get("range", 20)
+			weapon_range.bbcode_text = "[b]Дальность:[/b] [color=cyan]%dм[/color]" % range_val
+		
+		# Update hit chance for current target
+		_update_hit_chance_display()
+	else:
+		if weapon_ammo:
+			weapon_ammo.text = "[b]Боеприпасы:[/b] -"
+		if weapon_ap_cost:
+			weapon_ap_cost.text = "[b]ОД за выстрел:[/b] -"
+		if weapon_range:
+			weapon_range.text = "[b]Дальность:[/b] -"
 
 func _refresh_actions() -> void:
 	var is_player = (_current_actor_id == "player")
@@ -240,67 +240,67 @@ func _refresh_actions() -> void:
 		if ammo_type:
 			has_ammo = inv.get_item_count(ammo_type) > 0
 	
-if called_shot_btn:
- 		called_shot_btn.disabled = not (is_player and has_weapon)
- 	if reload_btn:
- 		reload_btn.disabled = not (is_player and has_weapon and has_ammo)
- 	if defend_btn:
- 		defend_btn.disabled = not is_player
- 	if use_item_btn:
- 		use_item_btn.disabled = not is_player
+	if called_shot_btn:
+		called_shot_btn.disabled = not (is_player and has_weapon)
+	if reload_btn:
+		reload_btn.disabled = not (is_player and has_weapon and has_ammo)
+	if defend_btn:
+		defend_btn.disabled = not is_player
+	if use_item_btn:
+		use_item_btn.disabled = not is_player
 	
-# Update button text with AP costs
- 	if has_weapon:
- 		var item_db = get_node_or_null("/root/ItemDatabase")
- 		var def = null
- 		if item_db and item_db.has_method("get_weapon_definition"):
- 			def = item_db.get_weapon_definition(_equipped_weapon.id)
- 		if def:
- 			var aimed_ap = def.get("aimed_ap_cost", def.get("ap_cost", 5) + 2)
- 			if called_shot_btn:
- 				called_shot_btn.text = "Прицельный выстрел\n[color=yellow]%d ОД[/color]" % aimed_ap
- 		else:
- 			if called_shot_btn:
- 				called_shot_btn.text = "Прицельный выстрел"
- 	
- 	if reload_btn:
- 		reload_btn.text = "Перезарядка\n[color=yellow]2 ОД[/color]"
- 	if defend_btn:
- 		defend_btn.text = "Оборона\n[color=yellow]1 ОД[/color]"
- 	if use_item_btn:
- 		use_item_btn.text = "Предмет\n[color=yellow]2-4 ОД[/color]"
+	# Update button text with AP costs
+	if has_weapon:
+		var item_db = get_node_or_null("/root/ItemDatabase")
+		var def = null
+		if item_db and item_db.has_method("get_weapon_definition"):
+			def = item_db.get_weapon_definition(_equipped_weapon.id)
+		if def:
+			var aimed_ap = def.get("aimed_ap_cost", def.get("ap_cost", 5) + 2)
+			if called_shot_btn:
+				called_shot_btn.text = "Прицельный выстрел\n[color=yellow]%d ОД[/color]" % aimed_ap
+		else:
+			if called_shot_btn:
+				called_shot_btn.text = "Прицельный выстрел"
+	
+	if reload_btn:
+		reload_btn.text = "Перезарядка\n[color=yellow]2 ОД[/color]"
+	if defend_btn:
+		defend_btn.text = "Оборона\n[color=yellow]1 ОД[/color]"
+	if use_item_btn:
+		use_item_btn.text = "Предмет\n[color=yellow]2-4 ОД[/color]"
 
 func _update_hit_chance_display(target_data: Dictionary = {}) -> void:
- 	if not target_data.is_empty():
- 		_target_data = target_data
- 	
- 	if _target_data.is_empty() or _current_actor_id != "player":
- 		if hit_chance_label:
- 			hit_chance_label.bbcode_text = "[b]Шанс попадания:[/b] [color=gray]—[/color]"
- 		if hit_chance_bar:
- 			hit_chance_bar.value = 0
- 			hit_chance_bar.max_value = 100
- 		return
- 	
- 	var chance = _calculate_hit_chance(_target_data)
- 	if hit_chance_bar:
- 		hit_chance_bar.max_value = 100
- 		hit_chance_bar.value = chance
- 	
- 	var chance_color = "green" if chance >= 75 else ("yellow" if chance >= 50 else ("orange" if chance >= 25 else "red"))
- 	if hit_chance_label:
- 		hit_chance_label.bbcode_text = "[b]Шанс попадания:[/b] [color=%s]%d%%[/color]" % [chance_color, chance]
- 	
- 	# Update bar color
- 	if hit_chance_bar:
- 		if chance >= 75:
- 			hit_chance_bar.add_theme_color_override("fill_color", Color(0.3, 1, 0.3))
- 		elif chance >= 50:
- 			hit_chance_bar.add_theme_color_override("fill_color", Color(1, 0.8, 0.2))
- 		elif chance >= 25:
- 			hit_chance_bar.add_theme_color_override("fill_color", Color(1, 0.5, 0.1))
- 		else:
- 			hit_chance_bar.add_theme_color_override("fill_color", Color(1, 0.2, 0.2))
+	if not target_data.is_empty():
+		_target_data = target_data
+	
+	if _target_data.is_empty() or _current_actor_id != "player":
+		if hit_chance_label:
+			hit_chance_label.bbcode_text = "[b]Шанс попадания:[/b] [color=gray]—[/color]"
+		if hit_chance_bar:
+			hit_chance_bar.value = 0
+			hit_chance_bar.max_value = 100
+		return
+	
+	var chance = _calculate_hit_chance(_target_data)
+	if hit_chance_bar:
+		hit_chance_bar.max_value = 100
+		hit_chance_bar.value = chance
+	
+	var chance_color = "green" if chance >= 75 else ("yellow" if chance >= 50 else ("orange" if chance >= 25 else "red"))
+	if hit_chance_label:
+		hit_chance_label.bbcode_text = "[b]Шанс попадания:[/b] [color=%s]%d%%[/color]" % [chance_color, chance]
+	
+	# Update bar color
+	if hit_chance_bar:
+		if chance >= 75:
+			hit_chance_bar.add_theme_color_override("fill_color", Color(0.3, 1, 0.3))
+		elif chance >= 50:
+			hit_chance_bar.add_theme_color_override("fill_color", Color(1, 0.8, 0.2))
+		elif chance >= 25:
+			hit_chance_bar.add_theme_color_override("fill_color", Color(1, 0.5, 0.1))
+		else:
+			hit_chance_bar.add_theme_color_override("fill_color", Color(1, 0.2, 0.2))
 
 func _calculate_hit_chance(target_data: Dictionary) -> int:
 	"""Calculate hit chance based on weapon, skills, distance, cover, called shot."""

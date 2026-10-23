@@ -364,7 +364,7 @@ func _test_combat_critical_hit() -> void:
 				"team": "player",
 				"hp": 100,
 				"max_hp": 100,
-				"stats": {"strength": 5, "perception": 10, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 5, "luck": 10},
+				"stats": {"might": 5, "awareness": 10, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 5, "fortune": 10},
 				"skills": {"small_guns": 100},
 				"weapon": {"damage_min": 10, "damage_max": 10, "damage_type": 0, "ap_cost": 0, "range": 200, "skill": "small_guns", "crit_chance": 15, "crit_multiplier": 2.0},
 				"position": Vector2(0, 0)
@@ -375,7 +375,7 @@ func _test_combat_critical_hit() -> void:
 				"team": "enemy",
 				"hp": 100,
 				"max_hp": 100,
-				"stats": {"strength": 5, "perception": 5, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 1, "luck": 5},
+				"stats": {"might": 5, "awareness": 5, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 1, "fortune": 5},
 				"skills": {},
 				"weapon": {},
 				"position": Vector2(10, 0)
@@ -480,7 +480,7 @@ func _test_combat_armor_drdt() -> void:
 			"team": "enemy",
 			"hp": 100,
 			"max_hp": 100,
-			"stats": {"strength": 5, "perception": 5, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 1, "luck": 5},
+			"stats": {"might": 5, "awareness": 5, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 1, "fortune": 5},
 			"skills": {},
 			"weapon": {},
 			"armor": {
@@ -527,7 +527,7 @@ func _test_combat_end_conditions() -> void:
 			"team": "player",
 			"hp": 100,
 			"max_hp": 100,
-			"stats": {"strength": 5, "perception": 10, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 5, "luck": 5},
+			"stats": {"might": 5, "awareness": 10, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 5, "fortune": 5},
 			"skills": {"small_guns": 100},
 			"weapon": {"damage_min": 100, "damage_max": 100, "damage_type": 0, "ap_cost": 0, "range": 200, "skill": "small_guns", "crit_chance": 0, "crit_multiplier": 2.0},
 			"position": Vector2(0, 0)
@@ -538,7 +538,7 @@ func _test_combat_end_conditions() -> void:
 			"team": "enemy",
 			"hp": 10,
 			"max_hp": 10,
-			"stats": {"strength": 1, "perception": 1, "endurance": 1, "charisma": 1, "intelligence": 1, "agility": 1, "luck": 1},
+			"stats": {"might": 1, "awareness": 1, "vigor": 1, "presence": 1, "intellect": 1, "dexterity": 1, "fortune": 1},
 			"skills": {},
 			"weapon": {},
 			"position": Vector2(10, 0)
@@ -611,9 +611,9 @@ func _test_combat_ap_consumption() -> void:
 	var initial_ap = player.ap
 	var max_ap = player.max_ap
 	
-	# DEX 10 -> max_ap = 15 (from combat system)
-	if max_ap != 15:
-		_test_complete(false, "Max AP calculation wrong: " + str(max_ap) + " (expected 15 based on DEX 10)")
+	# DEX 10 -> max_ap = 5 + DEX/2 = 5 + 5 = 10 (Fallout 2 formula)
+	if max_ap != 10:
+		_test_complete(false, "Max AP calculation wrong: " + str(max_ap) + " (expected 10 based on DEX 10, formula 5 + DEX/2)")
 		return
 	
 	# Perform attack - should consume 5 AP
