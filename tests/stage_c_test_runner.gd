@@ -209,7 +209,7 @@ func _test_combat_start() -> void:
 			"team": "player",
 			"hp": 100,
 			"max_hp": 100,
-			"stats": {"strength": 5, "perception": 5, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 5, "luck": 5},
+			"stats": {"might": 5, "awareness": 5, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 5, "fortune": 5},
 			"skills": {"small_guns": 50},
 			"weapon": {"damage_min": 10, "damage_max": 20, "damage_type": 0, "ap_cost": 5, "range": 200, "skill": "small_guns", "crit_chance": 5, "crit_multiplier": 2.0},
 			"position": Vector2(0, 0)
@@ -220,7 +220,7 @@ func _test_combat_start() -> void:
 			"team": "enemy",
 			"hp": 50,
 			"max_hp": 50,
-			"stats": {"strength": 4, "perception": 4, "endurance": 4, "charisma": 3, "intelligence": 4, "agility": 4, "luck": 4},
+			"stats": {"might": 4, "awareness": 4, "vigor": 4, "presence": 3, "intellect": 4, "dexterity": 4, "fortune": 4},
 			"skills": {"small_guns": 30},
 			"weapon": {"damage_min": 8, "damage_max": 15, "damage_type": 0, "ap_cost": 5, "range": 150, "skill": "small_guns", "crit_chance": 3, "crit_multiplier": 2.0},
 			"position": Vector2(100, 0)
@@ -255,7 +255,7 @@ func _test_combat_turn_order() -> void:
 			"team": "player",
 			"hp": 100,
 			"max_hp": 100,
-			"stats": {"strength": 5, "perception": 5, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 2, "luck": 5},
+			"stats": {"might": 5, "awareness": 5, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 2, "fortune": 5},
 			"skills": {},
 			"weapon": {"damage_min": 5, "damage_max": 10, "damage_type": 0, "ap_cost": 5, "range": 100, "skill": "melee", "crit_chance": 5, "crit_multiplier": 2.0},
 			"position": Vector2(0, 0)
@@ -266,7 +266,7 @@ func _test_combat_turn_order() -> void:
 			"team": "enemy",
 			"hp": 50,
 			"max_hp": 50,
-			"stats": {"strength": 5, "perception": 5, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 9, "luck": 5},
+			"stats": {"might": 5, "awareness": 5, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 9, "fortune": 5},
 			"skills": {},
 			"weapon": {"damage_min": 5, "damage_max": 10, "damage_type": 0, "ap_cost": 5, "range": 100, "skill": "melee", "crit_chance": 5, "crit_multiplier": 2.0},
 			"position": Vector2(50, 0)
@@ -275,7 +275,7 @@ func _test_combat_turn_order() -> void:
 	
 	_combat_system.start_combat(participants)
 	
-	# Fast guy (AGI 9 + PER 5 = 14) should go before Slow guy (AGI 2 + PER 5 = 7)
+	# Fast guy (DEX 9 + AWA 5 = 14) should go before Slow guy (DEX 2 + AWA 5 = 7)
 	var turn_order = _combat_system._turn_order
 	if turn_order.size() != 2:
 		_test_complete(false, "Turn order size mismatch")

@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3]
+
+[sub_resource type="Texture2D" id="Texture2D_main"]
+resource_path = "res://assets/weapons/pipe_wrench/pipe_wrench_atlas.png"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pipe_wrench_S"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pipe_wrench_SW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pipe_wrench_W"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pipe_wrench_NW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pipe_wrench_N"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pipe_wrench_NE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pipe_wrench_E"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pipe_wrench_SE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 0, 128, 128)
+
+[resource]
+ animations = {
+  "idle_S": [{"texture": SubResource("AtlasTexture_pipe_wrench_S"), "duration": 1.0}], "idle_SW": [{"texture": SubResource("AtlasTexture_pipe_wrench_SW"), "duration": 1.0}], "idle_W": [{"texture": SubResource("AtlasTexture_pipe_wrench_W"), "duration": 1.0}], "idle_NW": [{"texture": SubResource("AtlasTexture_pipe_wrench_NW"), "duration": 1.0}], "idle_N": [{"texture": SubResource("AtlasTexture_pipe_wrench_N"), "duration": 1.0}], "idle_NE": [{"texture": SubResource("AtlasTexture_pipe_wrench_NE"), "duration": 1.0}], "idle_E": [{"texture": SubResource("AtlasTexture_pipe_wrench_E"), "duration": 1.0}], "idle_SE": [{"texture": SubResource("AtlasTexture_pipe_wrench_SE"), "duration": 1.0}]
+ }

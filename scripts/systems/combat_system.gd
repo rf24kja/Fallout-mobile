@@ -74,8 +74,8 @@ func start_combat(participants: Array) -> Dictionary:
 	- name: display name
 	- team: "player" or "enemy"
 	- hp, max_hp
-	- ap, max_ap (optional, calculated from agility if not provided)
-	- stats: {strength, perception, endurance, charisma, intelligence, agility, luck}
+	- ap, max_ap (optional, calculated from dexterity if not provided)
+	- stats: {might, awareness, vigor, presence, intellect, dexterity, fortune}
 	- skills: {small_guns, big_guns, energy_weapons, melee, unarmed, ...}
 	- armor: {damage_resistance: {}, damage_threshold: {}}
 	- weapon: {damage_min, damage_max, damage_type, ap_cost, range, skill, crit_chance, crit_multiplier, ammo_type, caliber, magazine_capacity, current_ammo}
@@ -89,7 +89,7 @@ func start_combat(participants: Array) -> Dictionary:
 		var participant = p.duplicate(true)
 		# Calculate derived stats if not provided
 		if not participant.has("max_ap") or participant.max_ap <= 0:
-			var agi = participant.stats.get("agility", 5)
+			var agi = participant.stats.get("dexterity", 5)
 			participant.max_ap = base_ap + int(agi * ap_per_agility)
 		if not participant.has("ap"):
 			participant.ap = participant.max_ap
@@ -128,8 +128,8 @@ func _compare_initiative(a: String, b: String) -> bool:
 	var pb = _get_participant(b)
 	if not pa or not pb:
 		return false
-	var init_a = pa.stats.get("agility", 5) + pa.stats.get("perception", 5)
-	var init_b = pb.stats.get("agility", 5) + pb.stats.get("perception", 5)
+	var init_a = pa.stats.get("dexterity", 5) + pa.stats.get("awareness", 5)
+	var init_b = pb.stats.get("dexterity", 5) + pb.stats.get("awareness", 5)
 	if init_a == init_b:
 		return false
 	# Higher initiative acts first
@@ -272,7 +272,7 @@ func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -
 		damage = _calculate_damage(attacker, target, weapon, aim_mode)
 		
 		# Critical check
-		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("luck", 5)
+		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("fortune", 5)
 		if roll < crit_chance:
 			result_type = CombatResult.CRITICAL
 			is_critical = true
@@ -351,7 +351,7 @@ func _perform_called_shot(attacker_id: String, target_id: String, body_part: int
 		damage = int(damage * part_data.dmg_mult)
 		
 		# Critical check
-		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("luck", 5)
+		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("fortune", 5)
 		if roll < crit_chance:
 			result_type = CombatResult.CRITICAL
 			is_critical = true
@@ -464,11 +464,11 @@ func _calculate_hit_chance(attacker: Dictionary, target: Dictionary, weapon: Dic
 		"burst": base_chance -= 15
 	
 	# Target size/evasion (simplified)
-	var target_agi = target.stats.get("agility", 5)
+	var target_agi = target.stats.get("dexterity", 5)
 	base_chance -= target_agi * 2
 	
-	# Perception bonus
-	base_chance += attacker.stats.get("perception", 5) * 2
+	# Awareness bonus
+	base_chance += attacker.stats.get("awareness", 5) * 2
 	
 	# Crippled arm penalty
 	if BodyPart.LEFT_ARM in target.crippled_parts or BodyPart.RIGHT_ARM in target.crippled_parts:
@@ -489,7 +489,7 @@ func _calculate_damage(attacker: Dictionary, target: Dictionary, weapon: Diction
 	
 	# Strength bonus for melee
 	if weapon.get("damage_type") == DamageType.MELEE:
-		base_damage += attacker.stats.get("strength", 5) * 2
+		base_damage += attacker.stats.get("might", 5) * 2
 	
 	# Burst fire: multiple shots, each with reduced accuracy
 	if aim_mode == "burst":
@@ -590,11 +590,10 @@ func _perform_move(actor_id: String, position: Vector2) -> bool:
 		return false
 	
 	# Crippled leg reduces movement
+	var ap_cost = 2
 	if BodyPart.LEFT_LEG in actor.crippled_parts or BodyPart.RIGHT_LEG in actor.crippled_parts:
 		# Movement costs more AP
-		var ap_cost = 4
-	else:
-		var ap_cost = 2
+		ap_cost = 4
 	
 	if actor.ap < ap_cost:
 		return false
@@ -690,6 +689,18 @@ func get_combat_state() -> Dictionary:
 		"current_turn_index": _current_turn_index,
 		"current_actor_id": _turn_order[_current_turn_index] if _current_turn_index < _turn_order.size() else ""
 	}
+
+func get_participant_data(actor_id: String) -> Dictionary:
+	var participant = _get_participant(actor_id)
+	if participant:
+		return participant.duplicate(true)
+	return {}
+
+func get_current_ap() -> int:
+	var current_actor = get_current_actor()
+	if current_actor:
+		return current_actor.get("ap", 0)
+	return 0
 
 func force_end_combat() -> void:
 	_is_active = false

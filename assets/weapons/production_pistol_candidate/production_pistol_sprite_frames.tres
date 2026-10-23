@@ -1,0 +1,48 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3]
+
+[sub_resource type="Texture2D" id="Texture2D_main"]
+resource_path = "res://assets/weapons/production_pistol_candidate/production_pistol_atlas_.png"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol__S"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol__SW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol__W"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol__NW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol__N"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol__NE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol__E"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol__SE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 0, 256, 256)
+
+[resource]
+animations = {
+  "production_pistol__S": [{"texture": SubResource("AtlasTexture_production_pistol__S"), "duration": 1.0}],
+  "production_pistol__SW": [{"texture": SubResource("AtlasTexture_production_pistol__SW"), "duration": 1.0}],
+  "production_pistol__W": [{"texture": SubResource("AtlasTexture_production_pistol__W"), "duration": 1.0}],
+  "production_pistol__NW": [{"texture": SubResource("AtlasTexture_production_pistol__NW"), "duration": 1.0}],
+  "production_pistol__N": [{"texture": SubResource("AtlasTexture_production_pistol__N"), "duration": 1.0}],
+  "production_pistol__NE": [{"texture": SubResource("AtlasTexture_production_pistol__NE"), "duration": 1.0}],
+  "production_pistol__E": [{"texture": SubResource("AtlasTexture_production_pistol__E"), "duration": 1.0}],
+  "production_pistol__SE": [{"texture": SubResource("AtlasTexture_production_pistol__SE"), "duration": 1.0}]
+}

@@ -17,6 +17,9 @@ signal item_unequipped(slot: String, item_instance: Dictionary)
 var items: Array[Dictionary] = []  # Array of item instances
 var _item_database
 
+# Money (caps) - stored here for quest system integration
+var caps: int = 0
+
 # Equipment slots (Fallout-style)
 var equipment: Dictionary = {
 	"weapon_primary": null,
@@ -124,6 +127,23 @@ func get_item_count(item_id: String) -> int:
 			total += instance.amount
 	return total
 
+func get_money() -> int:
+	"""Get current caps amount."""
+	return caps
+
+func add_money(amount: int) -> void:
+	"""Add caps to player."""
+	caps += amount
+	inventory_changed.emit()
+
+func remove_money(amount: int) -> bool:
+	"""Remove caps from player. Returns true if successful."""
+	if caps >= amount:
+		caps -= amount
+		inventory_changed.emit()
+		return true
+	return false
+
 func get_item_instance(item_id: String) -> Variant:
 	for instance in items:
 		if instance.item_id == item_id:
@@ -214,7 +234,7 @@ func equip_item(slot: String, item_instance: Dictionary) -> bool:
 	
 	return true
 
-func unequip_item(slot: String) -> Dictionary:
+func unequip_item(slot: String) -> Variant:
 	if not equipment.has(slot):
 		push_error("Invalid equipment slot: ", slot)
 		return null
@@ -233,7 +253,7 @@ func unequip_item(slot: String) -> Dictionary:
 		push_error("Cannot unequip: inventory full")
 		return null
 
-func get_equipped(slot: String) -> Dictionary:
+func get_equipped(slot: String) -> Variant:
 	return equipment.get(slot, null)
 
 func get_all_equipped() -> Dictionary:
@@ -250,13 +270,13 @@ func get_equipped_bonuses() -> Dictionary:
 		"energy_resistance": 0,
 		"fire_resistance": 0,
 		"explosive_resistance": 0,
-		"strength": 0,
-		"perception": 0,
-		"endurance": 0,
-		"charisma": 0,
-		"intelligence": 0,
-		"agility": 0,
-		"luck": 0,
+		"might": 0,
+		"awareness": 0,
+		"vigor": 0,
+		"presence": 0,
+		"intellect": 0,
+		"dexterity": 0,
+		"fortune": 0,
 		"action_points": 0,
 		"carry_weight": 0,
 		"special_properties": [],
@@ -284,26 +304,29 @@ func get_equipped_bonuses() -> Dictionary:
 	
 	return bonuses
 
-func get_save_data() -> Array[Dictionary]:
+func get_save_data() -> Dictionary:
 	var data = {
 		"inventory": items.duplicate(true),
 		"equipment": {},
+		"caps": caps,
 	}
 	for slot in equipment:
 		if equipment[slot]:
 			data.equipment[slot] = equipment[slot].duplicate(true)
 	return data
 
-func load_save_data(data: Array) -> void:
+func load_save_data(data) -> void:
 	items.clear()
 	if typeof(data) == TYPE_DICTIONARY:
 		# New format with equipment
 		for instance in data.get("inventory", []):
 			if _validate_instance(instance):
 				items.append(instance)
-		for slot in data.get("equipment", {}):
-			if equipment.has(slot) and data.equipment[slot]:
-				equipment[slot] = data.equipment[slot].duplicate(true)
+		var equipment_data = data.get("equipment", {})
+		for slot in equipment_data:
+			if equipment.has(slot) and equipment_data[slot]:
+				equipment[slot] = equipment_data[slot].duplicate(true)
+		caps = data.get("caps", 0)
 	else:
 		# Old format - just inventory array
 		for instance in data:

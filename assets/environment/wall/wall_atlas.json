@@ -1,0 +1,274 @@
+{
+  "category": "wall",
+  "atlas_file": "wall_atlas.png",
+  "tile_size": [
+    128,
+    128
+  ],
+  "frames": [
+    {
+      "id": "concrete_01",
+      "state": "intact",
+      "region": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 0
+    },
+    {
+      "id": "concrete_01",
+      "state": "damaged",
+      "region": [
+        128,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 1
+    },
+    {
+      "id": "concrete_01",
+      "state": "destroyed",
+      "region": [
+        256,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 2
+    },
+    {
+      "id": "concrete_02",
+      "state": "intact",
+      "region": [
+        384,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 3
+    },
+    {
+      "id": "concrete_02",
+      "state": "damaged",
+      "region": [
+        512,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 4
+    },
+    {
+      "id": "concrete_02",
+      "state": "destroyed",
+      "region": [
+        640,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 5
+    },
+    {
+      "id": "brick_01",
+      "state": "intact",
+      "region": [
+        768,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 6
+    },
+    {
+      "id": "brick_01",
+      "state": "damaged",
+      "region": [
+        896,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 7
+    },
+    {
+      "id": "brick_01",
+      "state": "destroyed",
+      "region": [
+        0,
+        128,
+        128,
+        128
+      ],
+      "atlas_index": 8
+    },
+    {
+      "id": "brick_02",
+      "state": "intact",
+      "region": [
+        128,
+        128,
+        128,
+        128
+      ],
+      "atlas_index": 9
+    },
+    {
+      "id": "brick_02",
+      "state": "damaged",
+      "region": [
+        256,
+        128,
+        128,
+        128
+      ],
+      "atlas_index": 10
+    },
+    {
+      "id": "brick_02",
+      "state": "destroyed",
+      "region": [
+        384,
+        128,
+        128,
+        128
+      ],
+      "atlas_index": 11
+    },
+    {
+      "id": "metal_01",
+      "state": "intact",
+      "region": [
+        512,
+        128,
+        128,
+        128
+      ],
+      "atlas_index": 12
+    },
+    {
+      "id": "metal_01",
+      "state": "damaged",
+      "region": [
+        640,
+        128,
+        128,
+        128
+      ],
+      "atlas_index": 13
+    },
+    {
+      "id": "metal_01",
+      "state": "destroyed",
+      "region": [
+        768,
+        128,
+        128,
+        128
+      ],
+      "atlas_index": 14
+    },
+    {
+      "id": "metal_02",
+      "state": "intact",
+      "region": [
+        896,
+        128,
+        128,
+        128
+      ],
+      "atlas_index": 15
+    },
+    {
+      "id": "metal_02",
+      "state": "damaged",
+      "region": [
+        0,
+        256,
+        128,
+        128
+      ],
+      "atlas_index": 16
+    },
+    {
+      "id": "metal_02",
+      "state": "destroyed",
+      "region": [
+        128,
+        256,
+        128,
+        128
+      ],
+      "atlas_index": 17
+    },
+    {
+      "id": "sandbag_01",
+      "state": "intact",
+      "region": [
+        256,
+        256,
+        128,
+        128
+      ],
+      "atlas_index": 18
+    },
+    {
+      "id": "sandbag_01",
+      "state": "damaged",
+      "region": [
+        384,
+        256,
+        128,
+        128
+      ],
+      "atlas_index": 19
+    },
+    {
+      "id": "sandbag_01",
+      "state": "destroyed",
+      "region": [
+        512,
+        256,
+        128,
+        128
+      ],
+      "atlas_index": 20
+    },
+    {
+      "id": "barrier_01",
+      "state": "intact",
+      "region": [
+        640,
+        256,
+        128,
+        128
+      ],
+      "atlas_index": 21
+    },
+    {
+      "id": "barrier_01",
+      "state": "damaged",
+      "region": [
+        768,
+        256,
+        128,
+        128
+      ],
+      "atlas_index": 22
+    },
+    {
+      "id": "barrier_01",
+      "state": "destroyed",
+      "region": [
+        896,
+        256,
+        128,
+        128
+      ],
+      "atlas_index": 23
+    }
+  ]
+}

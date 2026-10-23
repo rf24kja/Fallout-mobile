@@ -1,19 +1,21 @@
 class_name Player
 extends CharacterBody2D
 
-## Player character with isometric movement and touch input.
+## Player character with isometric movement, touch input, and paperdoll equipment visualization.
 
 @export var move_speed: float = 300.0
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var sprite: Sprite2D = $PlayerSprite
+@onready var character_visual: CharacterVisual = $CharacterVisual
 
 var target_position: Vector2 = Vector2.ZERO
 var is_moving: bool = false
 var move_path: Array[Vector2] = []
 var path_index: int = 0
 var navigation_agent: NavigationAgent2D = NavigationAgent2D.new()
+
+# Character visual type (survivor, npc_friendly, hostile)
+@export var character_type: String = "survivor"
 
 # Autoload references (set in _ready)
 var _game_manager
@@ -30,6 +32,9 @@ static var ISO_DIRS = {
 	"west": Vector2(-1, 0),
 	"northwest": Vector2(-1, -1).normalized()
 }
+
+# Animation name mapping for 8-directional isometric
+static var ANIM_DIRS = ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 
 func _get_eventbus() -> Node:
 	if not _event_bus:
@@ -54,6 +59,12 @@ func _ready() -> void:
 	if _game_manager and _game_manager.player_data.has("position"):
 		global_position = _game_manager.player_data.position
 		target_position = global_position
+	
+	# Set up character visuals
+	if character_visual:
+		character_visual.character_type = character_type
+		# Initial equipment sync
+		_sync_equipment_visual()
 
 func _physics_process(delta: float) -> void:
 	# Wait for GameManager to be ready
@@ -103,18 +114,17 @@ func _follow_path(delta: float) -> void:
 		eb.emit("player_moved", [global_position])
 
 func _update_animation() -> void:
-	if not animation_player:
+	if not character_visual:
 		return
 	
 	if velocity.length() > 1.0:
 		var angle = velocity.angle()
-		var anim_name = _angle_to_anim(angle)
-		if animation_player.has_animation(anim_name):
-			animation_player.play(anim_name)
-	elif animation_player.has_animation("idle"):
-		animation_player.play("idle")
+		var anim_dir = _angle_to_anim_dir(angle)
+		character_visual.set_animation("walk", anim_dir)
+	elif character_visual:
+		character_visual.set_animation("idle", character_visual.get_anim_dir())
 
-func _angle_to_anim(angle: float) -> String:
+func _angle_to_anim_dir(angle: float) -> String:
 	# Convert angle to 8-direction animation name
 	# Godot: 0 = right (east), PI/2 = down (south)
 	var deg = rad_to_deg(angle)
@@ -122,22 +132,22 @@ func _angle_to_anim(angle: float) -> String:
 		deg += 360
 	
 	if deg >= 337.5 or deg < 22.5:
-		return "walk_east"
+		return "E"
 	elif deg < 67.5:
-		return "walk_southeast"
+		return "SE"
 	elif deg < 112.5:
-		return "walk_south"
+		return "S"
 	elif deg < 157.5:
-		return "walk_southwest"
+		return "SW"
 	elif deg < 202.5:
-		return "walk_west"
+		return "W"
 	elif deg < 247.5:
-		return "walk_northwest"
+		return "NW"
 	elif deg < 292.5:
-		return "walk_north"
+		return "N"
 	elif deg < 337.5:
-		return "walk_northeast"
-	return "idle"
+		return "NE"
+	return "S"
 
 func move_to(position: Vector2) -> void:
 	# Called from touch input or click
@@ -238,3 +248,14 @@ func _attempt_interaction() -> void:
 
 func get_special(stat: String) -> int:
 	return _game_manager.get_player_stat(stat)
+
+func _sync_equipment_visual() -> void:
+	if not character_visual or not _game_manager:
+		return
+	
+	var equipment = _game_manager.get_equipped_items()
+	character_visual.update_from_equipment(equipment)
+
+# Called when equipment changes
+func _on_equipment_changed() -> void:
+	_sync_equipment_visual()

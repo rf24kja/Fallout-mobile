@@ -1,0 +1,207 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/combat_hud.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/called_shot_panel.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory_ui.tscn" id="3"]
+
+[node name="CombatHUD" type="Control" layout_mode=3]
+script = ExtResource(1)
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="APContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+anchors_preset = 5
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2(300, 50)
+
+[node name="APLabel" type="RichTextLabel" parent="APContainer"]
+custom_minimum_size = Vector2(120, 40)
+bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="APBar" type="ProgressBar" parent="APContainer"]
+h_size_flags = 3
+custom_minimum_size = Vector2(180, 30)
+min_value = 0
+max_value = 10
+value = 10
+
+[node name="HPContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+anchors_preset = 5
+offset_left = 20.0
+offset_top = 70.0
+offset_right = -20.0
+offset_bottom = 130.0
+custom_minimum_size = Vector2(300, 50)
+
+[node name="HPLabel" type="RichTextLabel" parent="HPContainer"]
+custom_minimum_size = Vector2(120, 40)
+bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="HPContainer"]
+h_size_flags = 3
+custom_minimum_size = Vector2(180, 30)
+min_value = 0
+max_value = 100
+value = 100
+
+[node name="WeaponPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+anchors_preset = 1
+offset_left = 20.0
+offset_top = 140.0
+offset_right = -20.0
+offset_bottom = 260.0
+custom_minimum_size = Vector2(280, 120)
+theme_type_variation = "WeaponPanel"
+
+[node name="WeaponVBox" type="VBoxContainer" parent="WeaponPanel"]
+layout_mode = 3
+anchors_preset = 15
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="WeaponName" type="Label" parent="WeaponVBox"]
+text = "Оружие не выбрано"
+theme_type_variation = "WeaponTitle"
+custom_minimum_size = Vector2(0, 30)
+
+[node name="WeaponStats" type="HBoxContainer" parent="WeaponVBox"]
+custom_minimum_size = Vector2(0, 30)
+
+[node name="WeaponAmmo" type="RichTextLabel" parent="WeaponStats"]
+bbcode_enabled = true
+custom_minimum_size = Vector2(100, 30)
+h_size_flags = 3
+
+[node name="WeaponAPCost" type="RichTextLabel" parent="WeaponStats"]
+bbcode_enabled = true
+custom_minimum_size = Vector2(100, 30)
+h_size_flags = 3
+
+[node name="WeaponRange" type="RichTextLabel" parent="WeaponStats"]
+bbcode_enabled = true
+custom_minimum_size = Vector2(100, 30)
+h_size_flags = 3
+
+[node name="HitChancePanel" type="PanelContainer" parent="."]
+layout_mode = 2
+anchors_preset = 9
+offset_left = -320.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2(300, 60)
+theme_type_variation = "HitChancePanel"
+
+[node name="HitChanceVBox" type="VBoxContainer" parent="HitChancePanel"]
+layout_mode = 3
+anchors_preset = 15
+offset_left = 15.0
+offset_top = 10.0
+offset_right = -15.0
+offset_bottom = -10.0
+
+[node name="HitChanceLabel" type="RichTextLabel" parent="HitChanceVBox"]
+bbcode_enabled = true
+custom_minimum_size = Vector2(0, 30)
+horizontal_alignment = 1
+
+[node name="HitChanceBar" type="ProgressBar" parent="HitChanceVBox"]
+custom_minimum_size = Vector2(0, 15)
+min_value = 0
+max_value = 100
+value = 0
+
+[node name="TurnPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+anchors_preset = 9
+offset_left = -320.0
+offset_top = 90.0
+offset_right = -20.0
+offset_bottom = 150.0
+custom_minimum_size = Vector2(300, 60)
+theme_type_variation = "TurnPanel"
+
+[node name="TurnVBox" type="HBoxContainer" parent="TurnPanel"]
+layout_mode = 3
+anchors_preset = 15
+offset_left = 15.0
+offset_top = 10.0
+offset_right = -15.0
+offset_bottom = -10.0
+
+[node name="ActorPortrait" type="TextureRect" parent="TurnVBox"]
+custom_minimum_size = Vector2(40, 40)
+stretch_mode = 2
+
+[node name="TurnLabel" type="RichTextLabel" parent="TurnVBox"]
+bbcode_enabled = true
+custom_minimum_size = Vector2(220, 40)
+vertical_alignment = 1
+h_size_flags = 3
+
+[node name="ActionPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+anchors_preset = 4
+offset_left = 20.0
+offset_top = -180.0
+offset_right = -20.0
+offset_bottom = -20.0
+custom_minimum_size = Vector2(0, 160)
+theme_type_variation = "ActionPanel"
+
+[node name="ActionVBox" type="VBoxContainer" parent="ActionPanel"]
+layout_mode = 3
+anchors_preset = 15
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+
+[node name="ActionButtons" type="GridContainer" parent="ActionVBox"]
+columns = 5
+custom_minimum_size = Vector2(0, 100)
+h_size_flags = 3
+v_size_flags = 3
+
+[node name="AttackButton" type="Button" parent="ActionButtons"]
+text = "Атака\n[color=yellow]5 ОД[/color]"
+custom_minimum_size = Vector2(100, 80)
+tooltip_text = "Обычная атака"
+
+[node name="CalledShotButton" type="Button" parent="ActionButtons"]
+text = "Прицельный выстрел\n[color=yellow]7 ОД[/color]"
+custom_minimum_size = Vector2(100, 80)
+tooltip_text = "Выбор части тела для атаки"
+
+[node name="ReloadButton" type="Button" parent="ActionButtons"]
+text = "Перезарядка\n[color=yellow]2 ОД[/color]"
+custom_minimum_size = Vector2(100, 80)
+tooltip_text = "Перезарядить оружие"
+
+[node name="DefendButton" type="Button" parent="ActionButtons"]
+text = "Оборона\n[color=yellow]1 ОД[/color]"
+custom_minimum_size = Vector2(100, 80)
+tooltip_text = "Увеличить защиту до следующего хода"
+
+[node name="UseItemButton" type="Button" parent="ActionButtons"]
+text = "Предмет\n[color=yellow]2-4 ОД[/color]"
+custom_minimum_size = Vector2(100, 80)
+tooltip_text = "Использовать предмет из инвентаря"
+
+[node name="EndTurnButton" type="Button" parent="ActionVBox"]
+text = "ЗАВЕРШИТЬ ХОД"
+custom_minimum_size = Vector2(0, 50)
+theme_type_variation = "EndTurnButton"
+
+[node name="CalledShotPanel" type="Node" parent="."]
+scene = ExtResource(2)

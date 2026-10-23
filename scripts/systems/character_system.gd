@@ -20,37 +20,37 @@ static func level_from_xp(xp: int) -> int:
 		level += 1
 	return level
 
-# SPECIAL stat names (full names for display)
+# SPECIAL stat names (full names for display) — renamed for original IP
 static var SPECIAL_NAMES = {
-	"strength": "Strength",
-	"perception": "Perception",
-	"endurance": "Endurance",
-	"charisma": "Charisma",
-	"intelligence": "Intelligence",
-	"agility": "Agility",
-	"luck": "Luck"
+	"might": "Might",
+	"awareness": "Awareness",
+	"vigor": "Vigor",
+	"presence": "Presence",
+	"intellect": "Intellect",
+	"dexterity": "Dexterity",
+	"fortune": "Fortune"
 }
 
 # Skill definitions with base SPECIAL dependency
 static var SKILL_DEFS = {
-	"small_guns": {"base_stat": "agility", "base_value": 5, "tag_bonus": 20},
-	"big_guns": {"base_stat": "agility", "base_value": 0, "tag_bonus": 10},
-	"energy_weapons": {"base_stat": "perception", "base_value": 0, "tag_bonus": 10},
-	"unarmed": {"base_stat": "agility", "base_value": 15, "tag_bonus": 20},
-	"melee": {"base_stat": "strength", "base_value": 10, "tag_bonus": 20},
-	"throwing": {"base_stat": "agility", "base_value": 4, "tag_bonus": 10},
-	"first_aid": {"base_stat": "perception", "base_value": 10, "tag_bonus": 20},
-	"doctor": {"base_stat": "intelligence", "base_value": 0, "tag_bonus": 10},
-	"sneak": {"base_stat": "agility", "base_value": 5, "tag_bonus": 15},
-	"lockpick": {"base_stat": "perception", "base_value": 10, "tag_bonus": 15},
-	"steal": {"base_stat": "agility", "base_value": 0, "tag_bonus": 10},
-	"traps": {"base_stat": "intelligence", "base_value": 10, "tag_bonus": 10},
-	"science": {"base_stat": "intelligence", "base_value": 0, "tag_bonus": 15},
-	"repair": {"base_stat": "intelligence", "base_value": 0, "tag_bonus": 10},
-	"speech": {"base_stat": "charisma", "base_value": 10, "tag_bonus": 15},
-	"barter": {"base_stat": "charisma", "base_value": 10, "tag_bonus": 10},
-	"gambling": {"base_stat": "luck", "base_value": 10, "tag_bonus": 10},
-	"outdoorsman": {"base_stat": "endurance", "base_value": 0, "tag_bonus": 10},
+	"small_guns": {"base_stat": "dexterity", "base_value": 5, "tag_bonus": 20},
+	"big_guns": {"base_stat": "dexterity", "base_value": 0, "tag_bonus": 10},
+	"energy_weapons": {"base_stat": "awareness", "base_value": 0, "tag_bonus": 10},
+	"unarmed": {"base_stat": "dexterity", "base_value": 15, "tag_bonus": 20},
+	"melee": {"base_stat": "might", "base_value": 10, "tag_bonus": 20},
+	"throwing": {"base_stat": "dexterity", "base_value": 4, "tag_bonus": 10},
+	"first_aid": {"base_stat": "awareness", "base_value": 10, "tag_bonus": 20},
+	"doctor": {"base_stat": "intellect", "base_value": 0, "tag_bonus": 10},
+	"sneak": {"base_stat": "dexterity", "base_value": 5, "tag_bonus": 15},
+	"lockpick": {"base_stat": "awareness", "base_value": 10, "tag_bonus": 15},
+	"steal": {"base_stat": "dexterity", "base_value": 0, "tag_bonus": 10},
+	"traps": {"base_stat": "intellect", "base_value": 10, "tag_bonus": 10},
+	"science": {"base_stat": "intellect", "base_value": 0, "tag_bonus": 15},
+	"repair": {"base_stat": "intellect", "base_value": 0, "tag_bonus": 10},
+	"speech": {"base_stat": "presence", "base_value": 10, "tag_bonus": 15},
+	"barter": {"base_stat": "presence", "base_value": 10, "tag_bonus": 10},
+	"gambling": {"base_stat": "fortune", "base_value": 10, "tag_bonus": 10},
+	"outdoorsman": {"base_stat": "vigor", "base_value": 0, "tag_bonus": 10},
 }
 
 # Perk definitions
@@ -59,84 +59,84 @@ static var PERK_DEFS = {
 		"name": "Awareness",
 		"description": "You can see the exact HP and equipment of any creature you target.",
 		"level_req": 3,
-		"stat_reqs": {"perception": 5},
+		"stat_reqs": {"awareness": 5},
 		"ranks": 1
 	},
 	"bonus_ht_h": {
 		"name": "Bonus HtH Attacks",
 		"description": "You get one extra unarmed/melee attack per round.",
 		"level_req": 6,
-		"stat_reqs": {"agility": 6, "strength": 6},
+		"stat_reqs": {"dexterity": 6, "might": 6},
 		"ranks": 1
 	},
 	"bonus_ranged": {
 		"name": "Bonus Ranged Damage",
 		"description": "You do +2 damage per rank with ranged weapons.",
 		"level_req": 3,
-		"stat_reqs": {"perception": 6},
+		"stat_reqs": {"awareness": 6},
 		"ranks": 3
 	},
 	"toughness": {
 		"name": "Toughness",
 		"description": "You gain +10% Damage Resistance to all types per rank.",
 		"level_req": 3,
-		"stat_reqs": {"endurance": 6},
+		"stat_reqs": {"vigor": 6},
 		"ranks": 3
 	},
 	"swift_learner": {
 		"name": "Swift Learner",
 		"description": "You gain +5% XP per rank.",
 		"level_req": 3,
-		"stat_reqs": {"intelligence": 5},
+		"stat_reqs": {"intellect": 5},
 		"ranks": 3
 	},
 	"action_boy": {
 		"name": "Action Boy/Girl",
 		"description": "You gain +1 Action Point per rank.",
 		"level_req": 3,
-		"stat_reqs": {"agility": 5},
+		"stat_reqs": {"dexterity": 5},
 		"ranks": 3
 	},
 	"lifegiver": {
 		"name": "Lifegiver",
 		"description": "You gain +4 Maximum HP per rank.",
 		"level_req": 3,
-		"stat_reqs": {"endurance": 4},
+		"stat_reqs": {"vigor": 4},
 		"ranks": 3
 	},
 	"educated": {
 		"name": "Educated",
 		"description": "You gain +2 skill points per level per rank.",
 		"level_req": 3,
-		"stat_reqs": {"intelligence": 6},
+		"stat_reqs": {"intellect": 6},
 		"ranks": 1
 	},
 	"more_criticals": {
 		"name": "More Criticals",
 		"description": "You have a +5% better chance to score a critical hit per rank.",
 		"level_req": 6,
-		"stat_reqs": {"luck": 6},
+		"stat_reqs": {"fortune": 6},
 		"ranks": 3
 	},
 	"better_criticals": {
 		"name": "Better Criticals",
 		"description": "Your critical hits do +20% damage per rank.",
 		"level_req": 9,
-		"stat_reqs": {"luck": 6},
+		"stat_reqs": {"fortune": 6},
 		"ranks": 1
 	},
 	"sniper": {
 		"name": "Sniper",
 		"description": "Aimed shots have +20% hit chance and +20% critical chance.",
 		"level_req": 9,
-		"stat_reqs": {"perception": 8, "agility": 8},
+		"stat_reqs": {"awareness": 8, "dexterity": 8},
 		"ranks": 1
 	},
 	"slayer": {
 		"name": "Slayer",
 		"description": "All successful melee/unarmed attacks are critical hits.",
 		"level_req": 18,
-		"stat_reqs": {"strength": 8, "agility": 8},
+		"stat_reqs": {"might": 8, "dexterity": 8},
 		"ranks": 1
 	},
 }
@@ -153,13 +153,13 @@ func _init_default_character() -> void:
 		"xp": 0,
 		"xp_to_next": xp_for_level(2),
 		"special": {
-			"strength": 5,
-			"perception": 5,
-			"endurance": 5,
-			"charisma": 5,
-			"intelligence": 5,
-			"agility": 5,
-			"luck": 5
+			"might": 5,
+			"awareness": 5,
+			"vigor": 5,
+			"presence": 5,
+			"intellect": 5,
+			"dexterity": 5,
+			"fortune": 5
 		},
 		"skills": {},
 		"skill_bonus": {},
@@ -188,20 +188,20 @@ func _recalculate_all() -> void:
 func _recalculate_derived_stats() -> void:
 	var special = character_data.special
 	var level = character_data.level
-	var en = special.endurance
+	var en = special.vigor
 	
-	# Max HP: 15 + Level * 2 + END * 3
+	# Max HP: 15 + Level * 2 + VIG * 3
 	character_data.max_hp = 15 + level * 2 + en * 3
 	
-	# AP: 5 + AGI / 2
-	var ag = special.agility
+	# AP: 5 + DEX / 2
+	var ag = special.dexterity
 	character_data.max_ap = 5 + int(ag / 2)
 	
-	# Healing rate: END / 3
-	# Poison resistance: END * 5
-	# Radiation resistance: END * 2
-	# Sequence (initiative): PE * 2
-	# Critical chance: LK
+	# Healing rate: VIG / 3
+	# Poison resistance: VIG * 5
+	# Radiation resistance: VIG * 2
+	# Sequence (initiative): AW * 2
+	# Critical chance: FOR
 	
 	# Clamp current HP/AP
 	character_data.hp = min(character_data.hp, character_data.max_hp)
@@ -291,13 +291,13 @@ func add_xp(amount: int) -> void:
 func _on_level_up(old_level: int, new_level: int) -> void:
 	print("Level up! ", old_level, " -> ", new_level)
 	
-	# HP gain on level up: 2 + END/2
-	var hp_gain = 2 + int(character_data.special.endurance / 2)
+	# HP gain on level up: 2 + VIG/2
+	var hp_gain = 2 + int(character_data.special.vigor / 2)
 	character_data.max_hp += hp_gain
 	character_data.hp = character_data.max_hp
 	
 	# Skill points
-	var sp = 5 + int(character_data.special.intelligence / 2)
+	var sp = 5 + int(character_data.special.intellect / 2)
 	# Educated perk
 	for p in character_data.perks:
 		if p.perk_id == "educated":

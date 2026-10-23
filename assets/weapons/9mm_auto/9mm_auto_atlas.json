@@ -1,0 +1,98 @@
+{
+  "weapon": "9mm_auto",
+  "atlas_file": "9mm_auto_atlas.png",
+  "frame_size": [
+    128,
+    128
+  ],
+  "frames": [
+    {
+      "weapon": "9mm_auto",
+      "direction": "S",
+      "region": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 0
+    },
+    {
+      "weapon": "9mm_auto",
+      "direction": "SW",
+      "region": [
+        128,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 1
+    },
+    {
+      "weapon": "9mm_auto",
+      "direction": "W",
+      "region": [
+        256,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 2
+    },
+    {
+      "weapon": "9mm_auto",
+      "direction": "NW",
+      "region": [
+        384,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 3
+    },
+    {
+      "weapon": "9mm_auto",
+      "direction": "N",
+      "region": [
+        512,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 4
+    },
+    {
+      "weapon": "9mm_auto",
+      "direction": "NE",
+      "region": [
+        640,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 5
+    },
+    {
+      "weapon": "9mm_auto",
+      "direction": "E",
+      "region": [
+        768,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 6
+    },
+    {
+      "weapon": "9mm_auto",
+      "direction": "SE",
+      "region": [
+        896,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 7
+    }
+  ]
+}

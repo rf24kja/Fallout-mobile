@@ -1,5 +1,5 @@
 class_name CoverSystem
-extends Node
+extends Node2D
 
 ## Cover and Line-of-Fire System (Fallout 1/2 inspired)
 ## Determines obstruction levels between attacker and target for ranged combat.
@@ -24,8 +24,20 @@ var _space_state: PhysicsDirectSpaceState2D
 var _cover_objects: Array[Node2D] = []
 var _debug_draw = false
 
+func _ensure_space_state() -> bool:
+	if _space_state:
+		return true
+	var world_2d = get_world_2d()
+	if world_2d:
+		_space_state = world_2d.direct_space_state
+		return true
+	return false
+
 func _ready() -> void:
-	_space_state = get_world_2d().direct_space_state
+	call_deferred("_init_cover_system")
+
+func _init_cover_system() -> void:
+	_ensure_space_state()
 	_find_cover_objects()
 
 func _find_cover_objects() -> void:
@@ -57,6 +69,9 @@ func check_line_of_fire(attacker_pos: Vector2, target_pos: Vector2, attacker_id:
 
 ## Calculate cover level based on raycast intersections
 func _calculate_cover_level(start: Vector2, end: Vector2) -> int:
+	if not _ensure_space_state():
+		return CoverLevel.NONE
+	
 	var query = PhysicsRayQueryParameters2D.create(start, end)
 	query.collision_mask = 1  # Default layer - adjust for cover layers
 	query.collide_with_areas = false

@@ -492,30 +492,6 @@
       "effect_magnitude": 0.0,
       "visual_asset": "res://assets/ammo/microfusion_overcharge.glb",
       "weapon_damage_chance": 0.05
-    },
-    {
-      "item_id": "small_energy_cell",
-      "display_name": "Small Energy Cell",
-      "description": "Compact energy cell for powered melee weapons. Limited capacity, rechargeable at power sources.",
-      "category": "AMMO",
-      "icon_path": "res://assets/ui/icons/ammo_small_energy_cell.png",
-      "weight": 0.02,
-      "value": 15,
-      "is_stackable": true,
-      "max_stack_size": 20,
-      "is_quest_item": false,
-      "caliber": "Energy",
-      "ammo_class": "SMALL_ENERGY",
-      "compatible_weapons": ["vibro_blade"],
-      "damage_modifier": 1.0,
-      "dt_modifier": 0.5,
-      "dr_modifier": 1.0,
-      "damage_type_override": -1,
-      "special_effect": "NONE",
-      "effect_magnitude": 0.0,
-      "visual_asset": "res://assets/ammo/small_energy_cell.glb",
-      "rechargeable": true,
-      "capacity": 20
     }
   ]
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=1 format=3 uid://b3k2q8n4p7r9s
+[gd_scene load_steps=1 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/called_shot_panel.gd" id="1"]
 

@@ -1,0 +1,717 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Godot_v4.7.2-stable_win64.exe : WARNING: Duplicate item_id: stimpak - overwriting
+At line:1 char:48
++ ... orn_Mobile; & "C:\tools\Godot\Godot_v4.7.2-stable_win64.exe" --headle ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Duplic...k - overwriting:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] register_item (res://scripts/systems/item_database.gd:256)
+       [1] _load_default_items (res://scripts/systems/item_database.gd:206)
+       [2] _load_all_data (res://scripts/systems/item_database.gd:40)
+       [3] _ready (res://scripts/systems/item_database.gd:28)
+WARNING: Duplicate item_id: rad_away - overwriting
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] register_item (res://scripts/systems/item_database.gd:256)
+       [1] _load_default_items (res://scripts/systems/item_database.gd:220)
+       [2] _load_all_data (res://scripts/systems/item_database.gd:40)
+       [3] _ready (res://scripts/systems/item_database.gd:28)
+WARNING: Duplicate item_id: scrap_metal - overwriting
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] register_item (res://scripts/systems/item_database.gd:256)
+       [1] _load_default_items (res://scripts/systems/item_database.gd:235)
+       [2] _load_all_data (res://scripts/systems/item_database.gd:40)
+       [3] _ready (res://scripts/systems/item_database.gd:28)
+ItemDatabase: Loaded 87 items
+DialogueManager: connected to EventBus dialogue_started
+=== Stage B Test Runner _ready (autoload) ===
+=== Stage C Test Runner _ready (autoload) ===
+CombatSystem: CombatSystem:<Node#29578233302>
+CharacterSystem: CharacterSystem:<Node#29930554845>
+GameManager: GameManager:<Node#26726106569>
+Inventory: Inventory:<Node#28470937041>
+ItemDatabase: ItemDatabase:<Node#28118615503>
+EventBus: EventBus:<Node#26373785031>
+ERROR: res://assets/characters/survivor_sprite_frames.tres:1 - Parse Error: Expected '=' after identifier.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _setup_character_visual (res://scripts/entities/player.gd:265)
+       [1] _ready (res://scripts/entities/player.gd:64)
+ERROR: Failed loading resource: res://assets/characters/survivor_sprite_frames.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _setup_character_visual (res://scripts/entities/player.gd:265)
+       [1] _ready (res://scripts/entities/player.gd:64)
+Player: Failed to load sprite frames for: survivor
+Tried path: res://assets/characters/survivor_sprite_frames.tres
+Initializing tests...
+Current scene: TestMap
+
+=== Running test 1/16: Combat Start ===
+Game state: 0 -> 4
+Combat started via GameManager
+Test 1: Combat Start - PASS
+  Combat started with 2 participants, turn order: ["player", "enemy1"]
+
+=== Running test 2/16: Combat Turn Order ===
+Combat started via GameManager
+Test 2: Combat Turn Order - PASS
+  Turn order correct: Fast (initiative 14) before Slow (initiative 7)
+
+=== Running test 3/16: Combat Attack Hit/Miss ===
+Combat started via GameManager
+Combat started via GameManager
+NPC _ready: name = Marcus
+ERROR: res://assets/characters/npc_friendly_sprite_frames.tres:1 - Parse Error: Expected '=' after identifier.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _setup_character_visual (res://scripts/entities/npc.gd:89)
+       [1] _ready (res://scripts/entities/npc.gd:30)
+       [2] _instantiate_test_entities (res://tests/stage_b_test_runner.gd:80)
+       [3] _init_tests (res://tests/stage_b_test_runner.gd:51)
+ERROR: Failed loading resource: res://assets/characters/npc_friendly_sprite_frames.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _setup_character_visual (res://scripts/entities/npc.gd:89)
+       [1] _ready (res://scripts/entities/npc.gd:30)
+       [2] _instantiate_test_entities (res://tests/stage_b_test_runner.gd:80)
+       [3] _init_tests (res://tests/stage_b_test_runner.gd:51)
+NPC: Failed to load sprite frames for: npc_friendly
+Tried path: res://assets/characters/npc_friendly_sprite_frames.tres
+NPC: found interaction_component = Interactable:<Node#38017173167> instance_id = 38017173167
+NPC: is_connected check = false
+NPC: connected interaction_started signal
+NPC: after connect, is_connected = true
+Instantiated Marcus
+TestRunner: marcus children = [Interactable:<Node#38017173167>, CollisionShape2D:<CollisionShape2D#38033950382>, AnimatedSprite2D:<AnimatedSprite2D#38050727605>, InteractionIndicator:<Panel#38067504822>]
+Set NPC dialogue_id to 'lost_power_cell'
+Instantiated PowerCell
+Instantiated Stimpak
+DialogueUI _ready: name = DialogueUI children:
+  child: DialoguePanel (Panel)
+    DialoguePanel child: SpeakerName (Label)
+    DialoguePanel child: CloseButton (Button)
+Created DialogueText dynamically
+Created OptionsContainer dynamically
+DialogueUI _ready: panel=DialoguePanel:<Panel#38554044108> speaker_label=SpeakerName:<Label#38587598542> text_label=DialogueText:<Label#38671484627> options_container=OptionsContainer:<VBoxContainer#38705039061>
+Manually instantiated DialogueUI
+WARNING: Parent path './InventoryPanel/ScrollContainer' for node 'ItemsContainer' has vanished when instantiating: 
+'res://scenes/ui/inventory_ui.tscn'.
+   at: instantiate (scene/resources/packed_scene.cpp:213)
+   GDScript backtrace (most recent call first):
+       [0] _instantiate_test_entities (res://tests/stage_b_test_runner.gd:122)
+       [1] _init_tests (res://tests/stage_b_test_runner.gd:51)
+InventoryUI _ready: name = InventoryUI children:
+  child: InventoryPanel (Panel)
+    grandchild: TitleBar (HBoxContainer)
+    grandchild: DetailsPanel (Panel)
+    grandchild: CloseButton (Button)
+  child: InventoryPanel_ScrollContainer#ItemsContainer (GridContainer)
+InventoryUI _ready: panel=InventoryPanel:<Panel#38755370712> items_container=InventoryPanel_ScrollContainer#ItemsContainer:<GridContainer#38872811230> details_panel=DetailsPanel:<Panel#38906365664>
+Manually instantiated InventoryUI
+Combat started via GameManager
+Root children:
+  EventBus (Node)
+  GameManager (Node)
+  SaveSystem (Node)
+  InteractionManager (Node)
+  ItemDatabase (Node)
+  Inventory (Node)
+  DialogueManager (Node)
+  CombatSystem (Node)
+  CharacterSystem (Node)
+  CoverSystem (Node2D)
+  Constants (Node)
+  StageBTestRunner (Node)
+  StageCTestRunner (Node)
+  TestMap (Node2D)
+GameManager: GameManager:<Node#26726106569>
+EventBus: EventBus:<Node#26373785031>
+Starting test suite...
+
+=== Running test 1/12: _test_player_movement ===
+Calling test method...
+Test 1: _test_player_movement - PASS
+  Player moved from (200.0, 200.0) to (500.0, 500.0) (dist: 424.264068603516)
+
+=== Running test 2/12: _test_npc_dialogue ===
+Calling test method...
+can_interact: interactable_pos=(600.0, 400.0) interactor_pos=(600.0, 400.0) distance=0.0 radius=80.0
+can_interact: returning true
+can_interact: interactable_pos=(600.0, 400.0) interactor_pos=(600.0, 400.0) distance=0.0 radius=80.0
+can_interact: returning true
+Interactable.interact: emitting interaction_started for Interactable (instance: 38017173167) parent: Marcus
+Interactable: signal connections count = 1
+NPC: _on_interaction_started CALLED! dialogue_id = lost_power_cell
+NPC: _on_interaction_started, dialogue_id = lost_power_cell
+NPC: _event_bus = EventBus:<Node#26373785031> emitting dialogue_started
+DialogueManager: _on_dialogue_started called with lost_power_cell
+Game state: 4 -> 3
+Test 2: _test_npc_dialogue - PASS
+  NPC dialogue opened successfully
+
+=== Running test 3/12: _test_dialogue_conditions_consequences ===
+Calling test method...
+Test 3: _test_dialogue_conditions_consequences - PASS
+  Conditions and consequences work
+
+=== Running test 4/12: _test_quest_activation ===
+Calling test method...
+Test 4: _test_quest_activation - PASS
+  Quest 'lost_power_cell' activated
+
+=== Running test 5/12: _test_item_pickup ===
+Calling test method...
+can_interact: interactable_pos=(900.0, 600.0) interactor_pos=(900.0, 600.0) distance=0.0 radius=48.0
+can_interact: returning true
+can_interact: interactable_pos=(900.0, 600.0) interactor_pos=(900.0, 600.0) distance=0.0 radius=48.0
+can_interact: returning true
+Interactable.interact: emitting interaction_started for Interactable (instance: 38285608636) parent: PowerCell
+Interactable: signal connections count = 1
+Test 5: _test_item_pickup - PASS
+  Item picked up: inventory size 0 -> 1
+
+=== Running test 6/12: _test_item_respawn_save_load ===
+Calling test method...
+SaveSystem.save_game: json_str length = 1130
+Game saved to slot 0
+SaveSystem.load_game: json_str length = 1130
+Game loaded from slot 0
+Test 6: _test_item_respawn_save_load - PASS
+  Item respawned and inventory restored after save/load
+
+=== Running test 7/12: _test_inventory_stacking_capacity ===
+Calling test method...
+Test 7: _test_inventory_stacking_capacity - PASS
+  Stacking works: max stack 10, second stack created
+
+=== Running test 8/12: _test_quest_rewards_once ===
+Calling test method...
+Test 8: _test_quest_rewards_once - PASS
+  Quest reward given only once (caps: 150)
+
+=== Running test 9/12: _test_quest_outcomes_distinct ===
+Calling test method...
+Test 9: _test_quest_outcomes_distinct - PASS
+  Distinct outcomes: return gives 200 caps, keep gives 0 caps
+
+=== Running test 10/12: _test_save_load_restores_state ===
+Calling test method...
+Test 10: Before save - inv items = [{ "item_id": "stimpak", "amount": 3, "instance_id": "stimpak_1792588092.038_1673481073" }]
+SaveSystem.save_game: json_str length = 1231
+Game saved to slot 1
+Test 10: After reset - inv items = []
+SaveSystem.load_game: json_str length = 1231
+Game loaded from slot 1
+Test 10: loaded_data = { "inventory": { "equipment": {  }, "inventory": [{ "amount": 3.0, "instance_id": "stimpak_1792588092.038_1673481073", "item_id": "stimpak" }] }, "map": "test_map", "player": { "ap": 10.0, "caps": 0.0, "equipment": { "armor": <null>, "weapon": <null> }, "hp": 100.0, "inventory": [], "level": 5.0, "max_ap": 10.0, "max_hp": 100.0, "name": "Vault Dweller", "perks": [], "position": "(0.0, 0.0)", "skills": { "barter": 0.0, "big_guns": 0.0, "doctor": 0.0, "energy_weapons": 0.0, "first_aid": 0.0, "gambling": 0.0, "lockpick": 0.0, "melee": 0.0, "outdoorsman": 0.0, "repair": 0.0, "science": 0.0, "small_guns": 0.0, "sneak": 0.0, "speech": 0.0, "steal": 0.0, "throwing": 0.0, "traps": 0.0, "unarmed": 0.0 }, "special": { "agility": 5.0, "charisma": 5.0, "endurance": 5.0, "intelligence": 5.0, "luck": 5.0, "perception": 5.0, "strength": 5.0 }, "tag_skills": ["small_guns", "speech", "lockpick"], "xp": 2500.0, "xp_to_next": 1000.0 }, "quests": { "lost_power_cell": { "completed": true, "has_cell": true, "kept": true, "started": true }, "test_quest": { "status": "active" } }, "time": 0.0, "version": 1.0, "world": {  } }
+Test 10: loaded_data.inventory = { "equipment": {  }, "inventory": [{ "amount": 3.0, "instance_id": "stimpak_1792588092.038_1673481073", "item_id": "stimpak" }] }
+Test 10: After load - inv items = [{ "amount": 3.0, "instance_id": "stimpak_1792588092.038_1673481073", "item_id": "stimpak" }]
+Test 10: _test_save_load_restores_state - PASS
+  Full state restored correctly
+
+=== Running test 11/12: _test_ui_input_blocking ===
+Calling test method...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Test method returned
+Test didn't complete immediately, waiting...
+Game state: 3 -> 4
+Combat started via GameManager
+Test 11: dialogue_ui = DialogueUI:<CanvasLayer#38537266891> ui_visible = true
+Test 11: player._is_ui_focused() = true
+Combat started via GameManager
+Combat started via GameManager
+Test 11: player.is_moving = false old_pos = (400.0, 700.0) new_pos = (400.0, 700.0)
+Test 11: _test_ui_input_blocking - PASS
+  UI blocks player input when visible
+
+=== Running test 12/12: _test_malformed_save_handling ===
+Calling test method...
+ERROR: Invalid save slot: 999
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] load_game (res://scripts/core/save_system.gd:34)
+       [1] _test_malformed_save_handling (res://tests/stage_b_test_runner.gd:651)
+       [2] _run_next_test (res://tests/stage_b_test_runner.gd:160)
+       [3] _test_complete (res://tests/stage_b_test_runner.gd:187)
+       [4] _test_ui_input_blocking (res://tests/stage_b_test_runner.gd:638)
+ERROR: Invalid save slot: 998
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] load_game (res://scripts/core/save_system.gd:34)
+       [1] _test_malformed_save_handling (res://tests/stage_b_test_runner.gd:665)
+       [2] _run_next_test (res://tests/stage_b_test_runner.gd:160)
+       [3] _test_complete (res://tests/stage_b_test_runner.gd:187)
+       [4] _test_ui_input_blocking (res://tests/stage_b_test_runner.gd:638)
+Test 12: _test_malformed_save_handling - PASS
+  Nonexistent and corrupted saves handled gracefully (returned null)
+All tests completed!
+
+=== TEST RESULTS SUMMARY ===
+PASS: _test_player_movement
+  Player moved from (200.0, 200.0) to (500.0, 500.0) (dist: 424.264068603516)
+PASS: _test_npc_dialogue
+  NPC dialogue opened successfully
+PASS: _test_dialogue_conditions_consequences
+  Conditions and consequences work
+PASS: _test_quest_activation
+  Quest 'lost_power_cell' activated
+PASS: _test_item_pickup
+  Item picked up: inventory size 0 -> 1
+PASS: _test_item_respawn_save_load
+  Item respawned and inventory restored after save/load
+PASS: _test_inventory_stacking_capacity
+  Stacking works: max stack 10, second stack created
+PASS: _test_quest_rewards_once
+  Quest reward given only once (caps: 150)
+PASS: _test_quest_outcomes_distinct
+  Distinct outcomes: return gives 200 caps, keep gives 0 caps
+PASS: _test_save_load_restores_state
+  Full state restored correctly
+PASS: _test_ui_input_blocking
+  UI blocks player input when visible
+PASS: _test_malformed_save_handling
+  Nonexistent and corrupted saves handled gracefully (returned null)
+Total: 12 | Passed: 12 | Failed: 0
+ALL TESTS PASSED!
+Stage B tests completed (all_passed: true)
+Test method returned
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Test runner frame: 60 test_index: 12 tests_started: true
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Test 3: Combat Attack Hit/Miss - PASS
+  Hit/Miss mechanics working: 97 hits, 3 misses (97.0% hit rate)
+
+=== Running test 4/16: Combat Critical Hit ===
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Test runner frame: 120 test_index: 12 tests_started: true
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Test runner frame: 180 test_index: 12 tests_started: true
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Test runner frame: 240 test_index: 12 tests_started: true
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Combat started via GameManager
+Test 4: Combat Critical Hit - PASS
+  Critical hits working: 50/200 (25.0%)
+
+=== Running test 5/16: Combat Damage Calculation ===
+Combat started via GameManager
+Test 5: Combat Damage Calculation - PASS
+  Damage calculation correct: 31 damage (STR bonus applied)
+
+=== Running test 6/16: Combat Armor DR/DT ===
+Combat started via GameManager
+Test 6: Combat Armor DR/DT - PASS
+  Armor DR/DT working: 50 dmg -> 50% DR (25) -> -10 DT = 15 final
+
+=== Running test 7/16: Combat End Conditions ===
+Combat started via GameManager
+Combatant died: enemy killed by: player
+Game state: 4 -> 1
+Test runner frame: 300 test_index: 12 tests_started: true
+Test 7: Combat End Conditions - PASS
+  Combat ends correctly when all enemies defeated
+
+=== Running test 8/16: Combat AP Consumption ===
+Game state: 1 -> 4
+Combat started via GameManager
+Not enough AP
+Test 8: Combat AP Consumption - PASS
+  AP consumption working: max AP=15, consumed 5 AP per attack
+No weapon equipped or empty weapon dict
+
+=== Running test 9/16: Combat UI Scene Initialization ===
+ERROR: res://scenes/ui/combat_ui.tscn:1 - Parse Error: Expected '=' after identifier.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _test_combat_ui_initialization (res://tests/stage_c_test_runner.gd:654)
+       [1] _run_next_test (res://tests/stage_c_test_runner.gd:109)
+ERROR: Failed loading resource: res://scenes/ui/combat_ui.tscn.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _test_combat_ui_initialization (res://tests/stage_c_test_runner.gd:654)
+       [1] _run_next_test (res://tests/stage_c_test_runner.gd:109)
+Test 9: Combat UI Scene Initialization - FAIL
+  CombatUI scene not found
+
+=== Running test 10/16: Character XP and Level Up ===
+Level up! 1 -> 2
+Test 10: Character XP and Level Up - PASS
+  XP curve and level up working: Level 2 at 2000 XP
+
+=== Running test 11/16: Character SPECIAL Improvement ===
+Test 11: Character SPECIAL Improvement - PASS
+  SPECIAL improvement working, caps at 10
+
+=== Running test 12/16: Character Skill Points ===
+Test 12: Character Skill Points - PASS
+  Skill point spending working, caps at 200
+
+=== Running test 13/16: Character Perk Acquisition ===
+Level up! 1 -> 3
+Test 13: Character Perk Acquisition - PASS
+  Perk acquisition working: acquired awareness
+
+=== Running test 14/16: Character Derived Stats ===
+Test 14: Character Derived Stats - PASS
+  Derived stats correct: HP=47 (END 10), AP=10 (AGI 10)
+
+=== Running test 15/16: Character Save/Load ===
+Level up! 1 -> 3
+Test 15: Character Save/Load - PASS
+  Character save/load working: Level 3, STR 7, Small Guns 55
+
+=== Running test 16/16: Combat + Character Integration ===
+Level up! 1 -> 3
+Level up synced to GameManager: level 3
+Combat started via GameManager
+Test 16: Combat + Character Integration - PASS
+  Combat-Character integration working: Enemy damaged, systems connected
+All Stage C tests completed!
+
+=== STAGE C TEST RESULTS SUMMARY ===
+PASS: Combat Start
+  Combat started with 2 participants, turn order: ["player", "enemy1"]
+PASS: Combat Turn Order
+  Turn order correct: Fast (initiative 14) before Slow (initiative 7)
+PASS: Combat Attack Hit/Miss
+  Hit/Miss mechanics working: 97 hits, 3 misses (97.0% hit rate)
+PASS: Combat Critical Hit
+  Critical hits working: 50/200 (25.0%)
+PASS: Combat Damage Calculation
+  Damage calculation correct: 31 damage (STR bonus applied)
+PASS: Combat Armor DR/DT
+  Armor DR/DT working: 50 dmg -> 50% DR (25) -> -10 DT = 15 final
+PASS: Combat End Conditions
+  Combat ends correctly when all enemies defeated
+PASS: Combat AP Consumption
+  AP consumption working: max AP=15, consumed 5 AP per attack
+FAIL: Combat UI Scene Initialization
+  CombatUI scene not found
+PASS: Character XP and Level Up
+  XP curve and level up working: Level 2 at 2000 XP
+PASS: Character SPECIAL Improvement
+  SPECIAL improvement working, caps at 10
+PASS: Character Skill Points
+  Skill point spending working, caps at 200
+PASS: Character Perk Acquisition
+  Perk acquisition working: acquired awareness
+PASS: Character Derived Stats
+  Derived stats correct: HP=47 (END 10), AP=10 (AGI 10)
+PASS: Character Save/Load
+  Character save/load working: Level 3, STR 7, Small Guns 55
+PASS: Combat + Character Integration
+  Combat-Character integration working: Enemy damaged, systems connected
+Total: 16 | Passed: 15 | Failed: 1
+STAGE C: SOME TESTS FAILED
+=== FAILURES DETECTED (Stage C failed: 1, Stage B ok: true) ===

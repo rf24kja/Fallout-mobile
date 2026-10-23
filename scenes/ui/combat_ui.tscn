@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid://d5k2q8n4p7r9s
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/combat_ui.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/ui/called_shot_panel.tscn" id="2"]
 
-[node name="CombatUI" type="CanvasLayer"]
-script = ExtResource("1")
+[node name="CombatUI" type="CanvasLayer" layout_mode=3]
+layer = 20
+script = ExtResource(1)
 
 [node name="RootPanel" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -149,5 +150,4 @@ offset_top = 20.0
 offset_right = -20.0
 offset_bottom = -20.0
 
-[node name="CalledShotPanel" type="Node" parent="."]
-scene = ExtResource("2")
+[node name="CalledShotPanel" instance=ExtResource(2) parent="."]

@@ -208,9 +208,9 @@ func _load_dialogues() -> void:
 	s1.node_id = "smart_greeting"
 	s1.speaker_id = "npc_scientist"
 	s1.text = "Ah, a fellow intellectual. The wasteland has few of us left."
-	s1.conditions = [_make_cond(0, {"stat_name": "intelligence", "stat_value": 7})]
-	var s1_opt1 = _make_opt("s_talk_science", "[Intelligence 7] Discuss pre-war tech.", "s_tech")
-	s1_opt1.conditions = [_make_cond(0, {"stat_name": "intelligence", "stat_value": 7})]
+	s1.conditions = [_make_cond(0, {"stat_name": "intellect", "stat_value": 7})]
+	var s1_opt1 = _make_opt("s_talk_science", "[Intellect 7] Discuss pre-war tech.", "s_tech")
+	s1_opt1.conditions = [_make_cond(0, {"stat_name": "intellect", "stat_value": 7})]
 	s1.options = [
 		s1_opt1,
 		_make_opt("s_normal", "Just passing through.", "generic_end")

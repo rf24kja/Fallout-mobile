@@ -343,8 +343,8 @@ func _calculate_hit_chance(target_data: Dictionary) -> int:
 	if target_data.get("called_shot", false):
 		base_chance -= 30
 	
-	# Target evasion/agility
-	var target_agility = target_data.get("agility", 5)
+	# Target evasion/dexterity
+	var target_agility = target_data.get("dexterity", 5)
 	base_chance -= (target_agility - 5) * 2
 	
 	# Perks/traits

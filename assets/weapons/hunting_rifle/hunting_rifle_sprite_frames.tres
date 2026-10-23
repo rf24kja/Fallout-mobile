@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3]
+
+[sub_resource type="Texture2D" id="Texture2D_main"]
+resource_path = "res://assets/weapons/hunting_rifle/hunting_rifle_atlas.png"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunting_rifle_S"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunting_rifle_SW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunting_rifle_W"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunting_rifle_NW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunting_rifle_N"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunting_rifle_NE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunting_rifle_E"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunting_rifle_SE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 0, 128, 128)
+
+[resource]
+ animations = {
+  "idle_S": [{"texture": SubResource("AtlasTexture_hunting_rifle_S"), "duration": 1.0}], "idle_SW": [{"texture": SubResource("AtlasTexture_hunting_rifle_SW"), "duration": 1.0}], "idle_W": [{"texture": SubResource("AtlasTexture_hunting_rifle_W"), "duration": 1.0}], "idle_NW": [{"texture": SubResource("AtlasTexture_hunting_rifle_NW"), "duration": 1.0}], "idle_N": [{"texture": SubResource("AtlasTexture_hunting_rifle_N"), "duration": 1.0}], "idle_NE": [{"texture": SubResource("AtlasTexture_hunting_rifle_NE"), "duration": 1.0}], "idle_E": [{"texture": SubResource("AtlasTexture_hunting_rifle_E"), "duration": 1.0}], "idle_SE": [{"texture": SubResource("AtlasTexture_hunting_rifle_SE"), "duration": 1.0}]
+ }

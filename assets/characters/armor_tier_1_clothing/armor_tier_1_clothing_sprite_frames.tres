@@ -1,0 +1,105 @@
+[gd_resource type="SpriteFrames" load_steps=26 format=3]
+
+[sub_resource type="Texture2D" id="Texture2D_main"]
+resource_path = "res://assets/characters\armor_tier_1_clothing\armor_tier_1_clothing_atlas.png"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_vault_suit_S"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_vault_suit_SW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_vault_suit_W"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_vault_suit_NW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_vault_suit_N"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_vault_suit_NE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_vault_suit_E"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_vault_suit_SE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_armor_S"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_armor_SW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_armor_W"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_armor_NW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_armor_N"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_armor_NE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_armor_E"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_armor_SE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_jacket_S"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_jacket_SW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_jacket_W"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_jacket_NW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_jacket_N"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_jacket_NE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_jacket_E"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armor_tier_1_clothing_leather_jacket_SE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 512, 128, 256)
+
+[resource]
+ animations = {
+  "armor_vault_suit": [{"texture": SubResource("AtlasTexture_armor_tier_1_clothing_vault_suit_S"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_vault_suit_SW"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_vault_suit_W"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_vault_suit_NW"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_vault_suit_N"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_vault_suit_NE"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_vault_suit_E"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_vault_suit_SE"), "duration": 1.0}], "armor_leather_armor": [{"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_armor_S"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_armor_SW"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_armor_W"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_armor_NW"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_armor_N"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_armor_NE"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_armor_E"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_armor_SE"), "duration": 1.0}], "armor_leather_jacket": [{"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_jacket_S"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_jacket_SW"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_jacket_W"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_jacket_NW"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_jacket_N"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_jacket_NE"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_jacket_E"), "duration": 1.0}, {"texture": SubResource("AtlasTexture_armor_tier_1_clothing_leather_jacket_SE"), "duration": 1.0}]
+ }

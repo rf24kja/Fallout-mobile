@@ -1,0 +1,48 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3]
+
+[sub_resource type="Texture2D" id="Texture2D_main"]
+resource_path = "res://assets/weapons/production_pistol_candidate_rev2/production_pistol_atlas_rev2.png"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol_rev2_S"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol_rev2_SW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol_rev2_W"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol_rev2_NW"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol_rev2_N"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol_rev2_NE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol_rev2_E"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_production_pistol_rev2_SE"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 0, 256, 256)
+
+[resource]
+animations = {
+  "production_pistol_rev2_S": [{"texture": SubResource("AtlasTexture_production_pistol_rev2_S"), "duration": 1.0}],
+  "production_pistol_rev2_SW": [{"texture": SubResource("AtlasTexture_production_pistol_rev2_SW"), "duration": 1.0}],
+  "production_pistol_rev2_W": [{"texture": SubResource("AtlasTexture_production_pistol_rev2_W"), "duration": 1.0}],
+  "production_pistol_rev2_NW": [{"texture": SubResource("AtlasTexture_production_pistol_rev2_NW"), "duration": 1.0}],
+  "production_pistol_rev2_N": [{"texture": SubResource("AtlasTexture_production_pistol_rev2_N"), "duration": 1.0}],
+  "production_pistol_rev2_NE": [{"texture": SubResource("AtlasTexture_production_pistol_rev2_NE"), "duration": 1.0}],
+  "production_pistol_rev2_E": [{"texture": SubResource("AtlasTexture_production_pistol_rev2_E"), "duration": 1.0}],
+  "production_pistol_rev2_SE": [{"texture": SubResource("AtlasTexture_production_pistol_rev2_SE"), "duration": 1.0}]
+}

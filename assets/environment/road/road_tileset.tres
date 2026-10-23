@@ -1,0 +1,40 @@
+[gd_resource type="TileSet" load_steps=8 format=3]
+
+[sub_resource type="Texture2D" id="Texture2D_main"]
+resource_path = "res://assets/environment/road/road_atlas.png"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_road_straight_intact"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_road_curve_intact"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_road_t_junction_intact"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_road_cross_intact"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_road_end_intact"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_road_dirt_path_intact"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="AtlasSource"]
+texture = SubResource("Texture2D_main")
+margins = Vector2i(0, 0)
+separation = Vector2i(0, 0)
+tile_size = Vector2i(128, 128)
+
+[resource]
+sources = [SubResource("AtlasSource")]
+tiles = {
+  0: {"atlas_coords": Vector2i(0, 0), "source_id": 0, "modulate": Color(1, 1, 1, 1)}, 1: {"atlas_coords": Vector2i(1, 0), "source_id": 0, "modulate": Color(1, 1, 1, 1)}, 2: {"atlas_coords": Vector2i(2, 0), "source_id": 0, "modulate": Color(1, 1, 1, 1)}, 3: {"atlas_coords": Vector2i(3, 0), "source_id": 0, "modulate": Color(1, 1, 1, 1)}, 4: {"atlas_coords": Vector2i(4, 0), "source_id": 0, "modulate": Color(1, 1, 1, 1)}, 5: {"atlas_coords": Vector2i(5, 0), "source_id": 0, "modulate": Color(1, 1, 1, 1)}
+ }

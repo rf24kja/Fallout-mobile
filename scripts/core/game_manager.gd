@@ -69,13 +69,13 @@ func _load_default_state() -> void:
 		"max_ap": 10,
 		"caps": 150,
 		"special": {
-			"strength": 5,
-			"perception": 5,
-			"endurance": 5,
-			"charisma": 5,
-			"intelligence": 5,
-			"agility": 5,
-			"luck": 5
+			"might": 5,
+			"awareness": 5,
+			"vigor": 5,
+			"presence": 5,
+			"intellect": 5,
+			"dexterity": 5,
+			"fortune": 5
 		},
 		"skills": {
 			"small_guns": 0,
@@ -156,16 +156,16 @@ func modify_player_stat(stat: String, delta: int) -> void:
 
 func _recalculate_derived_stats() -> void:
 	var s = player_data.special
-	# HP = 15 + Strength + Endurance * 2
-	player_data.max_hp = 15 + s.strength + s.endurance * 2
+	# HP = 15 + Might + Vigor * 2
+	player_data.max_hp = 15 + s.might + s.vigor * 2
 	player_data.hp = min(player_data.hp, player_data.max_hp)
-	# AP = 5 + Agility / 2
-	player_data.max_ap = 5 + int(s.agility / 2)
+	# AP = 5 + Dexterity / 2
+	player_data.max_ap = 5 + int(s.dexterity / 2)
 	player_data.ap = min(player_data.ap, player_data.max_ap)
-	# Carry Weight = 25 + Strength * 25
-	# Sequence = Perception * 2
-	# Healing Rate = Endurance / 3
-	# Critical Chance = Luck / 2
+	# Carry Weight = 25 + Might * 25
+	# Sequence = Awareness * 2
+	# Healing Rate = Vigor / 3
+	# Critical Chance = Fortune / 2
 
 func add_xp(amount: int) -> void:
 	player_data.xp += amount
@@ -289,4 +289,11 @@ func get_character_sheet() -> Dictionary:
 	var cs = _get_character_system()
 	if cs:
 		return cs.get_character_sheet()
+	return {}
+
+func get_equipped_items() -> Dictionary:
+	"""Get currently equipped items for paperdoll visualization"""
+	var inventory = get_node_or_null("/root/Inventory")
+	if inventory and inventory.has_method("get_all_equipped"):
+		return inventory.get_all_equipped()
 	return {}

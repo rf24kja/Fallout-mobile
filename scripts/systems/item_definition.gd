@@ -45,8 +45,8 @@ extends Resource
 
 ## Armor properties
 @export var armor_type: ArmorType = ArmorType.BODY
-@export var damage_threshold: int = 0
-@export var damage_resistance: int = 0
+@export var damage_threshold: Dictionary = {}
+@export var damage_resistance: Dictionary = {}
 @export var stealth_modifier: int = 0
 @export var radiation_resistance: int = 0
 @export var poison_resistance: int = 0
@@ -54,7 +54,7 @@ extends Resource
 @export var fire_resistance: int = 0
 @export var explosive_resistance: int = 0
 @export var special_properties: Array[String] = []
-@export var required_strength: int = 1
+@export var required_might: int = 1
 @export var overlay_asset: String = ""
 
 ## Ammo properties

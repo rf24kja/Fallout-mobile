@@ -1,0 +1,1124 @@
+[gd_resource type="SpriteFrames" load_steps=266 format=3 ]
+
+[sub_resource type="Texture2D" id="Texture2D_main"]
+resource_path = "res://assets/characters/hostile_atlas.png"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_S_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_S_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_S_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_S_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_SW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_SW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_SW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_SW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_W_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_W_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1152, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_W_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_W_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1408, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_NW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_NW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1664, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_NW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_NW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1920, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_N_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2048, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_N_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2176, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_N_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2304, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_N_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2432, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_NE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2560, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_NE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2688, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_NE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2816, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_NE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2944, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_E_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3072, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_E_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3200, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_E_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3328, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_E_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3456, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_SE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3584, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_SE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3712, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_SE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3840, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_idle_SE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3968, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_S_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_S_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_S_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_S_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_S_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_S_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_S_07"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_S_08"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1152, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1408, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SW_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SW_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1664, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SW_07"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SW_08"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1920, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_W_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2048, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_W_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2176, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_W_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2304, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_W_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2432, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_W_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2560, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_W_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2688, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_W_07"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2816, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_W_08"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2944, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3072, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3200, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3328, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3456, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NW_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3584, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NW_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3712, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NW_07"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3840, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NW_08"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3968, 256, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_N_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_N_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_N_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_N_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_N_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_N_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_N_07"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_N_08"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1152, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1408, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NE_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NE_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1664, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NE_07"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_NE_08"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1920, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_E_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2048, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_E_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2176, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_E_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2304, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_E_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2432, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_E_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2560, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_E_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2688, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_E_07"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2816, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_E_08"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2944, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3072, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3200, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3328, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3456, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SE_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3584, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SE_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3712, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SE_07"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3840, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_walk_SE_08"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3968, 512, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_S_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_S_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_S_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_S_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_S_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_S_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1152, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SW_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SW_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1408, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_W_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_W_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1664, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_W_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_W_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1920, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_W_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2048, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_W_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2176, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2304, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2432, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2560, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2688, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NW_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2816, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NW_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2944, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_N_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3072, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_N_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3200, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_N_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3328, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_N_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3456, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_N_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3584, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_N_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3712, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3840, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3968, 768, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NE_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_NE_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_E_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_E_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_E_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_E_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_E_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_E_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1152, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1408, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1664, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SE_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_ranged_SE_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1920, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_S_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2048, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_S_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2176, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_S_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2304, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_S_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2432, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_S_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2560, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_S_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2688, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2816, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2944, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3072, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3200, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SW_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3328, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SW_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3456, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_W_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3584, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_W_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3712, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_W_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3840, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_W_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3968, 1024, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_W_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_W_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NW_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NW_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_N_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_N_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1152, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_N_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_N_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1408, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_N_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_N_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1664, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1920, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2048, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2176, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NE_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2304, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_NE_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2432, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_E_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2560, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_E_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2688, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_E_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2816, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_E_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2944, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_E_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3072, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_E_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3200, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3328, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3456, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3584, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3712, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SE_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3840, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_attack_melee_SE_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3968, 1280, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_S_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_S_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_S_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_SW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_SW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_SW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_W_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_W_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_W_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_NW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1152, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_NW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_NW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1408, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_N_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_N_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1664, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_N_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_NE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1920, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_NE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2048, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_NE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2176, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_E_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2304, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_E_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2432, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_E_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2560, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_SE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2688, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_SE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2816, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_hit_SE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2944, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_S_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3072, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_S_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3200, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_S_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3328, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_S_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3456, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_S_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3584, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_S_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3712, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3840, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3968, 1536, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SW_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SW_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_W_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_W_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_W_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_W_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_W_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1024, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_W_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1152, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NW_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1280, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NW_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1408, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NW_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1536, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NW_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1664, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NW_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1792, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NW_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(1920, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_N_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2048, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_N_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2176, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_N_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2304, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_N_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2432, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_N_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2560, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_N_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2688, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2816, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(2944, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3072, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3200, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NE_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3328, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_NE_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3456, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_E_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3584, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_E_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3712, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_E_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3840, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_E_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(3968, 1792, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_E_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(0, 2048, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_E_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(128, 2048, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SE_01"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(256, 2048, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SE_02"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(384, 2048, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SE_03"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(512, 2048, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SE_04"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(640, 2048, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SE_05"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(768, 2048, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hostile_death_SE_06"]
+atlas = SubResource("Texture2D_main")
+region = Rect2(896, 2048, 128, 256)
+
+[resource]
+animations = {
+  "idle": [
+    {"direction": "S", "frames": [SubResource("AtlasTexture_hostile_idle_S_01"), SubResource("AtlasTexture_hostile_idle_S_02"), SubResource("AtlasTexture_hostile_idle_S_03"), SubResource("AtlasTexture_hostile_idle_S_04")], "speed": 4},
+    {"direction": "SW", "frames": [SubResource("AtlasTexture_hostile_idle_SW_01"), SubResource("AtlasTexture_hostile_idle_SW_02"), SubResource("AtlasTexture_hostile_idle_SW_03"), SubResource("AtlasTexture_hostile_idle_SW_04")], "speed": 4},
+    {"direction": "W", "frames": [SubResource("AtlasTexture_hostile_idle_W_01"), SubResource("AtlasTexture_hostile_idle_W_02"), SubResource("AtlasTexture_hostile_idle_W_03"), SubResource("AtlasTexture_hostile_idle_W_04")], "speed": 4},
+    {"direction": "NW", "frames": [SubResource("AtlasTexture_hostile_idle_NW_01"), SubResource("AtlasTexture_hostile_idle_NW_02"), SubResource("AtlasTexture_hostile_idle_NW_03"), SubResource("AtlasTexture_hostile_idle_NW_04")], "speed": 4},
+    {"direction": "N", "frames": [SubResource("AtlasTexture_hostile_idle_N_01"), SubResource("AtlasTexture_hostile_idle_N_02"), SubResource("AtlasTexture_hostile_idle_N_03"), SubResource("AtlasTexture_hostile_idle_N_04")], "speed": 4},
+    {"direction": "NE", "frames": [SubResource("AtlasTexture_hostile_idle_NE_01"), SubResource("AtlasTexture_hostile_idle_NE_02"), SubResource("AtlasTexture_hostile_idle_NE_03"), SubResource("AtlasTexture_hostile_idle_NE_04")], "speed": 4},
+    {"direction": "E", "frames": [SubResource("AtlasTexture_hostile_idle_E_01"), SubResource("AtlasTexture_hostile_idle_E_02"), SubResource("AtlasTexture_hostile_idle_E_03"), SubResource("AtlasTexture_hostile_idle_E_04")], "speed": 4},
+    {"direction": "SE", "frames": [SubResource("AtlasTexture_hostile_idle_SE_01"), SubResource("AtlasTexture_hostile_idle_SE_02"), SubResource("AtlasTexture_hostile_idle_SE_03"), SubResource("AtlasTexture_hostile_idle_SE_04")], "speed": 4},
+  ],
+  "walk": [
+    {"direction": "S", "frames": [SubResource("AtlasTexture_hostile_walk_S_01"), SubResource("AtlasTexture_hostile_walk_S_02"), SubResource("AtlasTexture_hostile_walk_S_03"), SubResource("AtlasTexture_hostile_walk_S_04"), SubResource("AtlasTexture_hostile_walk_S_05"), SubResource("AtlasTexture_hostile_walk_S_06"), SubResource("AtlasTexture_hostile_walk_S_07"), SubResource("AtlasTexture_hostile_walk_S_08")], "speed": 10},
+    {"direction": "SW", "frames": [SubResource("AtlasTexture_hostile_walk_SW_01"), SubResource("AtlasTexture_hostile_walk_SW_02"), SubResource("AtlasTexture_hostile_walk_SW_03"), SubResource("AtlasTexture_hostile_walk_SW_04"), SubResource("AtlasTexture_hostile_walk_SW_05"), SubResource("AtlasTexture_hostile_walk_SW_06"), SubResource("AtlasTexture_hostile_walk_SW_07"), SubResource("AtlasTexture_hostile_walk_SW_08")], "speed": 10},
+    {"direction": "W", "frames": [SubResource("AtlasTexture_hostile_walk_W_01"), SubResource("AtlasTexture_hostile_walk_W_02"), SubResource("AtlasTexture_hostile_walk_W_03"), SubResource("AtlasTexture_hostile_walk_W_04"), SubResource("AtlasTexture_hostile_walk_W_05"), SubResource("AtlasTexture_hostile_walk_W_06"), SubResource("AtlasTexture_hostile_walk_W_07"), SubResource("AtlasTexture_hostile_walk_W_08")], "speed": 10},
+    {"direction": "NW", "frames": [SubResource("AtlasTexture_hostile_walk_NW_01"), SubResource("AtlasTexture_hostile_walk_NW_02"), SubResource("AtlasTexture_hostile_walk_NW_03"), SubResource("AtlasTexture_hostile_walk_NW_04"), SubResource("AtlasTexture_hostile_walk_NW_05"), SubResource("AtlasTexture_hostile_walk_NW_06"), SubResource("AtlasTexture_hostile_walk_NW_07"), SubResource("AtlasTexture_hostile_walk_NW_08")], "speed": 10},
+    {"direction": "N", "frames": [SubResource("AtlasTexture_hostile_walk_N_01"), SubResource("AtlasTexture_hostile_walk_N_02"), SubResource("AtlasTexture_hostile_walk_N_03"), SubResource("AtlasTexture_hostile_walk_N_04"), SubResource("AtlasTexture_hostile_walk_N_05"), SubResource("AtlasTexture_hostile_walk_N_06"), SubResource("AtlasTexture_hostile_walk_N_07"), SubResource("AtlasTexture_hostile_walk_N_08")], "speed": 10},
+    {"direction": "NE", "frames": [SubResource("AtlasTexture_hostile_walk_NE_01"), SubResource("AtlasTexture_hostile_walk_NE_02"), SubResource("AtlasTexture_hostile_walk_NE_03"), SubResource("AtlasTexture_hostile_walk_NE_04"), SubResource("AtlasTexture_hostile_walk_NE_05"), SubResource("AtlasTexture_hostile_walk_NE_06"), SubResource("AtlasTexture_hostile_walk_NE_07"), SubResource("AtlasTexture_hostile_walk_NE_08")], "speed": 10},
+    {"direction": "E", "frames": [SubResource("AtlasTexture_hostile_walk_E_01"), SubResource("AtlasTexture_hostile_walk_E_02"), SubResource("AtlasTexture_hostile_walk_E_03"), SubResource("AtlasTexture_hostile_walk_E_04"), SubResource("AtlasTexture_hostile_walk_E_05"), SubResource("AtlasTexture_hostile_walk_E_06"), SubResource("AtlasTexture_hostile_walk_E_07"), SubResource("AtlasTexture_hostile_walk_E_08")], "speed": 10},
+    {"direction": "SE", "frames": [SubResource("AtlasTexture_hostile_walk_SE_01"), SubResource("AtlasTexture_hostile_walk_SE_02"), SubResource("AtlasTexture_hostile_walk_SE_03"), SubResource("AtlasTexture_hostile_walk_SE_04"), SubResource("AtlasTexture_hostile_walk_SE_05"), SubResource("AtlasTexture_hostile_walk_SE_06"), SubResource("AtlasTexture_hostile_walk_SE_07"), SubResource("AtlasTexture_hostile_walk_SE_08")], "speed": 10},
+  ],
+  "attack_ranged": [
+    {"direction": "S", "frames": [SubResource("AtlasTexture_hostile_attack_ranged_S_01"), SubResource("AtlasTexture_hostile_attack_ranged_S_02"), SubResource("AtlasTexture_hostile_attack_ranged_S_03"), SubResource("AtlasTexture_hostile_attack_ranged_S_04"), SubResource("AtlasTexture_hostile_attack_ranged_S_05"), SubResource("AtlasTexture_hostile_attack_ranged_S_06")], "speed": 8},
+    {"direction": "SW", "frames": [SubResource("AtlasTexture_hostile_attack_ranged_SW_01"), SubResource("AtlasTexture_hostile_attack_ranged_SW_02"), SubResource("AtlasTexture_hostile_attack_ranged_SW_03"), SubResource("AtlasTexture_hostile_attack_ranged_SW_04"), SubResource("AtlasTexture_hostile_attack_ranged_SW_05"), SubResource("AtlasTexture_hostile_attack_ranged_SW_06")], "speed": 8},
+    {"direction": "W", "frames": [SubResource("AtlasTexture_hostile_attack_ranged_W_01"), SubResource("AtlasTexture_hostile_attack_ranged_W_02"), SubResource("AtlasTexture_hostile_attack_ranged_W_03"), SubResource("AtlasTexture_hostile_attack_ranged_W_04"), SubResource("AtlasTexture_hostile_attack_ranged_W_05"), SubResource("AtlasTexture_hostile_attack_ranged_W_06")], "speed": 8},
+    {"direction": "NW", "frames": [SubResource("AtlasTexture_hostile_attack_ranged_NW_01"), SubResource("AtlasTexture_hostile_attack_ranged_NW_02"), SubResource("AtlasTexture_hostile_attack_ranged_NW_03"), SubResource("AtlasTexture_hostile_attack_ranged_NW_04"), SubResource("AtlasTexture_hostile_attack_ranged_NW_05"), SubResource("AtlasTexture_hostile_attack_ranged_NW_06")], "speed": 8},
+    {"direction": "N", "frames": [SubResource("AtlasTexture_hostile_attack_ranged_N_01"), SubResource("AtlasTexture_hostile_attack_ranged_N_02"), SubResource("AtlasTexture_hostile_attack_ranged_N_03"), SubResource("AtlasTexture_hostile_attack_ranged_N_04"), SubResource("AtlasTexture_hostile_attack_ranged_N_05"), SubResource("AtlasTexture_hostile_attack_ranged_N_06")], "speed": 8},
+    {"direction": "NE", "frames": [SubResource("AtlasTexture_hostile_attack_ranged_NE_01"), SubResource("AtlasTexture_hostile_attack_ranged_NE_02"), SubResource("AtlasTexture_hostile_attack_ranged_NE_03"), SubResource("AtlasTexture_hostile_attack_ranged_NE_04"), SubResource("AtlasTexture_hostile_attack_ranged_NE_05"), SubResource("AtlasTexture_hostile_attack_ranged_NE_06")], "speed": 8},
+    {"direction": "E", "frames": [SubResource("AtlasTexture_hostile_attack_ranged_E_01"), SubResource("AtlasTexture_hostile_attack_ranged_E_02"), SubResource("AtlasTexture_hostile_attack_ranged_E_03"), SubResource("AtlasTexture_hostile_attack_ranged_E_04"), SubResource("AtlasTexture_hostile_attack_ranged_E_05"), SubResource("AtlasTexture_hostile_attack_ranged_E_06")], "speed": 8},
+    {"direction": "SE", "frames": [SubResource("AtlasTexture_hostile_attack_ranged_SE_01"), SubResource("AtlasTexture_hostile_attack_ranged_SE_02"), SubResource("AtlasTexture_hostile_attack_ranged_SE_03"), SubResource("AtlasTexture_hostile_attack_ranged_SE_04"), SubResource("AtlasTexture_hostile_attack_ranged_SE_05"), SubResource("AtlasTexture_hostile_attack_ranged_SE_06")], "speed": 8},
+  ],
+  "attack_melee": [
+    {"direction": "S", "frames": [SubResource("AtlasTexture_hostile_attack_melee_S_01"), SubResource("AtlasTexture_hostile_attack_melee_S_02"), SubResource("AtlasTexture_hostile_attack_melee_S_03"), SubResource("AtlasTexture_hostile_attack_melee_S_04"), SubResource("AtlasTexture_hostile_attack_melee_S_05"), SubResource("AtlasTexture_hostile_attack_melee_S_06")], "speed": 8},
+    {"direction": "SW", "frames": [SubResource("AtlasTexture_hostile_attack_melee_SW_01"), SubResource("AtlasTexture_hostile_attack_melee_SW_02"), SubResource("AtlasTexture_hostile_attack_melee_SW_03"), SubResource("AtlasTexture_hostile_attack_melee_SW_04"), SubResource("AtlasTexture_hostile_attack_melee_SW_05"), SubResource("AtlasTexture_hostile_attack_melee_SW_06")], "speed": 8},
+    {"direction": "W", "frames": [SubResource("AtlasTexture_hostile_attack_melee_W_01"), SubResource("AtlasTexture_hostile_attack_melee_W_02"), SubResource("AtlasTexture_hostile_attack_melee_W_03"), SubResource("AtlasTexture_hostile_attack_melee_W_04"), SubResource("AtlasTexture_hostile_attack_melee_W_05"), SubResource("AtlasTexture_hostile_attack_melee_W_06")], "speed": 8},
+    {"direction": "NW", "frames": [SubResource("AtlasTexture_hostile_attack_melee_NW_01"), SubResource("AtlasTexture_hostile_attack_melee_NW_02"), SubResource("AtlasTexture_hostile_attack_melee_NW_03"), SubResource("AtlasTexture_hostile_attack_melee_NW_04"), SubResource("AtlasTexture_hostile_attack_melee_NW_05"), SubResource("AtlasTexture_hostile_attack_melee_NW_06")], "speed": 8},
+    {"direction": "N", "frames": [SubResource("AtlasTexture_hostile_attack_melee_N_01"), SubResource("AtlasTexture_hostile_attack_melee_N_02"), SubResource("AtlasTexture_hostile_attack_melee_N_03"), SubResource("AtlasTexture_hostile_attack_melee_N_04"), SubResource("AtlasTexture_hostile_attack_melee_N_05"), SubResource("AtlasTexture_hostile_attack_melee_N_06")], "speed": 8},
+    {"direction": "NE", "frames": [SubResource("AtlasTexture_hostile_attack_melee_NE_01"), SubResource("AtlasTexture_hostile_attack_melee_NE_02"), SubResource("AtlasTexture_hostile_attack_melee_NE_03"), SubResource("AtlasTexture_hostile_attack_melee_NE_04"), SubResource("AtlasTexture_hostile_attack_melee_NE_05"), SubResource("AtlasTexture_hostile_attack_melee_NE_06")], "speed": 8},
+    {"direction": "E", "frames": [SubResource("AtlasTexture_hostile_attack_melee_E_01"), SubResource("AtlasTexture_hostile_attack_melee_E_02"), SubResource("AtlasTexture_hostile_attack_melee_E_03"), SubResource("AtlasTexture_hostile_attack_melee_E_04"), SubResource("AtlasTexture_hostile_attack_melee_E_05"), SubResource("AtlasTexture_hostile_attack_melee_E_06")], "speed": 8},
+    {"direction": "SE", "frames": [SubResource("AtlasTexture_hostile_attack_melee_SE_01"), SubResource("AtlasTexture_hostile_attack_melee_SE_02"), SubResource("AtlasTexture_hostile_attack_melee_SE_03"), SubResource("AtlasTexture_hostile_attack_melee_SE_04"), SubResource("AtlasTexture_hostile_attack_melee_SE_05"), SubResource("AtlasTexture_hostile_attack_melee_SE_06")], "speed": 8},
+  ],
+  "hit": [
+    {"direction": "S", "frames": [SubResource("AtlasTexture_hostile_hit_S_01"), SubResource("AtlasTexture_hostile_hit_S_02"), SubResource("AtlasTexture_hostile_hit_S_03")], "speed": 4},
+    {"direction": "SW", "frames": [SubResource("AtlasTexture_hostile_hit_SW_01"), SubResource("AtlasTexture_hostile_hit_SW_02"), SubResource("AtlasTexture_hostile_hit_SW_03")], "speed": 4},
+    {"direction": "W", "frames": [SubResource("AtlasTexture_hostile_hit_W_01"), SubResource("AtlasTexture_hostile_hit_W_02"), SubResource("AtlasTexture_hostile_hit_W_03")], "speed": 4},
+    {"direction": "NW", "frames": [SubResource("AtlasTexture_hostile_hit_NW_01"), SubResource("AtlasTexture_hostile_hit_NW_02"), SubResource("AtlasTexture_hostile_hit_NW_03")], "speed": 4},
+    {"direction": "N", "frames": [SubResource("AtlasTexture_hostile_hit_N_01"), SubResource("AtlasTexture_hostile_hit_N_02"), SubResource("AtlasTexture_hostile_hit_N_03")], "speed": 4},
+    {"direction": "NE", "frames": [SubResource("AtlasTexture_hostile_hit_NE_01"), SubResource("AtlasTexture_hostile_hit_NE_02"), SubResource("AtlasTexture_hostile_hit_NE_03")], "speed": 4},
+    {"direction": "E", "frames": [SubResource("AtlasTexture_hostile_hit_E_01"), SubResource("AtlasTexture_hostile_hit_E_02"), SubResource("AtlasTexture_hostile_hit_E_03")], "speed": 4},
+    {"direction": "SE", "frames": [SubResource("AtlasTexture_hostile_hit_SE_01"), SubResource("AtlasTexture_hostile_hit_SE_02"), SubResource("AtlasTexture_hostile_hit_SE_03")], "speed": 4},
+  ],
+  "death": [
+    {"direction": "S", "frames": [SubResource("AtlasTexture_hostile_death_S_01"), SubResource("AtlasTexture_hostile_death_S_02"), SubResource("AtlasTexture_hostile_death_S_03"), SubResource("AtlasTexture_hostile_death_S_04"), SubResource("AtlasTexture_hostile_death_S_05"), SubResource("AtlasTexture_hostile_death_S_06")], "speed": 6},
+    {"direction": "SW", "frames": [SubResource("AtlasTexture_hostile_death_SW_01"), SubResource("AtlasTexture_hostile_death_SW_02"), SubResource("AtlasTexture_hostile_death_SW_03"), SubResource("AtlasTexture_hostile_death_SW_04"), SubResource("AtlasTexture_hostile_death_SW_05"), SubResource("AtlasTexture_hostile_death_SW_06")], "speed": 6},
+    {"direction": "W", "frames": [SubResource("AtlasTexture_hostile_death_W_01"), SubResource("AtlasTexture_hostile_death_W_02"), SubResource("AtlasTexture_hostile_death_W_03"), SubResource("AtlasTexture_hostile_death_W_04"), SubResource("AtlasTexture_hostile_death_W_05"), SubResource("AtlasTexture_hostile_death_W_06")], "speed": 6},
+    {"direction": "NW", "frames": [SubResource("AtlasTexture_hostile_death_NW_01"), SubResource("AtlasTexture_hostile_death_NW_02"), SubResource("AtlasTexture_hostile_death_NW_03"), SubResource("AtlasTexture_hostile_death_NW_04"), SubResource("AtlasTexture_hostile_death_NW_05"), SubResource("AtlasTexture_hostile_death_NW_06")], "speed": 6},
+    {"direction": "N", "frames": [SubResource("AtlasTexture_hostile_death_N_01"), SubResource("AtlasTexture_hostile_death_N_02"), SubResource("AtlasTexture_hostile_death_N_03"), SubResource("AtlasTexture_hostile_death_N_04"), SubResource("AtlasTexture_hostile_death_N_05"), SubResource("AtlasTexture_hostile_death_N_06")], "speed": 6},
+    {"direction": "NE", "frames": [SubResource("AtlasTexture_hostile_death_NE_01"), SubResource("AtlasTexture_hostile_death_NE_02"), SubResource("AtlasTexture_hostile_death_NE_03"), SubResource("AtlasTexture_hostile_death_NE_04"), SubResource("AtlasTexture_hostile_death_NE_05"), SubResource("AtlasTexture_hostile_death_NE_06")], "speed": 6},
+    {"direction": "E", "frames": [SubResource("AtlasTexture_hostile_death_E_01"), SubResource("AtlasTexture_hostile_death_E_02"), SubResource("AtlasTexture_hostile_death_E_03"), SubResource("AtlasTexture_hostile_death_E_04"), SubResource("AtlasTexture_hostile_death_E_05"), SubResource("AtlasTexture_hostile_death_E_06")], "speed": 6},
+    {"direction": "SE", "frames": [SubResource("AtlasTexture_hostile_death_SE_01"), SubResource("AtlasTexture_hostile_death_SE_02"), SubResource("AtlasTexture_hostile_death_SE_03"), SubResource("AtlasTexture_hostile_death_SE_04"), SubResource("AtlasTexture_hostile_death_SE_05"), SubResource("AtlasTexture_hostile_death_SE_06")], "speed": 6},
+  ],
+}

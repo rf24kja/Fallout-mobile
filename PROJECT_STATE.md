@@ -186,10 +186,36 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 
 ---
 
+## IP Compliance — SPECIAL Attribute Rename ✅ COMPLETE (2026-10-23)
+
+| Old Name (Fallout IP) | New Name (Original IP) |
+|----------------------|------------------------|
+| Strength | Might |
+| Perception | Awareness |
+| Endurance | Vigor |
+| Charisma | Presence |
+| Intelligence | Intellect |
+| Agility | Dexterity |
+| Luck | Fortune |
+
+**Files Updated:**
+- `scripts/systems/character_system.gd` — Source of truth: SPECIAL_NAMES dict, SKILL_DEFS, PERK_DEFS, _init_default_character(), _recalculate_derived_stats(), _on_level_up()
+- `scripts/systems/combat_system.gd` — All combat calculations (initiative, crit, hit chance, damage)
+- `scripts/core/game_manager.gd` — Player data, derived stats (HP, AP, carry weight, crit chance)
+- `scripts/systems/inventory.gd` — Equipment bonuses dict
+- `scripts/systems/item_definition.gd` / `item_database.gd` / `data/armor.json` — required_strength → required_might
+- `scripts/systems/dialogue_manager.gd` — Dialogue condition checks
+- `scripts/ui/combat_hud.gd` — Hit chance display calculations
+- `tests/stage_c_test_runner.gd` — Test participant stat dictionaries
+
+**Verification:** All 27 Godot headless tests PASS (Stage B 11/11 + Stage C 16/16). Save/load output shows new SPECIAL names in player data.
+
+---
+
 ## Next Actions
 
 See `docs/NEXT_ACTIONS.md` for full execution queue.
 
 ---
 
-*Last Updated: 2026-10-23 — Technical stabilization complete: all parse errors fixed, test suite 27/27 PASS, APK 37.1MB (dev assets excluded), CombatHUD headless-compatible*
+*Last Updated: 2026-10-23 — Technical stabilization complete: all parse errors fixed, test suite 27/27 PASS, APK 37.1MB (dev assets excluded), CombatHUD headless-compatible, SPECIAL attributes renamed for IP compliance*

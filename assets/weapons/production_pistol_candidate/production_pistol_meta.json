@@ -1,0 +1,75 @@
+{
+  "weapon_id": "production_pistol_candidate",
+  "class": "PISTOL",
+  "caliber": "9mm",
+  "sprite_resolution": 256,
+  "inspection_resolution": 512,
+  "pivot": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "scale": 1.0,
+  "directions": {
+    "N": {
+      "file": "pistol_n.png",
+      "rotation_deg": 0
+    },
+    "NE": {
+      "file": "pistol_ne.png",
+      "rotation_deg": 45
+    },
+    "E": {
+      "file": "pistol_e.png",
+      "rotation_deg": 90
+    },
+    "SE": {
+      "file": "pistol_se.png",
+      "rotation_deg": 135
+    },
+    "S": {
+      "file": "pistol_s.png",
+      "rotation_deg": 180
+    },
+    "SW": {
+      "file": "pistol_sw.png",
+      "rotation_deg": 225
+    },
+    "W": {
+      "file": "pistol_w.png",
+      "rotation_deg": 270
+    },
+    "NW": {
+      "file": "pistol_nw.png",
+      "rotation_deg": 315
+    }
+  },
+  "atlas_file": "production_pistol_atlas.png",
+  "art_status": "ART_CANDIDATE \u2014 PENDING USER APPROVAL",
+  "description": "Production-quality post-apocalyptic pistol proof-of-concept. Detailed geometry with realistic materials.",
+  "geometry_details": {
+    "parts_count": 35,
+    "has_slide_serrations": true,
+    "has_trigger_assembly": true,
+    "has_iron_sights": true,
+    "has_hammer": true,
+    "has_magazine": true,
+    "has_safety": true,
+    "has_slide_release": true,
+    "has_mag_release": true,
+    "has_ejection_port": true,
+    "has_chamber_indicator": true,
+    "has_grip_texture_panels": true,
+    "has_grip_screws": true,
+    "has_recoil_spring_guide": true
+  },
+  "materials": {
+    "slide": "Blued steel, roughness 0.25, wear on edges",
+    "frame": "Matte steel, roughness 0.3",
+    "barrel": "Polished hardened steel, roughness 0.15",
+    "grip": "Polymer/composite, roughness 0.75, checkered texture",
+    "trigger": "Steel, roughness 0.35",
+    "sights": "Blackened steel, roughness 0.2",
+    "magazine": "Steel body, roughness 0.4",
+    "accents": "Brass/copper, roughness 0.5"
+  }
+}

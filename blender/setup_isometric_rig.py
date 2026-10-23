@@ -9,6 +9,7 @@ Render resolution: 128x128 per tile (atlas will be 2048x2048 = 16x16 tiles)
 
 import bpy
 import math
+import mathutils
 
 def clear_scene():
     """Remove all objects from scene."""
@@ -39,7 +40,7 @@ def create_isometric_rig():
     cam_obj.location = (x, y, z)
     
     # Point at origin
-    direction = (0, 0, 0) - cam_obj.location
+    direction = mathutils.Vector((0, 0, 0)) - cam_obj.location
     rot_quat = direction.to_track_quat('-Z', 'Y')
     cam_obj.rotation_euler = rot_quat.to_euler()
     

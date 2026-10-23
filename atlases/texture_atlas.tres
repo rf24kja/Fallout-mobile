@@ -1,4 +1,4 @@
-[gd_resource type="TextureAtlas" load_steps=2 format=3 uid="uid://texture_atlas"]
+[gd_resource type="TextureAtlas" load_steps=2 format=3]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0"]
 atlas = ExtResource("1")
