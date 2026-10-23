@@ -121,7 +121,8 @@ func _setup_part_data() -> void:
 	}
 
 func _connect_buttons() -> void:
-	for part_name, data in _part_data:
+	for part_name in _part_data.keys():
+		var data = _part_data[part_name]
 		var btn: Button = data.button
 		btn.pressed.connect(_on_part_pressed.bind(part_name))
 		btn.mouse_entered.connect(_on_part_hover.bind(part_name))
@@ -138,7 +139,8 @@ func show_panel(attacker: Dictionary, target: Dictionary, weapon: Dictionary, ba
 	_title.text = "SELECT TARGET REGION - %s" % target.get("name", "Target")
 
 func _update_all_hit_chances() -> void:
-	for part_name, data in _part_data:
+	for part_name in _part_data.keys():
+		var data = _part_data[part_name]
 		var hit_chance = _calculate_part_hit_chance(part_name)
 		data.button.tooltip_text = "%s\nHit: %d%%\nAP: %d\n%s" % [
 			data.name, hit_chance, data.ap_cost, data.effect
@@ -174,7 +176,8 @@ func _on_part_unhover() -> void:
 	_effect_label.text = "Effect: --"
 	
 	# Reset all buttons
-	for part_name, data in _part_data:
+	for part_name in _part_data.keys():
+		var data = _part_data[part_name]
 		data.button.modulate = Color(1, 1, 1, 1)
 
 func _on_part_pressed(part_name: String) -> void:

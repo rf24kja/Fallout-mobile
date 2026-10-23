@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/entities/player.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/entities/character_visual.gd" id="6"]
 [ext_resource type="PackedScene" path="res://scenes/entities/npc.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/entities/world_item.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/ui/dialogue_ui.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://scenes/ui/inventory_ui.tscn" id="5"]
+[ext_resource type="Script" path="res://scripts/in_game_validation_rev2.gd" id="7"]
 
 [sub_resource type="RectangleShape2D" id="CollisionShape2D_1"]
 x = 16.0
@@ -85,8 +87,6 @@ script = ExtResource(1)
 shape = SubResource("CollisionShape2D_1")
 position = Vector2(0, -16)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-
 [node name="Camera2D" type="Camera2D" parent="Player"]
 enabled = true
 zoom = Vector2(1.5, 1.5)
@@ -95,10 +95,44 @@ limit_top = 0
 limit_right = 1280
 limit_bottom = 960
 
-[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+[node name="CharacterVisual" type="Node2D" parent="Player"]
+script = ExtResource(6)
+character_type = "survivor"
 position = Vector2(0, -32)
 scale = Vector2(1, 1)
-modulate = Color(0.2, 0.6, 1.0, 1)
+
+[node name="ShadowSprite" type="Sprite2D" parent="Player/CharacterVisual"]
+position = Vector2(0, 16)
+modulate = Color(0, 0, 0, 0.3)
+z_index = -10
+
+[node name="BaseSprite" type="AnimatedSprite2D" parent="Player/CharacterVisual"]
+position = Vector2(0, -32)
+z_index = 0
+
+[node name="ArmorBodySprite" type="AnimatedSprite2D" parent="Player/CharacterVisual"]
+position = Vector2(0, -32)
+z_index = 10
+
+[node name="ArmorHeadSprite" type="AnimatedSprite2D" parent="Player/CharacterVisual"]
+position = Vector2(0, -32)
+z_index = 15
+
+[node name="ArmorHandsSprite" type="AnimatedSprite2D" parent="Player/CharacterVisual"]
+position = Vector2(0, -32)
+z_index = 20
+
+[node name="ArmorFeetSprite" type="AnimatedSprite2D" parent="Player/CharacterVisual"]
+position = Vector2(0, -32)
+z_index = 25
+
+[node name="ArmorEyesSprite" type="AnimatedSprite2D" parent="Player/CharacterVisual"]
+position = Vector2(0, -32)
+z_index = 30
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="Player/CharacterVisual"]
+position = Vector2(0, -32)
+z_index = 40
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 10
@@ -126,5 +160,10 @@ horizontal_alignment = 0
 vertical_alignment = 2
 
 [node name="DialogueUI" type="Node" parent="."]
+instance = ExtResource(4)
 
 [node name="InventoryUI" type="Node" parent="."]
+instance = ExtResource(5)
+
+[node name="InGameValidationRev2" type="Node" parent="."]
+script = ExtResource(7)
