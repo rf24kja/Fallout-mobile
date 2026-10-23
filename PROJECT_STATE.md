@@ -15,7 +15,7 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 | Godot Version | ✅ | 4.7.2.stable |
 | Export Templates | ✅ | 4.7.2.stable at `%APPDATA%\Godot\export_templates\4.7.2.stable\` |
 | Android SDK | ✅ | Platform 36, Build-Tools 36.0.0, NDK 25.1 |
-| Debug APK | ✅ | `builds/fallout2_reborn_debug.apk` (43.2MB, rebuilt 2026-10-23) |
+| Debug APK | ✅ | `builds/fallout2_reborn_debug.apk` (37.1MB, rebuilt 2026-10-23) |
 | Release APK | ⏳ | Not built yet |
 | Package ID | ✅ | `asia.go24.wastelandprototype` (Godot: `com.example.wastelandrpgprototype`) |
 | App Label | ✅ | "Wasteland RPG Prototype" |
@@ -24,7 +24,7 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 
 ---
 
-## Test Results (2026-10-22)
+## Test Results (2026-10-23)
 
 | Suite | Tests | Pass | Fail | Timeout |
 |-------|-------|------|------|---------|
@@ -34,7 +34,7 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 | Combat DT/DR | 17 cases | 17 | 0 | 0 |
 | **Total** | **44+** | **44+** | **0** | **0** |
 
-**Latest APK**: `builds/fallout2_reborn_debug.apk` (92.8 MB, rebuilt 2026-10-22)
+**Latest APK**: `builds/fallout2_reborn_debug.apk` (37.1 MB, rebuilt 2026-10-23) — dev assets excluded
 
 ---
 
@@ -123,7 +123,8 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 - ✅ All 17 combat damage tests pass
 - ✅ All 87 item database tests pass
 - ✅ **ALL 27 GODOT HEADLESS TESTS PASS** (Stage B 11/11 + Stage C 16/16)
-- ✅ Android Debug APK built and verified (92.8MB, minSdk 24, target 36, debuggable=true, rebuilt 2026-10-22)
+- ✅ CombatHUD null node refs fixed for headless/test scenes
+- ✅ Android Debug APK built and verified (37.1MB, minSdk 24, target 36, debuggable=true, rebuilt 2026-10-23) — dev assets excluded
 - ✅ Art Approval Sheet generated: `artifacts/art_review/pistol/ART_APPROVAL_SHEET.png`
 
 ---
@@ -191,4 +192,4 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 
 ---
 
-*Last Updated: 2026-10-22 (Corrected: 2026-10-22 — Visual assets reclassified as TECHNICAL_PLACEHOLDER)*
+*Last Updated: 2026-10-23 — Technical stabilization complete: all parse errors fixed, test suite 27/27 PASS, APK 37.1MB (dev assets excluded), CombatHUD headless-compatible*
