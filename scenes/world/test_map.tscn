@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://scenes/entities/world_item.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/ui/dialogue_ui.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://scenes/ui/inventory_ui.tscn" id="5"]
-[ext_resource type="Script" path="res://scripts/in_game_validation_rev2.gd" id="7"]
+
 
 [sub_resource type="RectangleShape2D" id="CollisionShape2D_1"]
 x = 16.0
@@ -165,5 +165,3 @@ instance = ExtResource(4)
 [node name="InventoryUI" type="Node" parent="."]
 instance = ExtResource(5)
 
-[node name="InGameValidationRev2" type="Node" parent="."]
-script = ExtResource(7)

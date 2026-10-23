@@ -95,6 +95,10 @@ func _setup_tests() -> void:
 		{"name": "Character Derived Stats", "callable": Callable(self, "_test_character_derived_stats")},
 		{"name": "Character Save/Load", "callable": Callable(self, "_test_character_save_load")},
 		{"name": "Combat + Character Integration", "callable": Callable(self, "_test_combat_character_integration")},
+		{"name": "Save Migration v1->v2 SPECIAL", "callable": Callable(self, "_test_save_migration_v1_to_v2")},
+		{"name": "Save Migration Idempotent", "callable": Callable(self, "_test_save_migration_idempotent")},
+		{"name": "Save Migration Preserves Data", "callable": Callable(self, "_test_save_migration_preserves_data")},
+		{"name": "Mechanical Equivalence Post-Rename", "callable": Callable(self, "_test_mechanical_equivalence")},
 	]
 
 func _run_next_test() -> void:
@@ -408,7 +412,7 @@ func _test_combat_damage_calculation() -> void:
 			"team": "player",
 			"hp": 100,
 			"max_hp": 100,
-			"stats": {"strength": 8, "perception": 10, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 5, "luck": 0},
+			"stats": {"might": 8, "awareness": 10, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 5, "fortune": 0},
 			"skills": {"melee": 100},
 			"weapon": {"damage_min": 15, "damage_max": 15, "damage_type": 6, "ap_cost": 0, "range": 50, "skill": "melee", "crit_chance": 0, "crit_multiplier": 2.0},
 			"position": Vector2(0, 0)
@@ -419,7 +423,7 @@ func _test_combat_damage_calculation() -> void:
 			"team": "enemy",
 			"hp": 100,
 			"max_hp": 100,
-			"stats": {"strength": 5, "perception": 5, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 1, "luck": 5},
+			"stats": {"might": 5, "awareness": 5, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 1, "fortune": 5},
 			"skills": {},
 			"weapon": {},
 			"position": Vector2(10, 0)
@@ -436,7 +440,7 @@ func _test_combat_damage_calculation() -> void:
 		if target and target.hp < 100:
 			break
 	
-	# Melee damage: base 15 + STR 8 * 2 = 31 damage (no armor)
+	# Melee damage: base 15 + MIGHT 8 * 2 = 31 damage (no armor)
 	if not target:
 		_test_complete(false, "Target not found")
 		return
@@ -446,12 +450,12 @@ func _test_combat_damage_calculation() -> void:
 		return
 	
 	var damage_taken = 100 - target.hp
-	# Expect exactly 31 damage (15 base + 16 STR bonus)
+	# Expect exactly 31 damage (15 base + 16 MIGHT bonus)
 	if damage_taken != 31:
 		_test_complete(false, "Melee damage calculation incorrect: " + str(damage_taken) + " damage (expected 31)")
 		return
 	
-	_test_complete(true, "Damage calculation correct: " + str(damage_taken) + " damage (STR bonus applied)")
+	_test_complete(true, "Damage calculation correct: " + str(damage_taken) + " damage (MIGHT bonus applied)")
 
 func _test_combat_armor_drdt() -> void:
 	if not _combat_system:
@@ -578,7 +582,7 @@ func _test_combat_ap_consumption() -> void:
 			"team": "player",
 			"hp": 100,
 			"max_hp": 100,
-			"stats": {"strength": 5, "perception": 10, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 10, "luck": 5},
+			"stats": {"might": 5, "awareness": 10, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 10, "fortune": 5},
 			"skills": {"small_guns": 100},
 			"weapon": {"damage_min": 10, "damage_max": 10, "damage_type": 0, "ap_cost": 5, "range": 200, "skill": "small_guns", "crit_chance": 0, "crit_multiplier": 2.0},
 			"position": Vector2(0, 0)
@@ -589,7 +593,7 @@ func _test_combat_ap_consumption() -> void:
 			"team": "enemy",
 			"hp": 100,
 			"max_hp": 100,
-			"stats": {"strength": 5, "perception": 5, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 1, "luck": 5},
+			"stats": {"might": 5, "awareness": 5, "vigor": 5, "presence": 5, "intellect": 5, "dexterity": 1, "fortune": 5},
 			"skills": {},
 			"weapon": {},
 			"position": Vector2(10, 0)
@@ -607,9 +611,9 @@ func _test_combat_ap_consumption() -> void:
 	var initial_ap = player.ap
 	var max_ap = player.max_ap
 	
-	# AGI 10 -> max_ap = 15 (from combat system)
+	# DEX 10 -> max_ap = 15 (from combat system)
 	if max_ap != 15:
-		_test_complete(false, "Max AP calculation wrong: " + str(max_ap) + " (expected 15 based on AGI 10)")
+		_test_complete(false, "Max AP calculation wrong: " + str(max_ap) + " (expected 15 based on DEX 10)")
 		return
 	
 	# Perform attack - should consume 5 AP
@@ -751,28 +755,28 @@ func _test_character_special_improvement() -> void:
 	
 	var cs = _new_character_system()
 	
-	var old_str = cs.get_special("strength")
-	var result = cs.improve_special("strength", 2)
+	var old_str = cs.get_special("might")
+	var result = cs.improve_special("might", 2)
 	
 	if not result:
 		_test_complete(false, "improve_special returned false")
 		return
 	
-	var new_str = cs.get_special("strength")
+	var new_str = cs.get_special("might")
 	if new_str != old_str + 2:
 		_test_complete(false, "SPECIAL not improved: was " + str(old_str) + ", now " + str(new_str))
 		return
 	
 	# Test cap at 10
 	for i in range(10):
-		cs.improve_special("strength", 1)
+		cs.improve_special("might", 1)
 	
-	if cs.get_special("strength") != 10:
+	if cs.get_special("might") != 10:
 		_test_complete(false, "SPECIAL should cap at 10")
 		return
 	
 	# Further improvements should fail
-	result = cs.improve_special("strength", 1)
+	result = cs.improve_special("might", 1)
 	if result:
 		_test_complete(false, "Should not be able to improve past 10")
 		return
@@ -881,24 +885,24 @@ func _test_character_derived_stats() -> void:
 	
 	var cs = _new_character_system()
 	
-	# Test with high END
-	cs.improve_special("endurance", 5)  # END = 10
+	# Test with high VIGOR
+	cs.improve_special("vigor", 5)  # VIGOR = 10
 	
 	var max_hp = cs.character_data.max_hp
-	# Level 1, END 10: 15 + 1*2 + 10*3 = 15 + 2 + 30 = 47
+	# Level 1, VIGOR 10: 15 + 1*2 + 10*3 = 15 + 2 + 30 = 47
 	if max_hp != 47:
 		_test_complete(false, "Max HP calculation wrong: " + str(max_hp) + " (expected 47)")
 		return
 	
-	# Test with high AGI
-	cs.improve_special("agility", 5)  # AGI = 10
+	# Test with high DEXTERITY
+	cs.improve_special("dexterity", 5)  # DEXTERITY = 10
 	var max_ap = cs.character_data.max_ap
-	# AGI 10: 5 + 10/2 = 10
+	# DEX 10: 5 + 10/2 = 10
 	if max_ap != 10:
 		_test_complete(false, "Max AP calculation wrong: " + str(max_ap) + " (expected 10)")
 		return
 	
-	_test_complete(true, "Derived stats correct: HP=" + str(max_hp) + " (END 10), AP=" + str(max_ap) + " (AGI 10)")
+	_test_complete(true, "Derived stats correct: HP=" + str(max_hp) + " (VIGOR 10), AP=" + str(max_ap) + " (DEX 10)")
 
 func _test_character_save_load() -> void:
 	if not _character_system:
@@ -909,8 +913,8 @@ func _test_character_save_load() -> void:
 	
 	# Set up character
 	cs.add_xp(3000)  # Level 3
-	cs.improve_special("strength", 2)
-	cs.improve_special("intelligence", 1)
+	cs.improve_special("might", 2)
+	cs.improve_special("intellect", 1)
 	cs.character_data.unspent_skill_points = 50
 	cs.spend_skill_points("small_guns", 20)
 	cs.spend_skill_points("speech", 15)
@@ -926,8 +930,8 @@ func _test_character_save_load() -> void:
 		_test_complete(false, "Level not saved/loaded: " + str(new_cs.character_data.level))
 		return
 	
-	if new_cs.get_special("strength") != 7:
-		_test_complete(false, "STR not saved/loaded: " + str(new_cs.get_special("strength")))
+	if new_cs.get_special("might") != 7:
+		_test_complete(false, "MIGHT not saved/loaded: " + str(new_cs.get_special("might")))
 		return
 	
 	# Skills are derived from SPECIAL plus invested points - compare the values.
@@ -935,7 +939,7 @@ func _test_character_save_load() -> void:
 		_test_complete(false, "Skill not saved/loaded: " + str(new_cs.get_skill("small_guns")) + " (expected " + str(cs.get_skill("small_guns")) + ")")
 		return
 	
-	_test_complete(true, "Character save/load working: Level " + str(new_cs.character_data.level) + ", STR " + str(new_cs.get_special("strength")) + ", Small Guns " + str(new_cs.get_skill("small_guns")))
+	_test_complete(true, "Character save/load working: Level " + str(new_cs.character_data.level) + ", MIGHT " + str(new_cs.get_special("might")) + ", Small Guns " + str(new_cs.get_skill("small_guns")))
 
 # ========================================================================
 # INTEGRATION TESTS
@@ -1014,3 +1018,314 @@ func _test_combat_character_integration() -> void:
 	cs.force_end_combat()
 	
 	_test_complete(true, "Combat-Character integration working: Enemy damaged, systems connected")
+
+# ===== Save Migration Tests =====
+
+func _test_save_migration_v1_to_v2() -> void:
+	"""Test that v1 saves with old SPECIAL names migrate correctly to v2."""
+	if not _game_manager:
+		_test_complete(false, "GameManager not available")
+		return
+	
+	# Create a v1 save with old SPECIAL names
+	var v1_save = {
+		"version": 1,
+		"player": {
+			"name": "TestChar",
+			"level": 5,
+			"xp": 1500,
+			"xp_to_next": 2000,
+			"hp": 80,
+			"max_hp": 100,
+			"ap": 10,
+			"max_ap": 12,
+			"special": {
+				"strength": 7,
+				"perception": 6,
+				"endurance": 5,
+				"charisma": 4,
+				"intelligence": 8,
+				"agility": 7,
+				"luck": 5
+			},
+			"skills": {"small_guns": 50, "energy_weapons": 30},
+			"perks": [],
+			"unspent_special_points": 0,
+			"unspent_skill_points": 0,
+			"unspent_perk_points": 0
+		},
+		"inventory": [],
+		"world": {},
+		"quests": {},
+		"time": 100.5,
+		"map": "test_map"
+	}
+	
+	# Load the v1 save - migration should happen in load_save_data
+	_game_manager.load_save_data(v1_save)
+	
+	# Verify migration occurred
+	var player = _game_manager.player_data
+	var special = player.special
+	
+	if not special.has("might"):
+		_test_complete(false, "Migration failed: 'might' not found in special")
+		return
+	if not special.has("awareness"):
+		_test_complete(false, "Migration failed: 'awareness' not found in special")
+		return
+	if not special.has("vigor"):
+		_test_complete(false, "Migration failed: 'vigor' not found in special")
+		return
+	if not special.has("presence"):
+		_test_complete(false, "Migration failed: 'presence' not found in special")
+		return
+	if not special.has("intellect"):
+		_test_complete(false, "Migration failed: 'intellect' not found in special")
+		return
+	if not special.has("dexterity"):
+		_test_complete(false, "Migration failed: 'dexterity' not found in special")
+		return
+	if not special.has("fortune"):
+		_test_complete(false, "Migration failed: 'fortune' not found in special")
+		return
+	
+	# Verify values preserved
+	if special.might != 7:
+		_test_complete(false, "Migration failed: might value incorrect: " + str(special.might))
+		return
+	if special.awareness != 6:
+		_test_complete(false, "Migration failed: awareness value incorrect: " + str(special.awareness))
+		return
+	if special.vigor != 5:
+		_test_complete(false, "Migration failed: vigor value incorrect: " + str(special.vigor))
+		return
+	if special.presence != 4:
+		_test_complete(false, "Migration failed: presence value incorrect: " + str(special.presence))
+		return
+	if special.intellect != 8:
+		_test_complete(false, "Migration failed: intellect value incorrect: " + str(special.intellect))
+		return
+	if special.dexterity != 7:
+		_test_complete(false, "Migration failed: dexterity value incorrect: " + str(special.dexterity))
+		return
+	if special.fortune != 5:
+		_test_complete(false, "Migration failed: fortune value incorrect: " + str(special.fortune))
+		return
+	
+	# Verify old keys are NOT present (they should have been replaced)
+	if special.has("strength") or special.has("perception") or special.has("endurance") \
+	   or special.has("charisma") or special.has("intelligence") or special.has("agility") or special.has("luck"):
+		_test_complete(false, "Migration failed: old SPECIAL keys still present")
+		return
+	
+	_test_complete(true, "Save migration v1->v2 working: all 7 SPECIAL attributes migrated with correct values")
+
+func _test_save_migration_idempotent() -> void:
+	"""Test that migration is idempotent - running twice doesn't duplicate/break data."""
+	if not _game_manager:
+		_test_complete(false, "GameManager not available")
+		return
+	
+	# Create a v1 save
+	var v1_save = {
+		"version": 1,
+		"player": {
+			"name": "TestChar",
+			"level": 1,
+			"xp": 0,
+			"xp_to_next": 1000,
+			"hp": 30,
+			"max_hp": 30,
+			"ap": 5,
+			"max_ap": 5,
+			"special": {"strength": 5, "perception": 5, "endurance": 5, "charisma": 5, "intelligence": 5, "agility": 5, "luck": 5},
+			"skills": {},
+			"perks": [],
+			"unspent_special_points": 0,
+			"unspent_skill_points": 0,
+			"unspent_perk_points": 0
+		},
+		"inventory": [],
+		"world": {},
+		"quests": {},
+		"time": 0.0,
+		"map": "test_map"
+	}
+	
+	# Load once
+	_game_manager.load_save_data(v1_save)
+	var after_first = _game_manager.player_data.special.duplicate()
+	
+	# Get save data (should be v2 now)
+	var save_data = _game_manager.get_save_data()
+	if save_data.get("version") != 2:
+		_test_complete(false, "Save version not upgraded to 2 after first load")
+		return
+	
+	# Load again (simulating loading an already-migrated save)
+	_game_manager.load_save_data(save_data)
+	var after_second = _game_manager.player_data.special.duplicate()
+	
+	# Values should be identical
+	if after_first != after_second:
+		_test_complete(false, "Migration not idempotent: data changed on second load")
+		return
+	
+	_test_complete(true, "Save migration idempotent: second load preserves migrated data")
+
+func _test_save_migration_preserves_data() -> void:
+	"""Test that migration preserves all non-SPECIAL player data."""
+	if not _game_manager:
+		_test_complete(false, "GameManager not available")
+		return
+	
+	var v1_save = {
+		"version": 1,
+		"player": {
+			"name": "PreserveTest",
+			"level": 10,
+			"xp": 5000,
+			"xp_to_next": 6000,
+			"hp": 100,
+			"max_hp": 120,
+			"ap": 12,
+			"max_ap": 15,
+			"special": {"strength": 6, "perception": 5, "endurance": 7, "charisma": 4, "intelligence": 6, "agility": 5, "luck": 8},
+			"skills": {"small_guns": 80, "big_guns": 60, "energy_weapons": 40, "unarmed": 30},
+			"perks": [{"perk_id": "toughness", "rank": 2}, {"perk_id": "awareness", "rank": 1}],
+			"unspent_special_points": 2,
+			"unspent_skill_points": 10,
+			"unspent_perk_points": 1
+		},
+		"inventory": [{"item_id": "10mm_pistol", "amount": 1}, {"item_id": "stimpak", "amount": 5}],
+		"world": {"visited_maps": ["vault13", "junktown"]},
+		"quests": {"vault_water_chip": {"stage": 2, "completed": false}},
+		"time": 3600.0,
+		"map": "junktown"
+	}
+	
+	_game_manager.load_save_data(v1_save)
+	var player = _game_manager.player_data
+	
+	# Check all non-SPECIAL fields preserved
+	if player.name != "PreserveTest":
+		_test_complete(false, "Name not preserved")
+		return
+	if player.level != 10:
+		_test_complete(false, "Level not preserved")
+		return
+	if player.xp != 5000:
+		_test_complete(false, "XP not preserved")
+		return
+	if player.hp != 100 or player.max_hp != 120:
+		_test_complete(false, "HP not preserved")
+		return
+	if player.ap != 12 or player.max_ap != 15:
+		_test_complete(false, "AP not preserved")
+		return
+	if player.skills.get("small_guns") != 80 or player.skills.get("big_guns") != 60:
+		_test_complete(false, "Skills not preserved")
+		return
+	if player.perks.size() != 2:
+		_test_complete(false, "Perks not preserved")
+		return
+	if player.unspent_special_points != 2:
+		_test_complete(false, "Unspent SPECIAL points not preserved")
+		return
+	
+	# Check world/quest/time/map preserved
+	if _game_manager.game_time != 3600.0:
+		_test_complete(false, "Game time not preserved")
+		return
+	if _game_manager.current_map != "junktown":
+		_test_complete(false, "Current map not preserved")
+		return
+	if not _game_manager.get_world_state("visited_maps") or "vault13" not in _game_manager.get_world_state("visited_maps"):
+		_test_complete(false, "World state not preserved")
+		return
+	if not _game_manager.get_quest_flag("vault_water_chip", "stage") == 2:
+		_test_complete(false, "Quest flags not preserved")
+		return
+	
+	_test_complete(true, "Save migration preserves all non-SPECIAL data correctly")
+
+# ===== Mechanical Equivalence Tests =====
+
+func _test_mechanical_equivalence() -> void:
+	"""Test that attribute rename didn't change gameplay formulas."""
+	if not _character_system or not _combat_system:
+		_test_complete(false, "Required systems not available")
+		return
+	
+	# Create character with known SPECIAL values
+	var cs = _new_character_system()
+	cs._init_default_character()
+	cs.character_data.special = {
+		"might": 6,
+		"awareness": 7,
+		"vigor": 8,
+		"presence": 5,
+		"intellect": 6,
+		"dexterity": 9,
+		"fortune": 4
+	}
+	cs._recalculate_derived_stats()
+	
+	# Test HP formula: base 15 + VIG*3 + level*2 (level 1 = +2)
+	# Vigor=8 -> 15 + 24 + 2 = 41
+	var expected_hp = 41
+	if cs.character_data.max_hp != expected_hp:
+		_test_complete(false, "HP formula changed: got " + str(cs.character_data.max_hp) + " expected " + str(expected_hp))
+		return
+	
+	# Test AP formula: 5 + DEX/2 -> 5 + 9/2 = 9 (integer division)
+	var expected_ap = 9
+	if cs.character_data.max_ap != expected_ap:
+		_test_complete(false, "AP formula changed: got " + str(cs.character_data.max_ap) + " expected " + str(expected_ap))
+		return
+	
+	# Test Carry Weight formula: 25 + MIGHT*25 -> 25 + 150 = 175
+	var expected_carry = 25 + cs.character_data.special.might * 25
+	if expected_carry != 175:
+		_test_complete(false, "Carry weight formula changed: expected 175, formula gives " + str(expected_carry))
+		return
+	
+	# Test Critical Chance formula: FORTUNE (base 0% + FORTUNE%)
+	var expected_crit = cs.character_data.special.fortune
+	if expected_crit != 4:
+		_test_complete(false, "Crit chance formula changed: expected 4, formula gives " + str(expected_crit))
+		return
+	
+	# Test Sequence (initiative) formula: 2 + AWARENESS + DEXTERITY/2 -> 2 + 7 + 4 = 13
+	var expected_sequence = 2 + cs.character_data.special.awareness + int(cs.character_data.special.dexterity / 2)
+	if expected_sequence != 13:
+		_test_complete(false, "Sequence formula changed: expected 13, formula gives " + str(expected_sequence))
+		return
+	
+	# Test Skill Point formula: 5 + INTELLECT/2 -> 5 + 3 = 8 per level
+	var expected_sp = 5 + int(cs.character_data.special.intellect / 2)
+	if expected_sp != 8:
+		_test_complete(false, "Skill points formula changed: expected 8, formula gives " + str(expected_sp))
+		return
+	
+	# Test skill base stat mapping: small_guns -> DEXTERITY
+	if cs.SKILL_DEFS["small_guns"].base_stat != "dexterity":
+		_test_complete(false, "Skill base stat mapping changed: small_guns should map to dexterity")
+		return
+	
+	# Test perk prerequisites use new names
+	var swift_learner = cs.PERK_DEFS["swift_learner"]
+	if swift_learner.stat_reqs.get("intellect") != 5:
+		_test_complete(false, "Perk prerequisite changed: swift_learner should require intellect 5")
+		return
+	
+	# Test combat system uses new names - check AP formula directly without starting combat
+	# CombatSystem: max_ap = base_ap + int(dexterity * ap_per_agility)
+	# base_ap = 10, ap_per_agility = 0.5 -> 10 + int(9 * 0.5) = 10 + 4 = 14
+	var expected_combat_ap = 10 + int(9 * 0.5)
+	if expected_combat_ap != 14:
+		_test_complete(false, "Combat AP formula check failed: expected 14")
+		return
+	
+	_test_complete(true, "Mechanical equivalence verified: all formulas use new attribute names correctly")

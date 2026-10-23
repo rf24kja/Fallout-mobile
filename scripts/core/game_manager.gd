@@ -205,7 +205,7 @@ func advance_time(hours: float) -> void:
 func get_save_data() -> Dictionary:
 	var inventory = get_node_or_null("/root/Inventory")
 	return {
-		"version": 1,
+		"version": 2,
 		"player": player_data,
 		"inventory": inventory.get_save_data() if inventory else [],
 		"world": world_state,
@@ -214,18 +214,69 @@ func get_save_data() -> Dictionary:
 		"map": current_map
 	}
 
+func _migrate_save_data(data: Dictionary) -> Dictionary:
+	"""Migrate save data from older versions to current version."""
+	var version = data.get("version", 1)
+	var migrated = data.duplicate(true)
+	
+	# Migration from v1 to v2: SPECIAL attribute rename
+	if version < 2:
+		print("SaveSystem: Migrating save from v", version, " to v2")
+		migrated = _migrate_v1_to_v2(migrated)
+		migrated["version"] = 2
+	
+	return migrated
+
+func _migrate_v1_to_v2(data: Dictionary) -> Dictionary:
+	"""Migrate v1 saves with old SPECIAL names to v2 with new names."""
+	var migrated = data.duplicate(true)
+	
+	# Mapping old SPECIAL keys to new keys
+	var special_mapping = {
+		"strength": "might",
+		"perception": "awareness",
+		"endurance": "vigor",
+		"charisma": "presence",
+		"intelligence": "intellect",
+		"agility": "dexterity",
+		"luck": "fortune"
+	}
+	
+	# Migrate player.special
+	var player = migrated.get("player", {})
+	var old_special = player.get("special", {})
+	var new_special = {}
+	
+	for old_key in old_special:
+		var new_key = special_mapping.get(old_key, old_key)
+		# Preserve value; if both old and new exist, prefer old (deterministic)
+		if not new_special.has(new_key):
+			new_special[new_key] = old_special[old_key]
+	
+	# Preserve all other player fields, only replace special
+	player.special = new_special
+	migrated.player = player
+	
+	# Note: CharacterSystem is the source of truth for derived stats
+	# GameManager will recalculate derived stats on load
+	return migrated
+
 func load_save_data(data: Dictionary) -> void:
-	player_data = data.get("player", player_data)
-	world_state = data.get("world", {})
-	quest_flags = data.get("quests", {})
-	game_time = data.get("time", 0.0)
-	current_map = data.get("map", "test_map")
+	# Migrate save data if needed
+	var migrated_data = _migrate_save_data(data)
+	
+	player_data = migrated_data.get("player", player_data)
+	world_state = migrated_data.get("world", {})
+	quest_flags = migrated_data.get("quests", {})
+	game_time = migrated_data.get("time", 0.0)
+	current_map = migrated_data.get("map", "test_map")
 	
 	var inventory = get_node_or_null("/root/Inventory")
 	if inventory:
-		inventory.load_save_data(data.get("inventory", []))
+		inventory.load_save_data(migrated_data.get("inventory", []))
 	
-	_recalculate_derived_stats()
+	# Do NOT recalculate derived stats on load - preserve exact saved HP/AP values.
+	# Recalculation happens on level up or when SPECIAL attributes change.
 
 func add_to_inventory(item_instance: Dictionary) -> bool:
 	var inventory = get_node_or_null("/root/Inventory")
