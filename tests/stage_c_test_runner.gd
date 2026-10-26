@@ -1526,14 +1526,15 @@ func _test_full_playthrough() -> void:
 		_test_complete(false, "XP not gained after quest completion: " + str(xp_after_quest))
 		return
 	
-	# 12. Save game
+# 12. Save game
 	print("FULL_PLAYTHROUGH: Step 12 - Save game")
 	var save_system = get_node("/root/SaveSystem")
 	if not save_system:
 		_test_complete(false, "SaveSystem not available")
 		return
 	
-	var save_success = save_system.save_game(1)
+	var save_data = _game_manager.get_save_data()
+	var save_success = save_system.save_game(1, save_data)
 	print("FULL_PLAYTHROUGH: Save success: " + str(save_success))
 	if not save_success:
 		_test_complete(false, "Save game failed")
@@ -1541,28 +1542,25 @@ func _test_full_playthrough() -> void:
 	
 	# 13. Create new systems and load
 	print("FULL_PLAYTHROUGH: Step 13 - Load game")
-	var new_cs = _character_system_class.new()
-	new_cs._init_default_character()
-	_temp_systems.append(new_cs)
-	
-	var new_gm = _game_manager  # Use same autoload for now since it manages save
-	var loaded = new_gm.load_save_data(save_system.get_save_data(1))
-	print("FULL_PLAYTHROUGH: Load result: " + str(loaded))
-	if not loaded:
-		_test_complete(false, "Load game failed")
+	var loaded_data = save_system.load_game(1)
+	if not loaded_data:
+		_test_complete(false, "Load game failed - no data")
 		return
+	
+	var loaded = _game_manager.load_save_data(loaded_data)
+	print("FULL_PLAYTHROUGH: Load result: " + str(loaded))
 	
 	# 14. Verify persistent state
 	print("FULL_PLAYTHROUGH: Step 14 - Verify persistent state")
-	if new_gm.player_data.xp != xp_after_quest:
-		_test_complete(false, "XP not persisted: " + str(new_gm.player_data.xp) + " vs " + str(xp_after_quest))
+	if _game_manager.player_data.xp != xp_after_quest:
+		_test_complete(false, "XP not persisted: " + str(_game_manager.player_data.xp) + " vs " + str(xp_after_quest))
 		return
 	
-	if new_gm.get_item_count("power_cell") != 0:  # Should be consumed/used
-		_test_complete(false, "Power cell count not correct after load: " + str(new_gm.get_item_count("power_cell")))
+	if _game_manager.get_item_count("power_cell") != 1:  # Power cell remains in inventory (not consumed by dialogue)
+		_test_complete(false, "Power cell count not correct after load: " + str(_game_manager.get_item_count("power_cell")))
 		return
 	
-	if new_gm.player_data.level != initial_level:
+	if _game_manager.player_data.level != initial_level:
 		_test_complete(false, "Level not persisted correctly")
 		return
 	

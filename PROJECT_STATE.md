@@ -24,21 +24,18 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 
 ---
 
-## Test Results (2026-10-23)
-
-### Test Results (2026-10-23)
+## Test Results (2026-10-26 — Current Session)
 
 | Suite | Tests | Pass | Fail | Timeout |
 |-------|-------|------|------|---------|
 | Stage B | 11 | 11 | 0 | 0 |
 | Stage C | 21 | 21 | 0 | 0 |
-| Item System | 88 items | 88 | 0 | 0 |
-| Combat DT/DR | 17 cases | 17 | 0 | 0 |
-| **Total** | **45+** | **45+** | **0** | **0** |
+| **Total** | **32** | **32** | **0** | **0** |
 
-**Latest APK**: `builds/fallout2_reborn_debug.apk` (37.1 MB, rebuilt 2026-10-23) — dev assets excluded
-
----
+**Full Vertical Slice Playthrough**: PASS (level persistence fixed)
+**CombatHUD headless compatibility**: PASS (null node refs fixed)
+**Save/load migration v1→v2**: PASS (4 tests)
+**All parse errors**: RESOLVED
 
 ---
 
@@ -126,7 +123,7 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 - Stage D test suite: equipment, DT/DR, ammo, called shots (`test_combat_damage.py`, `test_item_database.py`)
 - All 17 combat damage tests pass
 - All 87 item database tests pass
-- ALL 27 GODOT HEADLESS TESTS PASS (Stage B 11/11 + Stage C 20/20)
+- ALL 32 GODOT HEADLESS TESTS PASS (Stage B 11/11 + Stage C 21/21)
 - CombatHUD null node refs fixed for headless/test scenes
 - Android Debug APK built and verified (37.1MB, minSdk 24, target 36, debuggable=true, rebuilt 2026-10-23) — dev assets excluded
 - Art Approval Sheet generated: `artifacts/art_review/pistol/ART_APPROVAL_SHEET.png`
@@ -240,8 +237,8 @@ Implemented explicit save schema versioning and migration from v1 (old SPECIAL n
 
 **Test Results:**
 - Stage B: 11/11 PASS
-- Stage C: 20/20 PASS (4 new tests + 16 existing)
-- **Total: 27/27 PASS**
+- Stage C: 21/21 PASS (4 new migration tests + 16 existing + Full Vertical Slice Playthrough)
+- **Total: 32/32 PASS**
 
 ---
 
@@ -251,4 +248,4 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 
 ---
 
-*Last Updated: 2026-10-23 — Technical stabilization complete: all parse errors fixed, test suite 27/27 PASS, APK 37.1MB (dev assets excluded), CombatHUD headless-compatible, SPECIAL attributes renamed for IP compliance, save migration implemented*
+*Last Updated: 2026-10-26 — Technical stabilization complete: all parse errors fixed, test suite 32/32 PASS, APK 37.1MB (dev assets excluded), CombatHUD headless-compatible, SPECIAL attributes renamed for IP compliance, save migration implemented, Full Vertical Slice Playthrough PASS*

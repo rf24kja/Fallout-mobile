@@ -1,5 +1,5 @@
 9cad1ddce9e5a63143ba340c9520626b
-::res://::1792753813
+::res://::1792818092
 ART_GENERATION_REPORT.md::TextFile::-1::1792744157::0::1::::<><><>0<>0<><>::
 editor_settings-4.tres::EditorSettings::-1::1792544607::0::1::::<><><>0<>0<><>::res://.godot/editor_settings-4.gd
 export_presets.cfg::TextFile::-1::1792753115::0::1::::<><><>0<>0<><>::
@@ -9,7 +9,8 @@ godot_test_output.log::TextFile::-1::1792654318::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D::1350096118709333394::1792544277::1792753813::1::::<><><>0<>0<>3c1a5fc1b4c8b8523f80bcad14d845ac<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
 icon_background.png::CompressedTexture2D::8771859924169045586::1792544277::1792753813::1::::<><><>0<>0<>4ddf2fc08cbdbe904c850aa193c75718<>res://.godot/imported/icon_background.png-145d687f65a7fca7c985ad78e23b77f4.ctex::
 icon_foreground.png::CompressedTexture2D::3182422382333101387::1792544277::1792753813::1::::<><><>0<>0<>152058c950327a672c7318fee990a4cb<>res://.godot/imported/icon_foreground.png-ac23a7213b7e4faad722b4821c02cd8a.ctex::
-PROJECT_STATE.md::TextFile::-1::1792762867::0::1::::<><><>0<>0<><>::
+playthrough_test.gd::GDScript::1104584145866148607::1792771298::0::1::::PlaythroughTest<>SceneTree<><>0<>0<><>::
+PROJECT_STATE.md::TextFile::-1::1792780722::0::1::::<><><>0<>0<><>::
 test_debug2.gd::GDScript::3178840918843641572::1792589526::0::1::::<>SceneTree<><>0<>0<><>::
 test_debug3.gd::GDScript::2840547507644700858::1792589606::0::1::::<>SceneTree<><>0<>0<><>::
 test_debug4.gd::GDScript::2582888097086908555::1792589753::0::1::::<>SceneTree<><>0<>0<><>::
@@ -24,9 +25,13 @@ test_load.gd::GDScript::631109379798221393::1792587704::0::1::::<>SceneTree<><>0
 test_output2.txt::TextFile::-1::1792657295::0::1::::<><><>0<>0<><>::
 test_output.txt::TextFile::-1::1792657139::0::1::::<><><>0<>0<><>::
 test_preload.gd::GDScript::3920530641871643131::1792588055::0::1::::<>SceneTree<><>0<>0<><>::
-::res://artifacts/::1792743886
+::res://artifacts/::1792780939
 ::res://artifacts/art_concepts/::1792743886
 ::res://artifacts/art_concepts/sidearm_v1/::1792743886
+::res://artifacts/qa/::1792780939
+::res://artifacts/qa/stage_e5/::1792780951
+PLAYTHROUGH_COVERAGE.md::TextFile::-1::1792780951::0::1::::<><><>0<>0<><>::
+TEST_RESULTS.md::TextFile::-1::1792780939::0::1::::<><><>0<>0<><>::
 ::res://assets/::1792618656
 ::res://assets/characters/::1792753830
 characters_index.json::JSON::-1::1792579828::0::1::::<><><>0<>0<><>::
@@ -186,7 +191,7 @@ texture_atlas.tres::TextureAtlas::-1::1792654022::0::1::::<><><>0<>0<><>::
 ::res://blender/::1792753839
 isometric_rig.blend::PackedScene::5729184093727177972::1792579170::1792753839::1::::<><><>0<>0<>5ce4408090b66478a32c1d63fae8f8a5<>res://.godot/imported/isometric_rig.blend-de1d86bf08df7463f2b5502691208ad7.scn::
 ::res://builds/::1792765935
-::res://builds/android/::1792770351
+::res://builds/android/::1792782317
 ::res://data/::1792657724
 ammo.json::JSON::-1::1792580626::0::1::::<><><>0<>0<><>::
 armor.json::JSON::-1::1792755393::0::1::::<><><>0<>0<><>::
@@ -1452,8 +1457,8 @@ character_system.gd::GDScript::1795212036720764203::1792755123::0::1::::Characte
 combat_effects.gd::GDScript::2216848488097913341::1792578384::0::1::::CombatEffects<>Node<><>0<>0<><>::
 combat_system.gd::GDScript::5218892441722751846::1792763800::0::1::::CombatSystem<>Node<><>0<>0<><>::
 cover_system.gd::GDScript::92672506892626885::1792584480::0::1::::CoverSystem<>Node2D<><>0<>0<><>::
-dialogue_manager.gd::GDScript::8541575412991356247::1792755407::0::1::::DialogueManager<>Node<><>0<>0<><>::
-dialogue_types.gd::GDScript::6213213581699593335::1792473895::0::1::::<>RefCounted<><>0<>0<><>::
+dialogue_manager.gd::GDScript::8541575412991356247::1792774512::0::1::::DialogueManager<>Node<><>0<>0<><>::
+dialogue_types.gd::GDScript::6213213581699593335::1792774455::0::1::::<>RefCounted<><>0<>0<><>::
 interactable.gd::GDScript::237277943227890270::1792471642::0::1::::Interactable<>Node<><>0<>0<><>::
 interaction.gd::GDScript::7014135600139774832::1792463116::0::1::::InteractionManager<>Node<><>0<>0<><>::
 inventory.gd::GDScript::6563181488498294269::1792755338::0::1::::Inventory<>Node<><>0<>0<><>::
@@ -1469,9 +1474,9 @@ inventory_ui.gd::GDScript::2199777088444228540::1792475483::0::1::::InventoryUI<
 quest_log.gd::GDScript::6577169378351242224::1792752786::0::1::::QuestLog<>Control<><>0<>0<><>::
 ::res://tests/::1792544343
 stage_b_regression.gd::GDScript::8989791444280481553::1792457438::0::1::::StageBRegressionTests<>SceneTree<><>0<>0<><>::
-stage_b_test_runner.gd::GDScript::6667266224878911407::1792635306::0::1::::StageBTestRunner<>Node<><>0<>0<><>::
+stage_b_test_runner.gd::GDScript::6667266224878911407::1792777047::0::1::::StageBTestRunner<>Node<><>0<>0<><>::
 stage_b_test_runner.tscn::PackedScene::-1::1792463478::0::1::::<><><>0<>0<><>::res://tests/stage_b_test_runner.gd
-stage_c_test_runner.gd::GDScript::109097189622806076::1792764215::0::1::::StageCTestRunner<>Node<><>0<>0<><>::
+stage_c_test_runner.gd::GDScript::109097189622806076::1792778411::0::1::::StageCTestRunner<>Node<><>0<>0<><>::
 ::res://tiles/::1792575771
 ::res://tiles/ground/::1792753814
 ground_01_clean.png::CompressedTexture2D::279278244002444407::1792575887::1792753813::1::::<><><>0<>0<>504767f2f7959d44700980920f855eef<>res://.godot/imported/ground_01_clean.png-cc5c3f6e36917d1bff359805c252acfb.ctex::

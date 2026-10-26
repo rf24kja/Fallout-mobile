@@ -275,6 +275,20 @@ func load_save_data(data: Dictionary) -> void:
 	if inventory:
 		inventory.load_save_data(migrated_data.get("inventory", []))
 	
+	var cs = _get_character_system()
+	if cs and cs.has_method("load_save_data"):
+		cs.load_save_data(migrated_data.get("player", player_data))
+	
+	# Sync GameManager player_data with CharacterSystem after load
+	if cs and cs.has_method("get_character_sheet"):
+		var sheet = cs.get_character_sheet()
+		if sheet and sheet.has("level"):
+			player_data.level = sheet.level
+		if sheet and sheet.has("xp"):
+			player_data.xp = sheet.xp
+		if sheet and sheet.has("xp_to_next"):
+			player_data.xp_to_next = sheet.xp_to_next
+	
 	# Do NOT recalculate derived stats on load - preserve exact saved HP/AP values.
 	# Recalculation happens on level up or when SPECIAL attributes change.
 
@@ -283,6 +297,12 @@ func add_to_inventory(item_instance: Dictionary) -> bool:
 	if inventory:
 		return inventory.add_item(item_instance)
 	return false
+
+func get_item_count(item_id: String) -> int:
+	var inventory = get_node_or_null("/root/Inventory")
+	if inventory and inventory.has_method("get_item_count"):
+		return inventory.get_item_count(item_id)
+	return 0
 
 func _on_save_requested(slot: int) -> void:
 	save_system.save_game(slot, get_save_data())
@@ -328,6 +348,10 @@ func _on_level_up(new_level: int, skill_points: int, perk_available: bool) -> vo
 
 func _on_xp_gained(amount: int, total_xp: int) -> void:
 	player_data.xp = total_xp
+	var cs = _get_character_system()
+	if cs:
+		player_data.level = cs.character_data.level
+		player_data.xp_to_next = cs.character_data.xp_to_next
 	_get_eventbus().emit("xp_gained", [amount, total_xp])
 
 func start_combat(participants: Array) -> Dictionary:

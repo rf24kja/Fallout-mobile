@@ -33,7 +33,7 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 | T3 | **Fix test_map.tscn** — add Instance refs for DialogueUI/InventoryUI | Sys Eng | InventoryUI.tscn loads in test | ✅ DONE |
 | T4 | **APK Size Audit** — exclude dev assets (FINAL_REVIEW_REV2.png, CONCEPT_APPROVAL.png, production_pistol_candidate*) | Build Eng | APK 37.1MB (was 43MB) | ✅ DONE |
 | T5 | **Verify `weapons_dev.json` excluded** from APK export | Build Eng | Excluded in export_presets.cfg | ✅ DONE |
-| T6 | **Run full Godot headless test suite** | QA | Stage B 11/11 + Stage C 20/20 = 31/31 PASS | ✅ DONE |
+| T6 | **Run full Godot headless test suite** | QA | Stage B 11/11 + Stage C 21/21 = 32/32 PASS | ✅ DONE |
 | T7 | **Fix CombatHUD** null node refs for headless tests | Sys Eng | 27/27 tests pass | ✅ DONE |
 | T8 | **SPECIAL attribute rename** for IP compliance (7 attributes) | Sys Eng | All tests pass, save migration OK | ✅ DONE |
 | T9 | **Save migration v1→v2** implementation + 4 new Stage C tests | Sys Eng | Migration tests pass, idempotent | ✅ DONE |
@@ -50,7 +50,7 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 | 21-30 | Combat FX, Called Shot UI, Cover System | ✅ DONE | Integrated with CombatSystem |
 | 31-40 | Quest System (3 branching quests), Mobile Combat UX (CombatHUD) | ✅ DONE | Autoloads registered |
 | 41-45 | Character Visual (Paperdoll), Player Integration | ✅ DONE | Layered equipment system |
-| 46-50 | CI & Testing: Stage B 11/11, Stage C 20/20, Android Debug APK 37.1MB | ✅ DONE | All 31 tests pass |
+| 46-50 | CI & Testing: Stage B 11/11, Stage C 21/21, Android Debug APK 37.1MB | ✅ DONE | All 32 tests pass |
 | 51 | CombatUI script attachment fix | ✅ DONE | Removed return type hints |
 | 52 | SPECIAL rename for IP compliance | ✅ DONE | 7 attributes renamed, 10 files updated |
 | 53 | Save migration v1→v2 + 4 new regression tests | ✅ DONE | All migration scenarios covered |
@@ -72,7 +72,7 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 
 - [x] **CONCEPT_APPROVAL.png** concept phase documented, pending API credits
 - [x] **Zero Godot parse errors** (`godot --headless --check-only` passes)
-- [x] **All 31 Godot headless tests pass** (Stage B 11/11 + Stage C 20/20)
+- [x] **All 32 Godot headless tests pass** (Stage B 11/11 + Stage C 21/21)
 - [x] **APK size audit complete** — dev assets excluded, 37.1MB
 - [x] **InventoryUI scene** accessible in test environment
 - [x] **Git commit** with updated PROJECT_STATE.md
@@ -108,7 +108,7 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 
 ---
 
-*Document Version: 3.0*  
-*Date: 2026-10-22*  
+*Document Version: 3.1*  
+*Date: 2026-10-26*  
 *Author: Technical Director*  
-*Status: Gameplay Systems ✅ COMPLETE — Art Pipeline 🔄 CONCEPT PHASE — Technical Stabilization 🔄 IN PROGRESS*
+*Status: Gameplay Systems ✅ COMPLETE — Art Pipeline 🔄 CONCEPT PHASE (32/32 tests PASS) — Technical Stabilization ✅ COMPLETE*

@@ -450,6 +450,20 @@ func load_save_data(data: Dictionary) -> void:
 	character_data = data
 	# Do not recalculate derived stats here: saved max_hp/max_ap include level-up
 	# bonuses that the plain formula would wipe out.
+	
+	# Ensure all required fields exist (for v1 migration compatibility)
+	if not character_data.has("tag_skills"):
+		character_data.tag_skills = []
+	if not character_data.has("unspent_skill_points"):
+		character_data.unspent_skill_points = 0
+	if not character_data.has("unspent_perk_points"):
+		character_data.unspent_perk_points = 0
 	if not character_data.has("skill_bonus"):
 		character_data.skill_bonus = {}
+	if not character_data.has("perks"):
+		character_data.perks = []
+	if not character_data.has("available_perks"):
+		character_data.available_perks = []
+	if not character_data.has("skills"):
+		character_data.skills = {}
 	_update_available_perks()

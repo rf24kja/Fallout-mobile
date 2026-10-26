@@ -86,7 +86,7 @@ func _on_combat_started(combat_data: Dictionary) -> void:
 	show()
 	_refresh_all()
 
-func _on_combat_ended(victor: String) -> void:
+func _on_combat_ended(victor: String, rewards: Dictionary = {}) -> void:
 	hide()
 
 func _on_turn_started(actor_id: String, ap: int) -> void:
@@ -97,11 +97,16 @@ func _on_turn_started(actor_id: String, ap: int) -> void:
 	_refresh_actions()
 	
 	var is_player = (actor_id == "player")
-	end_turn_btn.disabled = not is_player
-	called_shot_btn.disabled = not is_player
-	reload_btn.disabled = not is_player
-	defend_btn.disabled = not is_player
-	use_item_btn.disabled = not is_player
+	if end_turn_btn:
+		end_turn_btn.disabled = not is_player
+	if called_shot_btn:
+		called_shot_btn.disabled = not is_player
+	if reload_btn:
+		reload_btn.disabled = not is_player
+	if defend_btn:
+		defend_btn.disabled = not is_player
+	if use_item_btn:
+		use_item_btn.disabled = not is_player
 
 func _on_stats_changed(character_id: String, stats: Dictionary) -> void:
 	if character_id == _current_actor_id or character_id == "player":
