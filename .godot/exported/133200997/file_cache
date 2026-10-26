@@ -47,3 +47,4 @@ res://assets/weapons/sniper_rifle/sniper_rifle_sprite_frames.tres::70bda283b4b83
 res://assets/weapons/vibro_blade/vibro_blade_sprite_frames.tres::d1f02ddb870f2633ef90511bc3423f6f::1792654022::res://.godot/exported/133200997/export-a7f3d6b4e51263efed928c6da3c67a96-vibro_blade_sprite_frames.res
 res://scenes/ui/combat_hud.tscn::425c58c2240c9b92297dcf7d60f65dfc::1792654022::res://.godot/exported/133200997/export-2f9a9c541b3b40ca0a95c6f815a5310b-combat_hud.scn
 res://scenes/ui/quest_log.tscn::c95407e36e0ccf202f01d9341997e230::1792654022::res://.godot/exported/133200997/export-d84a906b4f04a0e3c841df37090ab4f6-quest_log.scn
+res://tests/stage_c_test_runner.tscn::d87df5c686ab020068464ac03ca72c1c::1792992416::res://.godot/exported/133200997/export-e985d5fd0637b5d16cbaf33ce0716247-stage_c_test_runner.scn

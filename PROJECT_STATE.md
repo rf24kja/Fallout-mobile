@@ -17,7 +17,7 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 | Android SDK | OK | Platform 36, Build-Tools 36.0.0, NDK 25.1 |
 | Debug APK | OK | `builds/fallout2_reborn_debug.apk` (37.1MB, rebuilt 2026-10-23) |
 | Release APK | PENDING | Not built yet |
-| Package ID | OK | `asia.go24.wastelandprototype` (Godot: `com.example.wastelandrpgprototype`) |
+| Package ID | OK | `com.example.wastelandrpgprototype` (Godot export preset: `asia.go24.wastelandprototype`) |
 | App Label | OK | "Wasteland RPG Prototype" |
 | Keystore (Debug) | OK | `keystore/debug.keystore` |
 | Keystore (Release) | OK | `keystore/release_jks.keystore` (JKS, alias=release) |
@@ -248,4 +248,27 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 
 ---
 
-*Last Updated: 2026-10-26 — Technical stabilization complete: all parse errors fixed, test suite 32/32 PASS, APK 37.1MB (dev assets excluded), CombatHUD headless-compatible, SPECIAL attributes renamed for IP compliance, save migration implemented, Full Vertical Slice Playthrough PASS*
+## Android Runtime QA — Stage E.7 (2026-10-26)
+
+| Component | Status | Details |
+|-----------|--------|---------|
+| x86_64 Export Template | OK | Custom-built `libgodot_android.so` (73 MB) from Godot 4.7.2 source |
+| x86_64 APK Build | OK | `game_x86_64_debug_optimized.apk` (37.1 MB), only x86_64 libs |
+| ADB Install | OK | Success on emulator-5554 (x86_64) |
+| App Launch | OK | Godot initializes cleanly, no CRASH/FATAL |
+| Automated Tests (Device) | OK | 32/32 PASS (Stage B 11/11 + Stage C 21/21) |
+| Interactive Gameplay | BLOCKED | Shader uniform limit exceeded on emulator GLES3 |
+| Touch Input | BLOCKED | No visual feedback, UI not rendering |
+| Screenshots Captured | OK | 13 screenshots in `artifacts/qa/android_runtime/stage_e7/screenshots/` |
+| Package ID | MISMATCH | Running: `com.example.wastelandrpgprototype`, Preset: `asia.go24.wastelandprototype` |
+
+**Key Blocker**: GLES3 `GL_MAX_FRAGMENT_UNIFORM_VECTORS = 261` exceeded by Godot shaders (CanvasShader + SceneShader). UI rendering fails on emulator SwiftShader. Physical ARM64 device required for valid UX testing.
+
+**Artifacts**:
+- `artifacts/qa/android_runtime/stage_e7/INTERACTIVE_TEST_RESULTS.md`
+- `artifacts/qa/android_runtime/stage_e7/MOBILE_UX_ISSUES.md`
+- `artifacts/qa/android_runtime/stage_e7/PACKAGE_ID_AUDIT.md`
+
+---
+
+*Last Updated: 2026-10-26 — Technical stabilization complete: all parse errors fixed, test suite 32/32 PASS, APK 37.1MB (dev assets excluded), CombatHUD headless-compatible, SPECIAL attributes renamed for IP compliance, save migration implemented, Full Vertical Slice Playthrough PASS, Android x86_64 runtime QA complete (interactive blocked by shader limits)*
