@@ -16,6 +16,7 @@ config/name="Wasteland RPG Prototype"
 run/main_scene="res://scenes/world/test_map.tscn"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.png"
+application/identifier="asia.go24.wastelandprototype"
 
 [autoload]
 
@@ -30,6 +31,8 @@ CombatSystem="res://scripts/systems/combat_system.gd"
 CharacterSystem="res://scripts/systems/character_system.gd"
 CoverSystem="res://scripts/systems/cover_system.gd"
 Constants="res://scripts/core/constants.gd"
+StageBTestRunner="res://tests/stage_b_test_runner.gd"
+StageCTestRunner="res://tests/stage_c_test_runner.gd"
 QuestManager="res://scripts/quest_manager.gd"
 CombatHUD="res://scripts/ui/combat_hud.gd"
 
@@ -38,6 +41,7 @@ CombatHUD="res://scripts/ui/combat_hud.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+window/handheld/orientation="landscape"
 
 [inputdevices]
 
@@ -46,11 +50,7 @@ pointing/emulate_touch_from_mouse=false
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 2d/default_canvas_item_texture_filter="nearest"
 2d/default_canvas_item_texture_repeat="disabled"
-
-[run]
-
-main_scene="res://scenes/world/test_map.tscn"

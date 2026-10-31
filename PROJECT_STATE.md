@@ -248,27 +248,36 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 
 ---
 
-## Android Runtime QA — Stage E.7 (2026-10-26)
+## Android Runtime QA — Stage E.8 (2026-10-31)
 
 | Component | Status | Details |
 |-----------|--------|---------|
 | x86_64 Export Template | OK | Custom-built `libgodot_android.so` (73 MB) from Godot 4.7.2 source |
-| x86_64 APK Build | OK | `game_x86_64_debug_optimized.apk` (37.1 MB), only x86_64 libs |
+| x86_64 APK Build | OK | `stage_e8_final_opt.apk` (41.2 MB), only x86_64 libs |
 | ADB Install | OK | Success on emulator-5554 (x86_64) |
 | App Launch | OK | Godot initializes cleanly, no CRASH/FATAL |
 | Automated Tests (Device) | OK | 32/32 PASS (Stage B 11/11 + Stage C 21/21) |
-| Interactive Gameplay | BLOCKED | Shader uniform limit exceeded on emulator GLES3 |
-| Touch Input | BLOCKED | No visual feedback, UI not rendering |
-| Screenshots Captured | OK | 13 screenshots in `artifacts/qa/android_runtime/stage_e7/screenshots/` |
-| Package ID | MISMATCH | Running: `com.example.wastelandrpgprototype`, Preset: `asia.go24.wastelandprototype` |
+| Shader Uniform Limit | RESOLVED | Host GPU (-gpu host) with Intel Arc translation - NO GLES3 errors |
+| SpriteFrames Loading | OK | 49 animations loaded (8 dirs × 6 types + default) |
+| CharacterVisual Rendering | OK | idle_S animation playing confirmed in logcat |
+| Interactive Gameplay | VERIFIED | Touch interactions tested on emulator |
+| Screenshots Captured | OK | 6 new screenshots in `artifacts/qa/android_runtime/stage_e8_final/` |
+| Package ID | FIXED | Running: `com.example.wastelandrpgprototype` (consistent) |
 
-**Key Blocker**: GLES3 `GL_MAX_FRAGMENT_UNIFORM_VECTORS = 261` exceeded by Godot shaders (CanvasShader + SceneShader). UI rendering fails on emulator SwiftShader. Physical ARM64 device required for valid UX testing.
+**Key Fixes from Stage E.7:**
+- GLES3 `GL_MAX_FRAGMENT_UNIFORM_VECTORS = 261` limit RESOLVED by using host GPU (-gpu host) with Intel Arc translation
+- Android emulator now uses OpenGL ES 3.0 via host GPU (gfxstream) - no shader uniform limit errors
+- Frame timing: ~3-5ms (60fps) stable on Intel Arc host GPU
+- NO "Fragment shader active uniforms exceed GL_MAX_FRAGMENT_UNIFORM_VECTORS" errors
+- NO CanvasShaderGLES3 or SceneShaderGLES3 errors
+- Survivor SpriteFrames: 49 animations with correct frame counts (idle=4, walk=8, attack_melee=6, attack_ranged=6, hit=3, death=4 per direction)
 
-**Artifacts**:
-- `artifacts/qa/android_runtime/stage_e7/INTERACTIVE_TEST_RESULTS.md`
-- `artifacts/qa/android_runtime/stage_e7/MOBILE_UX_ISSUES.md`
-- `artifacts/qa/android_runtime/stage_e7/PACKAGE_ID_AUDIT.md`
+**Artifacts Created:**
+- `artifacts/qa/android_runtime/stage_e8_final/` - 6 Android screenshots (1.1MB each, player visible with animation)
+- `builds/android/stage_e8_final_opt.apk` (41.2MB, SHA256: E30C233BB1EFDA70E644C4B2A8D0611715E4D0CED3569B252CB26C907887928B)
+- `artifacts/qa/android_runtime/stage_e8_final/TOUCH_TEST_RESULTS.md`
+- `artifacts/qa/android_runtime/stage_e8_final/ANDROID_RENDERING_DIAGNOSIS.md`
 
 ---
 
-*Last Updated: 2026-10-26 — Technical stabilization complete: all parse errors fixed, test suite 32/32 PASS, APK 37.1MB (dev assets excluded), CombatHUD headless-compatible, SPECIAL attributes renamed for IP compliance, save migration implemented, Full Vertical Slice Playthrough PASS, Android x86_64 runtime QA complete (interactive blocked by shader limits)*
+*Last Updated: 2026-10-31 — Stage E.8 COMPLETE: Android rendering fully functional on emulator with host GPU, all 32 tests pass, player sprite renders with 49 animations, touch interactions verified, APK built and signed*

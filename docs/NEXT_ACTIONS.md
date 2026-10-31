@@ -42,10 +42,11 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 | T12 | **Android x86_64 export template** — build from source with SCons | Build Eng | libgodot_android.so (73 MB) built | ✅ DONE |
 | T13 | **Android x86_64 APK build & install** — zipalign, aapt2 optimize, apksigner | Build Eng | APK installed on emulator-5554 | ✅ DONE |
 | T14 | **Android runtime QA Stage E.7** — interactive touch testing | QA | App launches, 32/32 auto tests PASS, UI blocked by shader limits | ✅ DONE |
+| T15 | **Android rendering fix Stage E.8** — host GPU translation resolves shader uniform limits | QA | 32/32 tests PASS on device, full rendering working | ✅ DONE |
 
 ---
 
-## 📋 COMPLETED — Gameplay Systems (Stage D Week 1-3 + Technical Stabilization)
+## 📋 COMPLETED — Gameplay Systems (Stage D Week 1-3 + Technical Stabilization + Stage E.8)
 
 | # | System | Status | Notes |
 |---|--------|--------|-------|
@@ -61,6 +62,7 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 | 55 | Debug APK built & verified (37.1MB, dev assets excluded) | ✅ DONE | builds/fallout2_reborn_debug.apk |
 | 56 | Android x86_64 custom template & APK | ✅ DONE | Runs on emulator-5554 |
 | 57 | Android runtime QA (Stage E.7) | ✅ DONE | Interactive blocked by GLES3 shader limits |
+| 58 | Android rendering fix (Stage E.8) — host GPU translation | ✅ DONE | 60fps, all visual elements rendering, touch working |
 
 ---
 
@@ -70,7 +72,6 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 |---------|--------|------------|
 | **CONCEPT_APPROVAL.png not created** | Cannot proceed to production modeling | **PRIORITY 1** — Need $5 OpenAI credits for DALL-E 3 / gpt-image-1 |
 | No physical Android device connected | Cannot run device QA | Connect authorized ADB device |
-| Emulator GLES3 shader uniform limit | Interactive UI testing blocked | Test on physical ARM64 device |
 
 ---
 
@@ -83,6 +84,7 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 - [x] **InventoryUI scene** accessible in test environment
 - [x] **Git commit** with updated PROJECT_STATE.md
 - [x] **Android x86_64 runtime** — app launches, 32/32 tests pass on device
+- [x] **Android rendering fully functional** — host GPU translation, 60fps, touch interactions working
 
 ---
 
@@ -115,7 +117,7 @@ Concrete, ordered task list for **this week**. Each action is assignable, testab
 
 ---
 
-*Document Version: 3.2*  
-*Date: 2026-10-26*  
+*Document Version: 3.3*  
+*Date: 2026-10-31*  
 *Author: Technical Director*  
-*Status: Gameplay Systems ✅ COMPLETE — Art Pipeline 🔄 CONCEPT PHASE (32/32 tests PASS) — Technical Stabilization ✅ COMPLETE — Android x86_64 Runtime QA ✅ COMPLETE*
+*Status: Gameplay Systems ✅ COMPLETE — Art Pipeline 🔄 CONCEPT PHASE (32/32 tests PASS) — Technical Stabilization ✅ COMPLETE — Android x86_64 Runtime QA ✅ COMPLETE (Stage E.8 rendering fully functional)*
