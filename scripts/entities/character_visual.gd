@@ -53,6 +53,7 @@ var _anim_dir: String = "S"
 var _current_anim: String = "idle"
 
 func _ready() -> void:
+	print("CharacterVisual: _ready() called")
 	_setup_nodes()
 	_load_base_character()
 
@@ -109,24 +110,33 @@ func _setup_nodes() -> void:
 		add_child(weapon_sprite)
 
 func _load_base_character() -> void:
+	print("CharacterVisual: _load_base_character() called")
 	var sprite_frames_path = "res://assets/characters/" + character_type + "_sprite_frames.tres"
+	print("CharacterVisual: Loading from path: ", sprite_frames_path)
 	var sprite_frames = load(sprite_frames_path)
+	print("CharacterVisual: load() result: ", sprite_frames)
 	
 	if sprite_frames:
+		print("CharacterVisual: SpriteFrames loaded successfully, has ", sprite_frames.get_animation_names().size(), " animations")
+		print("CharacterVisual: Animation list: ", sprite_frames.get_animation_names())
 		base_sprite.sprite_frames = sprite_frames
 		# Play directional idle animation
 		var anim_name = "idle_" + _anim_dir
+		print("CharacterVisual: Trying to play animation: ", anim_name)
 		if base_sprite.sprite_frames.has_animation(anim_name):
 			base_sprite.play(anim_name)
 			base_sprite.animation = anim_name
+			print("CharacterVisual: Playing animation: ", anim_name)
 		elif base_sprite.sprite_frames.has_animation("idle"):
 			base_sprite.play("idle")
 			base_sprite.animation = "idle"
+			print("CharacterVisual: Playing fallback idle animation")
 		# Sync shadow - get current frame texture from animated sprite
 		if shadow_sprite and base_sprite.sprite_frames and base_sprite.animation != "":
 			var frame_texture = base_sprite.sprite_frames.get_frame_texture(base_sprite.animation, base_sprite.frame)
 			if frame_texture:
 				shadow_sprite.texture = frame_texture
+				print("CharacterVisual: Shadow texture set")
 	else:
 		print("CharacterVisual: Failed to load base character: ", character_type)
 		print("Tried path: ", sprite_frames_path)

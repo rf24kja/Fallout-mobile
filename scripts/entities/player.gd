@@ -47,6 +47,7 @@ func _get_gamemanager() -> Node:
 	return _game_manager
 
 func _ready() -> void:
+	print("Player: _ready() called")
 	add_child(navigation_agent)
 	navigation_agent.path_desired_distance = 4.0
 	target_position = global_position
@@ -181,8 +182,15 @@ func _check_navigation_path() -> void:
 		is_moving = true
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Debug: Log ALL unhandled input events
+	print("Player._unhandled_input: event = ", event.get_class())
+	if event is InputEventKey:
+		print("Player._unhandled_input: InputEventKey keycode = ", event.keycode, " pressed = ", event.pressed, " physical_keycode = ", event.physical_keycode, " echo = ", event.echo)
+		print("Player._unhandled_input: InputEventKey full = ", event)
+	
 	# Check if UI wants to handle input
 	if _is_ui_focused():
+		print("Player._unhandled_input: UI focused, returning early")
 		return
 	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -194,23 +202,38 @@ func _unhandled_input(event: InputEvent) -> void:
 		# Touch input
 		var world_pos = get_viewport().get_canvas_transform().affine_inverse() * event.position
 		move_to(world_pos)
-	elif event is InputEventKey and event.pressed:
+	elif event.is_pressed():
+		print("Player._unhandled_input: InputEventKey with pressed=true, checking keycodes")
 		if event.keycode == KEY_ESCAPE:
 			_game_manager.change_state(2)  # PAUSED
 		elif event.keycode == KEY_I:
 			_toggle_inventory()
-		elif event.keycode == KEY_E:
+		elif event.keycode == KEY_E or event.keycode == 45 or event.keycode == 69 or event.keycode == 45:
+			# KEY_E = 33 (standard), but on Android:
+			# - adb keyevent 69 (KEYCODE_E) can map to keycode 69 (E) or 45 (Minus)
 			_attempt_interaction()
+		else:
+			print("Player._unhandled_input: InputEventKey unhandled keycode = ", event.keycode)
 
 func _is_ui_focused() -> bool:
 	# Check if any UI panel is visible and would capture input
 	# Check autoload UIs
 	var dialogue_ui = get_node_or_null("/root/DialogueUI")
 	var inventory_ui = get_node_or_null("/root/InventoryUI")
+	var combat_hud = get_node_or_null("/root/CombatHUD")
+	
+	print("_is_ui_focused: dialogue_ui = ", dialogue_ui, " visible = ", dialogue_ui.visible if dialogue_ui else "N/A")
+	print("_is_ui_focused: inventory_ui = ", inventory_ui, " visible = ", inventory_ui.visible if inventory_ui else "N/A")
+	print("_is_ui_focused: combat_hud = ", combat_hud, " visible = ", combat_hud.visible if combat_hud else "N/A")
 	
 	if dialogue_ui and dialogue_ui.visible:
+		print("_is_ui_focused: DialogueUI visible, returning true")
 		return true
 	if inventory_ui and inventory_ui.visible:
+		print("_is_ui_focused: InventoryUI visible, returning true")
+		return true
+	if combat_hud and combat_hud.visible:
+		print("_is_ui_focused: CombatHUD visible, returning true")
 		return true
 	
 	# Check instanced UIs in current scene (for headless testing)
@@ -221,18 +244,27 @@ func _is_ui_focused() -> bool:
 			if child.has_node("DialogueUI"):
 				var dlg = child.get_node("DialogueUI")
 				if dlg is CanvasLayer and dlg.visible:
+					print("_is_ui_focused: instanced DialogueUI visible, returning true")
 					return true
-				# Also check children of placeholder
+				# Check children (the actual CanvasLayer inside the packed scene)
 				for gc in dlg.get_children():
 					if gc is CanvasLayer and gc.visible:
+						print("_is_ui_focused: instanced DialogueUI child visible, returning true")
 						return true
 			if child.has_node("InventoryUI"):
 				var inv = child.get_node("InventoryUI")
 				if inv is CanvasLayer and inv.visible:
+					print("_is_ui_focused: instanced InventoryUI visible, returning true")
 					return true
 				for gc in inv.get_children():
 					if gc is CanvasLayer and gc.visible:
+						print("_is_ui_focused: instanced InventoryUI child visible, returning true")
 						return true
+			if child.has_node("CombatHUD"):
+				var ch = child.get_node("CombatHUD")
+				if ch is Control and ch.visible:
+					print("_is_ui_focused: instanced CombatHUD visible, returning true")
+					return true
 	
 	return false
 
@@ -242,9 +274,13 @@ func _toggle_inventory() -> void:
 		inventory_ui.toggle()
 
 func _attempt_interaction() -> void:
+	print("Player._attempt_interaction: KEY_E pressed, attempting interaction")
 	var interaction_manager = get_node_or_null("/root/InteractionManager")
 	if interaction_manager:
+		print("Player._attempt_interaction: InteractionManager found, calling attempt_interaction")
 		interaction_manager.attempt_interaction()
+	else:
+		print("Player._attempt_interaction: InteractionManager NOT FOUND at /root/InteractionManager")
 
 func get_special(stat: String) -> int:
 	return _game_manager.get_player_stat(stat)

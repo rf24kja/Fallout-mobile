@@ -16,9 +16,13 @@ var is_active: bool = true
 var _interaction_manager
 
 func _ready() -> void:
+	print("Interactable._ready: name = ", name, " parent = ", get_parent().name if get_parent() else "none", " path = ", get_path())
 	_interaction_manager = get_node_or_null("/root/InteractionManager")
 	if _interaction_manager:
+		print("Interactable: registering with InteractionManager")
 		_interaction_manager.register_interactable(self)
+	else:
+		print("Interactable: FAILED to get InteractionManager at /root/InteractionManager")
 
 func _exit_tree() -> void:
 	if _interaction_manager:
@@ -73,17 +77,31 @@ func can_interact(interactor: Node) -> bool:
 	return true
 
 func _check_line_of_sight(interactor: Node) -> bool:
+	print("Interactable._check_line_of_sight: START")
 	# Handle zero distance case
 	var interactor_pos = interactor.global_position
 	var interactable_pos = _get_global_position()
+	print("Interactable._check_line_of_sight: interactable_pos=", interactable_pos, " interactor_pos=", interactor_pos)
 	if interactor_pos.distance_to(interactable_pos) < 1.0:
+		print("Interactable._check_line_of_sight: distance < 1.0, returning true")
 		return true
 	
+	# Offset raycast start slightly towards target to avoid starting inside own collision shape
+	var direction = (interactor_pos - interactable_pos).normalized()
+	var ray_start = interactable_pos + direction * 5.0  # Start 5px away from center
+	
 	var space_state = _get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(interactable_pos, interactor_pos)
+	if not space_state:
+		print("Interactable._check_line_of_sight: NO space_state!")
+		return false
+	print("Interactable._check_line_of_sight: space_state OK")
+	
+	var query = PhysicsRayQueryParameters2D.create(ray_start, interactor_pos)
 	query.collision_mask = 1
 	query.exclude = [_get_rid(), interactor.get_rid()]
+	print("Interactable._check_line_of_sight: query from=", ray_start, " to=", interactor_pos, " exclude=", query.exclude)
 	var result = space_state.intersect_ray(query)
+	print("Interactable._check_line_of_sight: result=", result, " hit=", not result.is_empty())
 	return result.is_empty()
 
 func interact(interactor: Node) -> bool:

@@ -121,3 +121,9 @@ func quick_load():
 func has_quick_save() -> bool:
 	var file_path = SAVE_DIR + "slot_0" + SAVE_EXTENSION
 	return FileAccess.file_exists(file_path)
+
+func has_save(slot: int) -> bool:
+	if slot < 0 or slot >= MAX_SLOTS:
+		return false
+	var file_path = SAVE_DIR + "slot_" + str(slot) + SAVE_EXTENSION
+	return FileAccess.file_exists(file_path)

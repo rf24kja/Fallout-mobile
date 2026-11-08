@@ -22,7 +22,7 @@ var _event_bus
 var _has_spoken: bool = false
 
 func _ready() -> void:
-	print("NPC _ready: name = ", name)
+	print("NPC _ready: name = ", name, " path = ", get_path())
 	# Use call_deferred to ensure autoloads are ready
 	call_deferred("_init_npc")
 	
@@ -53,6 +53,7 @@ func _ready() -> void:
 func _init_npc() -> void:
 	_game_manager = get_node_or_null("/root/GameManager")
 	_event_bus = get_node_or_null("/root/EventBus")
+	print("NPC: _init_npc called, _game_manager = ", _game_manager, " _event_bus = ", _event_bus)
 
 func _on_interaction_started(interactor: Node) -> void:
 	print("NPC: _on_interaction_started CALLED! dialogue_id = ", dialogue_id)

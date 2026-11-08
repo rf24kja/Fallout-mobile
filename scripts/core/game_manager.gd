@@ -104,7 +104,7 @@ func _load_default_state() -> void:
 			"weapon": null,
 			"armor": null
 		},
-		"position": Vector2(0, 0)
+		"position": Vector2(200, 200)
 	}
 	world_state = {}
 	quest_flags = {}
@@ -314,7 +314,48 @@ func _on_load_requested(slot: int) -> void:
 		_get_eventbus().emit("scene_change_requested", ["res://scenes/world/" + current_map + ".tscn"])
 
 func _on_scene_change_requested(scene_path: String) -> void:
+	print("GameManager: changing scene to ", scene_path)
 	get_tree().change_scene_to_file(scene_path)
+	# Debug: print scene tree after change - wait for scene to be instantiated
+	await get_tree().create_timer(0.2).timeout
+	_debug_scene_tree()
+
+func _debug_scene_tree() -> void:
+	var root = get_tree().get_root()
+	print("GameManager: Scene tree root children:")
+	for i in range(root.get_child_count()):
+		var child = root.get_child(i)
+		print("  Child ", i, ": ", child.name, " (", child.get_class(), ") path=", child.get_path())
+		# Print ALL descendants recursively
+		_debug_print_tree(child, "    ")
+
+func _debug_print_tree(node: Node, indent: String) -> void:
+	for j in range(node.get_child_count()):
+		var child = node.get_child(j)
+		print(indent, "Child ", j, ": ", child.name, " (", child.get_class(), ") path=", child.get_path())
+		if child.name == "TestNPC" or child.name.contains("NPC"):
+			print(indent, "  ^^^ FOUND NPC! ^^^")
+			print(indent, "  NPC script = ", child.get_script())
+			if child.has_method("_ready"):
+				print(indent, "  NPC HAS _ready method")
+			else:
+				print(indent, "  NPC MISSING _ready method!")
+			# Check Interactable child
+			for k in range(child.get_child_count()):
+				var greatgrand = child.get_child(k)
+				print(indent, "  NPC child ", k, ": ", greatgrand.name, " (", greatgrand.get_class(), ")")
+				if greatgrand.name == "Interactable":
+					print(indent, "    ^^^ FOUND INTERACTABLE! ^^^")
+					print(indent, "    Interactable script = ", greatgrand.get_script())
+					if greatgrand.has_method("_ready"):
+						print(indent, "    Interactable HAS _ready method")
+					else:
+						print(indent, "    Interactable MISSING _ready method!")
+		if child.name == "Player":
+			print(indent, "  ^^^ FOUND PLAYER! ^^^")
+			print(indent, "  Player script = ", child.get_script())
+		# Recurse
+		_debug_print_tree(child, indent + "  ")
 
 func _on_combat_started(combat_data: Dictionary) -> void:
 	change_state(4)  # COMBAT state

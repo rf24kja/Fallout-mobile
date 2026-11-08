@@ -1,0 +1,20 @@
+[gd_scene load_steps=1 format=3]
+
+[node name="MinimalTest" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+color = Color(0.1, 0.15, 0.1, 1)
+size = Vector2(1280, 720)
+
+[node name="TestLabel" type="Label" parent="."]
+position = Vector2(640, 360)
+text = "MINIMAL TEST - RENDERING WORKS"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 48
+modulate = Color(1, 1, 0, 1)
+
+[node name="TestColorRect" type="ColorRect" parent="."]
+position = Vector2(540, 450)
+size = Vector2(200, 100)
+color = Color(1, 0, 0, 1)
