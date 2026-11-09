@@ -1,0 +1,26 @@
+name: RADZONE Wave08 candidate QA
+on:
+  push:
+    branches:
+      - 'art/radzone-wave08-medical-bottles'
+    paths:
+      - 'art/production/painterly_v4/wave08/**'
+      - '.github/workflows/radzone_wave08_qa.yml'
+  pull_request:
+    paths:
+      - 'art/production/painterly_v4/wave08/**'
+      - '.github/workflows/radzone_wave08_qa.yml'
+  workflow_dispatch:
+jobs:
+  art-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Semantic duplicate gate
+        run: python tools/art_check_duplicates.py art/production/painterly_v4/wave08/manifest.json
+      - name: Visual duplicate gate
+        run: python tools/art_visual_duplicate_gate.py art/production/painterly_v4/wave08/manifest.json
