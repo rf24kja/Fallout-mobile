@@ -6,11 +6,15 @@
 
 ## P0 — Project Integrity & Recovery (Immediate)
 
-| ID | Task | Description | Blocked By |
-|----|------|-------------|------------|
-| P0-1 | **Validate GitHub Recovery** | Clone repo to fresh dir → run RECOVERY_GUIDE checks → document results | None |
-| P0-2 | **Configure Release Keystore** | Generate local release.keystore → update export_presets.cfg (local) → build Release APK | P0-1 |
-| P0-3 | **Verify Release APK** | `apksigner verify` → install on device → test runtime | P0-2 |
+| ID | Task | Description | Blocked By | Status |
+|----|------|-------------|------------|--------|
+| P0-1 | **Validate GitHub Recovery** | Clone repo to fresh dir → run RECOVERY_GUIDE checks → document results | None | ✅ **COMPLETE** |
+| P0-2 | **Configure Release Keystore** | Generate local release.keystore → update export_presets.cfg (local) → build Release APK | P0-1 | 🔄 Next |
+| P0-3 | **Verify Release APK** | `apksigner verify` → install on device → test runtime | P0-2 | ⏳ |
+
+---
+
+**Recovery Test Result (2026-11-09)**: ✅ Fresh clone at `C:\Code\Fallout2_Reborn_Mobile_RecoveryTest` opened in Godot 4.7.2 without parse errors. Main menu loads, ItemDatabase initializes, DialogueManager connects to EventBus. Only expected runtime warning: "InteractionManager: player not found" (scene not loaded in headless check).
 
 ---
 
@@ -63,20 +67,20 @@
 
 ## Current Sprint Focus (Week of 2026-11-09)
 
-### Primary Goal: **Recovery Validation + Release Build**
+### Primary Goal: **Release Build + Fidelity Verification**
 
 ```
-[ ] P0-1: Clone recovery test (30 min)
+[✅] P0-1: Clone recovery test (COMPLETE - 2026-11-09)
 [ ] P0-2: Release keystore generation (15 min)
 [ ] P0-3: Release APK build + verify (30 min)
 [ ] P1-1: Update FIDELITY_MATRIX with current REA evidence (2 hrs)
 ```
 
 ### Success Criteria for This Sprint
-- Fresh clone builds and runs without manual intervention
-- Release APK installs and passes `apksigner verify`
-- FIDELITY_MATRIX documents all P0 system verifications
-- All documentation pushed to GitHub
+- ✅ Fresh clone builds and runs without manual intervention
+- [ ] Release APK installs and passes `apksigner verify`
+- [ ] FIDELITY_MATRIX documents all P0 system verifications
+- [ ] All documentation pushed to GitHub
 
 ---
 

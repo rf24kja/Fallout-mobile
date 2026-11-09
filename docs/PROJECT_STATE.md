@@ -1,7 +1,7 @@
 # PROJECT STATE — Fallout 2 Reborn Mobile
 
 **Last Updated**: 2026-11-09
-**Git Commit**: `16a893b` (chore: initial baseline commit for GitHub publication)
+**Git Commit**: `194b0d3` (fix(ui): remove duplicate code block from main_menu.gd _ready)
 **Git Branch**: `master` (local) / `main` (remote)
 **GitHub Remote**: ✅ Connected — https://github.com/rf24kja/Fallout-mobile
 
@@ -12,6 +12,8 @@
 ### ✅ GitHub Synchronization
 - [x] Repository connected: `origin` → https://github.com/rf24kja/Fallout-mobile.git
 - [x] Initial baseline pushed (commit `16a893b`)
+- [x] Documentation committed (commit `4207592`)
+- [x] Main menu parse errors fixed (commits `2b27163`, `1f9e601`, `9c20e1e`, `194b0d3`)
 - [x] Remote verified — files visible on GitHub
 - [x] `.gitignore` configured for Godot project
 - [x] Security scan passed — no secrets in working files or history
@@ -42,6 +44,7 @@
 - [x] Touch controls: movement, combat, UI interaction
 - [x] Main menu → gameplay transition works
 - [x] Godot 4.7.2 project opens without errors
+- [x] **Recovery validation passed** — fresh clone opens in Godot without parse errors
 
 ### ✅ Documentation (Current)
 - [x] `README.md` — Project overview and quick start
@@ -56,12 +59,13 @@
 ## Current Working Build
 
 **Latest Verified APK**: `builds/android/Fallout2_Reborn_Mobile_Debug.apk`
-- **Commit**: `16a893b`
+- **Commit**: `16a893b` (APK) / `194b0d3` (source fix)
 - **Size**: ~50-100MB
 - **Architecture**: ARM64 + x86_64 (fat APK)
 - **Signature**: Android Debug (CN=Android Debug, O=Android, C=US)
 - **Verified**: `apksigner verify --print-certs` passes
 - **Runtime**: Main menu → tap → gameplay functional
+- **Recovery Test**: ✅ Fresh clone `C:\Code\Fallout2_Reborn_Mobile_RecoveryTest` opens in Godot 4.7.2 without parse errors
 
 ---
 
@@ -72,7 +76,6 @@
 | P0 | Release keystore not configured | Local only — documented in RECOVERY_GUIDE |
 | P1 | `FALLOUT2_FIDELITY_MATRIX.md` needs current verification data | Pending update |
 | P1 | `DEVELOPMENT_HISTORY.md` needs milestone log | Pending update |
-| P2 | `PROJECT_STATE.md` and `NEXT_ACTIONS.md` need sync | This update |
 | P2 | Quest system — partial implementation | In progress |
 | P2 | World map locations — partial | In progress |
 | P3 | Production graphics assets — placeholders | Planned |
@@ -83,7 +86,12 @@
 
 | Commit | Message | Notes |
 |--------|---------|-------|
-| `16a893b` | chore: initial baseline commit for GitHub publication | **Current HEAD** |
+| `194b0d3` | fix(ui): remove duplicate code block from main_menu.gd _ready | **Current HEAD** |
+| `9c20e1e` | fix(ui): rewrite _ready with consistent 4-space indentation | Parse error fix |
+| `1f9e601` | fix(ui): add missing if start_button block | Parse error fix |
+| `2b27163` | fix(ui): initial main_menu.gd indentation fix | Parse error fix |
+| `4207592` | docs: add complete project documentation | Documentation suite |
+| `16a893b` | chore: initial baseline commit for GitHub publication | Initial baseline |
 | `a8475b7` | Stage F.0 NPC interaction | NPC dialogue/interaction |
 | `febd9b0` | Stage E8 Android rendering | Android rendering fixes |
 | `e4a14e6` | Stage E.7 Android x86_64 QA | x86_64 compatibility |
@@ -94,10 +102,10 @@
 
 ## Next Verification Targets
 
-1. **Recovery Test**: Clone to fresh directory → verify all checks in RECOVERY_GUIDE pass
-2. **Fidelity Matrix**: Complete verification of all P0 systems with REA evidence
-3. **Release Build**: Configure release keystore → build signed Release APK
-4. **Quest System**: Complete quest implementation (Arroyo → Klamath path)
+1. **Fidelity Matrix**: Complete verification of all P0 systems with REA evidence
+2. **Release Build**: Configure release keystore → build signed Release APK
+3. **Quest System**: Complete quest implementation (Arroyo → Klamath path)
+4. **Combat Fidelity**: Verify AP calculations match original Fallout 2 exactly
 
 ---
 
@@ -110,3 +118,5 @@
 - **Original Fallout 2**: `C:\Code\REA_FALLOUT\Fallout2` (GOG/Steam)
 - **REA**: Available for binary analysis
 - **Ghidra**: Available for decompilation
+
+(End of file - total 122 lines)
