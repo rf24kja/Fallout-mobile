@@ -2,6 +2,17 @@
 
 > **Owner feedback:** Generated art across waves has noticeably different styles. **Do not automatically accept, mix or integrate assets only because their PNG/alpha/hash checks pass.** This is a formal art-direction correction for all subsequent production.
 
+## Owner's explicit screenshot approval — overriding all older style interpretations
+
+**APPROVED (2026-11-09): user's screenshot #2 (`image(7).png`) AND screenshot #3 (`image(8).png`).**
+These two screenshots are the explicit binding art direction for new inventory, equipment, and world prop production: heavily textured realistic painterly rust/metal/leather, physically plausible detail, readable silhouettes, dramatic but controlled lighting, warm industrial palette. A dark preview background may be used to display the objects; **the actual PNG sprites must use true transparency even in holes/gaps.**
+
+**REJECTED: user's screenshot #1 (`image(6).png`).** Do not treat its minimalist bright isolated arrangement as approved art direction. Also do not conflate all Wave02 or Wave03 work with approval of every individual PNG.
+
+**No Runway or Railway usage for further image generation.** Use the built-in ChatGPT image tool when available and review outputs against both owner-approved screenshots; reject style drift, duplicates, and poorly cut alpha before integrating.
+
+This explicit screenshot approval overrides contradictory older wording in this file about lighter Wave02 being the target or the dark Wave03 treatment being rejected. The ten approved cinematic RADZONE screen mockups remain the **UI/layout reference**; screenshots #2 and #3 are the **inventory/world-prop rendering reference**. Keep these two distinct uses clear.
+
 ## Single source of truth
 
 The **10 user-approved cinematic RADZONE concept screens** in [APPROVED_VISUAL_CATALOG.md](../APPROVED_VISUAL_CATALOG.md) and `github-assets/approved/v2/` are the highest-priority visual references. Nothing generated subsequently overrides them without an explicit owner decision.
@@ -10,12 +21,12 @@ The **10 user-approved cinematic RADZONE concept screens** in [APPROVED_VISUAL_C
 - **Items/inventory:** `github-assets/approved/v2/05-inventory-icon-reference.webp`, `09-loot-container.webp`
 - **UI/dialogue:** `github-assets/approved/v2/03-dialogue.webp`, `08-barter.webp`
 
-The earlier lighter, detailed painterly item/environment sheets in local **Wave 02** are positive *process references* (readable objects, separated silhouettes, painted corrosion, brighter neutral material rendering). The owner's praise of Wave 02 background/alpha fixes does **not** mean every individual Wave 02 object is engine-approved. Do not change the reference hierarchy.
+For item and world-prop **rendering**, the explicit approved screenshots #2 and #3 take precedence over any earlier verbal interpretation of Wave02 or Wave03 as a whole. Individual source crops still require quality review and correct alpha.
 
 ## Observed inconsistency: mandatory fix
 
-1. **Wave 02:** mostly neutral, lighter material illumination; realistic volumetric objects with source-sheet white background; more believable standalone environmental and inventory stills.
-2. **Wave 03:** more uniformly dark brown background and higher-contrast illustrated/outlined object treatment; flatter/inconsistent camera angles on several icons. Do **not** bulk-mix into the world until style-normalization review.
+1. **Wave 02:** parts of this wave appear in screenshot #3 and are accepted as a **rendering style reference**, but not blanket approval of all its masks or individual crops.
+2. **Wave 03:** the style shown in screenshot #2 is explicitly **APPROVED** for inventory/world assets. The dark backdrop is a presentation choice; exported sprites must still have alpha. Individual orientation/alpha/visual issues remain subject to QA.
 3. **Wave 01 / Wave 04:** built with a separate image generator and prompts; independent style drift remains possible even with “cinematic painterly” keywords.
 4. Transparency errors are a separate issue from style: a perfectly alpha-masked sprite may still be drawn in the wrong style/perspective, and an apparently white original source sheet is not necessarily an incorrect final PNG.
 
@@ -27,7 +38,7 @@ The earlier lighter, detailed painterly item/environment sheets in local **Wave 
 
 - Mature, serious cinematic post-apocalyptic RPG, non-cartoony, grounded and physically plausible engineering.
 - Weathered realistic materials (oxidized steel, patinated brass, worn leather, faded fabrics, stone, dust); no flat geometric plastic, chunky low-poly models or thick comic-book contour lines.
-- Naturalistic soft directional illumination, generally from **upper left**. Preserve mid-tone texture and readability; avoid a single pervasive dark brown wash.
+- Cinematic controlled upper-left directional lighting with clear volume and readable details, including dark mid-tones; match screenshots #2 and #3 without adding an unwanted solid backdrop to exported PNGs.
 - Cohesive restrained earth/rust/olive/steel palette derived from reference screens, not from arbitrary color-filter overlays.
 - True object-specific construction and visible damage, not copy-pasted style tokens or identical recolors.
 - No baked UI labels, counterfeit brand marks, arbitrary watermarks, malformed pseudo-text or unwanted background elements.
@@ -62,7 +73,7 @@ All gates must be explicit and independently evidenced. A SHA-256 check validate
 
 ## Credit / generator policy
 
-- Stop spending **Runway** credits on blind batches or regenerations. The graphics tool's account balance is separate from ChatGPT image generation; do not conflate Runway with **Railway** deployment hosting.
+- **Do not use Runway or Railway for art generation** (explicit owner instruction); do not spend Runway credits.
 - New generation can use built-in ChatGPT image tools when available, under their own product limits, and must reuse the relevant approved references.
 - **Prefer fewer excellent, consistent, individually separable assets over dozens of inconsistent source-sheet crops.** Human-check a small representative set before scaling the next category.
 - Continue programming and art catalog work while paid image credits are exhausted, rather than making more incongruent draft batches.
@@ -70,7 +81,7 @@ All gates must be explicit and independently evidenced. A SHA-256 check validate
 ## Immediate decisions
 
 1. Keep v3.1, Wave01 and Wave04 GitHub binaries as preserved **draft references** rather than presenting them as game-approved.
-2. **Wave03 darker sheets**: flag for style-normalization review before any Godot import. No automatic mass import of Wave02/03 either.
+2. **Wave03 darker look and selected Wave02 artwork are owner-approved rendering references** (screenshots #2/#3), but their individual files must pass mask/geometry/identity QA before Godot import.
 3. **Wave05**: concept sheets generated but not binary-imported; do not mark done or spend more credits on them until normalized.
 4. Subsequent production: select one specific reference family and validate consistency of a small candidate set, then produce matching variants with exact camera/lighting/material/export settings.
 
