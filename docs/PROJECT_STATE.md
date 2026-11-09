@@ -1,8 +1,8 @@
 # PROJECT STATE — Fallout 2 Reborn Mobile
 
 **Last Updated**: 2026-11-09
-**Git Commit**: `194b0d3` (fix(ui): remove duplicate code block from main_menu.gd _ready)
-**Git Branch**: `master` (local) / `main` (remote)
+**Git Commit**: `ea7cb64` (chore: remove large binary files from git tracking + LFS migration)
+**Git Branch**: `master` (local) / `master` (remote)
 **GitHub Remote**: ✅ Connected — https://github.com/rf24kja/Fallout-mobile
 
 ---
@@ -11,9 +11,11 @@
 
 ### ✅ GitHub Synchronization
 - [x] Repository connected: `origin` → https://github.com/rf24kja/Fallout-mobile.git
-- [x] Initial baseline pushed (commit `16a893b`)
-- [x] Documentation committed (commit `4207592`)
-- [x] Main menu parse errors fixed (commits `2b27163`, `1f9e601`, `9c20e1e`, `194b0d3`)
+- [x] Initial baseline pushed (commit `dc7c14f`)
+- [x] Documentation committed (commit `3110e6c`)
+- [x] Main menu parse errors fixed (commits `a80cac9`, `6c65187`, `d94d897`, `9b8c9d1`)
+- [x] Release APK verified (commit `aeb21c7`)
+- [x] Large files migrated to Git LFS (commit `ea7cb64`)
 - [x] Remote verified — files visible on GitHub
 - [x] `.gitignore` configured for Godot project
 - [x] Security scan passed — no secrets in working files or history
@@ -59,7 +61,7 @@
 ## Current Working Build
 
 **Latest Verified APK**: `builds/android/Fallout2_Reborn_Mobile_Debug.apk`
-- **Commit**: `16a893b` (APK) / `194b0d3` (source fix)
+- **Commit**: `dc7c14f` (APK) / `ea7cb64` (source fix)
 - **Size**: ~50-100MB
 - **Architecture**: ARM64 + x86_64 (fat APK)
 - **Signature**: Android Debug (CN=Android Debug, O=Android, C=US)
@@ -88,21 +90,24 @@
 
 ---
 
-## Git History Summary (Preserved)
+## Git History Summary (Preserved — LFS Migration Applied)
 
 | Commit | Message | Notes |
 |--------|---------|-------|
-| `194b0d3` | fix(ui): remove duplicate code block from main_menu.gd _ready | **Current HEAD** |
-| `9c20e1e` | fix(ui): rewrite _ready with consistent 4-space indentation | Parse error fix |
-| `1f9e601` | fix(ui): add missing if start_button block | Parse error fix |
-| `2b27163` | fix(ui): initial main_menu.gd indentation fix | Parse error fix |
-| `4207592` | docs: add complete project documentation | Documentation suite |
-| `16a893b` | chore: initial baseline commit for GitHub publication | Initial baseline |
-| `a8475b7` | Stage F.0 NPC interaction | NPC dialogue/interaction |
-| `febd9b0` | Stage E8 Android rendering | Android rendering fixes |
-| `e4a14e6` | Stage E.7 Android x86_64 QA | x86_64 compatibility |
-| `b7cc9cb` | Full Vertical Slice Playthrough 32/32 tests PASS | Major milestone |
-| `1ccb6c2` | Full technical stabilization + SPECIAL rename + save migration | Core systems stable |
+| `ea7cb64` | chore: remove large binary files (APKs, .so libs) from git tracking | **Current HEAD** — LFS migration |
+| `aeb21c7` | docs: update PROJECT_STATE and NEXT_ACTIONS with release build verification | Release build docs |
+| `8ee14b2` | docs: update PROJECT_STATE and NEXT_ACTIONS after recovery validation | Recovery test passed |
+| `9b8c9d1` | fix(ui): remove duplicate code block from main_menu.gd _ready | Parse error fix |
+| `d94d897` | fix(ui): rewrite _ready with consistent 4-space indentation | Parse error fix |
+| `6c65187` | fix(ui): add missing if start_button block | Parse error fix |
+| `a80cac9` | fix(ui): initial main_menu.gd indentation fix | Parse error fix |
+| `3110e6c` | docs: add complete project documentation | Documentation suite |
+| `dc7c14f` | chore: initial baseline commit for GitHub publication | Initial baseline |
+| `bdf6776` | Stage F.0 NPC interaction | NPC dialogue/interaction |
+| `a8a7c30` | Stage E8 Android rendering | Android rendering fixes |
+| `7e5b2d4` | Stage E.7 Android x86_64 QA | x86_64 compatibility |
+| `9f3a1e2` | Full Vertical Slice Playthrough 32/32 tests PASS | Major milestone |
+| `5c4e7b1` | Full technical stabilization + SPECIAL rename + save migration | Core systems stable |
 
 ---
 

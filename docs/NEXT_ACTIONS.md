@@ -73,15 +73,18 @@
 
 ```
 [✅] P0-1: Clone recovery test (COMPLETE - 2026-11-09)
-[ ] P0-2: Release keystore generation (15 min)
-[ ] P0-3: Release APK build + verify (30 min)
+[✅] P0-2: Release keystore generation + APK build + verify (COMPLETE - manual apksigner workaround)
+[✅] P0-3: GitHub sync + LFS migration (COMPLETE - 2026-11-09)
 [ ] P1-1: Update FIDELITY_MATRIX with current REA evidence (2 hrs)
+[ ] P1-2: Update DEVELOPMENT_HISTORY with milestone log (1 hr)
 ```
 
 ### Success Criteria for This Sprint
 - ✅ Fresh clone builds and runs without manual intervention
-- [ ] Release APK installs and passes `apksigner verify`
+- ✅ Release APK installs and passes `apksigner verify`
+- ✅ GitHub repository clean (LFS for large binaries, no files > 100MB)
 - [ ] FIDELITY_MATRIX documents all P0 system verifications
+- [ ] DEVELOPMENT_HISTORY documents major milestones
 - [ ] All documentation pushed to GitHub
 
 ---
