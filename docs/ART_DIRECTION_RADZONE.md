@@ -1,50 +1,32 @@
-# RADZONE — Approved Visual Direction (v2)
+# RADZONE — Approved Visual Direction (canonical v3)
 
-**Approved:** 2026-11-09  
-**Public game title:** **RADZONE**  
-**Gameplay/style reference:** Fallout 2 (classic 1990s isometric post-apocalyptic CRPG).  
-**Developer roles:** OpenCode handles gameplay/Godot; ChatGPT produces original visual concepts and source art.
+**Public game name:** RADZONE. **Intended audience:** fans of Fallout 2 and classic tactical isometric RPGs.
 
-## Non-negotiable style
+## Approved visual target
 
-- Realistic cinematic post-apocalyptic settlements, rust, grit, dusk, deep environmental detail and consistent isometric world art.
-- Classic Fallout 2-inspired controls: industrial weathered brass/steel, rivets, distressed bronze panels, 1990s CRT terminal green, amber selected buttons.
-- Dialogues use long, **touch-scrollable** multi-paragraph green-text display windows with dynamic responses.
-- SPECIAL, skills, AP, called shots, inventory, barter, loot, world map and quest log keep dense information presentation optimized for phones.
-- Palette: void `#0B0F0D`; CRT `#101A13`; phosphor `#A6E777`; bronze `#766953`; rust `#A65D29`; amber `#E2AA56`; bone `#EDE4C8`.
-- All game values and dialogue are live Godot controls, **never baked into runtime UI texture art**.
-- Previous **REBORN MOBILE** visual direction is superseded. Do not delete working placeholders until replacements pass actual device testing.
+The 10 realistic concept images in [Approved Visual Catalog](./art/APPROVED_VISUAL_CATALOG.md) replace the previous unapproved schematic/vector visual presentation. Keep the approved cinematic wasteland visual tone, aged metal controls, detailed armor and weapons, amber lamps, green CRT lettering, dense but readable mobile UI and long scrolling branching dialogue.
 
-## Approved concept library
+**Not all art is production-ready.** The approved concepts are visual targets, not gameplay screenshots. Earlier SVG sources and storyboard screens are now categorized as **experimental / non-approved**, with no loss of history.
 
-Ten user-approved 941×1672 PNG screens are prepared for publication under `docs/art/reference/RADZONE_APPROVED_v2/`:
+## Core graphics requirements
 
-1. `01-main-menu.png`
-2. `02-character-special.png`
-3. `03-dialogue.png`
-4. `04-world-map-quests.png`
-5. `05-inventory-icon-reference.png`
-6. `06-exploration.png`
-7. `07-tactical-combat.png`
-8. `08-barter.png`
-9. `09-loot-container.png`
-10. `10-skills-perks.png`
+- **Actual equipped items are visible** on player and NPC sprites, in idle, moving and combat states.
+- Armor, helmets, masks, clothing, packs and weapons modify in-world appearance as appropriate for the equipped item ID.
+- Rig and overlays support eight engine-facing directions and related animations without clipping, floating weapons or wrong z-order.
+- NPCs include genders, age groups, face/skin/hair variation, silhouettes, occupations and outfit diversity. Children and the elderly must not just be recolored adult sprites.
+- Nonhuman creature types use dedicated rigs when approved as game content.
+- Retain all existing Godot game logic and rollback options; graphics integration is OpenCode's task, not a reason to rewrite mechanics.
 
-**These are CONCEPT ART / UI MOCKUPS, NOT real screenshots from a playable Android build.** Generated labels, quest names, values, hit chances, skill allocations and lore are illustrative; original mechanics must be established through game evidence, not through art.
+## Palette / UI
 
-## Repository ownership and production paths
+`#0B0F0D` deep void, `#101A13` CRT black, `#A6E777` green phosphor, `#766953` aged bronze, `#A65D29` rust, `#E2AA56` amber, `#EDE4C8` parchment.
 
-- `docs/art/reference/RADZONE_APPROVED_v2/`: full-resolution approved concept PNGs, visual reference only.
-- `github-assets/screens/`: optimized WebP for README presentation.
-- `art/production/ui/source/`: separately usable editable UI SVGs.
-- `art/production/ui/preview/`: corresponding rendered component previews.
-- `art/production/items/`: verified item-ID-linked inventory/inspection graphics.
-- `art/production/characters/`: 8-direction character sources and sprite sheets.
-- `art/production/world/`: ground, structures and props.
-- `screenshots/actual/`: **real** screenshots captured from Godot, clearly labeled.
+Dialogue: tactile bronze frame; green CRT text; long pages and touch scrolling. Values/AP/hit chance/quest text must be dynamic UI data, not pre-rendered. Controls usable on smartphones.
 
-## Development handoff
+## Design system documentation
 
-OpenCode must inspect real Godot scene nodes and state bindings before integrating assets. Build a reusable RADZONE Theme, scrolling dialogue widgets, dynamic stats/AP displays, and 9-slice panel textures. Do **not** place entire promotional concept screens into playable game scenes.
-
-**Publication status:** The first GitHub commit publishes the visual standard and graphic toolkit. The large 35 MB asset archive is distributed separately for import; never link non-existent image paths or claim binary files were pushed without a GitHub commit verification.
+- [Approved Visual Catalog](./art/APPROVED_VISUAL_CATALOG.md)
+- [Character & Equipment Visual Contract](./art/CHARACTER_EQUIPMENT_VISUAL_SPEC.md)
+- [NPC Diversity](./art/NPC_VISUAL_DIVERSITY.md)
+- [Production Workflow](./art/ART_PRODUCTION_WORKFLOW.md)
+- [OpenCode Integration](./art/OPENCODE_ART_HANDOFF.md)
