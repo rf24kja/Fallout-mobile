@@ -9,17 +9,20 @@ This ledger distinguishes **files actually committed to master** from generated 
 | painterly v3.1 | 58 | 6 WebP references | `GITHUB_COMMITTED / ART_DRAFT` | [production/v3.1](../../../art/production/painterly_v3/) — PR #8, commit `d0d49d3` |
 | Wave 01 | 18 | 3 PNG originals | `GITHUB_COMMITTED / AUTO_MASK_DRAFT` | [wave01](../../../art/production/painterly_v4/wave01/) — PR #13, binary commit `dd169f4` |
 | Wave 04 | 12 | 2 PNG originals | `GITHUB_COMMITTED / AUTO_MASK_DRAFT` | [wave04](../../../art/production/painterly_v4/wave04/) — PR #12, binary commit `99a9b3c` |
-| **Total verified individual PNGs** | **88** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
+| Wave 03 unique-only | 7 | Source held in conversation | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave03_unique](../../../art/production/painterly_v4/wave03_unique/) — PR #18 |
+| Wave 06 unique-only | 3 | Source held in conversation | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave06_unique](../../../art/production/painterly_v4/wave06_unique/) — PR #17 |
+| **Total verified individual PNGs** | **98** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
 
-The **88 files are illustration crops / references**, not 88 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
+The **98 files are illustration crops / references**, not 88 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
 
 ## Generated/delivered but NOT on GitHub master
 
 | Package | Generated subjects | What exists | GitHub state |
 |---|---:|---|---|
 | Wave 02 | 18 | ZIP in ChatGPT conversation, with individual PNGs, original sheets, alpha QA and hashes | **Not binary-uploaded**; [handoff](./RADZONE_WAVE_02_IMPORT.md) |
-| Wave 03 | 24 | ZIP in ChatGPT conversation, individual PNGs, checkerboard QA, catalog and hashes | **Not binary-uploaded**; [handoff](./RADZONE_WAVE_03_HANDOFF.md) |
-| Wave 05 | 12 | Two newly generated original Runway sheets for clinic + agriculture; production importer prepared in `art/radzone-wave05-binary-publication` | **Not binary-uploaded**. A further CI-workflow write was blocked. Do not count these as committed sprites. |
+| Wave 03 remaining | 17 of original 24 | ZIP in ChatGPT conversation; 7 distinct PNGs have now been committed | **Remaining 17 not uploaded** (duplicates or artwork with potentially protected identifiers); [handoff](./RADZONE_WAVE_03_HANDOFF.md) |
+| Wave 05 | 12 | Two earlier generated original sheets for clinic + agriculture; importer in `art/radzone-wave05-binary-publication` | **Not binary-uploaded**. Do not spend new Runway credits or count as committed sprites. |
+| Wave 06 remaining | 9 of original 12 | Archive retained in ChatGPT, only 3 genuinely new subjects selected and uploaded | **9 duplicates intentionally excluded**; see [wave06 unique manifest](../../../art/production/painterly_v4/wave06_unique/manifest.json) |
 
 ## Mandatory quality gates
 
