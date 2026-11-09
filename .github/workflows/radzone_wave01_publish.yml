@@ -1,0 +1,36 @@
+name: RADZONE Wave 01 art source binary publication
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/radzone_wave01_publish.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.repository == 'rf24kja/Fallout-mobile'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PNG extraction dependencies
+        run: python -m pip install --quiet pillow numpy opencv-python-headless
+      - name: Fetch original art sheets and create 18 true RGBA cutouts
+        env:
+          RADZONE_INTERIOR_URL: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-3-pro-image/images/8bc9142f-cdcd-4362-b2b1-c79dca729fcd/f9554803-41da-4490-9b30-bdfa2ca3b2df/A_single_premium_game_art_concept_source_sheet_aesthetically.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNDg4ODYzOWI2MjcxZTA4YiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NDM5NTU0N30.gsQ5ze2lqDsO3oXc4LxtiL6O05ltBZ-I4GymUuMgD6A'
+          RADZONE_SETTLEMENT_URL: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-3.1-flash-image/images/2ac8705a-8cf9-44d4-bf9b-28144e137af9/d1f46391-9327-4b10-97b4-a6ca521a28ab/ONE_original_premium_game_art_production_source_sheet__inspi.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZGM3YzRhNzA3ZTA3Y2Y3NCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NDM1ODY0MH0.WUNsoRdZX1kLPM3oFRGEN8i_UcaoFYd3y-DvjEp4cHs'
+          RADZONE_WEAPONS_URL: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-3.1-flash-image/images/48d0cbc5-f4d2-45a0-bfef-aa6805f52456/d62cb591-6940-421c-bb73-d371a525c858/ONE_original_polished_high_fidelity_equipment_illustration_s.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMWQxOGQ1ZWQ0YWU5NWVjNCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NDM2MjA5M30.e9Ul-ftVWdnGepZozRDpcsNa4yLn4t67tf7dKkX0fsA'
+        run: python tools/art_import_wave01.py
+      - name: Commit actual image files and hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art/production/painterly_v4/wave01/
+          git diff --cached --stat
+          git diff --cached --quiet && { echo 'No changes'; exit 0; }
+          git commit -m 'art(radzone): publish wave01 18 PNG cutouts and 3 source sheets'
+          git pull --rebase origin master
+          git push origin HEAD:master
