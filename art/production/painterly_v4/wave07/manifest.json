@@ -1,0 +1,95 @@
+{
+  "project": "RADZONE",
+  "wave": 7,
+  "classification": "SOURCE_DRAFT_NEEDS_VISUAL_AND_GODOT_QA",
+  "asset_count": 7,
+  "art_reference": "User-approved screenshots #2 and #3 (dark, realistic painterly); screenshot #1 rejected",
+  "generator": "Built-in ChatGPT image generation, not Runway or Railway",
+  "source_image_sha256": "a3c6b4edb8df4daba743e02651b7cb7b10029340efba709c516a575846c91cec",
+  "source_image_in_repo": false,
+  "qa_preview": "qa/CONTACT_DARK_LIGHT.jpg",
+  "assets": [
+    {
+      "id": "industrial_lathe",
+      "category": "machinery",
+      "path": "objects/industrial_lathe.png",
+      "width": 432,
+      "height": 340,
+      "sha256": "570d91f12179386a0627667ba7ff0d6979563dc610f2e19355096b6672e9958c",
+      "git_blob_sha1": "65f9250f51918d90d89ca2c7d67b4a3701a433e7",
+      "approval": "ART_DRAFT_ALPHA_REVIEW_REQUIRED"
+    },
+    {
+      "id": "retro_jukebox",
+      "category": "interior",
+      "path": "objects/retro_jukebox.png",
+      "width": 281,
+      "height": 372,
+      "sha256": "b2cb15797b3d38a369ccba03f5c5c0c691ca81e4b509d918f80319dbe33e5eea",
+      "git_blob_sha1": "0678feb53ab5fca93924b9d44cceb146d00d3399",
+      "approval": "ART_DRAFT_ALPHA_REVIEW_REQUIRED"
+    },
+    {
+      "id": "analog_oscilloscope",
+      "category": "electronics",
+      "path": "objects/analog_oscilloscope.png",
+      "width": 380,
+      "height": 296,
+      "sha256": "0bb4598599c707e92ede82667597dc37812fdf9a9b1f4095e64098ba6f9d70b9",
+      "git_blob_sha1": "90460f1a7354b6e1ad946e64b43a3573a5ed1bab",
+      "approval": "ART_DRAFT_ALPHA_REVIEW_REQUIRED"
+    },
+    {
+      "id": "ventilation_fan",
+      "category": "industrial",
+      "path": "objects/ventilation_fan.png",
+      "width": 346,
+      "height": 306,
+      "sha256": "346a82278f682cfff3c6919771666ad2dd8b2e5ef043453408ef88160fe6544d",
+      "git_blob_sha1": "c405542fbe4dc26a15bb7dd927c900c3bf6372c3",
+      "approval": "ART_DRAFT_ALPHA_REVIEW_REQUIRED"
+    },
+    {
+      "id": "mobile_welding_cart",
+      "category": "industrial",
+      "path": "objects/mobile_welding_cart.png",
+      "width": 349,
+      "height": 348,
+      "sha256": "84f3ee4204c8d04e07420d4352777b48ed7220dff740f97d889f513ba4565d78",
+      "git_blob_sha1": "4e230be575718a26b907f5cc59e4dda6f261eb71",
+      "approval": "ART_DRAFT_ALPHA_REVIEW_REQUIRED"
+    },
+    {
+      "id": "ammunition_reloading_press",
+      "category": "industrial",
+      "path": "objects/ammunition_reloading_press.png",
+      "width": 348,
+      "height": 352,
+      "sha256": "6ac90c9865331536636f982aef194b4a4ae8c80438d831c3ae36929ad319422b",
+      "git_blob_sha1": "afc9d38c23e684eaa2c5e047b670b62ebd7cea19",
+      "approval": "ART_DRAFT_ALPHA_REVIEW_REQUIRED"
+    },
+    {
+      "id": "meat_drying_rack",
+      "category": "settlement",
+      "path": "objects/meat_drying_rack.png",
+      "width": 340,
+      "height": 344,
+      "sha256": "f8b107f9db8924df2be915d5cd7d9f225877a5d86c00ba5e2b2266a785bd6a61",
+      "git_blob_sha1": "14089121c3e41e027930bc22a62f5d27e02d4d16",
+      "approval": "ART_DRAFT_ALPHA_REVIEW_REQUIRED"
+    }
+  ],
+  "excluded_repeats": [
+    "field_binoculars",
+    "mechanical_safe",
+    "field_cot",
+    "radio_transceiver",
+    "chemistry_rig"
+  ],
+  "notes": [
+    "Crops isolated from native alpha, stray neighbor pixels excluded by largest connected component and inspected on light/dark checkerboard.",
+    "Preserve native anti-aliased alpha and transparent interior openings.",
+    "No claim of final approval, item ID mapping, animation frames or Android validation."
+  ]
+}
