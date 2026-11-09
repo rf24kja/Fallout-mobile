@@ -22,6 +22,8 @@ MANIFESTS = (
     'art/production/painterly_v4/wave04/manifest.json',
     'art/production/painterly_v4/wave06_unique/manifest.json',
     'art/production/painterly_v4/wave07/manifest.json',
+    'art/production/painterly_v4/wave08/manifest.json',
+    'art/production/painterly_v4/wave09_unique/manifest.json',
 )
 
 

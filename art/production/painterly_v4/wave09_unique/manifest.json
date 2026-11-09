@@ -1,0 +1,39 @@
+{
+  "project": "RADZONE",
+  "wave": 9,
+  "classification": "SOURCE_DRAFT_PENDING_FINAL_ART_AND_ENGINE_QA",
+  "asset_count": 1,
+  "art_reference": "Owner-approved screenshots 2/3: realistic post-apocalyptic painterly industrial inventory",
+  "source_filename": "Постапокалиптический арсенал выжившего(1).png",
+  "source_sha256": "babcbe2bcc1f48565206f46b3409f10bc2496ef0c0a141e05a3d9bb042531fb5",
+  "source_sheet_published": false,
+  "source_generation": "Owner-supplied reference sheet; isolated crop not newly generated in this turn",
+  "qa_preview": "qa/CONTACT_DARK_LIGHT.jpg",
+  "assets": [
+    {
+      "id": "salvaged_surgical_tools",
+      "category": "medical_instrument_inventory",
+      "path": "art/production/painterly_v4/wave09_unique/objects/salvaged_surgical_tools.png",
+      "width": 277,
+      "height": 190,
+      "sha256": "e35662f9b206343b77cad055c6c156899b2abd9e1230c1d6b0b579a477dba3ca",
+      "git_blob_sha": "abf36e6b60061b3f8dbc417fb9e0c626eec6a9a9",
+      "rgba": true,
+      "alpha_border_zero": true,
+      "status": "SOURCE_DRAFT_ENGINE_AND_ART_QA_PENDING"
+    }
+  ],
+  "gates": {
+    "local_alpha": "PASS",
+    "manual_preview": "PASS at draft level on dark/light checkerboard",
+    "semantic": "GITHUB_ACTIONS_REQUIRED",
+    "perceptual": "GITHUB_ACTIONS_REQUIRED",
+    "godot": "NOT_TESTED",
+    "android": "NOT_TESTED"
+  },
+  "notes": [
+    "Genuine surgical forceps, scissors and scalpel roll, not the lockpick tool roll",
+    "No canonical game item ID assigned, no game code changes",
+    "Inventory image, not a directional equip animation"
+  ]
+}
