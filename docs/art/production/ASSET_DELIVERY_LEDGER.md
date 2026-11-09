@@ -1,0 +1,44 @@
+# RADZONE — Verified Art Publication Ledger (2026-11-09)
+
+This ledger distinguishes **files actually committed to master** from generated art still held in temporary creative workspaces or ChatGPT ZIP archives.
+
+## Verified image binaries on GitHub master
+
+| Package | Individual RGBA PNGs | Source image sheets | Status | Evidence |
+|---|---:|---:|---|---|
+| painterly v3.1 | 58 | 6 WebP references | `GITHUB_COMMITTED / ART_DRAFT` | [production/v3.1](../../../art/production/painterly_v3/) — PR #8, commit `d0d49d3` |
+| Wave 01 | 18 | 3 PNG originals | `GITHUB_COMMITTED / AUTO_MASK_DRAFT` | [wave01](../../../art/production/painterly_v4/wave01/) — PR #13, binary commit `dd169f4` |
+| Wave 04 | 12 | 2 PNG originals | `GITHUB_COMMITTED / AUTO_MASK_DRAFT` | [wave04](../../../art/production/painterly_v4/wave04/) — PR #12, binary commit `99a9b3c` |
+| **Total verified individual PNGs** | **88** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
+
+The **88 files are illustration crops / references**, not 88 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
+
+## Generated/delivered but NOT on GitHub master
+
+| Package | Generated subjects | What exists | GitHub state |
+|---|---:|---|---|
+| Wave 02 | 18 | ZIP in ChatGPT conversation, with individual PNGs, original sheets, alpha QA and hashes | **Not binary-uploaded**; [handoff](./RADZONE_WAVE_02_IMPORT.md) |
+| Wave 03 | 24 | ZIP in ChatGPT conversation, individual PNGs, checkerboard QA, catalog and hashes | **Not binary-uploaded**; [handoff](./RADZONE_WAVE_03_HANDOFF.md) |
+| Wave 05 | 12 | Two newly generated original Runway sheets for clinic + agriculture; production importer prepared in `art/radzone-wave05-binary-publication` | **Not binary-uploaded**. A further CI-workflow write was blocked. Do not count these as committed sprites. |
+
+## Mandatory quality gates
+
+1. **Source generated:** the image exists; a generated sheet of six items does not mean six clean RGBA objects.
+2. **Transparent extraction:** verify external and **internal** holes, antialiasing, no white fringe or missing thin elements. Numeric alpha tests alone do not guarantee good art.
+3. **Human visual QA:** inspect every cutout at 100% and on both dark and light backgrounds; reject any poor edges or incomplete silhouettes.
+4. **Canonical ID and orientation mapping:** link only confirmed source-game item IDs. Isometric perspective, scale, pivots, and attachment sockets must match Godot.
+5. **Engine candidate:** integration in isolated OpenCode branch, without replacing working assets prematurely.
+6. **Android verified:** real device screenshot and tests showing correct visuals for armor, weapons and NPCs; only then label runtime-verified.
+
+No permanent production approval is implied by the status `GITHUB_COMMITTED`.
+
+## Source of truth and responsibilities
+
+- [Approved user-facing art direction](../APPROVED_VISUAL_CATALOG.md) — visual target; not real gameplay.
+- [1,200-subject production plan](./RADZONE_1200_ASSET_PLAN.md) — planning target, NOT delivered count.
+- [Wave 01 original handoff](./RADZONE_WAVE_01.md) — includes earlier generated task IDs.
+- [Wave 01 committed binary manifest](../../../art/production/painterly_v4/wave01/manifest.json) — exact 18 paths/hashes.
+- [Wave 04 committed binary manifest](../../../art/production/painterly_v4/wave04/manifest.json) — exact 12 paths/hashes.
+- [Visible equipment OpenCode issue](https://github.com/rf24kja/Fallout-mobile/issues/7) — real sprites and Godot/Android integration are separate tasks.
+
+**Do not publish the draft painterly images to README as screenshots.** The ten approved cinematic concepts remain the only homepage visuals until actual gameplay visuals are tested.
