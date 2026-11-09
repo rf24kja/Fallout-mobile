@@ -6,6 +6,8 @@ extends Node
 
 signal interaction_target_changed(target: Node)
 signal interaction_completed(target: Node)
+signal interactable_nearby(interactable: Node)  # Emitted when an interactable enters range
+signal interactable_far(interactable: Node)      # Emitted when an interactable leaves range
 
 var _registered_interactables: Array[Node] = []
 var _current_target: Node = null
@@ -105,19 +107,33 @@ func _update_interaction_target() -> void:
 	
 	print("InteractionManager: best_target = ", best_target, " best_distance = ", best_distance, " current_target = ", _current_target)
 	
+	# Emit signals for nearby/far interactables
+	var previous_target = _current_target
+	
 	if best_target != _current_target:
 		_current_target = best_target
 		interaction_target_changed.emit(_current_target)
+	
+	# Emit interactable_nearby when target becomes available
+	if _current_target and _current_target != previous_target:
+		interactable_nearby.emit(_current_target)
+	# Emit interactable_far when target is lost
+	elif previous_target and previous_target != _current_target:
+		interactable_far.emit(previous_target)
 
 func register_interactable(interactable: Node) -> void:
 	if interactable not in _registered_interactables:
 		_registered_interactables.append(interactable)
+		# Check if this interactable is immediately in range
+		if _player and interactable.can_interact(_player):
+			interactable_nearby.emit(interactable)
 
 func unregister_interactable(interactable: Node) -> void:
 	_registered_interactables.erase(interactable)
 	if _current_target == interactable:
 		_current_target = null
 		interaction_target_changed.emit(null)
+		interactable_far.emit(interactable)
 
 func get_current_target() -> Node:
 	return _current_target

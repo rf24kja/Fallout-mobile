@@ -1,0 +1,83 @@
+# Godot specific
+.godot/
+*.translation
+*.import
+*.cfg
+*.uid
+
+# Build outputs
+builds/
+*.apk
+*.aab
+*.ipa
+*.exe
+*.pck
+*.zip
+
+# Godot export templates
+export_templates/
+
+# Gradle/Android build
+.gradle/
+local.properties
+*.keystore
+!keystore/debug.keystore
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logcat_*.txt
+godot_*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Screenshots and test artifacts (keep in repo if needed for docs)
+# screenshots/
+# *.png
+# *.jpg
+
+# Original Fallout 2 installation (READ-ONLY - never commit)
+../Fallout2/
+
+# REA tools
+../tools/rea/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node modules (if any)
+node_modules/
+
+# Environment files
+.env
+.env.local
+*.env
+
+# Backup files
+artifacts_backup/
+*.backup
+
+# Large binary assets - consider Git LFS for production assets
+# *.blend
+# *.psd
+# *.kra
+# *.ora
+# *.aseprite
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini

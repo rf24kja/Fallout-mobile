@@ -47,6 +47,24 @@ window/fullscreen=false
 pointing/emulate_mouse_from_touch=true
 pointing/emulate_touch_from_mouse=false
 
+[input]
+
+interact={
+	"deadzone": 0.5,
+	"events": [
+		{
+			"type": "Key",
+			"keycode": 33,
+			"physical_keycode": 33
+		},
+		{
+			"type": "Key",
+			"keycode": 45,
+			"physical_keycode": 45
+		}
+	]
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

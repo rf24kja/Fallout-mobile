@@ -167,6 +167,25 @@ horizontal_alignment = 0
 vertical_alignment = 2
 mouse_filter = 2
 
+[node name="InteractButton" type="Button" parent="HUD"]
+anchors_preset = 12
+offset_left = -80.0
+offset_top = -100.0
+offset_right = 80.0
+offset_bottom = -20.0
+text = "ВЗАИМОДЕЙСТВИЕ"
+custom_minimum_size = Vector2(160, 50)
+add_theme_color_override("font_color", Color(1, 1, 1, 1))
+add_theme_color_override("font_color_hover", Color(1, 1, 1, 1))
+add_theme_color_override("font_color_pressed", Color(0.8, 0.8, 0.8, 1))
+add_theme_color_override("font_color_disabled", Color(0.5, 0.5, 0.5, 1))
+add_theme_color_override("bg_color", Color(0.2, 0.5, 0.8, 0.9))
+add_theme_color_override("bg_color_hover", Color(0.3, 0.6, 0.9, 1))
+add_theme_color_override("bg_color_pressed", Color(0.1, 0.4, 0.7, 1))
+add_theme_font_size_override("font_size", 18)
+visible = false
+mouse_filter = 0
+
 [node name="DialogueUI" type="Node" parent="."]
 instance = ExtResource(6)
 

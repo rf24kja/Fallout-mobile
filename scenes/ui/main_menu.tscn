@@ -16,11 +16,27 @@ offset_bottom = 0.0
 
 [node name="BackgroundRect" type="ColorRect" parent="."]
 color = Color(0.02, 0.04, 0.02, 1)
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 1
 
 [node name="TitleLabel" type="Label" parent="."]
 offset_left = 20.0
 offset_top = 80.0
 offset_right = -20.0
+offset_bottom = 120.0
+anchors_preset = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
 text = "WASTELAND RPG"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -31,6 +47,12 @@ add_theme_font_size_override("font_size", 48)
 offset_left = 20.0
 offset_top = 160.0
 offset_right = -20.0
+offset_bottom = 190.0
+anchors_preset = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
 text = "Fallout 2 Reborn Mobile"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -43,13 +65,24 @@ offset_left = 160.0
 offset_top = 240.0
 offset_right = -160.0
 offset_bottom = -100.0
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_minimum_size = Vector2(400, 400)
+mouse_filter = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 offset_left = 200.0
 offset_top = 280.0
 offset_right = -200.0
 offset_bottom = -140.0
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_minimum_size = Vector2(300, 300)
@@ -65,7 +98,11 @@ add_theme_color_override("bg_color_hover", Color(0.2, 0.5, 0.2, 1))
 add_theme_color_override("bg_color_pressed", Color(0.15, 0.4, 0.15, 1))
 add_theme_font_size_override("font_size", 22)
 size_flags_horizontal = 3
+size_flags_vertical = 1
 custom_minimum_size = Vector2(200, 60)
+mouse_filter = 0
+focus_mode = 2
+button_group = ""
 
 [node name="ContinueButton" type="Button" parent="ButtonContainer"]
 text = "ПРОДОЛЖИТЬ"
@@ -79,7 +116,11 @@ add_theme_color_override("bg_color_pressed", Color(0.15, 0.4, 0.15, 1))
 add_theme_font_size_override("font_size", 22)
 disabled = true
 size_flags_horizontal = 3
+size_flags_vertical = 1
 custom_minimum_size = Vector2(200, 60)
+mouse_filter = 0
+focus_mode = 2
+button_group = ""
 
 [node name="OptionsButton" type="Button" parent="ButtonContainer"]
 text = "НАСТРОЙКИ"
@@ -91,7 +132,11 @@ add_theme_color_override("bg_color_hover", Color(0.2, 0.5, 0.2, 1))
 add_theme_color_override("bg_color_pressed", Color(0.15, 0.4, 0.15, 1))
 add_theme_font_size_override("font_size", 22)
 size_flags_horizontal = 3
+size_flags_vertical = 1
 custom_minimum_size = Vector2(200, 60)
+mouse_filter = 0
+focus_mode = 2
+button_group = ""
 
 [node name="QuitButton" type="Button" parent="ButtonContainer"]
 text = "ВЫХОД"
@@ -103,7 +148,11 @@ add_theme_color_override("bg_color_hover", Color(0.5, 0.2, 0.2, 1))
 add_theme_color_override("bg_color_pressed", Color(0.4, 0.15, 0.15, 1))
 add_theme_font_size_override("font_size", 22)
 size_flags_horizontal = 3
+size_flags_vertical = 1
 custom_minimum_size = Vector2(200, 60)
+mouse_filter = 0
+focus_mode = 2
+button_group = ""
 
 [node name="VersionLabel" type="Label" parent="."]
 offset_left = 20.0
@@ -121,6 +170,11 @@ offset_left = -300.0
 offset_top = -40.0
 offset_right = -20.0
 offset_bottom = -10.0
+anchors_preset = 14
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 text = "Technical Demo - Not affiliated with Bethesda or Interplay"
 horizontal_alignment = 2
 vertical_alignment = 2

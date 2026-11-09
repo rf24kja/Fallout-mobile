@@ -20,6 +20,7 @@ var navigation_agent: NavigationAgent2D = NavigationAgent2D.new()
 # Autoload references (set in _ready)
 var _game_manager
 var _event_bus
+var _interaction_button: Button = null
 
 # Isometric direction vectors (8 directions)
 static var ISO_DIRS = {
@@ -46,6 +47,9 @@ func _get_gamemanager() -> Node:
 		_game_manager = get_node_or_null("/root/GameManager")
 	return _game_manager
 
+func _get_interaction_manager() -> Node:
+	return get_node_or_null("/root/InteractionManager")
+
 func _ready() -> void:
 	print("Player: _ready() called")
 	add_child(navigation_agent)
@@ -55,6 +59,15 @@ func _ready() -> void:
 	# Initialize autoload references
 	_game_manager = _get_gamemanager()
 	_event_bus = _get_eventbus()
+	
+	# Connect to InteractionManager signals for nearby interactable indication
+	var im = _get_interaction_manager()
+	if im:
+		im.interactable_nearby.connect(_on_interactable_nearby.bind())
+		im.interactable_far.connect(_on_interactable_far.bind())
+	
+	# Find InteractButton in scene (for mobile touch interaction)
+	_find_interact_button()
 	
 	# Load player position from GameManager
 	if _game_manager and _game_manager.player_data.has("position"):
@@ -66,6 +79,18 @@ func _ready() -> void:
 		character_visual.character_type = character_type
 		# Initial equipment sync
 		_sync_equipment_visual()
+
+func _find_interact_button() -> void:
+	# Find the InteractButton in the current scene's HUD
+	var root = get_tree().get_root()
+	if root:
+		for i in range(root.get_child_count()):
+			var child = root.get_child(i)
+			if child.has_node("HUD/InteractButton"):
+				_interaction_button = child.get_node("HUD/InteractButton")
+				print("Player: Found InteractButton at ", _interaction_button.get_path())
+				_interaction_button.pressed.connect(_on_interact_button_pressed.bind())
+				break
 
 func _physics_process(delta: float) -> void:
 	# Wait for GameManager to be ready
@@ -208,9 +233,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			_game_manager.change_state(2)  # PAUSED
 		elif event.keycode == KEY_I:
 			_toggle_inventory()
-		elif event.keycode == KEY_E or event.keycode == 45 or event.keycode == 69 or event.keycode == 45:
-			# KEY_E = 33 (standard), but on Android:
-			# - adb keyevent 69 (KEYCODE_E) can map to keycode 69 (E) or 45 (Minus)
+		elif Input.is_action_pressed("interact"):
+			# Use InputMap action for proper cross-platform interaction
+			# Maps to KEY_E on desktop, and can be extended for mobile touch interaction
 			_attempt_interaction()
 		else:
 			print("Player._unhandled_input: InputEventKey unhandled keycode = ", event.keycode)
@@ -295,3 +320,18 @@ func _sync_equipment_visual() -> void:
 # Called when equipment changes
 func _on_equipment_changed() -> void:
 	_sync_equipment_visual()
+
+func _on_interactable_nearby(interactable: Node) -> void:
+	print("Player._on_interactable_nearby: ", interactable, " is nearby")
+	if _interaction_button:
+		_interaction_button.visible = true
+		_interaction_button.text = "ВЗАИМОДЕЙСТВИЕ"
+
+func _on_interactable_far(interactable: Node) -> void:
+	print("Player._on_interactable_far: ", interactable, " is far")
+	if _interaction_button:
+		_interaction_button.visible = false
+
+func _on_interact_button_pressed() -> void:
+	print("Player._on_interact_button_pressed: Interact button pressed!")
+	_attempt_interaction()
