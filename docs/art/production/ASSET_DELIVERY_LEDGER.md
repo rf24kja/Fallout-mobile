@@ -1,4 +1,4 @@
-# RADZONE — Verified Art Publication Ledger (2026-11-09)
+# RADZONE — Verified Art Publication Ledger (2026-11-10)
 
 This ledger distinguishes **files actually committed to master** from generated art still held in temporary creative workspaces or ChatGPT ZIP archives.
 
@@ -14,9 +14,10 @@ This ledger distinguishes **files actually committed to master** from generated 
 | Wave 07 — new unique subjects | 7 | Original source sheet in conversation ZIP | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave07](../../../art/production/painterly_v4/wave07/) — PR #20 |
 | Wave 08 medicine loot icon | 1 | Owner-supplied sheet, source not committed | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave08](../../../art/production/painterly_v4/wave08/) — PR #23; CI both duplicate gates pass |
 | Wave 09 surgical instruments | 1 | Owner-supplied sheet, source not committed | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave09_unique](../../../art/production/painterly_v4/wave09_unique/) — new surgical instrument kit; CI gates | 
-| **Total verified individual PNGs** | **107** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
+| Wave 10 — salvaged field duffel | 1 | Owner-supplied source sheet, not committed | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave10](../../../art/production/painterly_v4/wave10/) — one isolated distinct carry-bag subject; CI gates | 
+| **Total verified individual PNGs** | **108** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
 
-The **107 files are illustration crops / references**, not 107 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
+The **108 files are illustration crops / references**, not 107 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
 
 ## Generated/delivered but NOT on GitHub master
 

@@ -1,0 +1,58 @@
+name: RADZONE Wave10 field duffel art QA
+on:
+  push:
+    branches:
+      - 'art/radzone-wave10-field-duffel'
+    paths:
+      - 'art/production/painterly_v4/wave10/**'
+      - 'tools/art_check_duplicates.py'
+      - 'tools/art_visual_duplicate_gate.py'
+      - '.github/workflows/radzone_wave10_qa.yml'
+  pull_request:
+    paths:
+      - 'art/production/painterly_v4/wave10/**'
+      - 'tools/art_check_duplicates.py'
+      - 'tools/art_visual_duplicate_gate.py'
+      - '.github/workflows/radzone_wave10_qa.yml'
+  workflow_dispatch:
+jobs:
+  art-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Pillow
+        run: python -m pip install Pillow
+      - name: Semantic duplicate gate
+        run: python tools/art_check_duplicates.py art/production/painterly_v4/wave10/manifest.json
+      - name: Perceptual near-duplicate gate
+        run: python tools/art_visual_duplicate_gate.py art/production/painterly_v4/wave10/manifest.json
+      - name: Validate PNG RGBA, border, SHA256 and git blob
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          m=json.loads(Path('art/production/painterly_v4/wave10/manifest.json').read_text(encoding='utf-8'))
+          assert m['asset_count']==len(m['assets'])==1
+          for asset in m['assets']:
+              p=Path(asset['path'])
+              data=p.read_bytes()
+              assert hashlib.sha256(data).hexdigest()==asset['sha256']
+              assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\x00'+data).hexdigest()==asset['git_blob_sha']
+              with Image.open(p) as im:
+                  assert im.mode=='RGBA',im.mode
+                  assert im.size==(asset['width'],asset['height']),im.size
+                  alpha=im.getchannel('A')
+                  assert alpha.getextrema()==(0,255)
+                  w,h=im.size
+                  assert max(
+                    alpha.crop((0,0,w,1)).getextrema()[1],
+                    alpha.crop((0,h-1,w,h)).getextrema()[1],
+                    alpha.crop((0,0,1,h)).getextrema()[1],
+                    alpha.crop((w-1,0,w,h)).getextrema()[1],
+                  ) == 0
+                  print('RGBA + hash + transparent border PASS:',p)
+          PY

@@ -1,0 +1,48 @@
+{
+  "project": "RADZONE",
+  "wave": 10,
+  "classification": "SOURCE_DRAFT_PENDING_FINAL_ART_AND_ENGINE_QA",
+  "art_reference": "Owner-approved screenshots 2/3 — realistic post-apocalyptic painterly industrial props",
+  "source_generation": "Owner-supplied existing reference sheet; one newly isolated image crop, NOT generated anew in this turn",
+  "source_filename": "Постапокалиптический набор индустриальных артефактов(3).png",
+  "source_sha256": "622d3c1c755869c0fb6cbc4f0a410fed998968663d3669ff5aad286bf9ee79b0",
+  "source_sheet_published": false,
+  "qa_preview": "qa/CONTACT_DARK_LIGHT.jpg",
+  "asset_count": 1,
+  "assets": [
+    {
+      "id": "salvaged_field_duffel",
+      "category": "survival_container_inventory",
+      "path": "art/production/painterly_v4/wave10/objects/salvaged_field_duffel.png",
+      "width": 181,
+      "height": 145,
+      "sha256": "35a7f0c170e0d9a1c93a1636c6a4547ade6bef1a812f777fcd9ac3fffd66c74b",
+      "git_blob_sha": "90aa565248a3d63b70c633ebfe5c85d43641c1fc",
+      "rgba": true,
+      "alpha_border_zero": true,
+      "source_crop_xyxy": [
+        1280,
+        808,
+        1520,
+        1000
+      ],
+      "qa_status": "SOURCE_DRAFT_DARK_LIGHT_CHECK_DONE_MANUAL_APPROVAL_PENDING",
+      "godot_status": "NOT_TESTED",
+      "android_status": "NOT_TESTED"
+    }
+  ],
+  "gates": {
+    "local_alpha": "PASS",
+    "local_sha256": "PASS",
+    "preview": "DRAFT_PREVIEW_REVIEWED",
+    "semantic": "GITHUB_ACTIONS",
+    "perceptual": "GITHUB_ACTIONS",
+    "godot": "NOT_TESTED",
+    "android": "NOT_TESTED"
+  },
+  "notes": [
+    "Field duffel is a carry bag with two strapped handles, distinct from an already-drawn wearable backpack.",
+    "Original source reference was user-provided; separate extraction is new, illustration is not newly generated.",
+    "No gameplay, existing Godot textures, or canonical Fallout item IDs changed."
+  ]
+}
