@@ -1,0 +1,96 @@
+{
+  "brand": "RADZONE",
+  "approved_on": "2026-11-09",
+  "type": "approved_visual_reference",
+  "not_actual_gameplay": true,
+  "source_archive": "RADZONE_Visual_Development_v2_2026-11-09.zip",
+  "original_masters_note": "Full PNG originals are in local approved archive; public remote currently stores optimized WebP previews.",
+  "hero": {
+    "path": "github-assets/approved/radzone-hero-approved.webp",
+    "size": [
+      1440,
+      560
+    ],
+    "status": "approved-brand-composition"
+  },
+  "gallery": {
+    "path": "github-assets/approved/radzone-approved-gallery.webp",
+    "size": [
+      1192,
+      993
+    ],
+    "status": "approved-presentation-composition"
+  },
+  "screens": [
+    {
+      "path": "github-assets/approved/v2/01-main-menu.webp",
+      "sha256": "f62fe11a9b4a74df0c8c4d417e61b5b298861bfba6bee518bc2ebe33a65c8ce4",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/02-character-special.webp",
+      "sha256": "5be1f4dafb910053663aed2686cd982b837daa52d7c97d59416c57b00ad19bce",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/03-dialogue.webp",
+      "sha256": "7a5bbe724c42b7c51f46eb556ae7c856fff96a11070a34d845c7408335e9a884",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/04-world-map-quests.webp",
+      "sha256": "e8c55f0e2435a244149647457f41fc4f4bd998a1c0a1b288b1bb03a91f71503e",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/05-inventory-icon-reference.webp",
+      "sha256": "9bb98fbf4380b24b32eeddaef5c5fee4df2cdde2441b2fd6735ae1498ed9bfc6",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/06-exploration.webp",
+      "sha256": "c2e80ca00a983b4823d422d841fb90f14d932fb2909559b1d1ca17b7e81f06ae",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/07-tactical-combat.webp",
+      "sha256": "e7a8e1cc752f42d0b610bbf776681bd744cda6aa9009539b895a0c1950b679a4",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/08-barter.webp",
+      "sha256": "54e8b72dcb6862dc6a133f8a995c9fa0248da3fb0131464cfdc0823c24c16df8",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/09-loot-container.webp",
+      "sha256": "3a19f811c46055f793224594c27f52f980dfeeaa6af4e824b5cef831f985f90d",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    },
+    {
+      "path": "github-assets/approved/v2/10-skills-perks.webp",
+      "sha256": "121c251be2d0af291d98e27ae3c976b5a5ff0c0cc6b54d68a86d53e2e77e3e69",
+      "format": "webp",
+      "status": "approved_concept_only",
+      "not_in_engine": true
+    }
+  ]
+}
