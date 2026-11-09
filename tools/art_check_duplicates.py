@@ -23,6 +23,7 @@ MANIFESTS = [
     'art/production/painterly_v4/wave08/manifest.json',
     'art/production/painterly_v4/wave09_unique/manifest.json',
     'art/production/painterly_v4/wave10/manifest.json',
+    'art/production/painterly_v4/wave11/manifest.json',
 ]
 # Broad but grounded same-subject aliases. Do not equate an ammo case with a supply crate,
 # a single cot with a double bunk bed, or a standalone valve with a pumping station.
@@ -51,6 +52,8 @@ ALIASES = {
     'pump_shotgun': 'pump_shotgun',
     'patchwork_coat': 'patched_leather_coat',
     'campfire_kettle': 'campfire_with_kettle',
+    'distillation_still': 'distillation_still salvaged_distillation_still',
+    'open_canned_beans': 'open_canned_beans cooked_beans_tin beans_can',
 }
 REVERSE = {}
 for canonical, names in ALIASES.items():
@@ -64,7 +67,7 @@ heavy_combat_helmet leather_vest scrap_metal_chest_armor ration_tin
 roadside_drop_box abandoned_payphone_booth operating_table manual_wheelchair
 iv_stand medicine_shelves hospital_power_cart patient_gurney rainwater_collector
 hand_grain_mill hydroponic_tray field_wheelbarrow garden_water_pump
- distillation_still
+ 
 '''.split()
 
 
