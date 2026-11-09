@@ -1,0 +1,51 @@
+{
+  "project": "RADZONE",
+  "wave": 8,
+  "classification": "DRAFT_ART_FOR_REVIEW_NOT_GODOT_VERIFIED",
+  "source_type": "Owner-supplied approved-style sheet, cropped and independently alpha-cleaned; NOT newly generated artwork",
+  "source_filename": "Постапокалиптический арсенал выжившего(1).png",
+  "source_sha256": "babcbe2bcc1f48565206f46b3409f10bc2496ef0c0a141e05a3d9bb042531fb5",
+  "source_committed": false,
+  "original_extraction_rgba_dimensions": [
+    160,
+    164
+  ],
+  "published_format": "PNG RGBA color type 6, 8 bits per channel",
+  "assets": [
+    {
+      "id": "scavenged_medicine_bottles",
+      "category": "inventory_medicine_loot",
+      "path": "art/production/painterly_v4/wave08/objects/scavenged_medicine_bottles.png",
+      "dimensions": [
+        96,
+        98
+      ],
+      "sha256": "1f29edd03a09bb0378683acc91ec5dee5bae151dec09bb3b7a0ca19fc786f38b",
+      "git_blob_sha": "5417e58688ccebdeff08b417c66ece9019690788",
+      "alpha_zero_pixels": 2082,
+      "source_crop_xyxy": [
+        475,
+        402,
+        635,
+        566
+      ],
+      "scope": "Inventory illustration / loot cluster, not a canonical medicine gameplay item",
+      "quality": "DRAFT_ALPHA_AUTO_CLEANED_HUMAN_AND_ANDROID_QA_PENDING"
+    }
+  ],
+  "excluded": [
+    "Items already registered in v3.1 and waves 01/03/04/06/07",
+    "Subjects reserved as previously generated Wave02/Wave05",
+    "Nuka-Cola, Vault-numbered jacket, wrist-computer trade dress",
+    "Machete candidate touching source-sheet top edge (possibly clipped)"
+  ],
+  "gates": {
+    "semantic": "Run tools/art_check_duplicates.py against this manifest",
+    "visual": "Run tools/art_visual_duplicate_gate.py against this manifest",
+    "engine": "NOT_TESTED",
+    "manual": "Preview on light/dark backgrounds locally; final in-engine lighting not checked"
+  },
+  "note": "This asset is intentionally not counted as a verified in-game sprite. Do not create new gameplay item IDs or rename original Fallout 2 items based on artwork.",
+  "qa_preview": "qa/CONTACT_DARK_LIGHT.png",
+  "qa_preview_git_blob_sha": "f237dfd4fa48996611eef727640a73c5f1e0cbf0"
+}
