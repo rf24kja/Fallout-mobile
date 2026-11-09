@@ -1,123 +1,115 @@
-# Next Actions — Immediate Execution Queue
+# NEXT ACTIONS — Fallout 2 Reborn Mobile
 
-## Purpose
-
-Concrete, ordered task list for **this week**. Each action is assignable, testable, and blocked only by the previous.
+**Priority Order**: P0 (Critical) → P1 (High) → P2 (Medium) → P3 (Low)
 
 ---
 
-## 🎯 THIS WEEK — ART PIPELINE RECOVERY & TECHNICAL STABILIZATION
+## P0 — Project Integrity & Recovery (Immediate)
 
-### 🎨 ART PRODUCTION PIPELINE — NEW TRACK (Restarted After REV2 Rejection)
-
-| # | Action | Dependency | Status |
-|---|--------|------------|--------|
-| A1 | **Art Direction & Reference Board**: Define cinematic post-apocalyptic style, gather references | — | ✅ DONE (defined in VISUAL_DIRECTION.md) |
-| A2 | **REV2 Production Attempt** (primitive-based procedural modeling) | A1 | ❌ **REJECTED** — Box-like proportions, flat materials, weak gameplay visibility |
-| A3 | **Professional Concept Art**: Create CONCEPT_APPROVAL.png for ONE original post-apocalyptic sidearm | A1 | 🔄 **CONCEPT_CANDIDATE — PENDING USER APPROVAL** (needs $5 OpenAI credits) |
-| A4 | **User Approval Gate**: Review concept sheet, approve or request revision | A3 | ⏳ **BLOCKED — DO NOT MODEL UNTIL APPROVED** |
-| A5 | **Production Modeling** from approved concept (UV, textures, bevels, weighted normals, materials) | A4 | ⏳ BLOCKED |
-| A6 | **In-Game Validation** of approved model at mobile scale | A5 | ⏳ BLOCKED |
-| A7 | **Scale to Full Catalog** (characters, armor, weapons, environment) | A6 | ⏳ BLOCKED |
-
-**CRITICAL**: Do NOT scale production to full catalog until A4 (User Approval) is complete. Gameplay development continues with TECHNICAL_PLACEHOLDER assets.
+| ID | Task | Description | Blocked By |
+|----|------|-------------|------------|
+| P0-1 | **Validate GitHub Recovery** | Clone repo to fresh dir → run RECOVERY_GUIDE checks → document results | None |
+| P0-2 | **Configure Release Keystore** | Generate local release.keystore → update export_presets.cfg (local) → build Release APK | P0-1 |
+| P0-3 | **Verify Release APK** | `apksigner verify` → install on device → test runtime | P0-2 |
 
 ---
 
-### 🔧 TECHNICAL STABILIZATION — COMPLETED ✅
+## P1 — Core Fidelity Verification (This Week)
 
-| # | Action | Owner | Verification | Status |
-|---|--------|-------|--------------|--------|
-| T1 | **Fix `called_shot_panel.gd` parse error** (line 124: `.keys()` for dict iteration) | Sys Eng | Godot headless --check-only passes | ✅ DONE |
-| T2 | **Fix `quest_log.gd` parse errors** (enum → int literals) | Sys Eng | Godot headless --check-only passes | ✅ DONE |
-| T3 | **Fix test_map.tscn** — add Instance refs for DialogueUI/InventoryUI | Sys Eng | InventoryUI.tscn loads in test | ✅ DONE |
-| T4 | **APK Size Audit** — exclude dev assets (FINAL_REVIEW_REV2.png, CONCEPT_APPROVAL.png, production_pistol_candidate*) | Build Eng | APK 37.1MB (was 43MB) | ✅ DONE |
-| T5 | **Verify `weapons_dev.json` excluded** from APK export | Build Eng | Excluded in export_presets.cfg | ✅ DONE |
-| T6 | **Run full Godot headless test suite** | QA | Stage B 11/11 + Stage C 21/21 = 32/32 PASS | ✅ DONE |
-| T7 | **Fix CombatHUD** null node refs for headless tests | Sys Eng | 27/27 tests pass | ✅ DONE |
-| T8 | **SPECIAL attribute rename** for IP compliance (7 attributes) | Sys Eng | All tests pass, save migration OK | ✅ DONE |
-| T9 | **Save migration v1→v2** implementation + 4 new Stage C tests | Sys Eng | Migration tests pass, idempotent | ✅ DONE |
-| T10 | **AP inconsistency fix** — CombatSystem base_ap 10→5 (matches CharacterSystem 5+DEX/2) | Sys Eng | All tests pass | ✅ DONE |
-| T11 | **Fix combat_hud.gd** indentation parse errors | Sys Eng | Godot --check-only passes | ✅ DONE |
-| T12 | **Android x86_64 export template** — build from source with SCons | Build Eng | libgodot_android.so (73 MB) built | ✅ DONE |
-| T13 | **Android x86_64 APK build & install** — zipalign, aapt2 optimize, apksigner | Build Eng | APK installed on emulator-5554 | ✅ DONE |
-| T14 | **Android runtime QA Stage E.7** — interactive touch testing | QA | App launches, 32/32 auto tests PASS, UI blocked by shader limits | ✅ DONE |
-| T15 | **Android rendering fix Stage E.8** — host GPU translation resolves shader uniform limits | QA | 32/32 tests PASS on device, full rendering working | ✅ DONE |
+| ID | Task | Description | Blocked By |
+|----|------|-------------|------------|
+| P1-1 | **Update FIDELITY_MATRIX** | Document REA verification for all P0 systems with evidence | None |
+| P1-2 | **Verify SPECIAL Calculations** | REA analysis of derived stats formulas → compare Godot implementation | P1-1 |
+| P1-3 | **Verify Combat AP Costs** | REA extraction of weapon AP costs → compare Godot combat.gd | P1-1 |
+| P1-4 | **Verify DT/DR Damage** | REA damage formula → compare Godot damage calculation | P1-1 |
+| P1-5 | **Verify Critical Tables** | REA critical hit tables → compare Godot critical system | P1-1 |
 
 ---
 
-## 📋 COMPLETED — Gameplay Systems (Stage D Week 1-3 + Technical Stabilization + Stage E.8)
+## P2 — Gameplay Systems Completion (Next 2 Weeks)
 
-| # | System | Status | Notes |
-|---|--------|--------|-------|
-| 1-20 | Data Foundation, Equipment, Combat DT/DR, Ammo, Called Shots | ✅ DONE | All 44+ tests pass |
-| 21-30 | Combat FX, Called Shot UI, Cover System | ✅ DONE | Integrated with CombatSystem |
-| 31-40 | Quest System (3 branching quests), Mobile Combat UX (CombatHUD) | ✅ DONE | Autoloads registered |
-| 41-45 | Character Visual (Paperdoll), Player Integration | ✅ DONE | Layered equipment system |
-| 46-50 | CI & Testing: Stage B 11/11, Stage C 21/21, Android Debug APK 37.1MB | ✅ DONE | All 32 tests pass |
-| 51 | CombatUI script attachment fix | ✅ DONE | Removed return type hints |
-| 52 | SPECIAL rename for IP compliance | ✅ DONE | 7 attributes renamed, 10 files updated |
-| 53 | Save migration v1→v2 + 4 new regression tests | ✅ DONE | All migration scenarios covered |
-| 54 | AP formula unified (Fallout 2: 5+AGI/2) | ✅ DONE | CombatSystem base_ap 10→5 |
-| 55 | Debug APK built & verified (37.1MB, dev assets excluded) | ✅ DONE | builds/fallout2_reborn_debug.apk |
-| 56 | Android x86_64 custom template & APK | ✅ DONE | Runs on emulator-5554 |
-| 57 | Android runtime QA (Stage E.7) | ✅ DONE | Interactive blocked by GLES3 shader limits |
-| 58 | Android rendering fix (Stage E.8) — host GPU translation | ✅ DONE | 60fps, all visual elements rendering, touch working |
+| ID | Task | Description | Blocked By |
+|----|------|-------------|------------|
+| P2-1 | **Complete Quest System** | Implement quest stages, objectives, world state for Arroyo→Klamath | P1-1 |
+| P2-2 | **World Map Travel** | Travel speed, random encounters, location discovery | P2-1 |
+| P2-3 | **NPC Schedules/Behavior** | Day/night cycles, faction AI, companion commands | P2-1 |
+| P2-4 | **Save/Load Migration** | Version handling, backward compatibility testing | P2-1 |
+| P2-5 | **Inventory Polish** | Stack splitting, quick-equip, compare tooltips | P2-1 |
 
 ---
 
-## 📦 BLOCKERS (Escalate Immediately)
+## P3 — Mobile UX & Polish (Ongoing)
 
-| Blocker | Impact | Resolution |
-|---------|--------|------------|
-| **CONCEPT_APPROVAL.png not created** | Cannot proceed to production modeling | **PRIORITY 1** — Need $5 OpenAI credits for DALL-E 3 / gpt-image-1 |
-| No physical Android device connected | Cannot run device QA | Connect authorized ADB device |
-
----
-
-## 📊 SUCCESS METRICS (End of This Week) — ALL MET ✅
-
-- [x] **CONCEPT_APPROVAL.png** concept phase documented, pending API credits
-- [x] **Zero Godot parse errors** (`godot --headless --check-only` passes)
-- [x] **All 32 Godot headless tests pass** (Stage B 11/11 + Stage C 21/21)
-- [x] **APK size audit complete** — dev assets excluded, 37.1MB
-- [x] **InventoryUI scene** accessible in test environment
-- [x] **Git commit** with updated PROJECT_STATE.md
-- [x] **Android x86_64 runtime** — app launches, 32/32 tests pass on device
-- [x] **Android rendering fully functional** — host GPU translation, 60fps, touch interactions working
+| ID | Task | Description | Blocked By |
+|----|------|-------------|------------|
+| P3-1 | **Touch Combat Controls** | Aimed shot selection, target cycling, AP display | P2-2 |
+| P3-2 | **UI Responsiveness** | Safe areas, orientation, text scaling, accessibility | P2-2 |
+| P3-3 | **Performance Profile** | 60 FPS target, memory < 500MB, battery optimization | P2-2 |
+| P3-4 | **Tutorial/Onboarding** | First-run guidance, control hints | P3-1 |
+| P3-5 | **Settings Menu** | Graphics, audio, controls, gameplay options | P3-2 |
 
 ---
 
-## 🎯 IMMEDIATE NEXT STEPS (Priority Order)
+## P4 — Graphics & Content (After Baseline Stable)
 
-1. **Obtain $5 OpenAI credits** — enable DALL-E 3 / gpt-image-1 for CONCEPT_APPROVAL.png generation
-2. **Generate CONCEPT_APPROVAL.png** — Professional concept sheet for ONE original post-apocalyptic sidearm
-3. **User review & approval** of concept sheet
-4. **Connect physical Android device** for device QA (adb install + playthrough)
-5. **Production modeling** from approved concept (UV, textures, materials)
-6. **Release APK build** with production assets when ready
-
----
-
-## 🎨 CONCEPT SHEET REQUIREMENTS (for CONCEPT_APPROVAL.png)
-
-**File**: `artifacts/art_review/pistol/concept/CONCEPT_APPROVAL.png`
-
-**Contents**:
-- Side profile (orthographic)
-- Three-quarter perspective view
-- Material palette (swatches with roughness/metallic values)
-- Surface wear references (edge wear, scratches, corrosion, grime)
-- Major silhouette and proportions callouts
-- Original design identity notes (not derivative of existing IP)
-
-**Style Target**: Serious classic isometric RPG, realistic mechanical silhouettes, functional industrial design, mature cinematic post-apocalyptic atmosphere, used/weathered equipment
-
-**Production Note**: If image-generation tools available, use for concept phase ONLY — not as fake proof of 3D asset. Document tool/provenance. If no suitable tool, report limitation and identify exact production dependency.
+| ID | Task | Description | Blocked By |
+|----|------|-------------|------------|
+| P4-1 | **Character Animation System** | 8-directional isometric, combat states, transitions | P3-3 |
+| P4-2 | **Combat VFX** | Muzzle flash, impact, blood, critical indicators | P4-1 |
+| P4-3 | **Environment Art** | Tilesets, props, lighting, weather | P4-1 |
+| P4-4 | **New Content** | Weapons, quests, locations, companions | P4-1 |
 
 ---
 
-*Document Version: 3.3*  
-*Date: 2026-10-31*  
-*Author: Technical Director*  
-*Status: Gameplay Systems ✅ COMPLETE — Art Pipeline 🔄 CONCEPT PHASE (32/32 tests PASS) — Technical Stabilization ✅ COMPLETE — Android x86_64 Runtime QA ✅ COMPLETE (Stage E.8 rendering fully functional)*
+## Current Sprint Focus (Week of 2026-11-09)
+
+### Primary Goal: **Recovery Validation + Release Build**
+
+```
+[ ] P0-1: Clone recovery test (30 min)
+[ ] P0-2: Release keystore generation (15 min)
+[ ] P0-3: Release APK build + verify (30 min)
+[ ] P1-1: Update FIDELITY_MATRIX with current REA evidence (2 hrs)
+```
+
+### Success Criteria for This Sprint
+- Fresh clone builds and runs without manual intervention
+- Release APK installs and passes `apksigner verify`
+- FIDELITY_MATRIX documents all P0 system verifications
+- All documentation pushed to GitHub
+
+---
+
+## Commands Reference
+
+```bash
+# Quick status check
+git status && git log -3 --oneline
+
+# Recovery validation
+cd /tmp && git clone https://github.com/rf24kja/Fallout-mobile.git test_recovery && cd test_recovery && godot --path . --check-only
+
+# Build debug APK
+godot --headless --export-debug "Android" builds/android/Fallout2_Reborn_Mobile_Debug.apk
+
+# Verify APK
+apksigner verify --print-certs builds/android/Fallout2_Reborn_Mobile_Debug.apk
+
+# Install to device
+adb install -r builds/android/Fallout2_Reborn_Mobile_Debug.apk
+
+# View logs
+adb logcat -s Godot
+
+# Push docs
+git add docs/ README.md AGENTS.md && git commit -m "docs: update project documentation" && git push
+```
+
+---
+
+## Notes
+
+- **Never skip P0** — recovery must work before new features
+- **Fidelity first** — REA verification before implementation
+- **One task at a time** — complete verification before moving on
+- **Document as you go** — update FIDELITY_MATRIX and PROJECT_STATE immediately
