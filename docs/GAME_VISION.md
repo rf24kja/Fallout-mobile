@@ -1,3 +1,14 @@
+# Game Vision — Wasteland RPG Prototype [SUPERSEDED]
+
+## ⚠️ SUPERSEDED DOCUMENT
+
+**This document is superseded by `docs/PROJECT_MANDATE.md`.**
+
+The current authoritative project vision and requirements are defined in `PROJECT_MANDATE.md`.
+This file is preserved for historical reference only and MUST NOT be used as the current design authority.
+
+---
+
 # Game Vision — Wasteland RPG Prototype
 
 ## Product Statement

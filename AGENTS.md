@@ -5,7 +5,7 @@
 ### Primary Agent: Technical Supervisor
 - Verifies environment, configures tools, directs reverse-engineering work
 - Maintains `PROJECT_STATE.md` as single source of truth
-- Does NOT write game code — only tooling/analysis infrastructure
+- Implements, tests and improves actual Godot game code — not merely tooling/analysis
 
 ### Sub-agents (when delegated)
 - **executor**: Implements tooling fixes, writes scripts, runs REA commands

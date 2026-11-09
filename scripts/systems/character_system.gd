@@ -10,9 +10,15 @@ signal stat_changed(stat: String, old_value: int, new_value: int)
 signal skill_changed(skill: String, old_value: int, new_value: int)
 signal perk_acquired(perk_id: String)
 
-# XP curve: level * 1000 (Fallout-style)
+# XP curve: Fallout 2 cumulative formula
+# Level 1: 0 XP
+# Level 2: 1,000 XP  
+# Level 3: 3,000 XP
+# Level 4: 6,000 XP
+# Level 5: 10,000 XP
+# General: XP(level) = 1000 * level * (level - 1) / 2
 static func xp_for_level(level: int) -> int:
-	return level * 1000
+	return 1000 * level * (level - 1) / 2
 
 static func level_from_xp(xp: int) -> int:
 	var level = 1

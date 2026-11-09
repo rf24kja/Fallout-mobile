@@ -59,12 +59,19 @@ sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools" "cmdline
 
 ---
 
-## 4. Git LFS (If Used)
+## 4. Git LFS
 
-Currently **not configured**. If large binary assets are added later:
+Git LFS is configured for large binary assets:
 
 ```bash
 git lfs install
+# Already configured in .gitattributes:
+# *.apk filter=lfs diff=lfs merge=lfs -text
+# *.so filter=lfs diff=lfs merge=lfs -text
+```
+
+If additional large binary assets are added later:
+```bash
 git lfs track "*.blend" "*.psd" "*.kra" "*.ora" "*.aseprite"
 git add .gitattributes
 ```
