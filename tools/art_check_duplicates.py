@@ -20,6 +20,8 @@ MANIFESTS = [
     'art/production/painterly_v4/wave03_unique/manifest.json',
     'art/production/painterly_v4/wave06_unique/manifest.json',
     'art/production/painterly_v4/wave07/manifest.json',
+    'art/production/painterly_v4/wave08/manifest.json',
+    'art/production/painterly_v4/wave09_unique/manifest.json',
 ]
 # Broad but grounded same-subject aliases. Do not equate an ammo case with a supply crate,
 # a single cot with a double bunk bed, or a standalone valve with a pumping station.
@@ -89,9 +91,12 @@ def source_assets(path: Path):
 
 
 def main():
+    candidate_path = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else None
     existing = {}
     for relative in MANIFESTS:
         path = ROOT / relative
+        if candidate_path is not None and candidate_path == path.resolve():
+            continue  # Candidate is not a prior published subject when checking its own manifest.
         if not path.exists():
             raise FileNotFoundError(f'Missing committed manifest: {relative}')
         for item in source_assets(path):
