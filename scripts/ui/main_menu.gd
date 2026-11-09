@@ -43,9 +43,9 @@ func _ready() -> void:
          debug_file.store_line("MainMenu: quit_button = " + str(quit_button))
          debug_file.store_line("MainMenu: children = " + str(get_children()))
      
-     # Debug button properties
-     var button_container = get_node_or_null("ButtonContainer")
-if start_button:
+# Debug button properties
+      var button_container = get_node_or_null("ButtonContainer")
+      if start_button:
           if debug_file:
               debug_file.store_line("MainMenu: start_button rect = " + str(start_button.get_rect()))
               debug_file.store_line("MainMenu: start_button global_position = " + str(start_button.global_position))
