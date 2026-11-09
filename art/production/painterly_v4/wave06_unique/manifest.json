@@ -1,0 +1,92 @@
+{
+  "project": "RADZONE",
+  "wave": 6,
+  "batch": "unique_only",
+  "classification": "SOURCE_DRAFT_REQUIRES_HUMAN_ART_QA_NOT_GODOT_VERIFIED",
+  "source_zip": "RADZONE_WAVE06_12_RGBA_APPROVED_STYLE_DRAFT.zip",
+  "source_sheet_sha256": "9508f370086e1b97ee1a182e52d9207f0feeca26ecc58c0e987045da1b242fd2",
+  "style_reference": "User-approved screenshots #2 and #3; see docs/art/VISUAL_CONSISTENCY_CONTRACT.md",
+  "selection_rule": "Exclude previously generated subject types, including unpublished Wave02/03 as well as all master assets",
+  "asset_count": 3,
+  "assets": [
+    {
+      "id": "field_binoculars",
+      "path": "art/production/painterly_v4/wave06_unique/sprites/field_binoculars.png",
+      "width": 266,
+      "height": 222,
+      "sha256": "3749182af6fd06c77c88634158802dd263394e66c436d4a99ac46b4496a1e8de",
+      "git_blob_sha": "f793436124f68fa90df96cc3b511ffc6b9b48b0a",
+      "status": "DRAFT_ALPHA_PRESENT_VISUAL_REVIEW_REQUIRED",
+      "scope": "inventory_icon_only"
+    },
+    {
+      "id": "mechanical_safe",
+      "path": "art/production/painterly_v4/wave06_unique/sprites/mechanical_safe.png",
+      "width": 247,
+      "height": 261,
+      "sha256": "5b2cb7f2661dfd600d7be524b91341183f7dd003d85a8926d3de0e928724f1c6",
+      "git_blob_sha": "4ad36fc7169b7345690e8df5907b604dfcf407ae",
+      "status": "DRAFT_ALPHA_PRESENT_VISUAL_REVIEW_REQUIRED",
+      "scope": "world_prop_candidate"
+    },
+    {
+      "id": "field_cot",
+      "path": "art/production/painterly_v4/wave06_unique/sprites/field_cot.png",
+      "width": 302,
+      "height": 297,
+      "sha256": "2829dd5fb7f2cfb37a4427740b29ac9c5fe386a24a543501698a58fb012681c8",
+      "git_blob_sha": "4f1b704c9cfc210d831ea96280422ac7d7e30eb1",
+      "status": "DRAFT_ALPHA_PRESENT_VISUAL_REVIEW_REQUIRED",
+      "scope": "world_prop_candidate"
+    }
+  ],
+  "excluded_duplicate_types": [
+    {
+      "id": "patched_leather_coat",
+      "reason": "already generated in Wave03"
+    },
+    {
+      "id": "riveted_steel_vest",
+      "reason": "additional armor-vest type overlaps Wave02/Wave03 armor"
+    },
+    {
+      "id": "reinforced_field_boots",
+      "reason": "boots previously generated in Wave02/Wave03"
+    },
+    {
+      "id": "analog_field_radio",
+      "reason": "field radio already generated in Wave03"
+    },
+    {
+      "id": "scavenger_workbench_b",
+      "reason": "workbench already generated in Wave01 and Wave03"
+    },
+    {
+      "id": "compact_iron_stove",
+      "reason": "potbelly stove already generated in Wave01"
+    },
+    {
+      "id": "roadblock_scrap_assemblage",
+      "reason": "concrete road barricade exists in v3.1 and Wave04"
+    },
+    {
+      "id": "analog_radiation_meter",
+      "reason": "radiation detector/Geiger counter exists in v3.1/Wave02"
+    },
+    {
+      "id": "locksmith_tool_roll",
+      "reason": "lockpick kits already exist in v3.1 and Wave02"
+    }
+  ],
+  "qa": {
+    "automated": "PNG RGBA alpha (transparent corners), source ZIP manifest SHA256 & file dimensions checked; Git blob SHA locally verified",
+    "manual": "Subject-specific edge/holes/halos and perspective require human approval",
+    "godot": "NOT_TESTED",
+    "android": "NOT_TESTED"
+  },
+  "notes": [
+    "Archive/source sheet not committed as they also contain the nine excluded duplicate subject types.",
+    "No runtime SpriteFrames or game code changed.",
+    "Do not claim unique gameplay item IDs without mapping to source-game data."
+  ]
+}
