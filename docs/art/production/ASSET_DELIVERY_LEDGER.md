@@ -11,9 +11,10 @@ This ledger distinguishes **files actually committed to master** from generated 
 | Wave 04 | 12 | 2 PNG originals | `GITHUB_COMMITTED / AUTO_MASK_DRAFT` | [wave04](../../../art/production/painterly_v4/wave04/) — PR #12, binary commit `99a9b3c` |
 | Wave 03 unique-only | 7 | Source held in conversation | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave03_unique](../../../art/production/painterly_v4/wave03_unique/) — PR #18 |
 | Wave 06 unique-only | 3 | Source held in conversation | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave06_unique](../../../art/production/painterly_v4/wave06_unique/) — PR #17 |
-| **Total verified individual PNGs** | **98** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
+| Wave 07 — new unique subjects | 7 | Original source sheet in conversation ZIP | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave07](../../../art/production/painterly_v4/wave07/) — PR #20 |
+| **Total verified individual PNGs** | **105** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
 
-The **98 files are illustration crops / references**, not 88 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
+The **105 files are illustration crops / references**, not 105 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
 
 ## Generated/delivered but NOT on GitHub master
 
