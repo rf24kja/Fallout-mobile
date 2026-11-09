@@ -45,5 +45,7 @@
     "engine": "NOT_TESTED",
     "manual": "Preview on light/dark backgrounds locally; final in-engine lighting not checked"
   },
-  "note": "This asset is intentionally not counted as a verified in-game sprite. Do not create new gameplay item IDs or rename original Fallout 2 items based on artwork."
+  "note": "This asset is intentionally not counted as a verified in-game sprite. Do not create new gameplay item IDs or rename original Fallout 2 items based on artwork.",
+  "qa_preview": "qa/CONTACT_DARK_LIGHT.png",
+  "qa_preview_git_blob_sha": "f237dfd4fa48996611eef727640a73c5f1e0cbf0"
 }

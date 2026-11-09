@@ -18,3 +18,9 @@ python tools/art_visual_duplicate_gate.py art/production/painterly_v4/wave08/man
 ## Remaining gates
 
 Manual 100% edge/perspective review; full-resolution source archival; mapping to valid gameplay item if needed; OpenCode Godot import and Android capture. Do not call this production- or device-approved yet.
+
+## Two-background alpha review
+
+Left: near-black checkerboard. Right: ivory checkerboard. Both show the **same actual RGBA PNG** (not an edited rendering).
+
+![Dark and light alpha previews](qa/CONTACT_DARK_LIGHT.png)
