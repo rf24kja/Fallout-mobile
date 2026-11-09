@@ -1,0 +1,460 @@
+{
+  "pack": "RADZONE_WAVE01",
+  "count": 18,
+  "sources": [
+    {
+      "group": "interior",
+      "path": "art/production/painterly_v4/wave01/source_sheets/interior.png",
+      "sha256": "7c139ce589621042f2e3651a266771490012ee3737d72b666b87c0605b4da853",
+      "source_task_id": "8bc9142f-cdcd-4362-b2b1-c79dca729fcd"
+    },
+    {
+      "group": "settlement",
+      "path": "art/production/painterly_v4/wave01/source_sheets/settlement.png",
+      "sha256": "ddddcbab899c747bc770aa7737171a51da97e69398aa7098b747e7782db53070",
+      "source_task_id": "2ac8705a-8cf9-44d4-bf9b-28144e137af9"
+    },
+    {
+      "group": "weapons",
+      "path": "art/production/painterly_v4/wave01/source_sheets/weapons.png",
+      "sha256": "3cc024cd9067c7398fbd1909120d5fefb438eec9560a3efc4fd30034b78df31a",
+      "source_task_id": "48d0cbc5-f4d2-45a0-bfef-aa6805f52456"
+    }
+  ],
+  "assets": [
+    {
+      "id": "interior/vending_machine",
+      "path": "art/production/painterly_v4/wave01/objects/interior/vending_machine.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/interior.png",
+      "source_cell": 0,
+      "bbox": [
+        213,
+        29,
+        696,
+        736
+      ],
+      "size": [
+        507,
+        731
+      ],
+      "source_bg_rgb": [
+        239.0,
+        238.0,
+        230.0
+      ],
+      "coverage": 0.3560262950581696,
+      "sha256": "a7e27681be136e4a4f5b47f2cd9c1cd9022f52ebf6ca220a515058d685fb6589",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "interior/scavenger_workbench",
+      "path": "art/production/painterly_v4/wave01/objects/interior/scavenger_workbench.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/interior.png",
+      "source_cell": 1,
+      "bbox": [
+        1022,
+        72,
+        1731,
+        698
+      ],
+      "size": [
+        733,
+        650
+      ],
+      "source_bg_rgb": [
+        239.0,
+        238.0,
+        231.0
+      ],
+      "coverage": 0.33982021809608015,
+      "sha256": "f95fce3316fa5891366f17124b82ce11c7c95258708d710c0e9a54fd3f38e750",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "interior/retro_refrigerator",
+      "path": "art/production/painterly_v4/wave01/objects/interior/retro_refrigerator.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/interior.png",
+      "source_cell": 2,
+      "bbox": [
+        2042,
+        44,
+        2627,
+        721
+      ],
+      "size": [
+        609,
+        701
+      ],
+      "source_bg_rgb": [
+        239.0,
+        238.0,
+        230.0
+      ],
+      "coverage": 0.3845578494230253,
+      "sha256": "2bcec2e23438b7b468b1c1d639d486da3b03d9e2ebcb9fa57feaf9b68d104cf4",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "interior/steel_locker",
+      "path": "art/production/painterly_v4/wave01/objects/interior/steel_locker.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/interior.png",
+      "source_cell": 3,
+      "bbox": [
+        286,
+        789,
+        618,
+        1524
+      ],
+      "size": [
+        356,
+        759
+      ],
+      "source_bg_rgb": [
+        239.0,
+        238.0,
+        231.0
+      ],
+      "coverage": 0.2660294521174426,
+      "sha256": "fde8e829146749ca030291a9d8d91b74254921207b2ac167e67b67ec727acb57",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "interior/potbelly_stove",
+      "path": "art/production/painterly_v4/wave01/objects/interior/potbelly_stove.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/interior.png",
+      "source_cell": 4,
+      "bbox": [
+        1207,
+        796,
+        1549,
+        1511
+      ],
+      "size": [
+        366,
+        739
+      ],
+      "source_bg_rgb": [
+        239.0,
+        238.0,
+        231.0
+      ],
+      "coverage": 0.13109342764515178,
+      "sha256": "2ca5031aac3c4cd4f060bb3f09aa14ebca98d0d69ded1e18cae3dcdd22bf0033",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "interior/medical_cabinet",
+      "path": "art/production/painterly_v4/wave01/objects/interior/medical_cabinet.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/interior.png",
+      "source_cell": 5,
+      "bbox": [
+        2092,
+        804,
+        2496,
+        1509
+      ],
+      "size": [
+        428,
+        729
+      ],
+      "source_bg_rgb": [
+        239.0,
+        238.0,
+        231.0
+      ],
+      "coverage": 0.28499541193722466,
+      "sha256": "af86da2939c1d15114076b1b750c4d289e49b6e9b9418a352f5d6684375e7b2c",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "settlement/abandoned_compact_car",
+      "path": "art/production/painterly_v4/wave01/objects/settlement/abandoned_compact_car.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/settlement.png",
+      "source_cell": 0,
+      "bbox": [
+        82,
+        122,
+        890,
+        650
+      ],
+      "size": [
+        832,
+        552
+      ],
+      "source_bg_rgb": [
+        240.0,
+        237.0,
+        225.0
+      ],
+      "coverage": 0.3114158673208959,
+      "sha256": "f29b4fc536f7537fa808cc07ec4c761140db7a5a9c0979bf2500b026bf0bc8cd",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "settlement/salvage_market_stall",
+      "path": "art/production/painterly_v4/wave01/objects/settlement/salvage_market_stall.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/settlement.png",
+      "source_cell": 1,
+      "bbox": [
+        1028,
+        32,
+        1717,
+        731
+      ],
+      "size": [
+        713,
+        723
+      ],
+      "source_bg_rgb": [
+        240.0,
+        237.0,
+        225.0
+      ],
+      "coverage": 0.3878352490421456,
+      "sha256": "e8a0fcc80f9b1f8184e0a3691c01a02c90177c88e1641a61e77c5d4fcfa0f43f",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "settlement/water_tower",
+      "path": "art/production/painterly_v4/wave01/objects/settlement/water_tower.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/settlement.png",
+      "source_cell": 2,
+      "bbox": [
+        2080,
+        31,
+        2533,
+        752
+      ],
+      "size": [
+        477,
+        745
+      ],
+      "source_bg_rgb": [
+        240.0,
+        237.0,
+        226.0
+      ],
+      "coverage": 0.19745192860915312,
+      "sha256": "6f46a9f85edd0465dbc5062faa9757bd267296b7e4cfec3bc706fa166891741f",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "settlement/dead_tree",
+      "path": "art/production/painterly_v4/wave01/objects/settlement/dead_tree.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/settlement.png",
+      "source_cell": 3,
+      "bbox": [
+        190,
+        775,
+        795,
+        1484
+      ],
+      "size": [
+        629,
+        733
+      ],
+      "source_bg_rgb": [
+        240.0,
+        237.0,
+        226.0
+      ],
+      "coverage": 0.13590107487541417,
+      "sha256": "9c160f437edb4531b6364ddf8dffd295702250880fd0befc3a93bc3b4d124f1f",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "settlement/abandoned_bus_shelter",
+      "path": "art/production/painterly_v4/wave01/objects/settlement/abandoned_bus_shelter.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/settlement.png",
+      "source_cell": 4,
+      "bbox": [
+        1030,
+        808,
+        1737,
+        1485
+      ],
+      "size": [
+        731,
+        701
+      ],
+      "source_bg_rgb": [
+        239.0,
+        237.0,
+        226.0
+      ],
+      "coverage": 0.3426289419392868,
+      "sha256": "ca1e4c42d84397910e8d8385a150b6745ef88330e18b70be3397cd7bb06287e3",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "settlement/scrap_shack",
+      "path": "art/production/painterly_v4/wave01/objects/settlement/scrap_shack.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/settlement.png",
+      "source_cell": 5,
+      "bbox": [
+        1954,
+        829,
+        2668,
+        1486
+      ],
+      "size": [
+        738,
+        681
+      ],
+      "source_bg_rgb": [
+        240.0,
+        237.0,
+        226.0
+      ],
+      "coverage": 0.43610790651563924,
+      "sha256": "b066cef11e575ff3536a3154bf5c43e54d531e90b813fb0120b2189c7f83679f",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "weapons/heavy_revolver",
+      "path": "art/production/painterly_v4/wave01/objects/weapons/heavy_revolver.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/weapons.png",
+      "source_cell": 0,
+      "bbox": [
+        68,
+        139,
+        847,
+        654
+      ],
+      "size": [
+        803,
+        539
+      ],
+      "source_bg_rgb": [
+        242.0,
+        239.0,
+        230.0
+      ],
+      "coverage": 0.20792480887989306,
+      "sha256": "657db6815af91ba9e7e2a40fc176936ed7bcf8ec7fc75652eb413299c7d3e5c1",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "weapons/compact_submachine_gun",
+      "path": "art/production/painterly_v4/wave01/objects/weapons/compact_submachine_gun.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/weapons.png",
+      "source_cell": 1,
+      "bbox": [
+        959,
+        166,
+        1802,
+        629
+      ],
+      "size": [
+        867,
+        487
+      ],
+      "source_bg_rgb": [
+        242.0,
+        239.0,
+        230.0
+      ],
+      "coverage": 0.19944444444444445,
+      "sha256": "aa47390ec7de458910e771c7e9d607f36823eae12117fd18c45dac5168e7308b",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "weapons/pump_shotgun",
+      "path": "art/production/painterly_v4/wave01/objects/weapons/pump_shotgun.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/weapons.png",
+      "source_cell": 2,
+      "bbox": [
+        1863,
+        197,
+        2727,
+        573
+      ],
+      "size": [
+        888,
+        400
+      ],
+      "source_bg_rgb": [
+        242.0,
+        239.0,
+        230.0
+      ],
+      "coverage": 0.11834546489910688,
+      "sha256": "1f7a013f6c4289cffb5adff483dcca838199703bc389bd44427ed474675682c2",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "weapons/sledgehammer",
+      "path": "art/production/painterly_v4/wave01/objects/weapons/sledgehammer.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/weapons.png",
+      "source_cell": 3,
+      "bbox": [
+        61,
+        806,
+        858,
+        1499
+      ],
+      "size": [
+        821,
+        717
+      ],
+      "source_bg_rgb": [
+        242.0,
+        239.0,
+        230.0
+      ],
+      "coverage": 0.14870929385140577,
+      "sha256": "9c766214601231bf1825087fc8d0495af8c3db1b729d841c42dcd408fd24a6be",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "weapons/laser_pistol",
+      "path": "art/production/painterly_v4/wave01/objects/weapons/laser_pistol.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/weapons.png",
+      "source_cell": 4,
+      "bbox": [
+        983,
+        885,
+        1772,
+        1428
+      ],
+      "size": [
+        813,
+        567
+      ],
+      "source_bg_rgb": [
+        242.0,
+        239.0,
+        230.0
+      ],
+      "coverage": 0.2946168582375479,
+      "sha256": "8c9ffd854d08b8ac67229c2261ca7b6ddd047febeb30644cab0aae636d672ff1",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    },
+    {
+      "id": "weapons/fragmentation_grenade",
+      "path": "art/production/painterly_v4/wave01/objects/weapons/fragmentation_grenade.png",
+      "source_path": "art/production/painterly_v4/wave01/source_sheets/weapons.png",
+      "source_cell": 5,
+      "bbox": [
+        2115,
+        839,
+        2508,
+        1475
+      ],
+      "size": [
+        417,
+        660
+      ],
+      "source_bg_rgb": [
+        242.0,
+        239.0,
+        230.0
+      ],
+      "coverage": 0.22270692753221233,
+      "sha256": "4a2681e9b2cdd2e844e725ceca77d4c7e7496931e11147779c147e7af63b86cc",
+      "status": "DRAFT_AUTO_MASKED_NEEDS_HUMAN_QA"
+    }
+  ],
+  "qa_preview": "art/production/painterly_v4/wave01/qa/contact_dark_light.jpg",
+  "status": "DRAFT_NOT_GODOT_VERIFIED"
+}
