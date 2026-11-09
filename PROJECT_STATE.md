@@ -1,8 +1,15 @@
 # Fallout 2 Reborn Mobile — Project State (Mobile Project)
 
-## Project Objective (CORRECTED 2026-10-21)
+## Project Objective (CORRECTED 2026-11-09)
 
-**Build an ORIGINAL mobile-first post-apocalyptic RPG with its own IP, art, world, branding, and presentation — but with mechanics, systemic depth, combat logic, balancing discipline, and quest-design quality benchmarked against Fallout 2.**
+**Build a faithful mobile adaptation of the ORIGINAL FALLOUT 2 using Godot 4.7.2.**
+
+- Preserve all original Fallout 2 mechanics: SPECIAL, character creation, traits, perks, skills, leveling
+- Preserve original combat mechanics: AP, DT/DR, critical hits, aimed attacks
+- Preserve original items, weapons, armor, ammunition and their statistics
+- Preserve original NPC interaction, dialogue, quests, locations, reputation, factions, companions
+- Preserve original save/load behavior
+- Allowed improvements: graphical modernization, mobile UI/UX, touch controls, performance optimization, new content extending the original foundation
 
 See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state including REA tooling.
 
@@ -16,7 +23,7 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 | Export Templates | OK | 4.7.2.stable at `%APPDATA%\Godot\export_templates\4.7.2.stable\` |
 | Android SDK | OK | Platform 36, Build-Tools 36.0.0, NDK 25.1 |
 | Debug APK | OK | `builds/fallout2_reborn_debug.apk` (37.1MB, rebuilt 2026-10-23) |
-| Release APK | PENDING | Not built yet |
+| Release APK | OK (manual) | `Fallout2_Reborn_Mobile_Release_signed.apk` (124MB) verified with apksigner |
 | Package ID | OK | `com.example.wastelandrpgprototype` (Godot export preset: `asia.go24.wastelandprototype`) |
 | App Label | OK | "Wasteland RPG Prototype" |
 | Keystore (Debug) | OK | `keystore/debug.keystore` |
@@ -24,24 +31,27 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 
 ---
 
-## Test Results (2026-10-26 — Current Session)
+## Test Results (2026-11-09 — Current Session)
 
 | Suite | Tests | Pass | Fail | Timeout |
 |-------|-------|------|------|---------|
 | Stage B | 11 | 11 | 0 | 0 |
 | Stage C | 21 | 21 | 0 | 0 |
-| **Total** | **32** | **32** | **0** | **0** |
+| XP Progression | 41 | 41 | 0 | 0 |
+| **Total** | **73** | **73** | **0** | **0** |
 
 **Full Vertical Slice Playthrough**: PASS (level persistence fixed)
 **CombatHUD headless compatibility**: PASS (null node refs fixed)
 **Save/load migration v1→v2**: PASS (4 tests)
 **All parse errors**: RESOLVED
+**XP Progression (Fallout 2 fidelity)**: PASS (41 tests - levels 1-25, boundaries, level-ups, save/load)
 
 ---
 
 ## Design Documents (in `docs/`)
 
-- GAME_VISION.md
+- FALLOUT2_FIDELITY_MATRIX.md
+- DEVELOPMENT_HISTORY.md
 - SYSTEM_FIDELITY.md
 - SYSTEM_AUDIT.md
 - ITEM_BALANCE_MATRIX.md
@@ -53,80 +63,38 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 - DEVICE_TEST_CHECKLIST.md
 - PERFORMANCE_BASELINE.md
 - STAGE_D_PROPOSAL.md
+- GAME_VISION.md (SUPERSEDED by PROJECT_MANDATE.md)
 
 ---
 
-## Completed This Session (Stage D Week 1-3)
+## Completed This Session (2026-11-09)
 
-### Gameplay Systems — FULLY FUNCTIONAL OK
+### GitHub Integration & Project Recovery ✅
+- Repository connected: https://github.com/rf24kja/Fallout-mobile
+- Initial publication: commit 16a893b (baseline)
+- Documentation suite: 6 files committed (4207592)
+- Git LFS migration: *.apk, *.so tracked (force push ea7cb64)
+- Recovery validation: fresh clone → Godot 4.7.2 opens without parse errors
+- Release build workaround: manual apksigner produces verified 124MB APK
 
-#### Data Foundation (WS-2) OK
-- `WeaponDefinition.gd`, `ArmorDefinition.gd`, `AmmoDefinition.gd` extending `ItemDefinition`
-- `data/weapons.json` with 24 weapons (7 classes: MELEE, PISTOL, SMG, SHOTGUN, RIFLE, HEAVY, ENERGY)
-- `data/ammo.json` with 23 ammo types (6 classes: STANDARD, JHP, AP, INCENDIARY, MICROFUSION, SMALL_ENERGY)
-- `data/armor.json` with 18 armor pieces (12 body, 6 head) — per-damage-type DT/DR
-- `data/healing.json` with 6 items
-- `data/chems.json` with 6 items (5 chems + candy)
-- `data/utility.json` with 9 items (crafting materials, tools, survival)
-- Refactored `ItemDatabase.gd` to load from all 6 JSON files
-- All 87 items validated and loaded — zero warnings, all compatibilities OK
+### XP Progression Fidelity Fix ✅
+- **Bug**: `xp_for_level()` used linear `level * 1000` instead of Fallout 2 cumulative quadratic
+- **Fix**: Changed to `1000 * level * (level - 1) / 2` matching original Fallout 2
+- **Verification**: `tests/test_xp_progression.gd` — 41 tests ALL PASS
+  - Levels 1-25 exact XP thresholds (0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, ...)
+  - Boundary values (exact threshold, just below) verified
+  - Edge cases (negative XP, zero XP) verified
+  - Simulated level-up sequence 1→10 verified
+  - Save/load compatibility verified
 
-#### Equipment System (WS-2) OK
-- Added `equipment_slots` to `Inventory.gd` (weapon_primary, weapon_secondary, body, head, eyes, hands, feet, accessory×2)
-- Equipment applies stats: weapon to combat, armor to DT/DR, weight recalc
-- `equip_item(slot, item_instance)`, `unequip_item(slot)` work
-- `get_equipped_bonuses()` calculates total stat bonuses from equipped items
-- Save/load supports equipment
-
-#### Combat DT/DR & Ammo (WS-2) OK
-- Implemented `calculate_damage(raw, ammo_type, target_armor)` in `CombatSystem.gd` with full DT/DR formula
-- Added `ammo_type` field to weapon data, `caliber` to ammo data
-- Ammo modifiers: damage_modifier, dt_modifier, dr_modifier, damage_type_override
-- JHP: 1.5x damage, 1.5x DT effectiveness (good vs light armor)
-- AP: 0.7-0.9x damage, 0.4-0.5x DT (penetrates heavy armor)
-- FIXED: Energy ammo dt_modifier=1.0 (respects armor DT, not bypass)
-- FIXED: Dragon's Breath ammo has damage_type_override=FIRE (type 2)
-- FIXED: Armor uses per-damage-type DT/DR dicts matching DamageType enum (0-6)
-- Implemented called shot logic: 8 body parts with AP cost, accuracy mod, damage multiplier, effects
-- Body part effects: stun, concussion, disarm, cripple_arm, knockdown, cripple_leg, blind, cripple_eyes, cripple_groin
-- Unit tests passing for 17 DT/DR/ammo cases (all passing)
-
-#### Combat Integration (WS-3) OK
-- CoverSystem.gd: Line-of-fire checks using PhysicsRayQueryParameters2D, 5 cover levels (NONE/LIGHT/MEDIUM/HEAVY/BLOCKED)
-- Cover accuracy penalties: NONE(0), LIGHT(-15), MEDIUM(-30), HEAVY(-50), BLOCKED(-100)
-- Cover objects with meta tags (crate, wall_low, window, doorway, fence, etc.)
-- CombatUI integration: CalledShotButton, CoverIndicator panel, TargetPanel with cover display
-- CalledShotPanel: 8 body part buttons with hit chance, AP cost, effect descriptions
-- CombatEffects.gd: Muzzle flash, projectile trails, impact sparks/blood, critical hits, miss indicators, damage numbers, death animations (normal/explosion/disintegrate/gib), hit reactions, screen shake, camera zoom
-- CombatSystem callbacks: on_attack_result() and on_death() trigger visual effects
-- CombatUI script attachment fixed: Removed return type hints from `_get_equipped_weapon()` that prevented script binding in Godot 4.7.2
-
-#### Quest System OK (Week 2-3)
-- QuestManager.gd: 3 branching quests (Find Vault, Merchant Woes, Lost Caravan) with 3 paths each
-- Quest states: AVAILABLE, ACTIVE, COMPLETED, FAILED
-- QuestLog UI: Track active/available/completed quests, show objectives
-- EventBus integration for auto-updates on quest progress
-- Registered as autoload
-
-#### Mobile Combat UX OK (Week 2-3)
-- CombatHUD.gd: Touch-friendly controls with AP/HP bars, hit chance display (color-coded)
-- Action buttons: Attack, Called Shot, Reload, Defend, Item
-- Weapon info panel: Name, damage, AP cost, ammo count
-- Turn indicator with participant portraits
-- Registered as autoload
-
-#### Character Visual System OK (Week 2-3)
-- CharacterVisual.gd: Paperdoll layered system (base, armor, helmet, weapon) with Z-index layering
-- Player Integration: Equipment changes sync to visual via Inventory.get_all_equipped()
-
-#### CI & Testing OK
-- Stage D test suite: equipment, DT/DR, ammo, called shots (`test_combat_damage.py`, `test_item_database.py`)
-- All 17 combat damage tests pass
-- All 87 item database tests pass
-- ALL 32 GODOT HEADLESS TESTS PASS (Stage B 11/11 + Stage C 21/21)
-- CombatHUD null node refs fixed for headless/test scenes
-- Android Debug APK built and verified (37.1MB, minSdk 24, target 36, debuggable=true, rebuilt 2026-10-23) — dev assets excluded
-- Art Approval Sheet generated: `artifacts/art_review/pistol/ART_APPROVAL_SHEET.png`
+### Documentation Updates ✅
+- AGENTS.md: Primary agent corrected to "Implements, tests and improves actual Godot game code"
+- GAME_VISION.md: Marked SUPERSEDED by PROJECT_MANDATE.md
+- RECOVERY_GUIDE.md: Git LFS status corrected (now configured)
+- FALLOUT2_FIDELITY_MATRIX.md: Created with verified systems evidence
+- DEVELOPMENT_HISTORY.md: Created with milestone log
+- PROJECT_STATE.md: Updated with corrected objective and XP fix
+- NEXT_ACTIONS.md: Updated with completed P0 tasks
 
 ---
 
@@ -280,4 +248,4 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 
 ---
 
-*Last Updated: 2026-10-31 — Stage E.8 COMPLETE: Android rendering fully functional on emulator with host GPU, all 32 tests pass, player sprite renders with 49 animations, touch interactions verified, APK built and signed*
+*Last Updated: 2026-11-09 — GitHub sync complete, XP progression fidelity verified (41 tests PASS), documentation published*
