@@ -7,6 +7,27 @@
 
 **RADZONE** is an independently developed, post-apocalyptic **mobile role-playing game in the spirit and style of Fallout 2**. We aim to preserve the depth and familiar feel of classic isometric RPGs while rebuilding graphics, interaction and presentation for phones.
 
+## New: RADZONE game-art source library
+
+Original, **editable transparent SVG art** (provisional source assets — still undergoing final art and Android integration):
+
+<p align="center">
+<img src="./art/production/world/props/source/supply_crate.svg" width="22%" alt="Isometric supply crate"/>
+<img src="./art/production/world/props/source/rust_barrel.svg" width="22%" alt="Rusted drum"/>
+<img src="./art/production/world/props/source/crt_terminal.svg" width="22%" alt="Retro wasteland terminal"/>
+<img src="./art/production/world/props/source/water_pump.svg" width="22%" alt="Post-apocalyptic water pump"/>
+</p>
+<p align="center">
+<img src="./art/production/items/icons/source/10mm_pistol.svg" width="16%" alt="Pistol"/>
+<img src="./art/production/items/icons/source/medkit.svg" width="16%" alt="Medkit"/>
+<img src="./art/production/items/icons/source/backpack.svg" width="16%" alt="Backpack"/>
+<img src="./art/production/items/icons/source/gas_mask.svg" width="16%" alt="Gas mask"/>
+<img src="./art/production/items/icons/source/radio_detector.svg" width="16%" alt="Detector"/>
+</p>
+
+[Browse all production sources](./art/production/README.md) · [Manifest](./docs/RADZONE_ART_SOURCE_MANIFEST.json)
+
+
 ## The visual identity
 <p align="center"><img src="./github-assets/radzone-ui-storyboard.svg" width="100%" alt="RADZONE interface layout storyboard, not captured gameplay"/></p>
 This **vector storyboard illustrates interface structure**, not completed gameplay and not the ten approved cinematic concept artworks. RADZONE's approved artwork has a distinctive language: rich realistic wasteland environments, distressed riveted steel, bronze mechanical buttons, amber signal lamps and glowing green CRT terminal text.

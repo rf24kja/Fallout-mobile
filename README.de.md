@@ -7,6 +7,27 @@
 
 **RADZONE** ist ein postapokalyptisches Mobile-Rollenspiel für Fans von **Fallout 2**. Geplant sind die vertrauten SPECIAL-Attribute, rundenbasierte Kämpfe, Aktionspunkte, lange Dialoge und klassische Rollenspieltiefe.
 
+## Neu: Grafische Spiel-Assets
+
+Originale editierbare SVG-Grafik mit transparentem Hintergrund (vorläufig):
+
+<p align="center">
+<img src="./art/production/world/props/source/supply_crate.svg" width="22%" alt="Isometric supply crate"/>
+<img src="./art/production/world/props/source/rust_barrel.svg" width="22%" alt="Rusted drum"/>
+<img src="./art/production/world/props/source/crt_terminal.svg" width="22%" alt="Retro wasteland terminal"/>
+<img src="./art/production/world/props/source/water_pump.svg" width="22%" alt="Post-apocalyptic water pump"/>
+</p>
+<p align="center">
+<img src="./art/production/items/icons/source/10mm_pistol.svg" width="16%" alt="Pistol"/>
+<img src="./art/production/items/icons/source/medkit.svg" width="16%" alt="Medkit"/>
+<img src="./art/production/items/icons/source/backpack.svg" width="16%" alt="Backpack"/>
+<img src="./art/production/items/icons/source/gas_mask.svg" width="16%" alt="Gas mask"/>
+<img src="./art/production/items/icons/source/radio_detector.svg" width="16%" alt="Detector"/>
+</p>
+
+[Browse all production sources](./art/production/README.md) · [Manifest](./docs/RADZONE_ART_SOURCE_MANIFEST.json)
+
+
 ## Visuelle Ausrichtung
 <p align="center"><img src="./github-assets/radzone-ui-storyboard.svg" width="100%" alt="RADZONE interface layout storyboard, not captured gameplay"/></p>
 Die freigegebene Gestaltung verbindet realistische isometrische Ödniswelten mit abgenutztem Metall, mechanischen Tasten, bernsteinfarbenen Signalleuchten und grünem CRT-Text. Der frühere Arbeitstitel REBORN MOBILE wurde durch **RADZONE** ersetzt. Zehn vollständige Konzeptbilder sind für den GitHub-Upload vorbereitet.
