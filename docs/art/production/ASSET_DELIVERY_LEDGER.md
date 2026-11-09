@@ -12,9 +12,10 @@ This ledger distinguishes **files actually committed to master** from generated 
 | Wave 03 unique-only | 7 | Source held in conversation | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave03_unique](../../../art/production/painterly_v4/wave03_unique/) — PR #18 |
 | Wave 06 unique-only | 3 | Source held in conversation | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave06_unique](../../../art/production/painterly_v4/wave06_unique/) — PR #17 |
 | Wave 07 — new unique subjects | 7 | Original source sheet in conversation ZIP | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave07](../../../art/production/painterly_v4/wave07/) — PR #20 |
-| **Total verified individual PNGs** | **105** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
+| Wave 08 medicine loot icon | 1 | Owner-supplied sheet, source not committed | `GITHUB_COMMITTED / TRUE_RGBA_DRAFT` | [wave08](../../../art/production/painterly_v4/wave08/) — PR #23; CI both duplicate gates pass |
+| **Total verified individual PNGs** | **106** | **5 additional original source PNGs** | **All still require visual QA/engine validation** | |
 
-The **105 files are illustration crops / references**, not 105 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
+The **106 files are illustration crops / references**, not 105 verified unique canonical Fallout 2 items, not thousands of completed animation frames and not in-game Android screenshots. Some represent similar types or variant treatments.
 
 ## Generated/delivered but NOT on GitHub master
 
@@ -42,6 +43,7 @@ No permanent production approval is implied by the status `GITHUB_COMMITTED`.
 - [1,200-subject production plan](./RADZONE_1200_ASSET_PLAN.md) — planning target, NOT delivered count.
 - [Wave 01 original handoff](./RADZONE_WAVE_01.md) — includes earlier generated task IDs.
 - [Wave 01 committed binary manifest](../../../art/production/painterly_v4/wave01/manifest.json) — exact 18 paths/hashes.
+- [Wave 08 single candidate manifest](../../../art/production/painterly_v4/wave08/manifest.json) — true RGBA draft, no claim of Android approval.
 - [Wave 04 committed binary manifest](../../../art/production/painterly_v4/wave04/manifest.json) — exact 12 paths/hashes.
 - [Visible equipment OpenCode issue](https://github.com/rf24kja/Fallout-mobile/issues/7) — real sprites and Godot/Android integration are separate tasks.
 
