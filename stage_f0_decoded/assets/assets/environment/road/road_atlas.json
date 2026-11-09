@@ -1,0 +1,76 @@
+{
+  "category": "road",
+  "atlas_file": "road_atlas.png",
+  "tile_size": [
+    128,
+    128
+  ],
+  "frames": [
+    {
+      "id": "road_straight",
+      "state": "intact",
+      "region": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 0
+    },
+    {
+      "id": "road_curve",
+      "state": "intact",
+      "region": [
+        128,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 1
+    },
+    {
+      "id": "road_t_junction",
+      "state": "intact",
+      "region": [
+        256,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 2
+    },
+    {
+      "id": "road_cross",
+      "state": "intact",
+      "region": [
+        384,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 3
+    },
+    {
+      "id": "road_end",
+      "state": "intact",
+      "region": [
+        512,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 4
+    },
+    {
+      "id": "road_dirt_path",
+      "state": "intact",
+      "region": [
+        640,
+        0,
+        128,
+        128
+      ],
+      "atlas_index": 5
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "tier": "tier_3_heavy_metal",
+  "atlas_file": "armor_tier_3_heavy_metal_atlas.png",
+  "frame_size": [
+    128,
+    256
+  ],
+  "frames": [
+    {
+      "piece": "power_armor",
+      "direction": "S",
+      "region": [
+        0,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 0
+    },
+    {
+      "piece": "power_armor",
+      "direction": "SW",
+      "region": [
+        128,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 1
+    },
+    {
+      "piece": "power_armor",
+      "direction": "W",
+      "region": [
+        256,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 2
+    },
+    {
+      "piece": "power_armor",
+      "direction": "NW",
+      "region": [
+        384,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 3
+    },
+    {
+      "piece": "power_armor",
+      "direction": "N",
+      "region": [
+        512,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 4
+    },
+    {
+      "piece": "power_armor",
+      "direction": "NE",
+      "region": [
+        640,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 5
+    },
+    {
+      "piece": "power_armor",
+      "direction": "E",
+      "region": [
+        768,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 6
+    },
+    {
+      "piece": "power_armor",
+      "direction": "SE",
+      "region": [
+        896,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 7
+    },
+    {
+      "piece": "tesla_armor",
+      "direction": "S",
+      "region": [
+        0,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 8
+    },
+    {
+      "piece": "tesla_armor",
+      "direction": "SW",
+      "region": [
+        128,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 9
+    },
+    {
+      "piece": "tesla_armor",
+      "direction": "W",
+      "region": [
+        256,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 10
+    },
+    {
+      "piece": "tesla_armor",
+      "direction": "NW",
+      "region": [
+        384,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 11
+    },
+    {
+      "piece": "tesla_armor",
+      "direction": "N",
+      "region": [
+        512,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 12
+    },
+    {
+      "piece": "tesla_armor",
+      "direction": "NE",
+      "region": [
+        640,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 13
+    },
+    {
+      "piece": "tesla_armor",
+      "direction": "E",
+      "region": [
+        768,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 14
+    },
+    {
+      "piece": "tesla_armor",
+      "direction": "SE",
+      "region": [
+        896,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 15
+    }
+  ]
+}

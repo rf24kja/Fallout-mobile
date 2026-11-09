@@ -1,0 +1,30 @@
+{
+  "characters": [
+    "survivor",
+    "npc_friendly",
+    "hostile"
+  ],
+  "atlas_format": "RGBA",
+  "frame_size": [
+    128,
+    256
+  ],
+  "animations": [
+    "idle",
+    "walk",
+    "attack_ranged",
+    "attack_melee",
+    "hit",
+    "death"
+  ],
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ]
+}

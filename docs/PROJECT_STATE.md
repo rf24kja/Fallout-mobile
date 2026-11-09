@@ -67,6 +67,12 @@
 - **Runtime**: Main menu → tap → gameplay functional
 - **Recovery Test**: ✅ Fresh clone `C:\Code\Fallout2_Reborn_Mobile_RecoveryTest` opens in Godot 4.7.2 without parse errors
 
+**Release APK**: `builds/android/Fallout2_Reborn_Mobile_Release_signed.apk`
+- **Signed**: `apksigner` with release keystore (CN=Fallout 2 Reborn, OU=Development, O=RF24KJA)
+- **Size**: ~125MB (all 4 architectures: ARM64, ARMv7, x86, x86_64)
+- **Signature**: Release keystore verified ✅
+- **Verified**: `apksigner verify --print-certs` passes
+
 ---
 
 ## Known Issues / Blockers

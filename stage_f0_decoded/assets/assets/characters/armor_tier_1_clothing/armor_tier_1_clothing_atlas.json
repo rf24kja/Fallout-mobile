@@ -1,0 +1,274 @@
+{
+  "tier": "tier_1_clothing",
+  "atlas_file": "armor_tier_1_clothing_atlas.png",
+  "frame_size": [
+    128,
+    256
+  ],
+  "frames": [
+    {
+      "piece": "vault_suit",
+      "direction": "S",
+      "region": [
+        0,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 0
+    },
+    {
+      "piece": "vault_suit",
+      "direction": "SW",
+      "region": [
+        128,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 1
+    },
+    {
+      "piece": "vault_suit",
+      "direction": "W",
+      "region": [
+        256,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 2
+    },
+    {
+      "piece": "vault_suit",
+      "direction": "NW",
+      "region": [
+        384,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 3
+    },
+    {
+      "piece": "vault_suit",
+      "direction": "N",
+      "region": [
+        512,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 4
+    },
+    {
+      "piece": "vault_suit",
+      "direction": "NE",
+      "region": [
+        640,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 5
+    },
+    {
+      "piece": "vault_suit",
+      "direction": "E",
+      "region": [
+        768,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 6
+    },
+    {
+      "piece": "vault_suit",
+      "direction": "SE",
+      "region": [
+        896,
+        0,
+        128,
+        256
+      ],
+      "atlas_index": 7
+    },
+    {
+      "piece": "leather_armor",
+      "direction": "S",
+      "region": [
+        0,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 8
+    },
+    {
+      "piece": "leather_armor",
+      "direction": "SW",
+      "region": [
+        128,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 9
+    },
+    {
+      "piece": "leather_armor",
+      "direction": "W",
+      "region": [
+        256,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 10
+    },
+    {
+      "piece": "leather_armor",
+      "direction": "NW",
+      "region": [
+        384,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 11
+    },
+    {
+      "piece": "leather_armor",
+      "direction": "N",
+      "region": [
+        512,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 12
+    },
+    {
+      "piece": "leather_armor",
+      "direction": "NE",
+      "region": [
+        640,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 13
+    },
+    {
+      "piece": "leather_armor",
+      "direction": "E",
+      "region": [
+        768,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 14
+    },
+    {
+      "piece": "leather_armor",
+      "direction": "SE",
+      "region": [
+        896,
+        256,
+        128,
+        256
+      ],
+      "atlas_index": 15
+    },
+    {
+      "piece": "leather_jacket",
+      "direction": "S",
+      "region": [
+        0,
+        512,
+        128,
+        256
+      ],
+      "atlas_index": 16
+    },
+    {
+      "piece": "leather_jacket",
+      "direction": "SW",
+      "region": [
+        128,
+        512,
+        128,
+        256
+      ],
+      "atlas_index": 17
+    },
+    {
+      "piece": "leather_jacket",
+      "direction": "W",
+      "region": [
+        256,
+        512,
+        128,
+        256
+      ],
+      "atlas_index": 18
+    },
+    {
+      "piece": "leather_jacket",
+      "direction": "NW",
+      "region": [
+        384,
+        512,
+        128,
+        256
+      ],
+      "atlas_index": 19
+    },
+    {
+      "piece": "leather_jacket",
+      "direction": "N",
+      "region": [
+        512,
+        512,
+        128,
+        256
+      ],
+      "atlas_index": 20
+    },
+    {
+      "piece": "leather_jacket",
+      "direction": "NE",
+      "region": [
+        640,
+        512,
+        128,
+        256
+      ],
+      "atlas_index": 21
+    },
+    {
+      "piece": "leather_jacket",
+      "direction": "E",
+      "region": [
+        768,
+        512,
+        128,
+        256
+      ],
+      "atlas_index": 22
+    },
+    {
+      "piece": "leather_jacket",
+      "direction": "SE",
+      "region": [
+        896,
+        512,
+        128,
+        256
+      ],
+      "atlas_index": 23
+    }
+  ]
+}

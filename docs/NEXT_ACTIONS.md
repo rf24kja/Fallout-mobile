@@ -9,12 +9,14 @@
 | ID | Task | Description | Blocked By | Status |
 |----|------|-------------|------------|--------|
 | P0-1 | **Validate GitHub Recovery** | Clone repo to fresh dir → run RECOVERY_GUIDE checks → document results | None | ✅ **COMPLETE** |
-| P0-2 | **Configure Release Keystore** | Generate local release.keystore → update export_presets.cfg (local) → build Release APK | P0-1 | 🔄 Next |
-| P0-3 | **Verify Release APK** | `apksigner verify` → install on device → test runtime | P0-2 | ⏳ |
+| P0-2 | **Configure Release Keystore** | Generate local release.keystore → update export_presets.cfg (local) → build Release APK | P0-1 | ✅ **COMPLETE** (manual apksigner workaround) |
+| P0-3 | **Verify Release APK** | `apksigner verify` → install on device → test runtime | P0-2 | ✅ **COMPLETE** |
 
 ---
 
 **Recovery Test Result (2026-11-09)**: ✅ Fresh clone at `C:\Code\Fallout2_Reborn_Mobile_RecoveryTest` opened in Godot 4.7.2 without parse errors. Main menu loads, ItemDatabase initializes, DialogueManager connects to EventBus. Only expected runtime warning: "InteractionManager: player not found" (scene not loaded in headless check).
+
+**Release Build Result (2026-11-09)**: ✅ `Fallout2_Reborn_Mobile_Release_signed.apk` (124MB) verified with `apksigner`. Signed with release keystore (CN=Fallout 2 Reborn, OU=Development, O=RF24KJA). All 4 architectures included. Note: Godot export still fails to sign release APK directly — manual `apksigner` workaround used.
 
 ---
 
