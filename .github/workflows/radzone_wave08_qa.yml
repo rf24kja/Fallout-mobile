@@ -1,5 +1,11 @@
 name: RADZONE Wave08 candidate QA
 on:
+  push:
+    branches:
+      - 'art/radzone-wave08-medical-bottles'
+    paths:
+      - 'art/production/painterly_v4/wave08/**'
+      - '.github/workflows/radzone_wave08_qa.yml'
   pull_request:
     paths:
       - 'art/production/painterly_v4/wave08/**'
