@@ -35,3 +35,25 @@
 Create branch `feature/radzone-paperdoll-equipment` or equivalent for implementation. All of the art branch's files belong to documentation and asset folders only.
 
 **Do not claim a visualization is done until an equipped item shows in a verified Godot runtime capture and persists through save/load.**
+
+
+## Latest available art-source package — painterly v3.1
+
+The **complete 58-image draft pack** is published at [art/production/painterly_v3/](../../art/production/painterly_v3/), alongside a [machine-readable source manifest](../../art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json) and [five original reference sheets](./reference/drafts/v3/README.md).
+
+- **16 static character turnaround crops:** survivor (8), raider (8); **not animated sprites** and not yet mapped to engine N/NE/E/SE/S/SW/W/NW.
+- **15 isolated item/equipment illustration crops:** **not yet mapped** to canonical item database IDs.
+- **14 isolated world-prop illustration crops:** no approved scene scale, collision or z-sorting.
+- **13 retro UI visual components:** need alpha cleanup, nine-slice and touch testing.
+
+The GitHub landing page intentionally displays **only ten approved cinematic concept screens**. The v3.1 assets remain marked **DRAFT / review required**. Do not replace existing real Godot resources automatically with them.
+
+**Critical distinction:** a pistol inventory icon or static turnaround cannot satisfy visible weapon-in-hand functionality. OpenCode must use the paperdoll equipment system and produce aligned hand-weapon overlay frames per item, animation and direction; check armor, backpack and helmet variants for player **and NPCs**.
+
+## OpenCode first actionable milestone
+
+1. Inspect actual CharacterVisual layer paths and Player equipment synchronization. Prove which item IDs currently change appearance and which only change stats.
+2. Choose **one existing player rig and one pistol ID**. Build an explicit weapon/grip/socket map for 8 directions and valid idle/attack frames. Keep the original Godot sprites until tested.
+3. Export the v3.1 references only as visual source, **not** runtime replacements. Create new production-quality matched overlays and record pivot/alpha/anchor/occlusion.
+4. Demonstrate equip / unequip / weapon swap in an Android runtime screen capture; verify reload, save/load and scene change maintain visuals without changing original combat stats.
+5. Continue with armor and NPC diversity after the first complete vertical slice passes tests.
