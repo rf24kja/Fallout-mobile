@@ -22,6 +22,7 @@ MANIFESTS = [
     'art/production/painterly_v4/wave07/manifest.json',
     'art/production/painterly_v4/wave08/manifest.json',
     'art/production/painterly_v4/wave09_unique/manifest.json',
+    'art/production/painterly_v4/wave10/manifest.json',
 ]
 # Broad but grounded same-subject aliases. Do not equate an ammo case with a supply crate,
 # a single cot with a double bunk bed, or a standalone valve with a pumping station.
