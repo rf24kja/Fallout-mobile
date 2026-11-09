@@ -45,25 +45,25 @@ func _ready() -> void:
      
      # Debug button properties
      var button_container = get_node_or_null("ButtonContainer")
-     if start_button:
-         if debug_file:
-             debug_file.store_line("MainMenu: start_button rect = " + str(start_button.get_rect()))
-             debug_file.store_line("MainMenu: start_button global_position = " + str(start_button.global_position))
-             debug_file.store_line("MainMenu: start_button visible = " + str(start_button.visible))
-             debug_file.store_line("MainMenu: start_button size_flags = " + str(start_button.size_flags_horizontal) + ", " + str(start_button.size_flags_vertical))
-             debug_file.store_line("MainMenu: start_button custom_minimum_size = " + str(start_button.custom_minimum_size))
-             debug_file.store_line("MainMenu: start_button mouse_filter = " + str(start_button.mouse_filter))
-             debug_file.store_line("MainMenu: start_button focus_mode = " + str(start_button.focus_mode))
-     if button_container:
-         if debug_file:
-             debug_file.store_line("MainMenu: ButtonContainer rect = " + str(button_container.get_rect()))
-             debug_file.store_line("MainMenu: ButtonContainer global_position = " + str(button_container.global_position))
-             debug_file.store_line("MainMenu: ButtonContainer children = " + str(button_container.get_children()))
-             debug_file.store_line("MainMenu: ButtonContainer size_flags = " + str(button_container.size_flags_horizontal) + ", " + str(button_container.size_flags_vertical))
-     if debug_file:
-         debug_file.close()
-     
-# Check for existing save to enable Continue button
+if start_button:
+          if debug_file:
+              debug_file.store_line("MainMenu: start_button rect = " + str(start_button.get_rect()))
+              debug_file.store_line("MainMenu: start_button global_position = " + str(start_button.global_position))
+              debug_file.store_line("MainMenu: start_button visible = " + str(start_button.visible))
+              debug_file.store_line("MainMenu: start_button size_flags = " + str(start_button.size_flags_horizontal) + ", " + str(start_button.size_flags_vertical))
+              debug_file.store_line("MainMenu: start_button custom_minimum_size = " + str(start_button.custom_minimum_size))
+              debug_file.store_line("MainMenu: start_button mouse_filter = " + str(start_button.mouse_filter))
+              debug_file.store_line("MainMenu: start_button focus_mode = " + str(start_button.focus_mode))
+      if button_container:
+          if debug_file:
+              debug_file.store_line("MainMenu: ButtonContainer rect = " + str(button_container.get_rect()))
+              debug_file.store_line("MainMenu: ButtonContainer global_position = " + str(button_container.global_position))
+              debug_file.store_line("MainMenu: ButtonContainer children = " + str(button_container.get_children()))
+              debug_file.store_line("MainMenu: ButtonContainer size_flags = " + str(button_container.size_flags_horizontal) + ", " + str(button_container.size_flags_vertical))
+      if debug_file:
+          debug_file.close()
+      
+      # Check for existing save to enable Continue button
       _check_save_exists()
       
       # Connect button signals
@@ -82,8 +82,8 @@ func _ready() -> void:
       
       # Force grab focus
       call_deferred("_grab_focus")
-   
-   # Debug: listen for input events
+    
+    # Debug: listen for input events
       print("MainMenu: _input_ready connected")
 
 func _connect_buttons() -> void:
