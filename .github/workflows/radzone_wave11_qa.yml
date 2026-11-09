@@ -1,0 +1,53 @@
+name: RADZONE Wave11 painterly salvage art QA
+on:
+  push:
+    branches:
+      - 'art/radzone-wave11-industrial-consumable'
+    paths:
+      - 'art/production/painterly_v4/wave11/**'
+      - 'tools/art_check_duplicates.py'
+      - 'tools/art_visual_duplicate_gate.py'
+      - '.github/workflows/radzone_wave11_qa.yml'
+  pull_request:
+    paths:
+      - 'art/production/painterly_v4/wave11/**'
+      - 'tools/art_check_duplicates.py'
+      - 'tools/art_visual_duplicate_gate.py'
+      - '.github/workflows/radzone_wave11_qa.yml'
+  workflow_dispatch:
+jobs:
+  art-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Pillow
+        run: python -m pip install Pillow
+      - name: Semantic duplicate gate
+        run: python tools/art_check_duplicates.py art/production/painterly_v4/wave11/manifest.json
+      - name: Perceptual near-duplicate gate
+        run: python tools/art_visual_duplicate_gate.py art/production/painterly_v4/wave11/manifest.json
+      - name: Check PNG RGBA, dimensions, alpha border, SHA256 and Git blob identity
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          root=Path('art/production/painterly_v4/wave11')
+          m=json.loads((root/'manifest.json').read_text(encoding='utf-8'))
+          assert m['asset_count']==len(m['assets'])==2
+          for obj in m['assets']:
+              p=Path(obj['path']); raw=p.read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==obj['sha256'],p
+              assert hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\x00'+raw).hexdigest()==obj['git_blob_sha'],p
+              with Image.open(p) as im:
+                  assert im.mode=='RGBA',p
+                  assert im.size==(obj['width'],obj['height']),(p,im.size)
+                  alpha=im.getchannel('A');assert alpha.getextrema()==(0,255),p
+                  w,h=im.size
+                  for box in [(0,0,w,1),(0,h-1,w,h),(0,0,1,h),(w-1,0,w,h)]:
+                      assert alpha.crop(box).getextrema()[1]==0,(p,box)
+              print('PASS:',p)
+          PY

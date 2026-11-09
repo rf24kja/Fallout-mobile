@@ -1,0 +1,79 @@
+{
+  "project": "RADZONE",
+  "wave": 11,
+  "asset_count": 2,
+  "classification": "GITHUB_SOURCE_DRAFT_FINAL_ART_AND_ENGINE_QA_PENDING",
+  "art_reference": "Owner-approved screenshots #2 and #3; physically rendered gritty post-apocalyptic industrial objects",
+  "provenance": "Owner-supplied existing composite illustration sheets: crops newly separated, NOT newly generated originals in this session; generator error documented",
+  "source_sheet_published": false,
+  "qa_preview": "qa/CONTACT_DARK_LIGHT.jpg",
+  "assets": [
+    {
+      "id": "salvaged_distillation_still",
+      "category": "world_industrial_apparatus",
+      "path": "art/production/painterly_v4/wave11/objects/salvaged_distillation_still.png",
+      "width": 357,
+      "height": 347,
+      "sha256": "41ca59a58829b7ec3cbdb7b68ab92ee6dee59aa51a8d14c898588e0ec839e325",
+      "git_blob_sha": "dc70db214b3a8c00e079d7abea1627f7382e2d7c",
+      "rgba": true,
+      "alpha_border_zero": true,
+      "source_filename": "Постапокалиптический набор индустриальных артефактов(3).png",
+      "source_sha256": "622d3c1c755869c0fb6cbc4f0a410fed998968663d3669ff5aad286bf9ee79b0",
+      "source_crop_xyxy": [
+        456,
+        3,
+        811,
+        336
+      ],
+      "source_generation": "Pre-existing owner-supplied illustration, in pending-drawn registry, now being newly committed to master; NOT generated this session",
+      "art_qa": "TWO_BACKGROUND_DRAFT_QA_HUMAN_FINAL_APPROVAL_PENDING",
+      "godot_status": "NOT_TESTED",
+      "android_status": "NOT_TESTED"
+    },
+    {
+      "id": "open_canned_beans",
+      "category": "consumable_food_inventory",
+      "path": "art/production/painterly_v4/wave11/objects/open_canned_beans.png",
+      "width": 146,
+      "height": 203,
+      "sha256": "f196a94cf8f0183a132171da5ce4019abeb099fffcded9406e145dc2992409bb",
+      "git_blob_sha": "3349c8bcefd6080148a35866d021179d43a9b445",
+      "rgba": true,
+      "alpha_border_zero": true,
+      "source_filename": "Постапокалиптический арсенал выжившего(2).png",
+      "source_sha256": "babcbe2bcc1f48565206f46b3409f10bc2496ef0c0a141e05a3d9bb042531fb5",
+      "source_crop_xyxy": [
+        668,
+        388,
+        804,
+        572
+      ],
+      "source_generation": "Extracted from previously provided approved style sheet; open cooked-bean can, distinct from a sealed ration tin",
+      "art_qa": "TWO_BACKGROUND_DRAFT_QA_HUMAN_FINAL_APPROVAL_PENDING",
+      "godot_status": "NOT_TESTED",
+      "android_status": "NOT_TESTED"
+    }
+  ],
+  "gates": {
+    "local_alpha": "PASS",
+    "local_sha256": "PASS",
+    "visual_preview": "DRAFT_PASS",
+    "semantic": "GITHUB_ACTIONS_REQUIRED",
+    "perceptual": "GITHUB_ACTIONS_REQUIRED",
+    "godot": "NOT_TESTED",
+    "android": "NOT_TESTED"
+  },
+  "rejections": [
+    {
+      "id": "stacked_worn_tires",
+      "reason": "Source crop contains adjacent concrete barricade and rocks; not an isolated coherent tire-stack sprite"
+    }
+  ],
+  "notes": [
+    "Distillation still was previously drawn and reserved in the pending inventory, now migrated into the committed manifest; update reserved list to avoid self-duplicate on import.",
+    "Open cooked bean can is a different consumable depiction from the reserved unopened ration tin.",
+    "No game systems or engine files were changed.",
+    "Source sheets retained by owner; hashes and crop coordinates allow provenance tracking."
+  ]
+}
