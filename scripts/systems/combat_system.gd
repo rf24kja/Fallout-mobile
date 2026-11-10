@@ -534,10 +534,11 @@ func _apply_damage(target: Dictionary, damage: int, damage_type: int, ammo_type:
 				dt = int(dt * (100 - ignore_percent) / 100)
 		# pierce_cover is handled in hit chance calculation
 	
-	# Damage Resistance reduces damage by percentage
-	var after_dr = int(damage * (100 - dr) / 100)
-	# Damage Threshold subtracts flat amount
-	var final = max(0, after_dr - dt)
+	# Fallout 2 Formula: Apply DT first, then DR
+	# final_damage = max(1, (raw_damage * dmg_mod - DT * dt_mod) * (1 - DR * dr_mod / 100))
+	var after_dt = damage - dt
+	var after_dr = int(after_dt * (100 - dr) / 100)
+	var final = max(1, after_dr)  # Fallout 2: minimum 1 damage if hit
 	
 	return final
 

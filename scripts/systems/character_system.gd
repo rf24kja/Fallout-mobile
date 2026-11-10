@@ -463,8 +463,9 @@ func get_derived_stats(stats: Dictionary) -> Dictionary:
 	var aw = special.get("awareness", 5)
 	var lk = special.get("fortune", 5)
 	
-	# Fallout 2 Max HP: 15 + ST + EN*2 + Lv*(3+EN/2)
-	var max_hp = 15 + st + en * 2 + level * (3 + int(en / 2))
+	# Fallout 2 Max HP: 15 + ST + EN*2 + Lv*(3+EN/2) [Lv = level-1 for HP at level]
+	var hp_level_factor = max(0, level - 1)
+	var max_hp = 15 + st + en * 2 + hp_level_factor * (3 + int(en / 2))
 	
 	# Fallout 2 AP: 5 + AG/2 (round down)
 	var max_ap = 5 + int(ag / 2)
@@ -474,9 +475,9 @@ func get_derived_stats(stats: Dictionary) -> Dictionary:
 	# Poison Resistance: EN * 5
 	# Radiation Resistance: EN * 2 (base, +Armor applied elsewhere)
 	# Sequence: PE * 2
-	# Critical Chance: LK/2
-	# Carry Weight: 25 * ST
-	# Melee Damage: ST/2 (round down)
+	# Critical Chance: LK% (Fallout 2 base = Luck%)
+	# Carry Weight: 25 + ST * 25
+	# Melee Damage: max(1, ST - 5)
 	
 	return {
 		"max_hp": max_hp,
@@ -485,9 +486,9 @@ func get_derived_stats(stats: Dictionary) -> Dictionary:
 		"poison_resistance": en * 5,
 		"radiation_resistance": en * 2,
 		"sequence": aw * 2,
-		"critical_chance": int(lk / 2),
-		"carry_weight": st * 25,
-		"melee_damage": int(st / 2)
+		"critical_chance": lk,  # Fallout 2: base = Luck%
+		"carry_weight": 25 + st * 25,  # Fallout 2: 25 + ST*25
+		"melee_damage": max(1, st - 5)  # Fallout 2: max(1, ST-5)
 	}
 
 func load_save_data(data: Dictionary) -> void:

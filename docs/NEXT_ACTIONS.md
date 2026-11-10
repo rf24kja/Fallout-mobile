@@ -25,9 +25,9 @@
 | ID | Task | Description | Blocked By | Status |
 |----|------|-------------|------------|--------|
 | P1-1 | **Update FIDELITY_MATRIX** | Document REA verification for all P0 systems with evidence | None | ✅ **COMPLETE** |
-| P1-2 | **Verify SPECIAL Calculations** | REA analysis of derived stats formulas → compare Godot implementation | P1-1 | ✅ **COMPLETE** (68 tests PASS) |
+| P1-2 | **Verify SPECIAL Calculations** | REA analysis of derived stats formulas → compare Godot implementation | P1-1 | ✅ **COMPLETE** (69 tests PASS) |
 | P1-3 | **Verify Combat AP Costs** | REA extraction of weapon AP costs → compare Godot combat.gd | P1-1 | ✅ **COMPLETE** (26 tests PASS) |
-| P1-4 | **Verify DT/DR Damage** | REA damage formula → compare Godot damage calculation | P1-1 | 🟡 In Progress |
+| P1-4 | **Verify DT/DR Damage** | REA damage formula → compare Godot damage calculation | P1-1 | ✅ **COMPLETE** (25 tests PASS) |
 | P1-5 | **Verify Critical Tables** | REA critical hit tables → compare Godot critical system | P1-1 | 🟡 In Progress |
 
 ---
@@ -77,8 +77,8 @@
 [✅] P0-3: GitHub sync + LFS migration (COMPLETE - 2026-11-09)
 [✅] P1-1: Update FIDELITY_MATRIX with current REA evidence (COMPLETE - 2026-11-10)
 [✅] P1-3: Verify Combat AP Costs (COMPLETE - 2026-11-10, 26 tests PASS)
-[ ] P1-2: Verify SPECIAL Calculations (2 hrs)
-[ ] P1-4: Verify DT/DR Damage (2 hrs)
+[✅] P1-2: Verify SPECIAL Calculations (COMPLETE - 2026-11-10, 69 tests PASS)
+[✅] P1-4: Verify DT/DR Damage (COMPLETE - 2026-11-10, 25 tests PASS)
 [ ] P1-5: Verify Critical Tables (2 hrs)
 [ ] P2-1: Complete Quest System Arroyo→Klamath (1 week)
 ```

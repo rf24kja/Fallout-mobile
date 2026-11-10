@@ -35,14 +35,14 @@ func run_all_tests():
 	print_results()
 
 func test_max_hp_formula():
-	# Fallout 2: HP = 15 + ST + EN*2 + Lv*(3+EN/2)
+	# Fallout 2: HP = 15 + ST + EN*2 + (Lv-1)*(3+EN/2)
 	# This test verifies the authoritative Fallout 2 formula
 	
 	var test_cases = [
 		# {might, vigor, level, expected_fallout2, description}
-		{"might": 5, "vigor": 5, "level": 1, "expected": 15 + 5 + 10 + 1*(3+2), "desc": "Average stats L1"},
-		{"might": 10, "vigor": 10, "level": 1, "expected": 15 + 10 + 20 + 1*(3+5), "desc": "Max stats L1"},
-		{"might": 1, "vigor": 1, "level": 1, "expected": 15 + 1 + 2 + 1*(3+0), "desc": "Min stats L1"},
+		{"might": 5, "vigor": 5, "level": 1, "expected": 15 + 5 + 10 + 0*(3+2), "desc": "Average stats L1"},
+		{"might": 10, "vigor": 10, "level": 1, "expected": 15 + 10 + 20 + 0*(3+5), "desc": "Max stats L1"},
+		{"might": 1, "vigor": 1, "level": 1, "expected": 15 + 1 + 2 + 0*(3+0), "desc": "Min stats L1"},
 	]
 	
 	for case in test_cases:
@@ -68,10 +68,12 @@ func test_max_hp_formula():
 	char.character_data.special.vigor = 5
 	char._recalculate_derived_stats()
 	var actual_l10 = char.character_data.max_hp
-	var expected_l10 = 15 + 5 + 10 + 10*(3+2)
+	# Fallout 2: HP = 15 + ST + EN*2 + (Lv-1)*(3+EN/2)
+	# L10: 15 + 5 + 10 + 9*(3+2) = 30 + 45 = 75
+	var expected_l10 = 15 + 5 + 10 + 9*(3+2)
 	_test_results.append({
 		"name": "Max HP Average stats L10 (internal)",
-		"formula": "Fallout 2: 15+ST+EN*2+Lv*(3+EN/2)",
+		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(3+EN/2)",
 		"expected": expected_l10,
 		"actual": actual_l10,
 		"passed": actual_l10 == expected_l10,
@@ -83,10 +85,11 @@ func test_max_hp_formula():
 	char.character_data.special.vigor = 10
 	char._recalculate_derived_stats()
 	var actual_l20 = char.character_data.max_hp
-	var expected_l20 = 15 + 10 + 20 + 20*(3+5)
+	# L20: 15 + 10 + 20 + 19*(3+5) = 45 + 152 = 197
+	var expected_l20 = 15 + 10 + 20 + 19*(3+5)
 	_test_results.append({
 		"name": "Max HP Max stats L20 (internal)",
-		"formula": "Fallout 2: 15+ST+EN*2+Lv*(3+EN/2)",
+		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(3+EN/2)",
 		"expected": expected_l20,
 		"actual": actual_l20,
 		"passed": actual_l20 == expected_l20,
@@ -98,10 +101,11 @@ func test_max_hp_formula():
 	char.character_data.special.vigor = 6
 	char._recalculate_derived_stats()
 	var actual_l5 = char.character_data.max_hp
-	var expected_l5 = 15 + 6 + 12 + 5*(3+3)
+	# L5: 15 + 6 + 12 + 4*(3+3) = 33 + 24 = 57
+	var expected_l5 = 15 + 6 + 12 + 4*(3+3)
 	_test_results.append({
 		"name": "Max HP VIG=6 L5 (internal)",
-		"formula": "Fallout 2: 15+ST+EN*2+Lv*(3+EN/2)",
+		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(3+EN/2)",
 		"expected": expected_l5,
 		"actual": actual_l5,
 		"passed": actual_l5 == expected_l5,
@@ -244,20 +248,20 @@ func test_sequence():
 		})
 
 func test_critical_chance():
-	# Fallout 2: Crit Chance = LK / 2 + Perks (e.g. More Criticals)
-	# Now Godot: FOR / 2 (perks added elsewhere)
+	# Fallout 2: Crit Chance = LK% (base) + Perks (e.g. More Criticals)
+	# Now Godot: FOR% (perks added elsewhere)
 	
 	var test_cases = [
-		{"fortune": 1, "expected": 0},
-		{"fortune": 2, "expected": 1},
-		{"fortune": 3, "expected": 1},
-		{"fortune": 4, "expected": 2},
-		{"fortune": 5, "expected": 2},
-		{"fortune": 6, "expected": 3},
-		{"fortune": 7, "expected": 3},
-		{"fortune": 8, "expected": 4},
-		{"fortune": 9, "expected": 4},
-		{"fortune": 10, "expected": 5},
+		{"fortune": 1, "expected": 1},
+		{"fortune": 2, "expected": 2},
+		{"fortune": 3, "expected": 3},
+		{"fortune": 4, "expected": 4},
+		{"fortune": 5, "expected": 5},
+		{"fortune": 6, "expected": 6},
+		{"fortune": 7, "expected": 7},
+		{"fortune": 8, "expected": 8},
+		{"fortune": 9, "expected": 9},
+		{"fortune": 10, "expected": 10},
 	]
 	
 	for case in test_cases:
@@ -276,13 +280,13 @@ func test_critical_chance():
 		})
 
 func test_carry_weight():
-	# Fallout 2: Carry Weight = 25 * ST
-	# Current Godot: NOT IMPLEMENTED in get_derived_stats
+	# Fallout 2: Carry Weight = 25 + ST * 25
+	# Current Godot: 25 + ST * 25
 	
 	var test_cases = [
-		{"might": 1, "expected": 25},
-		{"might": 5, "expected": 125},
-		{"might": 10, "expected": 250},
+		{"might": 1, "expected": 50},   # 25 + 1*25 = 50
+		{"might": 5, "expected": 150},  # 25 + 5*25 = 150
+		{"might": 10, "expected": 275}, # 25 + 10*25 = 275
 	]
 	
 	for case in test_cases:
@@ -305,17 +309,18 @@ func test_carry_weight():
 		})
 
 func test_melee_damage():
-	# Fallout 2: Melee Damage = ST / 2 (round down)
-	# Current Godot: NOT IMPLEMENTED in get_derived_stats
+	# Fallout 2: Melee Damage = max(1, ST - 5)
+	# Current Godot: max(1, ST - 5)
 	
 	var test_cases = [
-		{"might": 1, "expected": 0},
-		{"might": 2, "expected": 1},
-		{"might": 3, "expected": 1},
-		{"might": 4, "expected": 2},
-		{"might": 5, "expected": 2},
-		{"might": 6, "expected": 3},
-		{"might": 10, "expected": 5},
+		{"might": 1, "expected": 1},   # max(1, 1-5) = max(1, -4) = 1
+		{"might": 2, "expected": 1},   # max(1, 2-5) = max(1, -3) = 1
+		{"might": 3, "expected": 1},   # max(1, 3-5) = max(1, -2) = 1
+		{"might": 4, "expected": 1},   # max(1, 4-5) = max(1, -1) = 1
+		{"might": 5, "expected": 1},   # max(1, 5-5) = max(1, 0) = 1
+		{"might": 6, "expected": 1},   # max(1, 6-5) = max(1, 1) = 1
+		{"might": 7, "expected": 2},   # max(1, 7-5) = max(1, 2) = 2
+		{"might": 10, "expected": 5},  # max(1, 10-5) = 5
 	]
 	
 	for case in test_cases:

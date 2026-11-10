@@ -38,7 +38,9 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 | Stage B | 11 | 11 | 0 | 0 |
 | Stage C | 21 | 21 | 0 | 0 |
 | XP Progression | 41 | 41 | 0 | 0 |
-| **Total** | **73** | **73** | **0** | **0** |
+| **SPECIAL Derived Stats** | **69** | **69** | **0** | **0** |
+| **DT/DR Damage Fidelity** | **25** | **25** | **0** | **0** |
+| **Total** | **167** | **167** | **0** | **0** |
 
 **Full Vertical Slice Playthrough**: PASS (level persistence fixed)
 **CombatHUD headless compatibility**: PASS (null node refs fixed)
@@ -98,7 +100,16 @@ See root `C:\Code\REA_FALLOUT\PROJECT_STATE.md` for complete project state inclu
 
 ---
 
-### Technical Placeholder Assets — RETAINED FOR GAMEPLAY DEVELOPMENT
+### DT/DR Damage Fidelity Verification ✅ (2026-11-10)
+- **DT/DR Formula**: Verified against Fallout 2 Community Edition combat.cc reference
+- **Ammo Modifiers**: JHP (1.4 dmg, 1.5 DT, 1.0 DR), AP (0.8 dmg, 0.5 DT, 1.0 DR), Standard (1.0, 1.0, 1.0) — matching vanilla
+- **Damage Formula**: `(raw * dmg_mod - DT * dt_mod) * (1 - DR * dr_mod / 100)` with floor and minimum 1 clamp — matches Fallout 2
+- **Tests**: `tests/test_dtdr_fidelity.gd` — 25 tests ALL PASS
+  - Basic DT/DR calculation (no armor, light, heavy)
+  - JHP/AP/Standard ammo modifier tests vs various armor tiers
+  - Minimum damage clamp verification
+  - Ammo type parsing from ItemDatabase
+  - Weapon damage bonus integration
 
 **CLASSIFICATION: TECHNICAL_PLACEHOLDER** — All visual assets below are functional pipeline outputs, not approved production artwork. They serve as technical placeholders for gameplay development only.
 
@@ -207,6 +218,19 @@ Implemented explicit save schema versioning and migration from v1 (old SPECIAL n
 - Stage B: 11/11 PASS
 - Stage C: 21/21 PASS (4 new migration tests + 16 existing + Full Vertical Slice Playthrough)
 - **Total: 32/32 PASS**
+
+---
+
+### DT/DR Damage Fidelity Verification ✅ (2026-11-10)
+- **DT/DR Formula**: Verified against Fallout 2 Community Edition combat.cc reference
+- **Ammo Modifiers**: JHP (1.4 dmg, 1.5 DT, 1.0 DR), AP (0.8 dmg, 0.5 DT, 1.0 DR), Standard (1.0, 1.0, 1.0) — matching vanilla
+- **Damage Formula**: `(raw * dmg_mod - DT * dt_mod) * (1 - DR * dr_mod / 100)` with floor and minimum 1 clamp — matches Fallout 2
+- **Tests**: `tests/test_dtdr_fidelity.gd` — 25 tests ALL PASS
+  - Basic DT/DR calculation (no armor, light, heavy)
+  - JHP/AP/Standard ammo modifier tests vs various armor tiers
+  - Minimum damage clamp verification
+  - Ammo type parsing from ItemDatabase
+  - Weapon damage bonus integration
 
 ---
 
