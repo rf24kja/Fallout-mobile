@@ -42,14 +42,14 @@ enum BodyPart {
 
 # Body part modifiers: {ap_cost_multiplier, accuracy_modifier, damage_multiplier, effects}
 const BODY_PART_DATA: Dictionary = {
-	BodyPart.HEAD: {"ap_mult": 1.5, "acc_mod": -20, "dmg_mult": 2.0, "effects": ["stun", "concussion"]},
+	BodyPart.HEAD: {"ap_mult": 1.4, "acc_mod": -20, "dmg_mult": 2.0, "effects": ["stun", "concussion"]},
 	BodyPart.TORSO: {"ap_mult": 1.0, "acc_mod": 0, "dmg_mult": 1.0, "effects": []},
 	BodyPart.LEFT_ARM: {"ap_mult": 1.2, "acc_mod": -10, "dmg_mult": 0.8, "effects": ["disarm", "cripple_arm"]},
 	BodyPart.RIGHT_ARM: {"ap_mult": 1.2, "acc_mod": -10, "dmg_mult": 0.8, "effects": ["disarm", "cripple_arm"]},
 	BodyPart.LEFT_LEG: {"ap_mult": 1.2, "acc_mod": -10, "dmg_mult": 0.8, "effects": ["knockdown", "cripple_leg"]},
 	BodyPart.RIGHT_LEG: {"ap_mult": 1.2, "acc_mod": -10, "dmg_mult": 0.8, "effects": ["knockdown", "cripple_leg"]},
-	BodyPart.EYES: {"ap_mult": 2.0, "acc_mod": -40, "dmg_mult": 2.5, "effects": ["blind", "cripple_eyes"]},
-	BodyPart.GROIN: {"ap_mult": 1.5, "acc_mod": -15, "dmg_mult": 1.5, "effects": ["stun", "cripple_groin"]},
+	BodyPart.EYES: {"ap_mult": 1.6, "acc_mod": -40, "dmg_mult": 2.5, "effects": ["blind", "cripple_eyes"]},
+	BodyPart.GROIN: {"ap_mult": 1.2, "acc_mod": -15, "dmg_mult": 1.5, "effects": ["stun", "cripple_groin"]},
 }
 @export var base_ap: int = 5
 
@@ -589,11 +589,10 @@ func _perform_move(actor_id: String, position: Vector2) -> bool:
 	if not actor or not actor.is_alive:
 		return false
 	
-	# Crippled leg reduces movement
-	var ap_cost = 2
+	# Fallout 2: Move 1 hex = 1 AP, crippled leg = 2 AP
+	var ap_cost = 1
 	if BodyPart.LEFT_LEG in actor.crippled_parts or BodyPart.RIGHT_LEG in actor.crippled_parts:
-		# Movement costs more AP
-		ap_cost = 4
+		ap_cost = 2
 	
 	if actor.ap < ap_cost:
 		return false

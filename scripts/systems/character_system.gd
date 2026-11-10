@@ -449,8 +449,28 @@ func get_character_sheet() -> Dictionary:
 		"max_ap": character_data.max_ap
 	}
 
-func get_save_data() -> Dictionary:
-	return character_data.duplicate(true)
+func get_derived_stats(stats: Dictionary) -> Dictionary:
+	"""Get derived stats for given SPECIAL values without modifying character data."""
+	var special = stats
+	var level = 1  # Default level for calculation
+	var en = special.get("vigor", 5)
+	
+	# Max HP: 15 + Level * 2 + VIG * 3
+	var max_hp = 15 + level * 2 + en * 3
+	
+	# AP: 5 + DEX / 2
+	var ag = special.get("dexterity", 5)
+	var max_ap = 5 + int(ag / 2)
+	
+	return {
+		"max_hp": max_hp,
+		"max_action_points": max_ap,
+		"healing_rate": int(en / 3),
+		"poison_resistance": en * 5,
+		"radiation_resistance": en * 2,
+		"sequence": special.get("awareness", 5) * 2,
+		"critical_chance": special.get("fortune", 5)
+	}
 
 func load_save_data(data: Dictionary) -> void:
 	character_data = data
