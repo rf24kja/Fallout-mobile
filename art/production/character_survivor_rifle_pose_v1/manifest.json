@@ -1,0 +1,376 @@
+{
+  "project": "RADZONE",
+  "pack": "survivor_rifle_pose_v1",
+  "status": "candidate_asset_pending_godot_qa",
+  "layout": "4x2",
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "cell_size": [
+    256,
+    256
+  ],
+  "anchor_canvas": [
+    128,
+    248
+  ],
+  "states": {
+    "rifle_ready": {
+      "original_filename": "лист_боевых_спрайтов_выжившего_с_винтовкой.png",
+      "sha256": "31295b4d93fc56cff267f96cc0d034abcfba174a23917d084642cdc85d34dc8e",
+      "size": [
+        1774,
+        887
+      ],
+      "frames": [
+        {
+          "direction": "S",
+          "source_crop": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "file": "frames/rifle_ready/S.png",
+          "alpha_bbox": [
+            75,
+            4,
+            187,
+            248
+          ],
+          "sha256": "a9c74d79f80d08671e2b021433db44469166cdc5a2f1c7744405226c5d750874",
+          "bytes": 47128
+        },
+        {
+          "direction": "SE",
+          "source_crop": [
+            444,
+            0,
+            887,
+            444
+          ],
+          "file": "frames/rifle_ready/SE.png",
+          "alpha_bbox": [
+            75,
+            3,
+            206,
+            248
+          ],
+          "sha256": "8e8f0123175c91f0e6e00aa9486e0c7edb6ac338f8c2de6c50465665f42a1a4a",
+          "bytes": 49367
+        },
+        {
+          "direction": "E",
+          "source_crop": [
+            887,
+            0,
+            1330,
+            444
+          ],
+          "file": "frames/rifle_ready/E.png",
+          "alpha_bbox": [
+            73,
+            4,
+            225,
+            248
+          ],
+          "sha256": "9be7346989b32b8f20ac353cdba8e51fdc6e47148c7bd3b9fc8c02743b98f900",
+          "bytes": 45631
+        },
+        {
+          "direction": "NE",
+          "source_crop": [
+            1330,
+            0,
+            1774,
+            444
+          ],
+          "file": "frames/rifle_ready/NE.png",
+          "alpha_bbox": [
+            74,
+            5,
+            207,
+            248
+          ],
+          "sha256": "f00fb5fc432e1f7b3fb723b6c8ca47658b098d2ece53abd194e91eb8d1310991",
+          "bytes": 47674
+        },
+        {
+          "direction": "N",
+          "source_crop": [
+            0,
+            444,
+            444,
+            887
+          ],
+          "file": "frames/rifle_ready/N.png",
+          "alpha_bbox": [
+            72,
+            5,
+            184,
+            248
+          ],
+          "sha256": "58dc484cf703a36f86fe99a9557ede87a9aeb3411c0336046f548d63afe20f96",
+          "bytes": 45575
+        },
+        {
+          "direction": "NW",
+          "source_crop": [
+            444,
+            444,
+            887,
+            887
+          ],
+          "file": "frames/rifle_ready/NW.png",
+          "alpha_bbox": [
+            50,
+            3,
+            186,
+            248
+          ],
+          "sha256": "d7d39970b5c948353445d57870f5809b8ae4c1bdaa3c7bbb2aa02ab54750ea72",
+          "bytes": 49182
+        },
+        {
+          "direction": "W",
+          "source_crop": [
+            887,
+            444,
+            1330,
+            887
+          ],
+          "file": "frames/rifle_ready/W.png",
+          "alpha_bbox": [
+            28,
+            4,
+            184,
+            248
+          ],
+          "sha256": "9b6359771ab09fad5e0592cf217dc74f000d73057e1637280ef5bf8bc0da3bcd",
+          "bytes": 45743
+        },
+        {
+          "direction": "SW",
+          "source_crop": [
+            1330,
+            444,
+            1774,
+            887
+          ],
+          "file": "frames/rifle_ready/SW.png",
+          "alpha_bbox": [
+            52,
+            4,
+            189,
+            248
+          ],
+          "sha256": "c8be7a10bcc4b3e762f40ad6337dcd681ff395aaa4a8fdd08a2d15e15ec51e52",
+          "bytes": 50231
+        }
+      ],
+      "atlas": {
+        "file": "atlas_rifle_ready.png",
+        "size": [
+          1024,
+          512
+        ],
+        "sha256": "a43e7c32c1a4132858f39365a8a954debb5d79ff1e09e5b6967796044b809b8f"
+      },
+      "source_archive": {
+        "file": "source/rifle_ready.webp",
+        "sha256": "65fe5767e9fccbacea6dc6c0e4608b04dd5001545688e82799c9b11cfa0dee20",
+        "lossy": true,
+        "original_png_sha256": "31295b4d93fc56cff267f96cc0d034abcfba174a23917d084642cdc85d34dc8e"
+      }
+    },
+    "rifle_fire": {
+      "original_filename": "выживший_пустоши_огонь_по_восьми_направлениям.png",
+      "sha256": "fb209266e0c0ee98d3c31f98932d24300b2e7601363d464f2f8a22746c3f7e2c",
+      "size": [
+        1774,
+        887
+      ],
+      "frames": [
+        {
+          "direction": "S",
+          "source_crop": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "file": "frames/rifle_fire/S.png",
+          "alpha_bbox": [
+            75,
+            2,
+            191,
+            248
+          ],
+          "sha256": "7f350ea531b6e7c2712a6111e8a11350d066a5a3f86ef265537fe3ffd2a868eb",
+          "bytes": 50056
+        },
+        {
+          "direction": "SE",
+          "source_crop": [
+            444,
+            0,
+            887,
+            444
+          ],
+          "file": "frames/rifle_fire/SE.png",
+          "alpha_bbox": [
+            70,
+            5,
+            248,
+            248
+          ],
+          "sha256": "9a04130591e507192200c515e7c1cb10cfc986b99a12a707422b3a9cb8679626",
+          "bytes": 60439
+        },
+        {
+          "direction": "E",
+          "source_crop": [
+            887,
+            0,
+            1330,
+            444
+          ],
+          "file": "frames/rifle_fire/E.png",
+          "alpha_bbox": [
+            68,
+            2,
+            256,
+            248
+          ],
+          "sha256": "f80ad88b0acebd10d48b0b43dd150a37de333dc562f59bb4e2426e6061db2c34",
+          "bytes": 57010
+        },
+        {
+          "direction": "NE",
+          "source_crop": [
+            1330,
+            0,
+            1774,
+            444
+          ],
+          "file": "frames/rifle_fire/NE.png",
+          "alpha_bbox": [
+            68,
+            4,
+            246,
+            248
+          ],
+          "sha256": "9055c44f807a62acf0d74c1e0e2e8c060fca3687b9ba8fd1fbee41a286750838",
+          "bytes": 60071
+        },
+        {
+          "direction": "N",
+          "source_crop": [
+            0,
+            444,
+            444,
+            887
+          ],
+          "file": "frames/rifle_fire/N.png",
+          "alpha_bbox": [
+            46,
+            3,
+            188,
+            248
+          ],
+          "sha256": "ae1f80cd0a9cb98ce9529eb3977a85d79f1fe8b42a1f44b2d6ffbd3c28196a9e",
+          "bytes": 54097
+        },
+        {
+          "direction": "NW",
+          "source_crop": [
+            444,
+            444,
+            887,
+            887
+          ],
+          "file": "frames/rifle_fire/NW.png",
+          "alpha_bbox": [
+            13,
+            4,
+            191,
+            248
+          ],
+          "sha256": "2cd49d451a5ddea65f96e3ff3e66c4513b7b67138baa374d7abd0c8b6fb9dc5e",
+          "bytes": 62371
+        },
+        {
+          "direction": "W",
+          "source_crop": [
+            887,
+            444,
+            1330,
+            887
+          ],
+          "file": "frames/rifle_fire/W.png",
+          "alpha_bbox": [
+            0,
+            1,
+            191,
+            248
+          ],
+          "sha256": "60127f3cc8d745efbbfa0108035d568a185f5c19af84df98b4620eca4859c370",
+          "bytes": 58885
+        },
+        {
+          "direction": "SW",
+          "source_crop": [
+            1330,
+            444,
+            1774,
+            887
+          ],
+          "file": "frames/rifle_fire/SW.png",
+          "alpha_bbox": [
+            15,
+            3,
+            195,
+            248
+          ],
+          "sha256": "a18cfa97f0583e92b2f3b9e57ae5b993750282ea625d515c2d1b567151891639",
+          "bytes": 62235
+        }
+      ],
+      "atlas": {
+        "file": "atlas_rifle_fire.png",
+        "size": [
+          1024,
+          512
+        ],
+        "sha256": "a3f404b1de32dc7856c59b516e1eb394737f6c2f64adccf5790fb747f9d157bf"
+      },
+      "source_archive": {
+        "file": "source/rifle_fire.webp",
+        "sha256": "1e62ecaf0ff24e450e18745d39a8600a53b2f74a9037296194d8cd85a2b90e10",
+        "lossy": true,
+        "original_png_sha256": "fb209266e0c0ee98d3c31f98932d24300b2e7601363d464f2f8a22746c3f7e2c"
+      }
+    }
+  },
+  "notes": [
+    "16 individually addressable static pose frames; NOT animated walk or multi-frame firing",
+    "This is a full-body baked weapon pose, not a separate weapon overlay",
+    "Generated rifle_fire has oversized flash/smoke in some directions; gameplay use requires visual QA",
+    "Do not remap gameplay item IDs or replace existing survivor atlas without explicit runtime validation",
+    "Source cells were cropped deterministically and foot-aligned; image edges may contain generation halos"
+  ],
+  "preview_scene": "scenes/art_preview/survivor_rifle_pose_review.tscn",
+  "sprite_frames": "art/production/character_survivor_rifle_pose_v1/survivor_rifle_pose_sprite_frames.tres",
+  "quality_warnings": [
+    "Two generated gun-fire direction cells contained disconnected artifacts from neighboring effects; tiny detached components have been removed.",
+    "The muzzle effect is baked into the 8 fire poses; separate VFX recommended.",
+    "Godot runtime import and Android smoke tests NOT run."
+  ]
+}

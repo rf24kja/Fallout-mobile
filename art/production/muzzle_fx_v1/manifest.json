@@ -1,0 +1,693 @@
+{
+  "pack": "RADZONE-weapon-muzzle-vfx-v2",
+  "classification": "candidate_asset_not_in_game_verified",
+  "canvas": [
+    96,
+    96
+  ],
+  "atlases": {
+    "pistol": {
+      "file": "atlas_pistol.png",
+      "source_file": "pistol_isolated_source.png",
+      "source_sha256": "02e5bd1fd9d97991d0e805a284cba0e131133229d82c23167bfb3cbb1fc0f1bf",
+      "muzzle_centers": {
+        "S": [
+          132,
+          54
+        ],
+        "SE": [
+          176,
+          59
+        ],
+        "E": [
+          207,
+          47
+        ],
+        "NE": [
+          197,
+          28
+        ],
+        "N": [
+          159,
+          19
+        ],
+        "NW": [
+          74,
+          22
+        ],
+        "W": [
+          34,
+          45
+        ],
+        "SW": [
+          49,
+          76
+        ]
+      },
+      "atlas_sha256": "95f2b0b11b9b41b99cbafc0fc41eb7eb14af8ce05bf7b2b43b37277c5b242419",
+      "frames": [
+        {
+          "direction": "S",
+          "phase": 0,
+          "alpha_bbox": [
+            38,
+            32,
+            52,
+            56
+          ],
+          "sha256": "e03dc5b5a62a0fcd6f6011a7becbb7cbf59a6994a0c3846a3e22f0926b067ebe",
+          "file": "frames/pistol/S/0.png"
+        },
+        {
+          "direction": "S",
+          "phase": 1,
+          "alpha_bbox": [
+            33,
+            26,
+            54,
+            60
+          ],
+          "sha256": "2b632c4bae4a72cf11a3e6f49bb4dee82a20a022bc5a2476621273cc143f0ba6",
+          "file": "frames/pistol/S/1.png"
+        },
+        {
+          "direction": "S",
+          "phase": 2,
+          "alpha_bbox": [
+            36,
+            31,
+            53,
+            57
+          ],
+          "sha256": "086a8a88e4976f0ca3f9b4e778fb1deef89f559f9c12afdb19bc11e86fa8e2bc",
+          "file": "frames/pistol/S/2.png"
+        },
+        {
+          "direction": "SE",
+          "phase": 0,
+          "alpha_bbox": [
+            35,
+            38,
+            51,
+            56
+          ],
+          "sha256": "36065b6cc21626389a0c5f5312598cd3bce12f3693cd62505130ffb6ef6dc275",
+          "file": "frames/pistol/SE/0.png"
+        },
+        {
+          "direction": "SE",
+          "phase": 1,
+          "alpha_bbox": [
+            31,
+            34,
+            54,
+            60
+          ],
+          "sha256": "b9cf1bdec8d41cf2083fc560ee75b510a517f110fa0858d37b0d1e6d1ff10ae8",
+          "file": "frames/pistol/SE/1.png"
+        },
+        {
+          "direction": "SE",
+          "phase": 2,
+          "alpha_bbox": [
+            34,
+            37,
+            53,
+            58
+          ],
+          "sha256": "64c4ee431a88c9cd12beef9cb7bcca7910127ece10ede7160e3e2db65a7f0a1e",
+          "file": "frames/pistol/SE/2.png"
+        },
+        {
+          "direction": "E",
+          "phase": 0,
+          "alpha_bbox": [
+            32,
+            43,
+            56,
+            57
+          ],
+          "sha256": "3a694a143dc6215979892c4a06aedd554443c0b307ffb5f50a44a0db35f15127",
+          "file": "frames/pistol/E/0.png"
+        },
+        {
+          "direction": "E",
+          "phase": 1,
+          "alpha_bbox": [
+            26,
+            42,
+            60,
+            63
+          ],
+          "sha256": "df9e03cab69d92bc5bb3d12f58d2bd89b1cce2c0d16800cd713809854a61ae75",
+          "file": "frames/pistol/E/1.png"
+        },
+        {
+          "direction": "E",
+          "phase": 2,
+          "alpha_bbox": [
+            31,
+            42,
+            57,
+            59
+          ],
+          "sha256": "caf83bacf00939a7a5547209e31f215bd97391e60b357cdac3028a37578cbb0f",
+          "file": "frames/pistol/E/2.png"
+        },
+        {
+          "direction": "NE",
+          "phase": 0,
+          "alpha_bbox": [
+            38,
+            44,
+            56,
+            60
+          ],
+          "sha256": "e7a86c79d6eb7a0cbda01e315065bc74ffbd45aab1d6412f3f913eadef931ef7",
+          "file": "frames/pistol/NE/0.png"
+        },
+        {
+          "direction": "NE",
+          "phase": 1,
+          "alpha_bbox": [
+            34,
+            42,
+            60,
+            65
+          ],
+          "sha256": "2f71602c0135edf50939942fb9208c8e64df28af22647c49fd69ba49969470e9",
+          "file": "frames/pistol/NE/1.png"
+        },
+        {
+          "direction": "NE",
+          "phase": 2,
+          "alpha_bbox": [
+            37,
+            42,
+            58,
+            61
+          ],
+          "sha256": "bb4b9e05c92486ab8fefc2250b0524646ec9723ebe8c05c1aeba05ed5e34c360",
+          "file": "frames/pistol/NE/2.png"
+        },
+        {
+          "direction": "N",
+          "phase": 0,
+          "alpha_bbox": [
+            43,
+            39,
+            57,
+            63
+          ],
+          "sha256": "3bf014867f875d4ade15819a275ece8162f9d070f3068bf193f6814caf2b4474",
+          "file": "frames/pistol/N/0.png"
+        },
+        {
+          "direction": "N",
+          "phase": 1,
+          "alpha_bbox": [
+            42,
+            36,
+            63,
+            70
+          ],
+          "sha256": "a8c3a5ce4e0b617777095cf40a67d1b6ef3e01b87a118040499d31651fedba4d",
+          "file": "frames/pistol/N/1.png"
+        },
+        {
+          "direction": "N",
+          "phase": 2,
+          "alpha_bbox": [
+            42,
+            38,
+            59,
+            64
+          ],
+          "sha256": "76ed33ecea61fe4d572c0802c5e3d1738250f76c257171c6672c2cff097dbf0b",
+          "file": "frames/pistol/N/2.png"
+        },
+        {
+          "direction": "NW",
+          "phase": 0,
+          "alpha_bbox": [
+            44,
+            39,
+            60,
+            57
+          ],
+          "sha256": "e81f6b99daa72458a812e4c01a7b1a6d25c813405f53452cc8474c3a31c3e76f",
+          "file": "frames/pistol/NW/0.png"
+        },
+        {
+          "direction": "NW",
+          "phase": 1,
+          "alpha_bbox": [
+            42,
+            36,
+            65,
+            62
+          ],
+          "sha256": "4839bf60eb296299234a1443f1fb109f99f452659253509981a75966327d06a8",
+          "file": "frames/pistol/NW/1.png"
+        },
+        {
+          "direction": "NW",
+          "phase": 2,
+          "alpha_bbox": [
+            42,
+            37,
+            61,
+            58
+          ],
+          "sha256": "6d50156b25bbf56fe4fdade0f86eb820f5a8e4c13d94809cab0f04a005097d5f",
+          "file": "frames/pistol/NW/2.png"
+        },
+        {
+          "direction": "W",
+          "phase": 0,
+          "alpha_bbox": [
+            39,
+            38,
+            63,
+            52
+          ],
+          "sha256": "3b5f7e3a681fb47ec839399afde1f8625ff45ab7a643db0864380880a5b45013",
+          "file": "frames/pistol/W/0.png"
+        },
+        {
+          "direction": "W",
+          "phase": 1,
+          "alpha_bbox": [
+            36,
+            33,
+            70,
+            54
+          ],
+          "sha256": "73a277462d0ed67b70ded2d374c7ba91cb868b94599b4e2c4552197ee1d5e76b",
+          "file": "frames/pistol/W/1.png"
+        },
+        {
+          "direction": "W",
+          "phase": 2,
+          "alpha_bbox": [
+            38,
+            36,
+            64,
+            53
+          ],
+          "sha256": "3ed09e520fb143eead8c53fcce54702eb70eba5cf6ce80eed0b7254fc31afb18",
+          "file": "frames/pistol/W/2.png"
+        },
+        {
+          "direction": "SW",
+          "phase": 0,
+          "alpha_bbox": [
+            39,
+            35,
+            57,
+            51
+          ],
+          "sha256": "587c9606e9433f7d8b2e20225efa71d4c8c38467c9b9fbe4683496167c8446d6",
+          "file": "frames/pistol/SW/0.png"
+        },
+        {
+          "direction": "SW",
+          "phase": 1,
+          "alpha_bbox": [
+            36,
+            31,
+            62,
+            54
+          ],
+          "sha256": "5e649e3aca9d5751f516df3eff066ff961018230d153b9f5b324993fc5a4a8ec",
+          "file": "frames/pistol/SW/1.png"
+        },
+        {
+          "direction": "SW",
+          "phase": 2,
+          "alpha_bbox": [
+            37,
+            34,
+            58,
+            53
+          ],
+          "sha256": "bdab7ba652cb82b2fd5ae7fe6ef126a996d8703306e3060340f9d0bc498759b2",
+          "file": "frames/pistol/SW/2.png"
+        }
+      ]
+    },
+    "rifle": {
+      "file": "atlas_rifle.png",
+      "source_file": "rifle_isolated_source.png",
+      "source_sha256": "8427e89901bf2ad97b8c15ce4a1f23606e070442b5ccb149460b09b73bf441ea",
+      "muzzle_centers": {
+        "S": [
+          155,
+          55
+        ],
+        "SE": [
+          192,
+          55
+        ],
+        "E": [
+          229,
+          52
+        ],
+        "NE": [
+          224,
+          53
+        ],
+        "N": [
+          72,
+          44
+        ],
+        "NW": [
+          45,
+          43
+        ],
+        "W": [
+          36,
+          54
+        ],
+        "SW": [
+          47,
+          72
+        ]
+      },
+      "atlas_sha256": "dbfe621d469151dc4b0ec6ac9dbe52aedc8a3b23ce3fa1c96a93ec1b0ef3db2a",
+      "frames": [
+        {
+          "direction": "S",
+          "phase": 0,
+          "alpha_bbox": [
+            27,
+            20,
+            72,
+            64
+          ],
+          "sha256": "1b4109c6290e2682d4d52c9c6d4314a8a62c5c2d64fb66378c8a79182d268e43",
+          "file": "frames/rifle/S/0.png"
+        },
+        {
+          "direction": "S",
+          "phase": 1,
+          "alpha_bbox": [
+            18,
+            8,
+            83,
+            71
+          ],
+          "sha256": "bc26f8f87236fad2181cfe0516366a5b1b71e684f33ea46b37d001010ba4efb1",
+          "file": "frames/rifle/S/1.png"
+        },
+        {
+          "direction": "S",
+          "phase": 2,
+          "alpha_bbox": [
+            24,
+            17,
+            75,
+            66
+          ],
+          "sha256": "fc14c054ccc9431af2467e4cfca42133aa078b918e1654b80c6e45abe1e38a9d",
+          "file": "frames/rifle/S/2.png"
+        },
+        {
+          "direction": "SE",
+          "phase": 0,
+          "alpha_bbox": [
+            18,
+            17,
+            66,
+            62
+          ],
+          "sha256": "4a44a725786301aed266ea2b21b6e28f92d72c7d2407038c533202a3a464e32c",
+          "file": "frames/rifle/SE/0.png"
+        },
+        {
+          "direction": "SE",
+          "phase": 1,
+          "alpha_bbox": [
+            6,
+            4,
+            74,
+            69
+          ],
+          "sha256": "eea805ad4a5158e86c71424da1a0e33db45eefb55522dca6edca5054ef6b326b",
+          "file": "frames/rifle/SE/1.png"
+        },
+        {
+          "direction": "SE",
+          "phase": 2,
+          "alpha_bbox": [
+            14,
+            13,
+            68,
+            65
+          ],
+          "sha256": "5c5148aadb4657592635b1ef27e321dcd5e54dc4afd099cf9ca505828cf1d8d2",
+          "file": "frames/rifle/SE/2.png"
+        },
+        {
+          "direction": "E",
+          "phase": 0,
+          "alpha_bbox": [
+            20,
+            23,
+            64,
+            68
+          ],
+          "sha256": "0bbbbbcdc8e00385b62bc43ec8028917c7465aedca7b30bcae31f9cb278b2ee6",
+          "file": "frames/rifle/E/0.png"
+        },
+        {
+          "direction": "E",
+          "phase": 1,
+          "alpha_bbox": [
+            8,
+            13,
+            71,
+            78
+          ],
+          "sha256": "a9f42a5a627109594ab88d8f30a5368489b3569e0c8559cf5e94be6a085b772d",
+          "file": "frames/rifle/E/1.png"
+        },
+        {
+          "direction": "E",
+          "phase": 2,
+          "alpha_bbox": [
+            17,
+            20,
+            66,
+            71
+          ],
+          "sha256": "b45b47947eba9ed60eee40c0e3ed2f0b87c59971cbdc4c89ed43d46d2c432c20",
+          "file": "frames/rifle/E/2.png"
+        },
+        {
+          "direction": "NE",
+          "phase": 0,
+          "alpha_bbox": [
+            17,
+            29,
+            62,
+            77
+          ],
+          "sha256": "6d9f639036819567d666681442724ea55d250d867230c4bae06f064ab5025bbb",
+          "file": "frames/rifle/NE/0.png"
+        },
+        {
+          "direction": "NE",
+          "phase": 1,
+          "alpha_bbox": [
+            4,
+            22,
+            69,
+            90
+          ],
+          "sha256": "603137cf42aaf0b667d60cd88cef4c2feb7e6d9d103af44c1f55b752f0090487",
+          "file": "frames/rifle/NE/1.png"
+        },
+        {
+          "direction": "NE",
+          "phase": 2,
+          "alpha_bbox": [
+            13,
+            27,
+            65,
+            80
+          ],
+          "sha256": "65506b33f3a9cb92988e6196a7a02c5917a1e273f38875dd82608ff890ba12a5",
+          "file": "frames/rifle/NE/2.png"
+        },
+        {
+          "direction": "N",
+          "phase": 0,
+          "alpha_bbox": [
+            23,
+            31,
+            68,
+            75
+          ],
+          "sha256": "895a03662dd240e7c7d89d0066976b4695976db1ecd775bf40dff59e3f529f6d",
+          "file": "frames/rifle/N/0.png"
+        },
+        {
+          "direction": "N",
+          "phase": 1,
+          "alpha_bbox": [
+            13,
+            25,
+            78,
+            88
+          ],
+          "sha256": "89c023fe60802e6d7aab4495505b77a9a0ddb4c77afcf112365b9e4d711c3c27",
+          "file": "frames/rifle/N/1.png"
+        },
+        {
+          "direction": "N",
+          "phase": 2,
+          "alpha_bbox": [
+            20,
+            29,
+            71,
+            78
+          ],
+          "sha256": "c538afd9c8c92903031477aad741ecc158cf1843ff616d3c645df60029e5c86a",
+          "file": "frames/rifle/N/2.png"
+        },
+        {
+          "direction": "NW",
+          "phase": 0,
+          "alpha_bbox": [
+            29,
+            33,
+            77,
+            78
+          ],
+          "sha256": "562ce5d8bd08bfc70e754d3c27cdbc5dbb71c60d198bb1432a974487fde6b34d",
+          "file": "frames/rifle/NW/0.png"
+        },
+        {
+          "direction": "NW",
+          "phase": 1,
+          "alpha_bbox": [
+            22,
+            27,
+            90,
+            92
+          ],
+          "sha256": "001a2b5b09edfb49e7a38e5c0fe69a86f6372f57c3a8361404475fa3e8c83658",
+          "file": "frames/rifle/NW/1.png"
+        },
+        {
+          "direction": "NW",
+          "phase": 2,
+          "alpha_bbox": [
+            27,
+            30,
+            81,
+            82
+          ],
+          "sha256": "68c5897bd1bd1417135b52c42c3e38ede680f9230a19af0cdd5ddafe97ee64a0",
+          "file": "frames/rifle/NW/2.png"
+        },
+        {
+          "direction": "W",
+          "phase": 0,
+          "alpha_bbox": [
+            31,
+            27,
+            75,
+            72
+          ],
+          "sha256": "8a7d8272cdb6eb35782379c7424d6b167c2b58b8111f9b5e94e7b354dd4b8a13",
+          "file": "frames/rifle/W/0.png"
+        },
+        {
+          "direction": "W",
+          "phase": 1,
+          "alpha_bbox": [
+            25,
+            18,
+            88,
+            83
+          ],
+          "sha256": "a8d7ab8f286860c82675b132c928ccb159dd21ee8b343946f9c91f8ce1ede5ff",
+          "file": "frames/rifle/W/1.png"
+        },
+        {
+          "direction": "W",
+          "phase": 2,
+          "alpha_bbox": [
+            29,
+            24,
+            78,
+            75
+          ],
+          "sha256": "8fd6b75a13a883e4c2be7bfbdb4d9fe6b60b8c3985170f925cef0c94137841c3",
+          "file": "frames/rifle/W/2.png"
+        },
+        {
+          "direction": "SW",
+          "phase": 0,
+          "alpha_bbox": [
+            33,
+            18,
+            78,
+            66
+          ],
+          "sha256": "e77bb08afd1a19f0ac58a7fa588b12d8338d84395268f97b758d0cef66903bd7",
+          "file": "frames/rifle/SW/0.png"
+        },
+        {
+          "direction": "SW",
+          "phase": 1,
+          "alpha_bbox": [
+            27,
+            6,
+            92,
+            74
+          ],
+          "sha256": "abe5592a4faab7c923ceda701677bc429c90686f0351272b9b6a24e10332a949",
+          "file": "frames/rifle/SW/1.png"
+        },
+        {
+          "direction": "SW",
+          "phase": 2,
+          "alpha_bbox": [
+            30,
+            15,
+            82,
+            68
+          ],
+          "sha256": "3a77fd9a81926bc33e7ee9419584f842bc8220780ed1368de2fd2c1f4569006c",
+          "file": "frames/rifle/SW/2.png"
+        }
+      ]
+    }
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "states": [
+    "anticipation",
+    "peak",
+    "fade"
+  ],
+  "sources": {},
+  "notes": [
+    "2 independent canonical muzzle effects extracted from existing ChatGPT-generated firing art, each rotated and faded into 8 directional 3-stage sequences; not 48 unique generated illustrations.",
+    "All VFX are transparent PNG and completely independent of character imagery.",
+    "Effects derived from raster, smoke core clipped at edge of original source; QA required at Android scale.",
+    "Muzzle attachment points are hand-inspected approximate from source character art; should be calibrated in Godot before shipping.",
+    "No existing combat mechanics or production sprite textures have been changed."
+  ]
+}

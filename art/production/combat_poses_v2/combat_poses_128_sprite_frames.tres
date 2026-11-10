@@ -1,0 +1,487 @@
+[gd_resource type="SpriteFrames" load_steps=50 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/combat_poses_v2/combat_poses_128_atlas.png" id="1_atlas"]
+
+[sub_resource type="AtlasTexture" id="pose_unarmed_idle_S"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_unarmed_idle_SE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_unarmed_idle_E"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_unarmed_idle_NE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_unarmed_idle_N"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_unarmed_idle_NW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_unarmed_idle_W"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_unarmed_idle_SW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_ready_S"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_ready_SE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_ready_E"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_ready_NE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_ready_N"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_ready_NW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_ready_W"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_ready_SW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_aim_S"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_aim_SE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_aim_E"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_aim_NE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_aim_N"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_aim_NW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_aim_W"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_aim_SW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_fire_S"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 768, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_fire_SE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 768, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_fire_E"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 768, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_fire_NE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 768, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_fire_N"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_fire_NW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_fire_W"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_pistol_fire_SW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_ready_S"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 1024, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_ready_SE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 1024, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_ready_E"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 1024, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_ready_NE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 1024, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_ready_N"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 1152, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_ready_NW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 1152, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_ready_W"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 1152, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_ready_SW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 1152, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_fire_S"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 1280, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_fire_SE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 1280, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_fire_E"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 1280, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_fire_NE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 1280, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_fire_N"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 1408, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_fire_NW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(128, 1408, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_fire_W"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 1408, 128, 128)
+
+[sub_resource type="AtlasTexture" id="pose_rifle_fire_SW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(384, 1408, 128, 128)
+
+[resource]
+animations = [
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_unarmed_idle_S")}],
+"loop": false,
+"name": &"unarmed_idle_S",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_unarmed_idle_SE")}],
+"loop": false,
+"name": &"unarmed_idle_SE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_unarmed_idle_E")}],
+"loop": false,
+"name": &"unarmed_idle_E",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_unarmed_idle_NE")}],
+"loop": false,
+"name": &"unarmed_idle_NE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_unarmed_idle_N")}],
+"loop": false,
+"name": &"unarmed_idle_N",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_unarmed_idle_NW")}],
+"loop": false,
+"name": &"unarmed_idle_NW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_unarmed_idle_W")}],
+"loop": false,
+"name": &"unarmed_idle_W",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_unarmed_idle_SW")}],
+"loop": false,
+"name": &"unarmed_idle_SW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_ready_S")}],
+"loop": false,
+"name": &"pistol_ready_S",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_ready_SE")}],
+"loop": false,
+"name": &"pistol_ready_SE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_ready_E")}],
+"loop": false,
+"name": &"pistol_ready_E",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_ready_NE")}],
+"loop": false,
+"name": &"pistol_ready_NE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_ready_N")}],
+"loop": false,
+"name": &"pistol_ready_N",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_ready_NW")}],
+"loop": false,
+"name": &"pistol_ready_NW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_ready_W")}],
+"loop": false,
+"name": &"pistol_ready_W",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_ready_SW")}],
+"loop": false,
+"name": &"pistol_ready_SW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_aim_S")}],
+"loop": false,
+"name": &"pistol_aim_S",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_aim_SE")}],
+"loop": false,
+"name": &"pistol_aim_SE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_aim_E")}],
+"loop": false,
+"name": &"pistol_aim_E",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_aim_NE")}],
+"loop": false,
+"name": &"pistol_aim_NE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_aim_N")}],
+"loop": false,
+"name": &"pistol_aim_N",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_aim_NW")}],
+"loop": false,
+"name": &"pistol_aim_NW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_aim_W")}],
+"loop": false,
+"name": &"pistol_aim_W",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_aim_SW")}],
+"loop": false,
+"name": &"pistol_aim_SW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_fire_S")}],
+"loop": false,
+"name": &"pistol_fire_S",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_fire_SE")}],
+"loop": false,
+"name": &"pistol_fire_SE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_fire_E")}],
+"loop": false,
+"name": &"pistol_fire_E",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_fire_NE")}],
+"loop": false,
+"name": &"pistol_fire_NE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_fire_N")}],
+"loop": false,
+"name": &"pistol_fire_N",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_fire_NW")}],
+"loop": false,
+"name": &"pistol_fire_NW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_fire_W")}],
+"loop": false,
+"name": &"pistol_fire_W",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_pistol_fire_SW")}],
+"loop": false,
+"name": &"pistol_fire_SW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_ready_S")}],
+"loop": false,
+"name": &"rifle_ready_S",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_ready_SE")}],
+"loop": false,
+"name": &"rifle_ready_SE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_ready_E")}],
+"loop": false,
+"name": &"rifle_ready_E",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_ready_NE")}],
+"loop": false,
+"name": &"rifle_ready_NE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_ready_N")}],
+"loop": false,
+"name": &"rifle_ready_N",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_ready_NW")}],
+"loop": false,
+"name": &"rifle_ready_NW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_ready_W")}],
+"loop": false,
+"name": &"rifle_ready_W",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_ready_SW")}],
+"loop": false,
+"name": &"rifle_ready_SW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_fire_S")}],
+"loop": false,
+"name": &"rifle_fire_S",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_fire_SE")}],
+"loop": false,
+"name": &"rifle_fire_SE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_fire_E")}],
+"loop": false,
+"name": &"rifle_fire_E",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_fire_NE")}],
+"loop": false,
+"name": &"rifle_fire_NE",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_fire_N")}],
+"loop": false,
+"name": &"rifle_fire_N",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_fire_NW")}],
+"loop": false,
+"name": &"rifle_fire_NW",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_fire_W")}],
+"loop": false,
+"name": &"rifle_fire_W",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pose_rifle_fire_SW")}],
+"loop": false,
+"name": &"rifle_fire_SW",
+"speed": 1.0
+}
+]

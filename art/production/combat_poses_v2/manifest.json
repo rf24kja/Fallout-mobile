@@ -1,0 +1,1155 @@
+{
+  "project": "RADZONE",
+  "pack": "combat_poses_v2",
+  "classification": "candidate_asset_not_in_game_verified",
+  "states": [
+    "unarmed_idle",
+    "pistol_ready",
+    "pistol_aim",
+    "pistol_fire",
+    "rifle_ready",
+    "rifle_fire"
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "source_atlases": [
+    {
+      "path": "art/production/character_survivor_pose_v1/atlas_idle.png",
+      "sha256": "244b2f59236c48126a08cfc42d1647b6b2cf64bd2ddd2057fbef9828cd882dc0"
+    },
+    {
+      "path": "art/production/character_survivor_pose_v1/atlas_ready.png",
+      "sha256": "3fe799866232b9ca8c180ac0cfbc936cd34897b4cfb69bfea0898a1ca08113e8"
+    },
+    {
+      "path": "art/production/character_survivor_pose_v1/atlas_aim.png",
+      "sha256": "e5f48af52272c7036df63a087f1cf095d4fb2a466f3a8e48808d7f6e340ae81e"
+    },
+    {
+      "path": "art/production/character_survivor_pose_v1/atlas_fire.png",
+      "sha256": "02e5bd1fd9d97991d0e805a284cba0e131133229d82c23167bfb3cbb1fc0f1bf"
+    },
+    {
+      "path": "art/production/character_survivor_rifle_pose_v1/atlas_rifle_ready.png",
+      "sha256": "a43e7c32c1a4132858f39365a8a954debb5d79ff1e09e5b6967796044b809b8f"
+    },
+    {
+      "path": "art/production/character_survivor_rifle_pose_v1/atlas_rifle_fire.png",
+      "sha256": "8427e89901bf2ad97b8c15ce4a1f23606e070442b5ccb149460b09b73bf441ea"
+    }
+  ],
+  "counts": {
+    "pose_frames": 48,
+    "weapon_sets": 3,
+    "atlases_new": 2
+  },
+  "assets": {
+    "combat_poses_128_atlas.png": {
+      "bytes": 703899,
+      "sha256": "808acb5bc4d921efc73c3421f72c24b1ec3b2c2b705735af980a2a2c642f4e07"
+    },
+    "pose_review.webp": {
+      "bytes": 85612,
+      "sha256": "5a5b37e5dbce206614fa422430119cf961864858795a578a7c46421adad84e7b"
+    },
+    "combat_poses_256_sprite_frames.tres": {
+      "bytes": 13377,
+      "sha256": "a83f9fe7798055df185971d51e4ac972d9b99153612e3929298e1a4f64c37537"
+    },
+    "combat_poses_128_sprite_frames.tres": {
+      "bytes": 12834,
+      "sha256": "86e6b0f339a18445318aabfee9b4d1f4e7da628983bb9bc938093fac6a9a200d"
+    },
+    "combat_pose_preview.tscn": {
+      "bytes": 1002,
+      "sha256": "0f2413dd0305464a4a5c3e56c2ffece77c86d716d7eaf99df00864f8ce69740c"
+    },
+    "combat_pose_preview.gd": {
+      "bytes": 3203,
+      "sha256": "4b46beb04a220afe3cad3b41102bbc1a28f3c4fec4339c3ed730f9e9bf748788"
+    },
+    "INTEGRATION.md": {
+      "bytes": 3569,
+      "sha256": "3c3f2d9cea06df07c81ad721f39c31c64d456d1e903a4f0e2718660293ac9076"
+    }
+  },
+  "regions": [
+    {
+      "state": "unarmed_idle",
+      "direction": "S",
+      "region_256": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "bbox": [
+        76,
+        9,
+        181,
+        249
+      ]
+    },
+    {
+      "state": "unarmed_idle",
+      "direction": "SE",
+      "region_256": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        0,
+        128,
+        128
+      ],
+      "bbox": [
+        82,
+        9,
+        183,
+        249
+      ]
+    },
+    {
+      "state": "unarmed_idle",
+      "direction": "E",
+      "region_256": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        0,
+        128,
+        128
+      ],
+      "bbox": [
+        92,
+        10,
+        159,
+        249
+      ]
+    },
+    {
+      "state": "unarmed_idle",
+      "direction": "NE",
+      "region_256": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        0,
+        128,
+        128
+      ],
+      "bbox": [
+        89,
+        10,
+        176,
+        248
+      ]
+    },
+    {
+      "state": "unarmed_idle",
+      "direction": "N",
+      "region_256": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        128,
+        128,
+        128
+      ],
+      "bbox": [
+        79,
+        9,
+        182,
+        248
+      ]
+    },
+    {
+      "state": "unarmed_idle",
+      "direction": "NW",
+      "region_256": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        128,
+        128,
+        128
+      ],
+      "bbox": [
+        82,
+        9,
+        176,
+        248
+      ]
+    },
+    {
+      "state": "unarmed_idle",
+      "direction": "W",
+      "region_256": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        128,
+        128,
+        128
+      ],
+      "bbox": [
+        100,
+        9,
+        163,
+        248
+      ]
+    },
+    {
+      "state": "unarmed_idle",
+      "direction": "SW",
+      "region_256": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        128,
+        128,
+        128
+      ],
+      "bbox": [
+        79,
+        7,
+        174,
+        248
+      ]
+    },
+    {
+      "state": "pistol_ready",
+      "direction": "S",
+      "region_256": [
+        0,
+        512,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        256,
+        128,
+        128
+      ],
+      "bbox": [
+        85,
+        9,
+        183,
+        248
+      ]
+    },
+    {
+      "state": "pistol_ready",
+      "direction": "SE",
+      "region_256": [
+        256,
+        512,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        256,
+        128,
+        128
+      ],
+      "bbox": [
+        80,
+        8,
+        175,
+        248
+      ]
+    },
+    {
+      "state": "pistol_ready",
+      "direction": "E",
+      "region_256": [
+        512,
+        512,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        256,
+        128,
+        128
+      ],
+      "bbox": [
+        75,
+        7,
+        191,
+        248
+      ]
+    },
+    {
+      "state": "pistol_ready",
+      "direction": "NE",
+      "region_256": [
+        768,
+        512,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        256,
+        128,
+        128
+      ],
+      "bbox": [
+        74,
+        11,
+        186,
+        248
+      ]
+    },
+    {
+      "state": "pistol_ready",
+      "direction": "N",
+      "region_256": [
+        0,
+        768,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        384,
+        128,
+        128
+      ],
+      "bbox": [
+        75,
+        6,
+        177,
+        248
+      ]
+    },
+    {
+      "state": "pistol_ready",
+      "direction": "NW",
+      "region_256": [
+        256,
+        768,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        384,
+        128,
+        128
+      ],
+      "bbox": [
+        83,
+        9,
+        175,
+        249
+      ]
+    },
+    {
+      "state": "pistol_ready",
+      "direction": "W",
+      "region_256": [
+        512,
+        768,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        384,
+        128,
+        128
+      ],
+      "bbox": [
+        61,
+        3,
+        184,
+        248
+      ]
+    },
+    {
+      "state": "pistol_ready",
+      "direction": "SW",
+      "region_256": [
+        768,
+        768,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        384,
+        128,
+        128
+      ],
+      "bbox": [
+        68,
+        6,
+        180,
+        248
+      ]
+    },
+    {
+      "state": "pistol_aim",
+      "direction": "S",
+      "region_256": [
+        0,
+        1024,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        512,
+        128,
+        128
+      ],
+      "bbox": [
+        72,
+        8,
+        190,
+        248
+      ]
+    },
+    {
+      "state": "pistol_aim",
+      "direction": "SE",
+      "region_256": [
+        256,
+        1024,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        512,
+        128,
+        128
+      ],
+      "bbox": [
+        66,
+        11,
+        184,
+        248
+      ]
+    },
+    {
+      "state": "pistol_aim",
+      "direction": "E",
+      "region_256": [
+        512,
+        1024,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        512,
+        128,
+        128
+      ],
+      "bbox": [
+        72,
+        7,
+        220,
+        248
+      ]
+    },
+    {
+      "state": "pistol_aim",
+      "direction": "NE",
+      "region_256": [
+        768,
+        1024,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        512,
+        128,
+        128
+      ],
+      "bbox": [
+        71,
+        14,
+        202,
+        248
+      ]
+    },
+    {
+      "state": "pistol_aim",
+      "direction": "N",
+      "region_256": [
+        0,
+        1280,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        640,
+        128,
+        128
+      ],
+      "bbox": [
+        68,
+        12,
+        191,
+        248
+      ]
+    },
+    {
+      "state": "pistol_aim",
+      "direction": "NW",
+      "region_256": [
+        256,
+        1280,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        640,
+        128,
+        128
+      ],
+      "bbox": [
+        73,
+        14,
+        188,
+        248
+      ]
+    },
+    {
+      "state": "pistol_aim",
+      "direction": "W",
+      "region_256": [
+        512,
+        1280,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        640,
+        128,
+        128
+      ],
+      "bbox": [
+        37,
+        9,
+        189,
+        249
+      ]
+    },
+    {
+      "state": "pistol_aim",
+      "direction": "SW",
+      "region_256": [
+        768,
+        1280,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        640,
+        128,
+        128
+      ],
+      "bbox": [
+        51,
+        11,
+        201,
+        248
+      ]
+    },
+    {
+      "state": "pistol_fire",
+      "direction": "S",
+      "region_256": [
+        0,
+        1536,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        768,
+        128,
+        128
+      ],
+      "bbox": [
+        82,
+        7,
+        184,
+        248
+      ]
+    },
+    {
+      "state": "pistol_fire",
+      "direction": "SE",
+      "region_256": [
+        256,
+        1536,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        768,
+        128,
+        128
+      ],
+      "bbox": [
+        70,
+        9,
+        191,
+        248
+      ]
+    },
+    {
+      "state": "pistol_fire",
+      "direction": "E",
+      "region_256": [
+        512,
+        1536,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        768,
+        128,
+        128
+      ],
+      "bbox": [
+        68,
+        7,
+        220,
+        248
+      ]
+    },
+    {
+      "state": "pistol_fire",
+      "direction": "NE",
+      "region_256": [
+        768,
+        1536,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        768,
+        128,
+        128
+      ],
+      "bbox": [
+        68,
+        9,
+        208,
+        248
+      ]
+    },
+    {
+      "state": "pistol_fire",
+      "direction": "N",
+      "region_256": [
+        0,
+        1792,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        896,
+        128,
+        128
+      ],
+      "bbox": [
+        72,
+        4,
+        181,
+        248
+      ]
+    },
+    {
+      "state": "pistol_fire",
+      "direction": "NW",
+      "region_256": [
+        256,
+        1792,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        896,
+        128,
+        128
+      ],
+      "bbox": [
+        63,
+        6,
+        179,
+        248
+      ]
+    },
+    {
+      "state": "pistol_fire",
+      "direction": "W",
+      "region_256": [
+        512,
+        1792,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        896,
+        128,
+        128
+      ],
+      "bbox": [
+        22,
+        3,
+        185,
+        248
+      ]
+    },
+    {
+      "state": "pistol_fire",
+      "direction": "SW",
+      "region_256": [
+        768,
+        1792,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        896,
+        128,
+        128
+      ],
+      "bbox": [
+        38,
+        6,
+        189,
+        248
+      ]
+    },
+    {
+      "state": "rifle_ready",
+      "direction": "S",
+      "region_256": [
+        0,
+        2048,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        1024,
+        128,
+        128
+      ],
+      "bbox": [
+        75,
+        3,
+        187,
+        248
+      ]
+    },
+    {
+      "state": "rifle_ready",
+      "direction": "SE",
+      "region_256": [
+        256,
+        2048,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        1024,
+        128,
+        128
+      ],
+      "bbox": [
+        75,
+        3,
+        206,
+        248
+      ]
+    },
+    {
+      "state": "rifle_ready",
+      "direction": "E",
+      "region_256": [
+        512,
+        2048,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        1024,
+        128,
+        128
+      ],
+      "bbox": [
+        73,
+        4,
+        225,
+        249
+      ]
+    },
+    {
+      "state": "rifle_ready",
+      "direction": "NE",
+      "region_256": [
+        768,
+        2048,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        1024,
+        128,
+        128
+      ],
+      "bbox": [
+        74,
+        5,
+        207,
+        248
+      ]
+    },
+    {
+      "state": "rifle_ready",
+      "direction": "N",
+      "region_256": [
+        0,
+        2304,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        1152,
+        128,
+        128
+      ],
+      "bbox": [
+        72,
+        4,
+        184,
+        248
+      ]
+    },
+    {
+      "state": "rifle_ready",
+      "direction": "NW",
+      "region_256": [
+        256,
+        2304,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        1152,
+        128,
+        128
+      ],
+      "bbox": [
+        50,
+        3,
+        186,
+        248
+      ]
+    },
+    {
+      "state": "rifle_ready",
+      "direction": "W",
+      "region_256": [
+        512,
+        2304,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        1152,
+        128,
+        128
+      ],
+      "bbox": [
+        28,
+        4,
+        184,
+        248
+      ]
+    },
+    {
+      "state": "rifle_ready",
+      "direction": "SW",
+      "region_256": [
+        768,
+        2304,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        1152,
+        128,
+        128
+      ],
+      "bbox": [
+        51,
+        4,
+        189,
+        248
+      ]
+    },
+    {
+      "state": "rifle_fire",
+      "direction": "S",
+      "region_256": [
+        0,
+        2560,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        1280,
+        128,
+        128
+      ],
+      "bbox": [
+        74,
+        2,
+        195,
+        249
+      ]
+    },
+    {
+      "state": "rifle_fire",
+      "direction": "SE",
+      "region_256": [
+        256,
+        2560,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        1280,
+        128,
+        128
+      ],
+      "bbox": [
+        70,
+        4,
+        253,
+        248
+      ]
+    },
+    {
+      "state": "rifle_fire",
+      "direction": "E",
+      "region_256": [
+        512,
+        2560,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        1280,
+        128,
+        128
+      ],
+      "bbox": [
+        68,
+        2,
+        256,
+        248
+      ]
+    },
+    {
+      "state": "rifle_fire",
+      "direction": "NE",
+      "region_256": [
+        768,
+        2560,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        1280,
+        128,
+        128
+      ],
+      "bbox": [
+        0,
+        3,
+        250,
+        248
+      ]
+    },
+    {
+      "state": "rifle_fire",
+      "direction": "N",
+      "region_256": [
+        0,
+        2816,
+        256,
+        256
+      ],
+      "region_128": [
+        0,
+        1408,
+        128,
+        128
+      ],
+      "bbox": [
+        42,
+        3,
+        188,
+        248
+      ]
+    },
+    {
+      "state": "rifle_fire",
+      "direction": "NW",
+      "region_256": [
+        256,
+        2816,
+        256,
+        256
+      ],
+      "region_128": [
+        128,
+        1408,
+        128,
+        128
+      ],
+      "bbox": [
+        10,
+        4,
+        256,
+        248
+      ]
+    },
+    {
+      "state": "rifle_fire",
+      "direction": "W",
+      "region_256": [
+        512,
+        2816,
+        256,
+        256
+      ],
+      "region_128": [
+        256,
+        1408,
+        128,
+        128
+      ],
+      "bbox": [
+        0,
+        1,
+        191,
+        248
+      ]
+    },
+    {
+      "state": "rifle_fire",
+      "direction": "SW",
+      "region_256": [
+        768,
+        2816,
+        256,
+        256
+      ],
+      "region_128": [
+        384,
+        1408,
+        128,
+        128
+      ],
+      "bbox": [
+        12,
+        3,
+        195,
+        248
+      ]
+    }
+  ],
+  "warnings": [
+    "Every pose is ONE static frame; no walking/reload/attack sequence is implied",
+    "Weapons are baked into full-body poses; not an interchangeable paper-doll overlay",
+    "Muzzle flash is baked into fire sprites; smoke/flash orientation may need art cleanup",
+    "Standalone art review only; no changes to character_visual.gd or production weapon/equipment mappings",
+    "The compact atlas is a 50% reduction from earlier sourced pixels, not higher resolution"
+  ],
+  "tests": "PNG decode, alpha, bbox, atlas geometry; Godot/Android not run",
+  "resources": {
+    "full_256": "combat_poses_256_sprite_frames.tres (references existing six published atlases)",
+    "compact_128": "combat_poses_128_sprite_frames.tres (new compact atlas)"
+  },
+  "full_atlas_publishing_policy": "No duplicate 2.2MB combined full atlas: reference the six canonical full-res GitHub textures directly; full combined file is local QA derivative only."
+}
