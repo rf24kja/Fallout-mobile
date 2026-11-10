@@ -195,19 +195,23 @@ func _recalculate_derived_stats() -> void:
 	var special = character_data.special
 	var level = character_data.level
 	var en = special.vigor
-	
-	# Max HP: 15 + Level * 2 + VIG * 3
-	character_data.max_hp = 15 + level * 2 + en * 3
-	
-	# AP: 5 + DEX / 2
+	var st = special.might
 	var ag = special.dexterity
+	var aw = special.awareness
+	var lk = special.fortune
+	
+	# Fallout 2 Max HP: 15 + ST + EN*2 + Lv*(3+EN/2)
+	character_data.max_hp = 15 + st + en * 2 + level * (3 + int(en / 2))
+	
+	# Fallout 2 AP: 5 + AG/2 (round down)
 	character_data.max_ap = 5 + int(ag / 2)
 	
-	# Healing rate: VIG / 3
-	# Poison resistance: VIG * 5
-	# Radiation resistance: VIG * 2
-	# Sequence (initiative): AW * 2
-	# Critical chance: FOR
+	# Fallout 2 derived stats
+	# Healing Rate: EN/3 (round down)
+	# Poison Resistance: EN * 5
+	# Radiation Resistance: EN * 2 (base, +Armor applied elsewhere)
+	# Sequence: PE * 2
+	# Critical Chance: LK/2 + Perks
 	
 	# Clamp current HP/AP
 	character_data.hp = min(character_data.hp, character_data.max_hp)
@@ -454,13 +458,25 @@ func get_derived_stats(stats: Dictionary) -> Dictionary:
 	var special = stats
 	var level = 1  # Default level for calculation
 	var en = special.get("vigor", 5)
-	
-	# Max HP: 15 + Level * 2 + VIG * 3
-	var max_hp = 15 + level * 2 + en * 3
-	
-	# AP: 5 + DEX / 2
+	var st = special.get("might", 5)
 	var ag = special.get("dexterity", 5)
+	var aw = special.get("awareness", 5)
+	var lk = special.get("fortune", 5)
+	
+	# Fallout 2 Max HP: 15 + ST + EN*2 + Lv*(3+EN/2)
+	var max_hp = 15 + st + en * 2 + level * (3 + int(en / 2))
+	
+	# Fallout 2 AP: 5 + AG/2 (round down)
 	var max_ap = 5 + int(ag / 2)
+	
+	# Fallout 2 derived stats
+	# Healing Rate: EN/3 (round down)
+	# Poison Resistance: EN * 5
+	# Radiation Resistance: EN * 2 (base, +Armor applied elsewhere)
+	# Sequence: PE * 2
+	# Critical Chance: LK/2
+	# Carry Weight: 25 * ST
+	# Melee Damage: ST/2 (round down)
 	
 	return {
 		"max_hp": max_hp,
@@ -468,8 +484,10 @@ func get_derived_stats(stats: Dictionary) -> Dictionary:
 		"healing_rate": int(en / 3),
 		"poison_resistance": en * 5,
 		"radiation_resistance": en * 2,
-		"sequence": special.get("awareness", 5) * 2,
-		"critical_chance": special.get("fortune", 5)
+		"sequence": aw * 2,
+		"critical_chance": int(lk / 2),
+		"carry_weight": st * 25,
+		"melee_damage": int(st / 2)
 	}
 
 func load_save_data(data: Dictionary) -> void:
