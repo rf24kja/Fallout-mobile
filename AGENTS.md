@@ -86,6 +86,18 @@
 | Java | 17+ |
 | Export Templates | Godot 4.7.2 standard |
 
+## RADZONE Art Uniqueness Gate (MANDATORY for OpenCode and all art agents)
+
+Before **any** art-generation request, image extraction, or GitHub publication:
+
+1. Read `art/production/catalog/asset_registry.json` and `art/production/catalog/AUDIT_2026-11-10.md`. The registry includes historical staged branches — do not search only `master`.
+2. Choose a specific **new object ID** and purpose, not generic "pistol / armor / loot" repetitions. Run `python tools/art/asset_uniqueness_guard.py --catalog art/production/catalog/asset_registry.json --candidate-id proposed_unique_id`. An existing ID or semantic family hit **blocks treating it as a new item** until human review; variants must retain the existing canonical ID.
+3. When PNG bytes are available, rerun with `--candidate-image path/to/candidate.png` and provide `--reference-root REF=DIR` for local Git worktrees holding historical branches. A partial image scan is **not** a duplicate-free pass.
+4. Distinguish conceptual object, gameplay item ID, export resolutions, directional views, and sprite animations. **One subject with ten sizes/views is one subject**, not ten new game objects.
+5. Publish only genuinely isolated and decoded images with provenance/hash, record status as `candidate_not_in_game_verified` until Godot + Android tests, and update the central catalog in the **same PR** as the graphics. Never silently overwrite approved or live assets.
+6. Static image generation: **omit** animation settings. Never pass `frame_count=1` to an animation API. Safety refusals cannot be bypassed; record `BLOCKED_GENERATION` and continue other authorized content without fictitious success.
+7. No automatic deletions, no balance changes, no unrequested GitHub Actions runs or paid compute. REA MCP remains disabled.
+
 ## GitHub Synchronization Rules
 
 1. **Branch**: `main` (remote) / `master` (local) for verified baselines
