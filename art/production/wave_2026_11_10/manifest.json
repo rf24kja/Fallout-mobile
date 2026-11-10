@@ -3,7 +3,7 @@
   "date": "2026-11-10",
   "classification": "candidate_asset_not_in_game_verified",
   "purpose": "New image-generated gameplay art candidates extracted into transparent item and prop PNGs",
-  "source_original_png_sha256": "",
+  "source_original_png_sha256": "e53a9c54c6e230ee6d3afb278a16b613eaeacd577bdd9189d364c0c9a8139da0",
   "source_webp_sha256": "80104d5b29ef25e952f61935936312bd345eabc51231bc4be0a8e885e6771e59",
   "source": "source_sheet.webp",
   "license": "New ChatGPT-generated original concept sheet; check production suitability and rights before release",
