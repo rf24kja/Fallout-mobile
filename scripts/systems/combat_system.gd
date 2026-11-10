@@ -51,6 +51,26 @@ const BODY_PART_DATA: Dictionary = {
 	BodyPart.EYES: {"ap_mult": 1.6, "acc_mod": -40, "dmg_mult": 2.5, "effects": ["blind", "cripple_eyes"]},
 	BodyPart.GROIN: {"ap_mult": 1.2, "acc_mod": -15, "dmg_mult": 1.5, "effects": ["stun", "cripple_groin"]},
 }
+
+# Critical hit effect flags (matching vanilla)
+const CRIT_EFFECT_FLAGS: Dictionary = {
+	"DAM_BYPASS": 1,
+	"DAM_KNOCKED_DOWN": 2,
+	"DAM_KNOCKED_OUT": 4,
+	"DAM_CRIP_ARM_LEFT": 8,
+	"DAM_CRIP_ARM_RIGHT": 16,
+	"DAM_CRIP_LEG_LEFT": 32,
+	"DAM_CRIP_LEG_RIGHT": 64,
+	"DAM_BLIND": 128,
+	"DAM_LOSE_TURN": 256,
+	"DAM_DEAD": 512,
+	"DAM_CRIP_RANDOM": 1024,
+}
+
+# Critical hit table data loaded from JSON
+var _crit_tables: Dictionary = {}
+var _player_crit_table: Dictionary = {}
+
 @export var base_ap: int = 5
 
 @export var ap_per_agility: float = 0.5
@@ -65,6 +85,27 @@ var _item_database
 func _ready() -> void:
 	set_process(false)
 	_item_database = get_node_or_null("/root/ItemDatabase")
+	_load_critical_tables()
+
+func _load_critical_tables() -> void:
+	"""Load critical hit tables from JSON data file."""
+	var file = FileAccess.open("res://data/critical_hits.json", FileAccess.READ)
+	if not file:
+		push_error("Failed to load critical_hits.json")
+		return
+	
+	var json_text = file.get_as_text()
+	file.close()
+	
+	var data = JSON.parse_string(json_text)
+	
+	if data.has("critical_hit_tables") and data.critical_hit_tables.has("tables"):
+		_crit_tables = data.critical_hit_tables.tables
+	
+	if data.has("player_critical_table"):
+		_player_crit_table = data.player_critical_table
+	
+	print("CombatSystem: Loaded critical hit tables for kill types: " + str(_crit_tables.keys()))
 
 func start_combat(participants: Array) -> Dictionary:
 	"""Start a new combat encounter.
@@ -234,168 +275,6 @@ func _perform_player_action_internal(actor_id: String, action: String, target_id
 	
 	return false
 
-func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -> bool:
-	var attacker = _get_participant(attacker_id)
-	var target = _get_participant(target_id)
-	
-	if not attacker or not target or not attacker.is_alive or not target.is_alive:
-		return false
-	
-	var weapon = attacker.weapon
-	if not weapon or weapon.size() == 0:
-		print("No weapon equipped or empty weapon dict")
-		return false
-	
-	var ap_cost = weapon.get("ap_cost", 5)
-	if aim_mode == "aimed":
-		ap_cost = int(ap_cost * 1.5)
-	elif aim_mode == "burst":
-		ap_cost = int(ap_cost * 2)
-	
-	if attacker.ap < ap_cost:
-		print("Not enough AP")
-		return false
-	
-	attacker.ap -= ap_cost
-	
-	# Calculate hit chance
-	var hit_chance = _calculate_hit_chance(attacker, target, weapon, aim_mode)
-	var roll = randi() % 100
-	var is_critical = false
-	var damage = 0
-	var actual_damage = 0
-	var result_type = CombatResult.MISS
-	
-	if roll < hit_chance:
-		# Hit!
-		result_type = CombatResult.HIT
-		damage = _calculate_damage(attacker, target, weapon, aim_mode)
-		
-		# Critical check
-		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("fortune", 5)
-		if roll < crit_chance:
-			result_type = CombatResult.CRITICAL
-			is_critical = true
-			damage = int(damage * weapon.get("crit_multiplier", 2.0))
-		
-		# Apply damage
-		var ammo_type = weapon.get("ammo_type", "")
-		actual_damage = _apply_damage(target, damage, weapon.get("damage_type", DamageType.NORMAL), ammo_type, weapon)
-		target.hp = max(0, target.hp - actual_damage)
-		
-		if target.hp <= 0:
-			target.is_alive = false
-			_on_combatant_death(target_id, attacker_id)
-	
-	var result = {
-		"attacker": attacker_id,
-		"target": target_id,
-		"result": result_type,
-		"damage": actual_damage,
-		"hit_chance": hit_chance,
-		"roll": roll,
-		"ap_cost": ap_cost,
-		"is_critical": is_critical,
-		"aim_mode": aim_mode
-	}
-	
-	action_performed.emit(attacker_id, "attack", target_id, result)
-	
-	# Check combat end
-	_check_combat_end()
-	
-	if attacker.ap < 5:  # Minimum AP for any action
-		call_deferred("_end_turn")
-	
-	return true
-
-func _perform_called_shot(attacker_id: String, target_id: String, body_part: int) -> bool:
-	var attacker = _get_participant(attacker_id)
-	var target = _get_participant(target_id)
-	
-	if not attacker or not target or not attacker.is_alive or not target.is_alive:
-		return false
-	
-	var weapon = attacker.weapon
-	if not weapon or weapon.size() == 0:
-		return false
-	
-	# Validate body part
-	if not BODY_PART_DATA.has(body_part):
-		return false
-	
-	var part_data = BODY_PART_DATA[body_part]
-	var ap_cost = int(weapon.get("ap_cost", 5) * part_data.ap_mult)
-	
-	if attacker.ap < ap_cost:
-		return false
-	
-	attacker.ap -= ap_cost
-	
-	# Calculate hit chance with body part accuracy modifier
-	var hit_chance = _calculate_hit_chance(attacker, target, weapon, "aimed")
-	hit_chance += part_data.acc_mod
-	hit_chance = clamp(hit_chance, 5, 95)
-	
-	var roll = randi() % 100
-	var is_critical = false
-	var damage = 0
-	var actual_damage = 0
-	var result_type = CombatResult.MISS
-	var applied_effects = []
-	
-	if roll < hit_chance:
-		# Hit!
-		result_type = CombatResult.HIT
-		damage = _calculate_damage(attacker, target, weapon, "aimed")
-		damage = int(damage * part_data.dmg_mult)
-		
-		# Critical check
-		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("fortune", 5)
-		if roll < crit_chance:
-			result_type = CombatResult.CRITICAL
-			is_critical = true
-			damage = int(damage * weapon.get("crit_multiplier", 2.0))
-		
-		# Apply damage with ammo modifiers
-		var ammo_type = weapon.get("ammo_type", "")
-		actual_damage = _apply_damage(target, damage, weapon.get("damage_type", DamageType.NORMAL), ammo_type, weapon)
-		target.hp = max(0, target.hp - actual_damage)
-		
-		# Apply body part effects
-		for effect in part_data.effects:
-			_apply_body_part_effect(target, effect, body_part)
-			applied_effects.append(effect)
-		
-		if target.hp <= 0:
-			target.is_alive = false
-			_on_combatant_death(target_id, attacker_id)
-	
-	var part_names = ["HEAD", "TORSO", "LEFT_ARM", "RIGHT_ARM", "LEFT_LEG", "RIGHT_LEG", "EYES", "GROIN"]
-	var part_name = part_names[body_part] if body_part < part_names.size() else "UNKNOWN"
-	
-	var result = {
-		"attacker": attacker_id,
-		"target": target_id,
-		"result": result_type,
-		"damage": actual_damage,
-		"hit_chance": hit_chance,
-		"roll": roll,
-		"ap_cost": ap_cost,
-		"is_critical": is_critical,
-		"body_part": body_part,
-		"body_part_name": part_name,
-		"effects_applied": applied_effects
-	}
-	
-	action_performed.emit(attacker_id, "called_shot", target_id, result)
-	
-	_check_combat_end()
-	
-	if attacker.ap < 5:
-		call_deferred("_end_turn")
-	
-	return true
 
 func _apply_body_part_effect(target: Dictionary, effect: String, body_part: int) -> void:
 	"""Apply status effect from called shot."""
@@ -773,3 +652,404 @@ func calculate_damage_test(raw_damage: int, ammo_type: String, target_armor: Dic
 		final_damage = 0
 	
 	return final_damage
+
+## Critical Hit System (vanilla Fallout 2)
+
+func _get_kill_type(target: Dictionary) -> String:
+	"""Determine kill type from target's race/type for critical table lookup."""
+	var race = target.get("race", "human")
+	var kill_type_mapping = {
+		"human": "MAN",
+		"super_mutant": "MAN",
+		"ghoul": "MAN",
+		"robot": "ROBOT",
+		"brain_bot": "BRAIN_BOT",
+		"dog": "DOG",
+		"mantis": "MANTIS",
+		"rat": "RAT",
+		"radscorpion": "RADSCORPION",
+		"plant": "PLANT",
+		"deathclaw": "BIG_BAD_BOSS",
+		"wanamingo": "BIG_BAD_BOSS"
+	}
+	return kill_type_mapping.get(race, "MAN")
+
+func _get_hit_location_name(body_part: int) -> String:
+	"""Convert BodyPart enum to hit location name."""
+	var names = ["HEAD", "LEFT_ARM", "RIGHT_ARM", "TORSO", "RIGHT_LEG", "LEFT_LEG", "EYES", "GROIN", "UNCALLED"]
+	if body_part < names.size():
+		return names[body_part]
+	return "UNCALLED"
+
+func _get_critical_table_entry(kill_type: String, hit_location: String, roll: int, is_player: bool) -> Dictionary:
+	"""Get critical hit table entry based on roll (0-5 for 6 effects per location)."""
+	var table = _crit_tables
+	if is_player and _player_crit_table.size() > 0:
+		table = _player_crit_table
+	
+	if not table.has(kill_type):
+		kill_type = "MAN"  # fallback
+	
+	if not table.has(kill_type) or not table[kill_type].has(hit_location):
+		# Fallback to TORSO uncalled
+		if table.has("MAN") and table["MAN"].has("UNCALLED"):
+			return table["MAN"]["UNCALLED"][0]
+		return {}
+	
+	var entries = table[kill_type][hit_location]
+	# Roll is 0-5 for 6 effects
+	var index = clamp(roll, 0, entries.size() - 1)
+	return entries[index]
+
+func _check_stat(target: Dictionary, stat_name: Variant, stat_mod: int) -> bool:
+	"""Check if target passes a stat check (vanilla: stat + mod >= roll)."""
+	if stat_name == -1 or stat_name == "" or stat_name == "-1":
+		return true  # No stat check = auto pass
+	
+	var stat_map = {
+		"STAT_STRENGTH": "might",
+		"STAT_PERCEPTION": "awareness",
+		"STAT_ENDURANCE": "vigor",
+		"STAT_CHARISMA": "presence",
+		"STAT_INTELLIGENCE": "intellect",
+		"STAT_AGILITY": "dexterity",
+		"STAT_LUCK": "fortune"
+	}
+	
+	var stat_key = stat_map.get(stat_name)
+	if not stat_key:
+		return true
+	
+	var stat_value = target.stats.get(stat_key, 5) + stat_mod
+	# Vanilla: roll 1-10 against stat (higher stat = better chance)
+	# Actually in Fallout 2 it's more complex, but simplified here
+	var roll = randi() % 10 + 1
+	return roll <= stat_value
+
+func _apply_critical_effect(target: Dictionary, attacker: Dictionary, entry: Dictionary, damage: int) -> Array:
+	"""Apply critical hit effect from table entry. Returns array of applied effects."""
+	var applied = []
+	var effect_flags = entry.get("effect_flags", 0)
+	var failure_effect = entry.get("failure_effect", 0)
+	var stat_check = entry.get("stat_check", -1)
+	var stat_mod = entry.get("stat_mod", 0)
+	
+	# Convert effect_flags string to flags if needed
+	if effect_flags is String:
+		var flags = effect_flags.split("|")
+		for flag in flags:
+			applied.append(_apply_single_effect(target, attacker, flag.strip_edges(), damage))
+	else:
+		# Single flag or integer
+		applied.append(_apply_single_effect(target, attacker, str(effect_flags), damage))
+	
+	# Check for stat check failure
+	if stat_check != -1 and stat_check != "" and stat_check != "-1":
+		var passed = _check_stat(target, stat_check, stat_mod)
+		if not passed and failure_effect != 0 and failure_effect != "" and failure_effect != "0":
+			if failure_effect is String:
+				var fail_flags = failure_effect.split("|")
+				for flag in fail_flags:
+					applied.append(_apply_single_effect(target, attacker, flag.strip_edges(), damage))
+			else:
+				applied.append(_apply_single_effect(target, attacker, str(failure_effect), damage))
+	
+	return applied
+
+func _apply_single_effect(target: Dictionary, attacker: Dictionary, flag: String, damage: int) -> Dictionary:
+	"""Apply a single critical effect flag."""
+	var status_effects = target.get("status_effects", [])
+	var applied_effect = {"flag": flag, "success": true}
+	
+	match flag:
+		"DAM_BYPASS":
+			# Armor bypass handled in damage calculation (ignore_80)
+			applied_effect["description"] = "Armor bypass (20% DT/DR remains)"
+		
+		"DAM_KNOCKED_DOWN":
+			var has_knockdown = false
+			for e in status_effects:
+				if e.type == "knockdown":
+					has_knockdown = true
+					break
+			if not has_knockdown:
+				status_effects.append({"type": "knockdown", "duration": 1})
+				target.status_effects = status_effects
+			applied_effect["description"] = "Knocked down"
+		
+		"DAM_KNOCKED_OUT":
+			var has_ko = false
+			for e in status_effects:
+				if e.type == "knocked_out":
+					has_ko = true
+					break
+			if not has_ko:
+				status_effects.append({"type": "knocked_out", "duration": 2})
+				target.status_effects = status_effects
+			applied_effect["description"] = "Knocked unconscious"
+		
+		"DAM_CRIP_ARM_LEFT":
+			if BodyPart.LEFT_ARM not in target.crippled_parts:
+				target.crippled_parts.append(BodyPart.LEFT_ARM)
+				status_effects.append({"type": "crippled_arm", "duration": -1, "part": BodyPart.LEFT_ARM})
+				target.status_effects = status_effects
+			applied_effect["description"] = "Left arm crippled"
+		
+		"DAM_CRIP_ARM_RIGHT":
+			if BodyPart.RIGHT_ARM not in target.crippled_parts:
+				target.crippled_parts.append(BodyPart.RIGHT_ARM)
+				status_effects.append({"type": "crippled_arm", "duration": -1, "part": BodyPart.RIGHT_ARM})
+				target.status_effects = status_effects
+			applied_effect["description"] = "Right arm crippled"
+		
+		"DAM_CRIP_LEG_LEFT":
+			if BodyPart.LEFT_LEG not in target.crippled_parts:
+				target.crippled_parts.append(BodyPart.LEFT_LEG)
+				status_effects.append({"type": "crippled_leg", "duration": -1, "part": BodyPart.LEFT_LEG})
+				target.status_effects = status_effects
+			applied_effect["description"] = "Left leg crippled"
+		
+		"DAM_CRIP_LEG_RIGHT":
+			if BodyPart.RIGHT_LEG not in target.crippled_parts:
+				target.crippled_parts.append(BodyPart.RIGHT_LEG)
+				status_effects.append({"type": "crippled_leg", "duration": -1, "part": BodyPart.RIGHT_LEG})
+				target.status_effects = status_effects
+			applied_effect["description"] = "Right leg crippled"
+		
+		"DAM_BLIND":
+			var has_blind = false
+			for e in status_effects:
+				if e.type == "blind":
+					has_blind = true
+					break
+			if not has_blind:
+				status_effects.append({"type": "blind", "duration": 3, "accuracy_penalty": -40})
+				target.status_effects = status_effects
+			applied_effect["description"] = "Blinded"
+		
+		"DAM_LOSE_TURN":
+			# Target loses next turn (AP = 0)
+			target.ap = 0
+			applied_effect["description"] = "Loses next turn"
+		
+		"DAM_DEAD":
+			# Instant death
+			target.hp = 0
+			target.is_alive = false
+			_on_combatant_death(target.id, attacker.id)
+			applied_effect["description"] = "Instant death"
+		
+		"DAM_CRIP_RANDOM":
+			var parts = [BodyPart.LEFT_ARM, BodyPart.RIGHT_ARM, BodyPart.LEFT_LEG, BodyPart.RIGHT_LEG, BodyPart.EYES]
+			var part = parts[randi() % parts.size()]
+			if part not in target.crippled_parts:
+				target.crippled_parts.append(part)
+				status_effects.append({"type": "crippled", "duration": -1, "part": part})
+				target.status_effects = status_effects
+			applied_effect["description"] = "Random limb crippled"
+	
+	return applied_effect
+
+func _resolve_critical_hit(attacker: Dictionary, target: Dictionary, weapon: Dictionary, hit_location: int, damage: int) -> Dictionary:
+	"""Resolve critical hit using vanilla tables. Returns {damage, effects, message_id}."""
+	var is_player_target = target.team == "player"
+	var kill_type = _get_kill_type(target)
+	var hit_location_name = _get_hit_location_name(hit_location)
+	
+	# Roll 0-5 for critical effect
+	var crit_roll = randi() % 6
+	
+	var entry = _get_critical_table_entry(kill_type, hit_location_name, crit_roll, is_player_target)
+	if entry.size() == 0:
+		return {"damage": damage, "effects": [], "message_id": 0}
+	
+	# Apply damage multiplier from table
+	var dmg_mult = entry.get("damage_multiplier", 1)
+	var final_damage = int(damage * dmg_mult)
+	
+	# Apply critical effects
+	var effects = _apply_critical_effect(target, attacker, entry, final_damage)
+	
+	var message_id = entry.get("message_id", 0)
+	
+	return {"damage": final_damage, "effects": effects, "message_id": message_id}
+
+func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -> bool:
+	var attacker = _get_participant(attacker_id)
+	var target = _get_participant(target_id)
+	
+	if not attacker or not target or not attacker.is_alive or not target.is_alive:
+		return false
+	
+	var weapon = attacker.weapon
+	if not weapon or weapon.size() == 0:
+		print("No weapon equipped or empty weapon dict")
+		return false
+	
+	var ap_cost = weapon.get("ap_cost", 5)
+	if aim_mode == "aimed":
+		ap_cost = int(ap_cost * 1.5)
+	elif aim_mode == "burst":
+		ap_cost = int(ap_cost * 2)
+	
+	if attacker.ap < ap_cost:
+		print("Not enough AP")
+		return false
+	
+	attacker.ap -= ap_cost
+	
+	# Calculate hit chance
+	var hit_chance = _calculate_hit_chance(attacker, target, weapon, aim_mode)
+	var roll = randi() % 100
+	var is_critical = false
+	var damage = 0
+	var actual_damage = 0
+	var result_type = CombatResult.MISS
+	var critical_data = {}
+	
+	if roll < hit_chance:
+		# Hit!
+		result_type = CombatResult.HIT
+		damage = _calculate_damage(attacker, target, weapon, aim_mode)
+		
+		# Critical check
+		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("fortune", 5)
+		if roll < crit_chance:
+			result_type = CombatResult.CRITICAL
+			is_critical = true
+			# Use vanilla critical hit tables instead of simple multiplier
+			# For normal attacks, use UNCALLED hit location
+			var hit_location = BodyPart.TORSO  # Default torso for non-called shots
+			critical_data = _resolve_critical_hit(attacker, target, weapon, hit_location, damage)
+			damage = critical_data.damage
+		
+		# Apply damage with ammo modifiers
+		var ammo_type = weapon.get("ammo_type", "")
+		actual_damage = _apply_damage(target, damage, weapon.get("damage_type", DamageType.NORMAL), ammo_type, weapon)
+		target.hp = max(0, target.hp - actual_damage)
+		
+		if target.hp <= 0:
+			target.is_alive = false
+			_on_combatant_death(target_id, attacker_id)
+	
+	var result = {
+		"attacker": attacker_id,
+		"target": target_id,
+		"result": result_type,
+		"damage": actual_damage,
+		"hit_chance": hit_chance,
+		"roll": roll,
+		"ap_cost": ap_cost,
+		"is_critical": is_critical,
+		"aim_mode": aim_mode
+	}
+	
+	if is_critical:
+		result["critical_effects"] = critical_data.get("effects", [])
+		result["critical_message_id"] = critical_data.get("message_id", 0)
+	
+	action_performed.emit(attacker_id, "attack", target_id, result)
+	
+	# Check combat end
+	_check_combat_end()
+	
+	if attacker.ap < 5:  # Minimum AP for any action
+		call_deferred("_end_turn")
+	
+	return true
+
+func _perform_called_shot(attacker_id: String, target_id: String, body_part: int) -> bool:
+	var attacker = _get_participant(attacker_id)
+	var target = _get_participant(target_id)
+	
+	if not attacker or not target or not attacker.is_alive or not target.is_alive:
+		return false
+	
+	var weapon = attacker.weapon
+	if not weapon or weapon.size() == 0:
+		return false
+	
+	# Validate body part
+	if not BODY_PART_DATA.has(body_part):
+		return false
+	
+	var part_data = BODY_PART_DATA[body_part]
+	var ap_cost = int(weapon.get("ap_cost", 5) * part_data.ap_mult)
+	
+	if attacker.ap < ap_cost:
+		return false
+	
+	attacker.ap -= ap_cost
+	
+	# Calculate hit chance with body part accuracy modifier
+	var hit_chance = _calculate_hit_chance(attacker, target, weapon, "aimed")
+	hit_chance += part_data.acc_mod
+	hit_chance = clamp(hit_chance, 5, 95)
+	
+	var roll = randi() % 100
+	var is_critical = false
+	var damage = 0
+	var actual_damage = 0
+	var result_type = CombatResult.MISS
+	var applied_effects = []
+	var critical_data = {}
+	
+	if roll < hit_chance:
+		# Hit!
+		result_type = CombatResult.HIT
+		damage = _calculate_damage(attacker, target, weapon, "aimed")
+		damage = int(damage * part_data.dmg_mult)
+		
+		# Critical check
+		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("fortune", 5)
+		if roll < crit_chance:
+			result_type = CombatResult.CRITICAL
+			is_critical = true
+			# Use vanilla critical hit tables for called shots
+			critical_data = _resolve_critical_hit(attacker, target, weapon, body_part, damage)
+			damage = critical_data.damage
+		
+		# Apply damage with ammo modifiers
+		var ammo_type = weapon.get("ammo_type", "")
+		actual_damage = _apply_damage(target, damage, weapon.get("damage_type", DamageType.NORMAL), ammo_type, weapon)
+		target.hp = max(0, target.hp - actual_damage)
+		
+		# Apply body part effects (legacy - for non-critical or additional effects)
+		if not is_critical:
+			for effect in part_data.effects:
+				_apply_body_part_effect(target, effect, body_part)
+				applied_effects.append(effect)
+		
+		if target.hp <= 0:
+			target.is_alive = false
+			_on_combatant_death(target_id, attacker_id)
+	
+	var part_names = ["HEAD", "TORSO", "LEFT_ARM", "RIGHT_ARM", "LEFT_LEG", "RIGHT_LEG", "EYES", "GROIN"]
+	var part_name = part_names[body_part] if body_part < part_names.size() else "UNKNOWN"
+	
+	var result = {
+		"attacker": attacker_id,
+		"target": target_id,
+		"result": result_type,
+		"damage": actual_damage,
+		"hit_chance": hit_chance,
+		"roll": roll,
+		"ap_cost": ap_cost,
+		"is_critical": is_critical,
+		"body_part": body_part,
+		"body_part_name": part_name,
+		"effects_applied": applied_effects
+	}
+	
+	if is_critical:
+		result["critical_effects"] = critical_data.get("effects", [])
+		result["critical_message_id"] = critical_data.get("message_id", 0)
+	
+	action_performed.emit(attacker_id, "called_shot", target_id, result)
+	
+	_check_combat_end()
+	
+	if attacker.ap < 5:
+		call_deferred("_end_turn")
+	
+	return true

@@ -1,0 +1,224 @@
+{
+  "critical_hit_tables": {
+    "kill_types": [
+      "MAN",
+      "WOMAN",
+      "CHILD",
+      "ROBOT",
+      "BRAIN_BOT",
+      "DOG",
+      "MANTIS",
+      "RAT",
+      "RADSCORPION",
+      "PLANT",
+      "BIG_BAD_BOSS"
+    ],
+    "hit_locations": [
+      "HEAD",
+      "LEFT_ARM",
+      "RIGHT_ARM",
+      "TORSO",
+      "RIGHT_LEG",
+      "LEFT_LEG",
+      "EYES",
+      "GROIN",
+      "UNCALLED"
+    ],
+    "effects_per_location": 6,
+    "data_members": [
+      "damage_multiplier",
+      "effect_flags",
+      "stat_check",
+      "stat_mod",
+      "failure_effect",
+      "message_id",
+      "fail_message_id"
+    ],
+    "tables": {
+      "MAN": {
+        "HEAD": [
+          {"damage_multiplier": 4, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5001, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 5002, "fail_message_id": 5003},
+          {"damage_multiplier": 5, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 5002, "fail_message_id": 5003},
+          {"damage_multiplier": 5, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 5004, "fail_message_id": 5003},
+          {"damage_multiplier": 6, "effect_flags": "DAM_KNOCKED_OUT|DAM_BYPASS", "stat_check": "STAT_LUCK", "stat_mod": 0, "failure_effect": "DAM_BLIND", "message_id": 5005, "fail_message_id": 5006},
+          {"damage_multiplier": 6, "effect_flags": "DAM_DEAD", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5007, "fail_message_id": 5000}
+        ],
+        "LEFT_ARM": [
+          {"damage_multiplier": 3, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5008, "fail_message_id": 5000},
+          {"damage_multiplier": 3, "effect_flags": "DAM_LOSE_TURN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5009, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": 0, "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_CRIP_ARM_LEFT", "message_id": 5010, "fail_message_id": 5011},
+          {"damage_multiplier": 4, "effect_flags": "DAM_CRIP_ARM_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5012, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_CRIP_ARM_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5012, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_CRIP_ARM_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5013, "fail_message_id": 5000}
+        ],
+        "RIGHT_ARM": [
+          {"damage_multiplier": 3, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5008, "fail_message_id": 5000},
+          {"damage_multiplier": 3, "effect_flags": "DAM_LOSE_TURN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5009, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": 0, "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_CRIP_ARM_RIGHT", "message_id": 5014, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_CRIP_ARM_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5015, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_CRIP_ARM_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5015, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_CRIP_ARM_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5013, "fail_message_id": 5000}
+        ],
+        "TORSO": [
+          {"damage_multiplier": 3, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5016, "fail_message_id": 5000},
+          {"damage_multiplier": 3, "effect_flags": "DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5017, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5019, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5019, "fail_message_id": 5000},
+          {"damage_multiplier": 6, "effect_flags": "DAM_KNOCKED_OUT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5020, "fail_message_id": 5000},
+          {"damage_multiplier": 6, "effect_flags": "DAM_DEAD", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5021, "fail_message_id": 5000}
+        ],
+        "RIGHT_LEG": [
+          {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5023, "fail_message_id": 5000},
+          {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_CRIP_LEG_RIGHT", "message_id": 5023, "fail_message_id": 5024},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_CRIP_LEG_RIGHT", "message_id": 5023, "fail_message_id": 5024},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_CRIP_LEG_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5025, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_CRIP_LEG_RIGHT|DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 5025, "fail_message_id": 5026},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_OUT|DAM_CRIP_LEG_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5026, "fail_message_id": 5000}
+        ],
+        "LEFT_LEG": [
+          {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5023, "fail_message_id": 5000},
+          {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_CRIP_LEG_LEFT", "message_id": 5023, "fail_message_id": 5024},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_CRIP_LEG_LEFT", "message_id": 5023, "fail_message_id": 5024},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_CRIP_LEG_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5025, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_CRIP_LEG_LEFT|DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 5025, "fail_message_id": 5026},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_OUT|DAM_CRIP_LEG_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5026, "fail_message_id": 5000}
+        ],
+        "EYES": [
+          {"damage_multiplier": 4, "effect_flags": 0, "stat_check": "STAT_LUCK", "stat_mod": 4, "failure_effect": "DAM_BLIND", "message_id": 5027, "fail_message_id": 5028},
+          {"damage_multiplier": 4, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_LUCK", "stat_mod": 3, "failure_effect": "DAM_BLIND", "message_id": 5029, "fail_message_id": 5028},
+          {"damage_multiplier": 6, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_LUCK", "stat_mod": 2, "failure_effect": "DAM_BLIND", "message_id": 5029, "fail_message_id": 5028},
+          {"damage_multiplier": 6, "effect_flags": "DAM_BLIND|DAM_BYPASS|DAM_LOSE_TURN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5030, "fail_message_id": 5000},
+          {"damage_multiplier": 8, "effect_flags": "DAM_KNOCKED_OUT|DAM_BLIND|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5031, "fail_message_id": 5000},
+          {"damage_multiplier": 8, "effect_flags": "DAM_DEAD", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5032, "fail_message_id": 5000}
+        ],
+        "GROIN": [
+          {"damage_multiplier": 3, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5033, "fail_message_id": 5000},
+          {"damage_multiplier": 3, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_KNOCKED_DOWN", "message_id": 5034, "fail_message_id": 5035},
+          {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 5035, "fail_message_id": 5036},
+          {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_OUT", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5036, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 5035, "fail_message_id": 5036},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_OUT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5037, "fail_message_id": 5000}
+        ],
+        "UNCALLED": [
+          {"damage_multiplier": 3, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5016, "fail_message_id": 5000},
+          {"damage_multiplier": 3, "effect_flags": "DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5017, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5018, "fail_message_id": 5000},
+          {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5019, "fail_message_id": 5000},
+          {"damage_multiplier": 6, "effect_flags": "DAM_KNOCKED_OUT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5020, "fail_message_id": 5000},
+          {"damage_multiplier": 6, "effect_flags": "DAM_DEAD", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 5021, "fail_message_id": 5000}
+        ]
+      }
+    }
+  },
+  "player_critical_table": {
+    "HEAD": [
+      {"damage_multiplier": 3, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6500, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 3, "failure_effect": "DAM_KNOCKED_DOWN", "message_id": 6501, "fail_message_id": 6503},
+      {"damage_multiplier": 3, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_KNOCKED_DOWN", "message_id": 6501, "fail_message_id": 6503},
+      {"damage_multiplier": 4, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 6504, "fail_message_id": 6503},
+      {"damage_multiplier": 5, "effect_flags": "DAM_KNOCKED_OUT|DAM_BYPASS", "stat_check": "STAT_LUCK", "stat_mod": 0, "failure_effect": "DAM_BLIND", "message_id": 6505, "fail_message_id": 6506},
+      {"damage_multiplier": 5, "effect_flags": "DAM_DEAD", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6507, "fail_message_id": 5000}
+    ],
+    "LEFT_ARM": [
+      {"damage_multiplier": 2, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6508, "fail_message_id": 5000},
+      {"damage_multiplier": 2, "effect_flags": "DAM_LOSE_TURN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6509, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": 0, "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_CRIP_ARM_LEFT", "message_id": 6510, "fail_message_id": 6511},
+      {"damage_multiplier": 3, "effect_flags": "DAM_CRIP_ARM_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6512, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_CRIP_ARM_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6512, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_CRIP_ARM_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6513, "fail_message_id": 5000}
+    ],
+    "RIGHT_ARM": [
+      {"damage_multiplier": 2, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6508, "fail_message_id": 5000},
+      {"damage_multiplier": 2, "effect_flags": "DAM_LOSE_TURN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6509, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": 0, "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_CRIP_ARM_RIGHT", "message_id": 6514, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_CRIP_ARM_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6515, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_CRIP_ARM_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6515, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_CRIP_ARM_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6513, "fail_message_id": 5000}
+    ],
+    "TORSO": [
+      {"damage_multiplier": 2, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6516, "fail_message_id": 5000},
+      {"damage_multiplier": 2, "effect_flags": "DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6517, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6519, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6519, "fail_message_id": 5000},
+      {"damage_multiplier": 5, "effect_flags": "DAM_KNOCKED_OUT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6520, "fail_message_id": 5000},
+      {"damage_multiplier": 5, "effect_flags": "DAM_DEAD", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6521, "fail_message_id": 5000}
+    ],
+    "RIGHT_LEG": [
+      {"damage_multiplier": 2, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6523, "fail_message_id": 5000},
+      {"damage_multiplier": 2, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_CRIP_LEG_RIGHT", "message_id": 6523, "fail_message_id": 6524},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_CRIP_LEG_RIGHT", "message_id": 6523, "fail_message_id": 6524},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN|DAM_CRIP_LEG_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6525, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN|DAM_CRIP_LEG_RIGHT|DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 6525, "fail_message_id": 6526},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_OUT|DAM_CRIP_LEG_RIGHT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6526, "fail_message_id": 5000}
+    ],
+    "LEFT_LEG": [
+      {"damage_multiplier": 2, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6523, "fail_message_id": 5000},
+      {"damage_multiplier": 2, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_CRIP_LEG_LEFT", "message_id": 6523, "fail_message_id": 6524},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_CRIP_LEG_LEFT", "message_id": 6523, "fail_message_id": 6524},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN|DAM_CRIP_LEG_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6525, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN|DAM_CRIP_LEG_LEFT|DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 6525, "fail_message_id": 6526},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_OUT|DAM_CRIP_LEG_LEFT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6526, "fail_message_id": 5000}
+    ],
+    "EYES": [
+      {"damage_multiplier": 3, "effect_flags": 0, "stat_check": "STAT_LUCK", "stat_mod": 4, "failure_effect": "DAM_BLIND", "message_id": 6527, "fail_message_id": 6528},
+      {"damage_multiplier": 3, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_LUCK", "stat_mod": 3, "failure_effect": "DAM_BLIND", "message_id": 6529, "fail_message_id": 6528},
+      {"damage_multiplier": 5, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_LUCK", "stat_mod": 2, "failure_effect": "DAM_BLIND", "message_id": 6529, "fail_message_id": 6528},
+      {"damage_multiplier": 5, "effect_flags": "DAM_BLIND|DAM_BYPASS|DAM_LOSE_TURN", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6530, "fail_message_id": 5000},
+      {"damage_multiplier": 7, "effect_flags": "DAM_KNOCKED_OUT|DAM_BLIND|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6531, "fail_message_id": 5000},
+      {"damage_multiplier": 7, "effect_flags": "DAM_DEAD", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6532, "fail_message_id": 5000}
+    ],
+    "GROIN": [
+      {"damage_multiplier": 2, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6533, "fail_message_id": 5000},
+      {"damage_multiplier": 2, "effect_flags": "DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_KNOCKED_DOWN", "message_id": 6534, "fail_message_id": 6535},
+      {"damage_multiplier": 2, "effect_flags": "DAM_KNOCKED_DOWN", "stat_check": "STAT_ENDURANCE", "stat_mod": -3, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 6535, "fail_message_id": 6536},
+      {"damage_multiplier": 2, "effect_flags": "DAM_KNOCKED_OUT", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6536, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": "STAT_ENDURANCE", "stat_mod": 0, "failure_effect": "DAM_KNOCKED_OUT", "message_id": 6535, "fail_message_id": 6536},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_OUT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6537, "fail_message_id": 5000}
+    ],
+    "UNCALLED": [
+      {"damage_multiplier": 2, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6516, "fail_message_id": 5000},
+      {"damage_multiplier": 2, "effect_flags": "DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6517, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": 0, "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6518, "fail_message_id": 5000},
+      {"damage_multiplier": 3, "effect_flags": "DAM_KNOCKED_DOWN|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6519, "fail_message_id": 5000},
+      {"damage_multiplier": 5, "effect_flags": "DAM_KNOCKED_OUT|DAM_BYPASS", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6520, "fail_message_id": 5000},
+      {"damage_multiplier": 5, "effect_flags": "DAM_DEAD", "stat_check": -1, "stat_mod": 0, "failure_effect": 0, "message_id": 6521, "fail_message_id": 5000}
+    ]
+  },
+  "damage_effect_flags": {
+    "DAM_BYPASS": 1,
+    "DAM_KNOCKED_DOWN": 2,
+    "DAM_KNOCKED_OUT": 4,
+    "DAM_CRIP_ARM_LEFT": 8,
+    "DAM_CRIP_ARM_RIGHT": 16,
+    "DAM_CRIP_LEG_LEFT": 32,
+    "DAM_CRIP_LEG_RIGHT": 64,
+    "DAM_BLIND": 128,
+    "DAM_LOSE_TURN": 256,
+    "DAM_DEAD": 512,
+    "DAM_CRIP_RANDOM": 1024
+  },
+  "stat_names": {
+    "STAT_STRENGTH": 0,
+    "STAT_PERCEPTION": 1,
+    "STAT_ENDURANCE": 2,
+    "STAT_CHARISMA": 3,
+    "STAT_INTELLIGENCE": 4,
+    "STAT_AGILITY": 5,
+    "STAT_LUCK": 6
+  },
+  "kill_type_mapping": {
+    "human": "MAN",
+    "super_mutant": "MAN",
+    "ghoul": "MAN",
+    "robot": "ROBOT",
+    "brain_bot": "BRAIN_BOT",
+    "dog": "DOG",
+    "mantis": "MANTIS",
+    "rat": "RAT",
+    "radscorpion": "RADSCORPION",
+    "plant": "PLANT",
+    "deathclaw": "BIG_BAD_BOSS",
+    "wanamingo": "BIG_BAD_BOSS"
+  }
+}
