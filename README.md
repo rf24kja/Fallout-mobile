@@ -1,66 +1,146 @@
-<p align="center"><img src="./github-assets/approved/radzone-hero-approved.webp" width="100%" alt="RADZONE — official approved visual direction, concept artwork"/></p>
-<p align="center"><a href="./README.md">English</a> &nbsp;·&nbsp; <a href="./README.ru.md">Русский</a> &nbsp;·&nbsp; <a href="./README.es.md">Español</a> &nbsp;·&nbsp; <a href="./README.de.md">Deutsch</a> &nbsp;·&nbsp; <a href="./README.fr.md">Français</a></p>
+<!-- RADZONE GitHub Showcase v4 — maintained visual presentation. Approved art ≠ in-game captures. -->
 
-# RADZONE
+<div align="center">
 
-<p align="center"><strong>A post-apocalyptic mobile RPG crafted for fans of Fallout 2.</strong></p>
+<p><sub><strong>AN INDEPENDENT POST-APOCALYPTIC MOBILE RPG</strong></sub></p>
 
-**The old-school RPG feel, rebuilt for touch.** RADZONE aims to retain the tactical depth, SPECIAL character building, equipment choices, branching conversations and wasteland atmosphere that made the classic memorable, while bringing original cinematic artwork and mobile-friendly interaction.
+<h1>RADZONE</h1>
 
-## Approved RADZONE visuals
+<h2>THE WASTELAND RETURNS. YOUR CHOICES REMAIN.</h2>
 
-<p align="center"><a href="./github-assets/approved/radzone-approved-gallery.webp"><img src="./github-assets/approved/radzone-approved-gallery.webp" width="100%" alt="Ten user-approved RADZONE visual concepts; not real gameplay screenshots"/></a></p>
+<p>Classic role-playing depth. Tactical consequences. A ruined world built for your fingertips.</p>
+
+<p><a href="./README.md">English</a> &nbsp;│&nbsp; <a href="./README.ru.md">Русский</a> &nbsp;│&nbsp; <a href="./README.es.md">Español</a> &nbsp;│&nbsp; <a href="./README.de.md">Deutsch</a> &nbsp;│&nbsp; <a href="./README.fr.md">Français</a> &nbsp;│&nbsp; <a href="./README.zh-CN.md">简体中文</a> &nbsp;│&nbsp; <a href="./README.uk.md">Українська</a> &nbsp;│&nbsp; <a href="./README.th.md">ไทย</a></p>
+
+<p><code>IN DEVELOPMENT</code> &nbsp;·&nbsp; <code>GODOT 4.7.2</code> &nbsp;·&nbsp; <code>ANDROID PROTOTYPE</code></p>
+
+</div>
+
 <p align="center">
-<a href="./github-assets/approved/v2/01-main-menu.webp"><img src="./github-assets/approved/v2/01-main-menu.webp" width="19%" alt="RADZONE approved concept: 01-main-menu"/></a>
-<a href="./github-assets/approved/v2/02-character-special.webp"><img src="./github-assets/approved/v2/02-character-special.webp" width="19%" alt="RADZONE approved concept: 02-character-special"/></a>
-<a href="./github-assets/approved/v2/03-dialogue.webp"><img src="./github-assets/approved/v2/03-dialogue.webp" width="19%" alt="RADZONE approved concept: 03-dialogue"/></a>
-<a href="./github-assets/approved/v2/04-world-map-quests.webp"><img src="./github-assets/approved/v2/04-world-map-quests.webp" width="19%" alt="RADZONE approved concept: 04-world-map-quests"/></a>
-<a href="./github-assets/approved/v2/05-inventory-icon-reference.webp"><img src="./github-assets/approved/v2/05-inventory-icon-reference.webp" width="19%" alt="RADZONE approved concept: 05-inventory-icon-reference"/></a>
-</p>
-<p align="center">
-<a href="./github-assets/approved/v2/06-exploration.webp"><img src="./github-assets/approved/v2/06-exploration.webp" width="19%" alt="RADZONE approved concept: 06-exploration"/></a>
-<a href="./github-assets/approved/v2/07-tactical-combat.webp"><img src="./github-assets/approved/v2/07-tactical-combat.webp" width="19%" alt="RADZONE approved concept: 07-tactical-combat"/></a>
-<a href="./github-assets/approved/v2/08-barter.webp"><img src="./github-assets/approved/v2/08-barter.webp" width="19%" alt="RADZONE approved concept: 08-barter"/></a>
-<a href="./github-assets/approved/v2/09-loot-container.webp"><img src="./github-assets/approved/v2/09-loot-container.webp" width="19%" alt="RADZONE approved concept: 09-loot-container"/></a>
-<a href="./github-assets/approved/v2/10-skills-perks.webp"><img src="./github-assets/approved/v2/10-skills-perks.webp" width="19%" alt="RADZONE approved concept: 10-skills-perks"/></a>
+<a href="./github-assets/approved/v2/01-main-menu.webp"><img src="./github-assets/approved/v2/01-main-menu.webp" width="31%" alt="RADZONE approved concept art — main menu" /></a>
+<a href="./github-assets/approved/v2/07-tactical-combat.webp"><img src="./github-assets/approved/v2/07-tactical-combat.webp" width="31%" alt="RADZONE approved concept art — tactical combat" /></a>
+<a href="./github-assets/approved/v2/03-dialogue.webp"><img src="./github-assets/approved/v2/03-dialogue.webp" width="31%" alt="RADZONE approved concept art — dialogue" /></a>
 </p>
 
-> **Visual development concepts — NOT screenshots of a playable Android build.** These ten images are the **user-approved art direction**. They show how the final game *should* look, not features already present in the Godot prototype.
+<p align="center"><sub>◈ ART DIRECTION / APPROVED CONCEPT SCREENS — NOT ACTUAL GAMEPLAY CAPTURES ◈</sub></p>
 
-## Equipment you actually see
+<p align="center"><a href="#world">The world</a> &nbsp;·&nbsp; <a href="#character">Your character</a> &nbsp;·&nbsp; <a href="#survival">Survive & trade</a> &nbsp;·&nbsp; <a href="#development">Development</a></p>
 
-Our target is a **responsive visual equipment system**: draw a pistol and it appears in the character's hand; equip a rifle or knife and the pose changes; swap leather, metal, advanced armor, helmet, mask or backpack and the on-screen character changes accordingly. The goal covers the playable hero **and NPCs**, not only inventory statistics. Integration is **planned/in progress**, not a completed feature.
+---
 
-We are designing distinct silhouettes and appearances for men, women, young and older characters, and varied communities, with contextual attire, bodies and equipment. Raiders, travelers, guards, merchants and creature types need recognizable visuals rather than one repeating NPC sprite.
+## A DIFFERENT KIND OF RETURN
 
-## Classic interface, modern environment
+RADZONE is an independent, Fallout 2-inspired mobile RPG project built around what made classic computer RPGs matter: **meaningful choices, SPECIAL-driven character development, turn-based tactical combat, hard-earned equipment and dialogue worth reading**.
 
-- Long, scrollable dialogue text with green CRT terminal lettering and branching choices.
-- Riveted bronze/steel controls, industrial panels, readable touch targets.
-- Eight-direction character sprites, combat poses, weapon overlays and layered armor.
-- Detailed isometric settlements and interactable props.
-- Tactical AP, hit-location targeting, equipment and inventory information anchored to **actual game data**, not text baked into images.
+The goal is not to shrink a desktop interface onto a phone. It is to bring its depth to a touch-first, landscape Android experience — with a detailed, weathered, cinematic wasteland of its own.
 
-## Development status
+<a id="world"></a>
+## 01 / STEP INTO THE RUINS
 
-| Area | Status |
-|---|---|
-| Godot and Android | Active prototype; no public stable release announced |
-| Gameplay fidelity | Under verification against original Fallout 2 |
-| RADZONE public visual direction | **10 concept screens approved** |
-| Production assets and equipment overlays | In production; **not yet verified in-game** |
-| UI and NPC variety | In development |
+### A world to explore, not just a map to tap.
 
-Star or Watch this repository for progress. For implementation details, follow the technical documentation below.
+From forgotten settlements to dangerous roads, exploration, quests and reputation should make every journey feel consequential. **Isometric locations, world navigation and environmental storytelling** are core design targets.
 
-## Development & documentation
+<p align="center">
+<a href="./github-assets/approved/v2/06-exploration.webp"><img src="./github-assets/approved/v2/06-exploration.webp" width="43%" alt="RADZONE approved concept art — exploration" /></a>
+<a href="./github-assets/approved/v2/04-world-map-quests.webp"><img src="./github-assets/approved/v2/04-world-map-quests.webp" width="43%" alt="RADZONE approved concept art — world map and quests" /></a>
+</p>
 
-- [Verified project state](./PROJECT_STATE.md) · [Fallout 2 fidelity matrix](./docs/FALLOUT2_FIDELITY_MATRIX.md)
-- [Approved art catalog](./docs/art/APPROVED_VISUAL_CATALOG.md) · [RADZONE art direction](./docs/ART_DIRECTION_RADZONE.md)
-- [Equipment and character-appearance specification](./docs/art/CHARACTER_EQUIPMENT_VISUAL_SPEC.md)
-- [NPC variation matrix](./docs/art/NPC_VISUAL_DIVERSITY.md) · [OpenCode art integration handoff](./docs/art/OPENCODE_ART_HANDOFF.md)
-- [Art pipeline](./docs/art/ART_PRODUCTION_WORKFLOW.md) · [Recovery guide](./docs/RECOVERY_GUIDE.md)
+<a id="character"></a>
+## 02 / YOUR BUILD. YOUR CONSEQUENCES.
 
-For development, clone `https://github.com/rf24kja/Fallout-mobile.git` and open `project.godot` in the project's Godot version. Engine work and build tests are carried out separately from this art branch.
+### SPECIAL is more than seven letters.
 
-**Independent fan-oriented project.** RADZONE is inspired by Fallout 2; it is not an official Fallout product. Original commercial game archives are not distributed here.
+Attributes, skills, perks, experience and equipment shape the way a character survives. The design aims to keep that classic RPG depth while making complex decisions readable on a mobile screen.
+
+<p align="center">
+<a href="./github-assets/approved/v2/02-character-special.webp"><img src="./github-assets/approved/v2/02-character-special.webp" width="43%" alt="RADZONE approved concept art — character creation" /></a>
+<a href="./github-assets/approved/v2/10-skills-perks.webp"><img src="./github-assets/approved/v2/10-skills-perks.webp" width="43%" alt="RADZONE approved concept art — skills and perks" /></a>
+</p>
+
+<a id="survival"></a>
+## 03 / EVERY BULLET. EVERY BARGAIN.
+
+### The wasteland never gives anything away.
+
+Scavenge containers, manage scarce equipment, barter for what you need and think through tactical encounters. Real inventory statistics and game-state values come from the **Godot systems**, not text painted into concept images.
+
+<p align="center">
+<a href="./github-assets/approved/v2/05-inventory-icon-reference.webp"><img src="./github-assets/approved/v2/05-inventory-icon-reference.webp" width="31%" alt="RADZONE approved concept art — inventory" /></a>
+<a href="./github-assets/approved/v2/08-barter.webp"><img src="./github-assets/approved/v2/08-barter.webp" width="31%" alt="RADZONE approved concept art — barter" /></a>
+<a href="./github-assets/approved/v2/09-loot-container.webp"><img src="./github-assets/approved/v2/09-loot-container.webp" width="31%" alt="RADZONE approved concept art — loot container" /></a>
+</p>
+
+## 04 / THINK BEFORE YOU FIRE
+
+Action points, aimed shots, damage resistance and tactical positioning are part of the gameplay work. Visible weapons, armor and directional combat poses are a major production focus — **not yet a finished in-game feature**.
+
+## 05 / THE WORDS YOU CHOOSE MATTER
+
+Long-form, scrolling conversations and branching responses are central to the classic-RPG feel. Dense green CRT text, tactile metal controls and modern touch usability must work together.
+
+---
+
+## THE VISUAL BIBLE
+
+These **10 approved images** define the artistic destination. They are concept illustrations, **not screenshots from a playable Android build**. Explore the complete catalog and full-size references.
+
+<p align="center"><a href="./docs/art/APPROVED_VISUAL_CATALOG.md"><strong>◈ Open the full approved visual catalog ◈</strong></a></p>
+
+## FROM ART DIRECTION TO GAME FILES
+
+Production is moving beyond concepts: transparent item PNGs, directional character poses, atlases, Godot preview scenes and isolated combat effects are being prepared in GitHub. **Staged art is not automatically an approved or in-game-tested asset.**
+
+<p align="center">
+<a href="./github-assets/showcase/survivor-combat-poses.webp"><img src="./github-assets/showcase/survivor-combat-poses.webp" width="57%" alt="RADZONE in-production survivor directional poses; not gameplay" /></a>
+<a href="./github-assets/showcase/inventory-icons.webp"><img src="./github-assets/showcase/inventory-icons.webp" width="39%" alt="RADZONE candidate inventory art; not gameplay" /></a>
+</p>
+<p align="center"><sub>WORK IN PROGRESS / STAGED ART ASSETS / NOT VERIFIED IN-GAME</sub></p>
+
+<p align="center"><a href="https://github.com/rf24kja/Fallout-mobile/pull/28"><strong>⚙ Explore the art production pull request</strong></a></p>
+
+<a id="development"></a>
+## BUILD STATUS / NO SMOKE AND MIRRORS
+
+An active Godot/Android prototype exists. The approved visual gallery is the quality target; there is **no announced public stable release**.
+
+| | |
+|:--|:--|
+| **Android / Godot** | Active prototype; Godot 4.7.2 documented |
+| **RPG systems** | Under fidelity testing and ongoing integration |
+| **Visual direction** | 10 approved concept screens |
+| **Production artwork** | Candidate assets in staging; in-engine review required |
+| **Public release** | Not announced |
+
+## DEVELOPMENT & SOURCE
+
+Want to follow progress or inspect the implementation? Explore the project state, visual requirements, technical documents and development history.
+
+**[Browse the repository](https://github.com/rf24kja/Fallout-mobile)** &nbsp;·&nbsp; [Project status](./PROJECT_STATE.md) &nbsp;·&nbsp; [Equipment system specification](./docs/art/CHARACTER_EQUIPMENT_VISUAL_SPEC.md) &nbsp;·&nbsp; [RPG fidelity matrix](./docs/FALLOUT2_FIDELITY_MATRIX.md)
+
+<details>
+<summary>📂 Technical documentation / Документация / Documents</summary>
+
+- [Approved visual direction](./docs/ART_DIRECTION_RADZONE.md)
+- [Approved art catalog](./docs/art/APPROVED_VISUAL_CATALOG.md)
+- [Character and equipment graphics](./docs/art/CHARACTER_EQUIPMENT_VISUAL_SPEC.md)
+- [NPC appearance diversity](./docs/art/NPC_VISUAL_DIVERSITY.md)
+- [Art production workflow](./docs/art/ART_PRODUCTION_WORKFLOW.md)
+- [OpenCode development handoff](./docs/art/OPENCODE_ART_HANDOFF.md)
+- [Recovery guide](./docs/RECOVERY_GUIDE.md)
+
+</details>
+
+---
+
+<div align="center">
+
+### FOLLOW THE DEVELOPMENT
+
+Star the repository to keep RADZONE on your radar. Watch for updates — no release date is being promised.
+
+<strong>RADZONE</strong> &nbsp;·&nbsp; <a href="https://github.com/rf24kja/Fallout-mobile">github.com/rf24kja/Fallout-mobile</a>
+
+<sub>Independent fan-inspired project. Not affiliated with or endorsed by Bethesda, Interplay or the Fallout rights holders. Original commercial game files are not distributed.</sub>
+
+</div>
