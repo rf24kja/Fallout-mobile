@@ -1,0 +1,32 @@
+{
+  "project": "RADZONE",
+  "batch": "wave12",
+  "date": "2026-11-10",
+  "status": "CANDIDATE_ART_NOT_IN_GAME_VERIFIED",
+  "test_environment": "ChatGPT container (Python 3.13 + Pillow); GitHub metadata and file-path read-only verification",
+  "results": {
+    "local_png_files_checked": 26,
+    "png_signature_valid": 26,
+    "png_decode_and_rgba": 26,
+    "alpha_transparency_valid": 26,
+    "dimensions_match_manifest": 26,
+    "sha256_match_manifest": 26,
+    "alpha_bboxes_match_manifest": 26,
+    "github_png_paths_present": 26,
+    "github_missing_png_paths": [],
+    "github_extra_png_paths": [],
+    "godot_scene_files_present": 5,
+    "godot_resource_references_present": 14,
+    "godot_resource_references_missing": [],
+    "godot_load_steps_match": 5,
+    "godot_runtime": "NOT_RUN_ENGINE_UNAVAILABLE",
+    "android_runtime": "NOT_RUN_DEVICE_UNAVAILABLE",
+    "commercial_art_rights": "REVIEW_REQUIRED"
+  },
+  "notes": [
+    "Wave12 contains 10 named variants based on 8 main source subjects, with 2 modular roadblock-derived variants; not 10 independently generated new illustrations.",
+    "No game code, item identifiers or existing production assets changed.",
+    "QA of PNG bytes and static scene references does not mean visually approved gameplay assets.",
+    "OpenCode should run the validator, open the isolated preview scene, inspect pivots/scale and create integration evidence before merging."
+  ]
+}
