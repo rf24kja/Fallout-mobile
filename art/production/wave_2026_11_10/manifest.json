@@ -1,0 +1,299 @@
+{
+  "project": "RADZONE",
+  "date": "2026-11-10",
+  "classification": "candidate_asset_not_in_game_verified",
+  "purpose": "New image-generated gameplay art candidates extracted into transparent item and prop PNGs",
+  "source_original_png_sha256": "",
+  "source_webp_sha256": "80104d5b29ef25e952f61935936312bd345eabc51231bc4be0a8e885e6771e59",
+  "source": "source_sheet.webp",
+  "license": "New ChatGPT-generated original concept sheet; check production suitability and rights before release",
+  "notes": [
+    "Output PNGs were segmented from an image-generated composite, not generated independently as texture atlas sprites.",
+    "128 and 256 are output canvas sizes, not guarantees of native source detail.",
+    "Weapon item IDs are NOT mapped automatically to the gameplay registry; no stats or source assets were overwritten.",
+    "PNG signature, decode, transparency and canvas dimensions were validated outside Godot. Godot import, scale, alpha halos, rigging and Android are untested.",
+    "All file blobs are newly published on the staging branch, not production-approved."
+  ],
+  "assets": [
+    {
+      "name": "combat_chest_armor",
+      "category": "armor",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/armor/combat_chest_armor_128.png",
+      "png256": "art/production/wave_2026_11_10/armor/combat_chest_armor_256.png",
+      "sha256_128": "77b32a1ebd0559a0ad55a3c8aeeb5b87051fb62f69ca1cc06b3454b90578bb10",
+      "sha256_256": "bcec686468e611c1f003d4d118bc4c9065e7c15156234cfa173d0088fc5ebb49",
+      "git_blob_128": "c9089613950782dc139debec8ae1fb1503f9225c",
+      "git_blob_256": "b6a643141c5fe7f358b06587f3e5900022ea87a7",
+      "alpha_bbox_256": [
+        85,
+        64,
+        171,
+        191
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "energy_sidearm",
+      "category": "weapons",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/weapons/energy_sidearm_128.png",
+      "png256": "art/production/wave_2026_11_10/weapons/energy_sidearm_256.png",
+      "sha256_128": "1ecad98545493e7dde843dd120519e42b486ede2f7899f1fd520816ff30fee14",
+      "sha256_256": "5b7874ff559caa52e03cfdf0191067b211db2cd4c5e058d1eac585aca7a94632",
+      "git_blob_128": "7227ee3cd80cd62f675a10bb07995467ddaa4611",
+      "git_blob_256": "69010ca101e1565b9d8e95b14af0be17d429dc21",
+      "alpha_bbox_256": [
+        58,
+        89,
+        197,
+        167
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "leather_jacket",
+      "category": "armor",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/armor/leather_jacket_128.png",
+      "png256": "art/production/wave_2026_11_10/armor/leather_jacket_256.png",
+      "sha256_128": "f6c1a203002e6fa0db0c829076a833e7008cb4a98bcc862c06167ae9f5646ac4",
+      "sha256_256": "7a5ed62c15b02d93917c0aa008c734d1c67482b262c996dfc95595fa97cf9b8a",
+      "git_blob_128": "05d9909b681d0255c74ebeded36cfc8e2f0c001f",
+      "git_blob_256": "66375e029aa84234d45e5226b7fd3b981ef8883c",
+      "alpha_bbox_256": [
+        68,
+        66,
+        188,
+        189
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "metal_chest_armor",
+      "category": "armor",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/armor/metal_chest_armor_128.png",
+      "png256": "art/production/wave_2026_11_10/armor/metal_chest_armor_256.png",
+      "sha256_128": "e6072f0767923d07a7de42394d63b7b11f4cabf56e11272a08106177929e2e0d",
+      "sha256_256": "6c61ddf565b625c8155e85e4aa4d1ce9a90da43e616a548c32f7e9005e1de579",
+      "git_blob_128": "61cbf1625a96d04b536656861e9b392a8b0a508d",
+      "git_blob_256": "59c504523d0ef31f747e602f9d45b23a1be92b73",
+      "alpha_bbox_256": [
+        77,
+        64,
+        178,
+        191
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "old_automatic_pistol",
+      "category": "weapons",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/weapons/old_automatic_pistol_128.png",
+      "png256": "art/production/wave_2026_11_10/weapons/old_automatic_pistol_256.png",
+      "sha256_128": "9c2e927549186fcc1b5313722130a079209b5c0bf0aaa1e87c2031b2eb5ebb46",
+      "sha256_256": "8b9ec2b1862f6d5b118ea2e1fef178e650a41a76b60ab1fbfe81d795c8202a39",
+      "git_blob_128": "04bc3e16b0cc1ec6b38bb0cdfa7240ca39ce550b",
+      "git_blob_256": "54a64628ebb5fea2f95f82f9955f2125d28e2c6c",
+      "alpha_bbox_256": [
+        67,
+        83,
+        189,
+        173
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "portable_generator",
+      "category": "world",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/world/portable_generator_128.png",
+      "png256": "art/production/wave_2026_11_10/world/portable_generator_256.png",
+      "sha256_128": "6f4e8964ce3d2b633f2b4be34870b1c623f3b0e67deda171983c8c82657b4041",
+      "sha256_256": "dd74e22be812feea7ec5cf4b10097a41b1223439f39cf04915d71e554b683562",
+      "git_blob_128": "ab608a086a3e7f695abcf12dd2298f794482b41e",
+      "git_blob_256": "c85a0c51288a8fb19c1c5ad39b78a1667b76d67b",
+      "alpha_bbox_256": [
+        64,
+        67,
+        192,
+        189
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "pump_shotgun",
+      "category": "weapons",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/weapons/pump_shotgun_128.png",
+      "png256": "art/production/wave_2026_11_10/weapons/pump_shotgun_256.png",
+      "sha256_128": "5a535f20671f014745de0622b81cc46053b5d908032897b549a22f6c653cce2c",
+      "sha256_256": "c10adf1fa24f53cd6f69f115ebd77ef5909946b245692c65d4d82143bf71337f",
+      "git_blob_128": "4e8e47bc16aa2a5e69807e25b437dda9bce74015",
+      "git_blob_256": "f4a42dfc5ccba0f9dd10ed6702fb999abe104253",
+      "alpha_bbox_256": [
+        47,
+        99,
+        208,
+        156
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "surplus_rifle",
+      "category": "weapons",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/weapons/surplus_rifle_128.png",
+      "png256": "art/production/wave_2026_11_10/weapons/surplus_rifle_256.png",
+      "sha256_128": "c2341b20cee96b5581c7dd7367fde6d7edea14886b9a0e51b0a42b9214c815b9",
+      "sha256_256": "7f9a97cec4313364504c52460effda044124a45ac9343969822ca571537a4520",
+      "git_blob_128": "e30f1536ed2c62573a3db08cab3ae1272bb40130",
+      "git_blob_256": "aba945b21c7031635d233043fcff24f6d8cc32aa",
+      "alpha_bbox_256": [
+        58,
+        92,
+        197,
+        163
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "workbench",
+      "category": "world",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/world/workbench_128.png",
+      "png256": "art/production/wave_2026_11_10/world/workbench_256.png",
+      "sha256_128": "82e25a16640026dc2f29d9faa0ebccf52a20a16fcd0ac9a62eb414cc26eb99d7",
+      "sha256_256": "2a7ced2cf51d4c7333a7a6e4fcb5d21d1f1d06b77b3c10ab4111da6260319cd1",
+      "git_blob_128": "d079450753d7da7709a78bc0304c4e9c3f5b45c0",
+      "git_blob_256": "1f58632a7fce3837fdaebfe05d27babc606455c5",
+      "alpha_bbox_256": [
+        47,
+        55,
+        209,
+        201
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    },
+    {
+      "name": "worn_revolver",
+      "category": "weapons",
+      "rendering": "2d isolated cropped from generated sheet",
+      "png128": "art/production/wave_2026_11_10/weapons/worn_revolver_128.png",
+      "png256": "art/production/wave_2026_11_10/weapons/worn_revolver_256.png",
+      "sha256_128": "32309bbb9b2a12dd4ced918327c33dd73724291f7a3a24b69efd44045e616ce5",
+      "sha256_256": "327fea3a7e7edb88d156cdad7628c269ac3afc080b1de03e407d8f4de521c03d",
+      "git_blob_128": "a6d55b6218e79d80be3554247336cb345b198146",
+      "git_blob_256": "407dea157a5e884408ffd322ed6312ddb8c81d22",
+      "alpha_bbox_256": [
+        59,
+        91,
+        197,
+        165
+      ],
+      "canvas_128": [
+        128,
+        128
+      ],
+      "canvas_256": [
+        256,
+        256
+      ],
+      "item_id": null,
+      "approved_by": null,
+      "qa_state": "PENDING_GODOT"
+    }
+  ]
+}

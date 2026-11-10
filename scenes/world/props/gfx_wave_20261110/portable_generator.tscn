@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/world/portable_generator_256.png" id="1_art"]
+
+[node name="PortableGenerator" type="Node2D"]
+
+[node name="Art" type="Sprite2D" parent="."]
+texture = ExtResource("1_art")
+texture_filter = 2
+offset = Vector2(0, -61)
