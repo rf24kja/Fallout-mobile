@@ -1,0 +1,574 @@
+{
+  "project": "RADZONE",
+  "wave": "12",
+  "status": "candidate_not_in_game_verified",
+  "source_file": "Постапокалиптический арсенал выжившего.png",
+  "source_sha256": "9508f370086e1b97ee1a182e52d9207f0feeca26ecc58c0e987045da1b242fd2",
+  "assets": [
+    {
+      "name": "portable_radiation_meter",
+      "size": 64,
+      "path": "png/portable_radiation_meter_64.png",
+      "sha256": "390fa47d6f5261f7f6f4983facdcf6aa28957a4597b9a1ec0549e75f79b0e588",
+      "bytes": 4930,
+      "alpha_bbox": [
+        13,
+        8,
+        50,
+        56
+      ],
+      "source_crop": [
+        1,
+        568,
+        183,
+        781
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/portable_radiation_meter_64.png"
+    },
+    {
+      "name": "portable_radiation_meter",
+      "size": 128,
+      "path": "png/portable_radiation_meter_128.png",
+      "sha256": "e7d0d405192634c903472fc01537ab26637d09ee86941ab29d62fcf15c583787",
+      "bytes": 22675,
+      "alpha_bbox": [
+        20,
+        8,
+        107,
+        120
+      ],
+      "source_crop": [
+        1,
+        568,
+        183,
+        781
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/portable_radiation_meter_128.png"
+    },
+    {
+      "name": "portable_radiation_meter",
+      "size": 256,
+      "path": "png/portable_radiation_meter_256.png",
+      "sha256": "7a274be17b493fa47580aad070b10269835ccb8732adaedd03192aa8ef2d4fa2",
+      "bytes": 63265,
+      "alpha_bbox": [
+        51,
+        28,
+        205,
+        227
+      ],
+      "source_crop": [
+        1,
+        568,
+        183,
+        781
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/portable_radiation_meter_256.png"
+    },
+    {
+      "name": "retro_crt_terminal",
+      "size": 256,
+      "path": "png/retro_crt_terminal_256.png",
+      "sha256": "dd3bcdff07b55f3f4ce31bba3e2a9fa81819528f31df4b2a38bc3c40e45a8ede",
+      "bytes": 83515,
+      "alpha_bbox": [
+        19,
+        55,
+        237,
+        248
+      ],
+      "source_crop": [
+        397,
+        563,
+        632,
+        779
+      ],
+      "classification": "world_prop",
+      "repo_path": "art/production/painterly_v4/wave12/objects/retro_crt_terminal_256.png"
+    },
+    {
+      "name": "retro_crt_terminal",
+      "size": 384,
+      "path": "png/retro_crt_terminal_384.png",
+      "sha256": "a2008d32d1a80bef94174f48537e2f993e20bf77e10d449b8f4d99c4796dc21f",
+      "bytes": 85428,
+      "alpha_bbox": [
+        83,
+        183,
+        301,
+        376
+      ],
+      "source_crop": [
+        397,
+        563,
+        632,
+        779
+      ],
+      "classification": "world_prop",
+      "repo_path": "art/production/painterly_v4/wave12/objects/retro_crt_terminal_384.png"
+    },
+    {
+      "name": "surgical_tool_roll",
+      "size": 64,
+      "path": "png/surgical_tool_roll_64.png",
+      "sha256": "efc82176cfc6c895d336790d4badfb0a09c687a3b983b6d24d8a47157cec23f8",
+      "bytes": 4232,
+      "alpha_bbox": [
+        8,
+        16,
+        56,
+        48
+      ],
+      "source_crop": [
+        945,
+        384,
+        1222,
+        567
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/surgical_tool_roll_64.png"
+    },
+    {
+      "name": "surgical_tool_roll",
+      "size": 128,
+      "path": "png/surgical_tool_roll_128.png",
+      "sha256": "0b93324d6d15292e972fd596b1c278ceeb5e275fae1afab2911348b4b7e47d24",
+      "bytes": 19108,
+      "alpha_bbox": [
+        8,
+        27,
+        120,
+        101
+      ],
+      "source_crop": [
+        945,
+        384,
+        1222,
+        567
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/surgical_tool_roll_128.png"
+    },
+    {
+      "name": "surgical_tool_roll",
+      "size": 256,
+      "path": "png/surgical_tool_roll_256.png",
+      "sha256": "71c8a62ef3108870959175b097458d324bcd822db85feb170098728e809e7f91",
+      "bytes": 78137,
+      "alpha_bbox": [
+        8,
+        48,
+        248,
+        207
+      ],
+      "source_crop": [
+        945,
+        384,
+        1222,
+        567
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/surgical_tool_roll_256.png"
+    },
+    {
+      "name": "scavenger_backpack",
+      "size": 64,
+      "path": "png/scavenger_backpack_64.png",
+      "sha256": "b3117741fa7c6f0da0d67c0119a60b3fd12411efb5eeda890f0614bb03fc7a23",
+      "bytes": 6699,
+      "alpha_bbox": [
+        8,
+        8,
+        55,
+        56
+      ],
+      "source_crop": [
+        1036,
+        167,
+        1262,
+        390
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/scavenger_backpack_64.png"
+    },
+    {
+      "name": "scavenger_backpack",
+      "size": 128,
+      "path": "png/scavenger_backpack_128.png",
+      "sha256": "c2d83e95bc99ae5d1c8a95005c4696ef0e3c6e0c7ecf4ce50bd2e163e23d9a19",
+      "bytes": 30835,
+      "alpha_bbox": [
+        9,
+        8,
+        118,
+        120
+      ],
+      "source_crop": [
+        1036,
+        167,
+        1262,
+        390
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/scavenger_backpack_128.png"
+    },
+    {
+      "name": "scavenger_backpack",
+      "size": 256,
+      "path": "png/scavenger_backpack_256.png",
+      "sha256": "08ce2ae2fe83bac061803a55e84dcf18f7108067f6374e9f75d4a4d2fe6f307f",
+      "bytes": 88013,
+      "alpha_bbox": [
+        28,
+        26,
+        227,
+        230
+      ],
+      "source_crop": [
+        1036,
+        167,
+        1262,
+        390
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/scavenger_backpack_256.png"
+    },
+    {
+      "name": "wasteland_field_boots",
+      "size": 64,
+      "path": "png/wasteland_field_boots_64.png",
+      "sha256": "f8ad5fb2c78abd69d013bb7fefb40b33512f0f1b505f75a15faa0882f0a13328",
+      "bytes": 5172,
+      "alpha_bbox": [
+        8,
+        12,
+        56,
+        52
+      ],
+      "source_crop": [
+        1267,
+        176,
+        1524,
+        385
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/wasteland_field_boots_64.png"
+    },
+    {
+      "name": "wasteland_field_boots",
+      "size": 128,
+      "path": "png/wasteland_field_boots_128.png",
+      "sha256": "cc466b37ec41f5615fe2867cee16eaff6c09feaaa60ff88e7512c864c1ad047f",
+      "bytes": 23439,
+      "alpha_bbox": [
+        8,
+        17,
+        120,
+        110
+      ],
+      "source_crop": [
+        1267,
+        176,
+        1524,
+        385
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/wasteland_field_boots_128.png"
+    },
+    {
+      "name": "wasteland_field_boots",
+      "size": 256,
+      "path": "png/wasteland_field_boots_256.png",
+      "sha256": "2b1d6d33762a3d51d664e582f769e47fd5cbab68746d1cccbe45d6bfb4566ef3",
+      "bytes": 77928,
+      "alpha_bbox": [
+        17,
+        36,
+        238,
+        219
+      ],
+      "source_crop": [
+        1267,
+        176,
+        1524,
+        385
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/wasteland_field_boots_256.png"
+    },
+    {
+      "name": "helmet_with_goggles",
+      "size": 64,
+      "path": "png/helmet_with_goggles_64.png",
+      "sha256": "67ff9ca47eeb80684549f2bf5a86a1513723d78c6cbdf8eed5ae163ff75fc1b1",
+      "bytes": 5567,
+      "alpha_bbox": [
+        8,
+        8,
+        55,
+        56
+      ],
+      "source_crop": [
+        651,
+        170,
+        868,
+        387
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/helmet_with_goggles_64.png"
+    },
+    {
+      "name": "helmet_with_goggles",
+      "size": 128,
+      "path": "png/helmet_with_goggles_128.png",
+      "sha256": "0b27d8284c010af377c44e7b503bb30b04bf7d8d59e8082be234b248b8e263f9",
+      "bytes": 24735,
+      "alpha_bbox": [
+        9,
+        8,
+        119,
+        120
+      ],
+      "source_crop": [
+        651,
+        170,
+        868,
+        387
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/helmet_with_goggles_128.png"
+    },
+    {
+      "name": "helmet_with_goggles",
+      "size": 256,
+      "path": "png/helmet_with_goggles_256.png",
+      "sha256": "e0bdc27bf5a41b775fb1b2f552110f095d590de472f5835997374e63075ac05c",
+      "bytes": 65923,
+      "alpha_bbox": [
+        31,
+        29,
+        225,
+        226
+      ],
+      "source_crop": [
+        651,
+        170,
+        868,
+        387
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/helmet_with_goggles_256.png"
+    },
+    {
+      "name": "blue_wasteland_jacket",
+      "size": 64,
+      "path": "png/blue_wasteland_jacket_64.png",
+      "sha256": "6e128255b33975f2c967f1d6318a9f11a8170b13995f1254760564da62ab98f7",
+      "bytes": 5837,
+      "alpha_bbox": [
+        9,
+        8,
+        54,
+        56
+      ],
+      "source_crop": [
+        453,
+        174,
+        647,
+        387
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/blue_wasteland_jacket_64.png"
+    },
+    {
+      "name": "blue_wasteland_jacket",
+      "size": 128,
+      "path": "png/blue_wasteland_jacket_128.png",
+      "sha256": "b7ff9c082a7118e86ea2f16806d8a9a56449d7227584c6748515cf20b392607f",
+      "bytes": 26178,
+      "alpha_bbox": [
+        11,
+        8,
+        116,
+        120
+      ],
+      "source_crop": [
+        453,
+        174,
+        647,
+        387
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/blue_wasteland_jacket_128.png"
+    },
+    {
+      "name": "blue_wasteland_jacket",
+      "size": 256,
+      "path": "png/blue_wasteland_jacket_256.png",
+      "sha256": "de0c604bf0b0d5f833129c9812d9f21b7426787aad0fea146b6630926f77da14",
+      "bytes": 76548,
+      "alpha_bbox": [
+        31,
+        24,
+        225,
+        231
+      ],
+      "source_crop": [
+        453,
+        174,
+        647,
+        387
+      ],
+      "classification": "inventory_candidate",
+      "repo_path": "art/production/painterly_v4/wave12/objects/blue_wasteland_jacket_256.png"
+    },
+    {
+      "name": "roadside_barrier_and_tires",
+      "size": 256,
+      "path": "png/roadside_barrier_and_tires_256.png",
+      "sha256": "0855ab59306ec048944bcb5a99a342d3e36e48294038988536cea5ef7d2a376b",
+      "bytes": 72703,
+      "alpha_bbox": [
+        8,
+        107,
+        248,
+        248
+      ],
+      "source_crop": [
+        1190,
+        781,
+        1529,
+        1007
+      ],
+      "classification": "world_prop",
+      "repo_path": "art/production/painterly_v4/wave12/objects/roadside_barrier_and_tires_256.png"
+    },
+    {
+      "name": "roadside_barrier_and_tires",
+      "size": 384,
+      "path": "png/roadside_barrier_and_tires_384.png",
+      "sha256": "fa74b8dbda982862d6877f492eb1af6b38872b6724e49a4ce35d2521d7f56ce3",
+      "bytes": 129355,
+      "alpha_bbox": [
+        25,
+        180,
+        359,
+        376
+      ],
+      "source_crop": [
+        1190,
+        781,
+        1529,
+        1007
+      ],
+      "classification": "world_prop",
+      "repo_path": "art/production/painterly_v4/wave12/objects/roadside_barrier_and_tires_384.png"
+    },
+    {
+      "name": "concrete_barricade_piece",
+      "size": 256,
+      "path": "png/concrete_barricade_piece_256.png",
+      "sha256": "ffc1a5a36b2448255f84deaf330cbb88dacb264e20b4376b80409a6269f77754",
+      "bytes": 85235,
+      "alpha_bbox": [
+        24,
+        69,
+        232,
+        248
+      ],
+      "source_crop": [
+        1184,
+        795,
+        1393,
+        983
+      ],
+      "classification": "world_prop",
+      "repo_path": "art/production/painterly_v4/wave12/objects/concrete_barricade_piece_256.png"
+    },
+    {
+      "name": "concrete_barricade_piece",
+      "size": 384,
+      "path": "png/concrete_barricade_piece_384.png",
+      "sha256": "afe0ae5577b02769d9f81e1b38f1cf9e94c6a425154059947ebab1dde1bf92f5",
+      "bytes": 86686,
+      "alpha_bbox": [
+        88,
+        197,
+        296,
+        376
+      ],
+      "source_crop": [
+        1184,
+        795,
+        1393,
+        983
+      ],
+      "classification": "world_prop",
+      "repo_path": "art/production/painterly_v4/wave12/objects/concrete_barricade_piece_384.png"
+    },
+    {
+      "name": "used_tire_stack",
+      "size": 256,
+      "path": "png/used_tire_stack_256.png",
+      "sha256": "211869a595eec57fb416d8398612b55792dd376a2c47c651982ae6e3f1f5467f",
+      "bytes": 35889,
+      "alpha_bbox": [
+        59,
+        118,
+        197,
+        248
+      ],
+      "source_crop": [
+        1375,
+        846,
+        1534,
+        995
+      ],
+      "classification": "world_prop",
+      "repo_path": "art/production/painterly_v4/wave12/objects/used_tire_stack_256.png"
+    },
+    {
+      "name": "used_tire_stack",
+      "size": 384,
+      "path": "png/used_tire_stack_384.png",
+      "sha256": "d6e300a8f448e1e8a2d9294089a4df8eb7143c50e32b83fd1bd9c29764c8814b",
+      "bytes": 36976,
+      "alpha_bbox": [
+        123,
+        246,
+        261,
+        376
+      ],
+      "source_crop": [
+        1375,
+        846,
+        1534,
+        995
+      ],
+      "classification": "world_prop",
+      "repo_path": "art/production/painterly_v4/wave12/objects/used_tire_stack_384.png"
+    }
+  ],
+  "notes": [
+    "Source is a user-provided RGBA reference sheet; crop segmentation and alpha cleanup are deterministic.",
+    "Not an AI-generated new batch; these are isolated/derived textures from existing user-supplied art.",
+    "Character equipment layers cannot be inferred from icons; nothing is mapped to gameplay item IDs.",
+    "Godot/Android runtime tests require OpenCode."
+  ],
+  "counts": {
+    "source_objects": 8,
+    "modular_roadblock_variants": 2,
+    "distinct_subjects": 10,
+    "png_exports": 26,
+    "godot_world_prefabs": 4
+  },
+  "art_direction": "RADZONE approved cinematic industrial wasteland. This wave consists of user-supplied illustration cutouts, not newly generated unique objects.",
+  "rights": "User supplied. Review source rights and possible game IP identifiers before commercial publication.",
+  "godot_verification": "NOT RUN",
+  "review_file": "art/production/painterly_v4/wave12/review.webp",
+  "scene_file": "scenes/art_preview/wave12_worldprops_review.tscn",
+  "prefab_root": "scenes/world/props/wave12"
+}

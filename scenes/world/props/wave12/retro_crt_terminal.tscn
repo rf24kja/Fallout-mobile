@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/retro_crt_terminal_256.png" id="1_tex"]
+
+[node name="RetroCrtTerminal" type="Node2D"]
+
+[node name="Art" type="Sprite2D" parent="."]
+texture = ExtResource("1_tex")
+texture_filter = 2
+offset = Vector2(0, -120)
