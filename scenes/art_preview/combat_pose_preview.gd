@@ -1,8 +1,8 @@
 extends Node2D
 ## Standalone visual QA screen. No gameplay data, save mutations, or equipment changes.
 
-const DIRECTIONS: PackedStringArray = ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
-const WEAPONS: PackedStringArray = ["unarmed", "pistol", "rifle"]
+const DIRECTIONS = ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
+const WEAPONS = ["unarmed", "pistol", "rifle"]
 
 @onready var actor: AnimatedSprite2D = $Actor
 @onready var feedback: Label = $Feedback
@@ -81,9 +81,12 @@ func _refresh() -> void:
 	feedback.text = "RADZONE combat art QA — " + animation_name + " (single frame, NO walk/reload anim)"
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if not (event is InputEventKey) or not event.pressed or event.echo:
+	if not (event is InputEventKey):
 		return
-	match event.keycode:
+	var key_event: InputEventKey = event as InputEventKey
+	if not key_event.pressed or key_event.echo:
+		return
+	match key_event.keycode:
 		KEY_LEFT:
 			current_direction = DIRECTIONS[(DIRECTIONS.find(current_direction) + 1) % DIRECTIONS.size()]
 		KEY_RIGHT:
