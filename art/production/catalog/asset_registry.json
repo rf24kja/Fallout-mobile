@@ -1,0 +1,3261 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-11-10",
+  "scope": "Manifest-backed art from master and 3 staging branches; not a claim of complete binary repository inventory",
+  "rules": [
+    "Different source SHA-256 values are NOT proof of different visual content.",
+    "Different export sizes are variants of one object, NOT new objects.",
+    "Semantic family overlaps require human review; do not auto-delete.",
+    "New object admission requires ID and image similarity checks and human approval.",
+    "Runtime status is separate from image/manifest verification."
+  ],
+  "sources": [
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json"
+    },
+    {
+      "wave": "wave03_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave03_unique/manifest.json"
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json"
+    },
+    {
+      "wave": "wave06_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave06_unique/manifest.json"
+    },
+    {
+      "wave": "wave07",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave07/manifest.json"
+    },
+    {
+      "wave": "wave08",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave08/manifest.json"
+    },
+    {
+      "wave": "wave09_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave09_unique/manifest.json"
+    },
+    {
+      "wave": "wave10",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave10/manifest.json"
+    },
+    {
+      "wave": "wave11",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave11/manifest.json"
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json"
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json"
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json"
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json"
+    },
+    {
+      "wave": "inventory_icons_v2",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_icons_v2/manifest.json"
+    },
+    {
+      "wave": "inventory_armor_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_armor_64/manifest.json"
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json"
+    }
+  ],
+  "families": [
+    {
+      "key": "pump_shotgun",
+      "aliases": [
+        "pump_shotgun",
+        "combat_shotgun"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "workbench",
+      "aliases": [
+        "scavenger_workbench",
+        "workbench"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "crt_terminal",
+      "aliases": [
+        "crt_terminal",
+        "retro_crt_terminal"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "generator",
+      "aliases": [
+        "generator",
+        "portable_generator"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "revolver",
+      "aliases": [
+        "heavy_revolver",
+        "worn_revolver",
+        "38_revolver"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "laser_handgun",
+      "aliases": [
+        "laser_pistol",
+        "energy_sidearm"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "lathe",
+      "aliases": [
+        "industrial_lathe",
+        "machinist_lathe"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "jukebox",
+      "aliases": [
+        "retro_jukebox",
+        "wasteland_jukebox"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "oscilloscope",
+      "aliases": [
+        "analog_oscilloscope",
+        "signal_oscilloscope"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "ventilation_fan",
+      "aliases": [
+        "ventilation_fan",
+        "industrial_vent_fan"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "welding_cart",
+      "aliases": [
+        "mobile_welding_cart",
+        "welding_cart"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "ammo_reloading",
+      "aliases": [
+        "ammunition_reloading_press",
+        "ammo_reloading_bench"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "drying_rack",
+      "aliases": [
+        "meat_drying_rack",
+        "smoke_drying_rack"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "field_binoculars",
+      "aliases": [
+        "field_binoculars"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "field_cot",
+      "aliases": [
+        "field_cot"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "safe",
+      "aliases": [
+        "mechanical_safe",
+        "vault_safe"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "road_barrier",
+      "aliases": [
+        "road_divider",
+        "concrete_barricade",
+        "roadside_barrier_and_tires",
+        "concrete_barricade_piece"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "floodlight",
+      "aliases": [
+        "floodlight_pole",
+        "portable_dual_floodlight"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "medical_tool_roll",
+      "aliases": [
+        "surgical_tool_roll",
+        "salvaged_surgical_tools"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "backpack",
+      "aliases": [
+        "backpack",
+        "scavenger_backpack"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "detect_radiation",
+      "aliases": [
+        "radio_detector",
+        "portable_radiation_meter"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "automatic_pistol",
+      "aliases": [
+        "pistol",
+        "old_automatic_pistol"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    },
+    {
+      "key": "first_aid",
+      "aliases": [
+        "medkit",
+        "first_aid_kit"
+      ],
+      "verdict": "REVIEW_ONLY_not_proof_of_same_art"
+    }
+  ],
+  "objects": [
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "ammo_reloading_bench",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/ammo_reloading_bench.png",
+          "sha256": "23252530268252daf8e550d30a0e59c9a09dbb112b8f8d5f0fe510ebaa359a5a",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "chemical_distiller",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/chemical_distiller.png",
+          "sha256": "dac27df8e5ea6efec74d827f2d514db7cb375246c15fc0a0f9ce84439389685c",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "field_binoculars",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/field_binoculars.png",
+          "sha256": "6e096b375829a3a0d7dad31a8445915b997e41ca3e84090af45df61e27c9aad1",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "field_cot",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/field_cot.png",
+          "sha256": "3ad670ab15e430b76a156951bad5c1392b9cb3ec89c6f3d355b933f7513afedd",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "field_radio",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/field_radio.png",
+          "sha256": "340439b7bdb94f62f4adc552a8e96d660d68656ced9e147fbf774f726d7c0012",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "industrial_vent_fan",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/industrial_vent_fan.png",
+          "sha256": "7d7a022e23e348f432a07089fdd2dc377e6e2a136736f6635e479b5784f89248",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "machinist_lathe",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/machinist_lathe.png",
+          "sha256": "cd0c8da3861ddd9fca74594f544f405306fd78835cb7d13cc3a28a302d3846ad",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "signal_oscilloscope",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/signal_oscilloscope.png",
+          "sha256": "6f3f2a21483309c6826dd302cf3a4cbbf524bc9eb9f0a856191f2eae70e3ed5f",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "smoke_drying_rack",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/smoke_drying_rack.png",
+          "sha256": "d6afa6a707a36c37aff75f96236920eaa09ece8d845bba5f2a14128e3dffb7d4",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "vault_safe",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/vault_safe.png",
+          "sha256": "edb94e958ab5d0aef3fd630cbf8ba378a9b27d59850ace52ce39e84c42dce506",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "wasteland_jukebox",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/wasteland_jukebox.png",
+          "sha256": "5dc10995184a634b48f829452cdb7acb97529ab56cdf075032d71a8953499aa4",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "industrial_props_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/props_v1/MANIFEST.json",
+      "status": "staged_unapproved",
+      "id": "welding_cart",
+      "kind": "world_prop",
+      "variants": [
+        {
+          "path": "art/production/props_v1/welding_cart.png",
+          "sha256": "d5862fb3aed57901fecf384a8820b3ba9dc4f8f9af308691f5dc3668d6deac08",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "inventory_armor_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_armor_64/manifest.json",
+      "status": "staged_unapproved",
+      "id": "combat_armor",
+      "kind": "armor",
+      "variants": [
+        {
+          "path": "assets/ui/icons/combat_armor.png",
+          "sha256": "8a3f52a2ea9ff7082cd107b7cd2d39ef3b681bb4dd3a583af18f19910ab067e1",
+          "size": 64
+        }
+      ]
+    },
+    {
+      "wave": "inventory_armor_v1",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_armor_64/manifest.json",
+      "status": "staged_unapproved",
+      "id": "leather_armor",
+      "kind": "armor",
+      "variants": [
+        {
+          "path": "assets/ui/icons/leather_armor.png",
+          "sha256": "102fe39b7417a773d4e67fa5d0f2634421a9aaa6b2a0637e9175813f23b872c3",
+          "size": 64
+        }
+      ]
+    },
+    {
+      "wave": "inventory_icons_v2",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_icons_v2/manifest.json",
+      "status": "staged_unapproved",
+      "id": "38_revolver",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "assets/ui/icons/38_revolver.png",
+          "sha256": "f0e5764bb88120b8a467f5d32343d75978b3e7bac6f40be6435d706fd0e7a05d",
+          "size": 64
+        },
+        {
+          "path": "art/production/inventory_icons_v2/high_res/38_revolver_256.png",
+          "sha256": "a62083d837afe325ba07d4597d5e0b32f6c978e1669e98ffd39a87b1dd6f0faa",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "inventory_icons_v2",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_icons_v2/manifest.json",
+      "status": "staged_unapproved",
+      "id": "assault_rifle",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "assets/ui/icons/assault_rifle.png",
+          "sha256": "1f115b80f36699613d496761532648c51d3c7a4c4a6a53f4b9db3570405d6227",
+          "size": 64
+        },
+        {
+          "path": "art/production/inventory_icons_v2/high_res/assault_rifle_256.png",
+          "sha256": "5c4b751965e4befd9a1aa84f6ec50fd76c3bbcfb9d3509e459acdc055e5079e0",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "inventory_icons_v2",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_icons_v2/manifest.json",
+      "status": "staged_unapproved",
+      "id": "laser_pistol",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "assets/ui/icons/laser_pistol.png",
+          "sha256": "2658b7bf75f94c1f5e720226d575ae6244c800048e09ba38fbfc8b025ec6cd47",
+          "size": 64
+        },
+        {
+          "path": "art/production/inventory_icons_v2/high_res/laser_pistol_256.png",
+          "sha256": "62db8d966fbf226cf5de56417596914aaf73e304a202c1a04bdfc8f26d4b3d80",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "inventory_icons_v2",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_icons_v2/manifest.json",
+      "status": "staged_unapproved",
+      "id": "machete",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "assets/ui/icons/machete.png",
+          "sha256": "224e1f2e79e2ecbe53abf591ed10b8fdc6ad7b73b23582bc3a4880df15acfbda",
+          "size": 64
+        },
+        {
+          "path": "art/production/inventory_icons_v2/high_res/machete_256.png",
+          "sha256": "a2d6e85ba631b80f1af5a27021ecbaacc7582abffe53caa02bb3e70735590a05",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "inventory_icons_v2",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_icons_v2/manifest.json",
+      "status": "staged_unapproved",
+      "id": "metal_helmet",
+      "kind": "armor",
+      "variants": [
+        {
+          "path": "assets/ui/icons/metal_helmet.png",
+          "sha256": "4014dcd6a24d3737fe394a377bbd67effcdf00b0c0631f4bfc6952a6bf40daf0",
+          "size": 64
+        },
+        {
+          "path": "art/production/inventory_icons_v2/high_res/metal_helmet_256.png",
+          "sha256": "c17a44f5ae52d0987d392f6187a60feadb47ef731d154377df5118dd259cf981",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "inventory_icons_v2",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_icons_v2/manifest.json",
+      "status": "staged_unapproved",
+      "id": "sniper_rifle",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "assets/ui/icons/sniper_rifle.png",
+          "sha256": "a09278276d129fbb7a3d11d31300bee315c3352ea2b5bbdca4a516f5e225209a",
+          "size": 64
+        },
+        {
+          "path": "art/production/inventory_icons_v2/high_res/sniper_rifle_256.png",
+          "sha256": "5c2b641bd7e56a2fbbb80fa21aca4e69e9d5d0bdb9117ddc344d21a211f98869",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "inventory_icons_v2",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/inventory_icons_v2/manifest.json",
+      "status": "staged_unapproved",
+      "id": "tool_kit",
+      "kind": "utility",
+      "variants": [
+        {
+          "path": "assets/ui/icons/tool_kit.png",
+          "sha256": "4665ca329376a2281488c1b511482ef68152fd2d0f09dc7be66852d4e1bbb6c0",
+          "size": 64
+        },
+        {
+          "path": "art/production/inventory_icons_v2/high_res/tool_kit_256.png",
+          "sha256": "f0723c44be346ddceb9e80766ab0e331cd2d32def25fe27744b1c82b49b7d6dc",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "combat_chest_armor",
+      "kind": "armor",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/armor/combat_chest_armor_128.png",
+          "sha256": "77b32a1ebd0559a0ad55a3c8aeeb5b87051fb62f69ca1cc06b3454b90578bb10",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/armor/combat_chest_armor_256.png",
+          "sha256": "bcec686468e611c1f003d4d118bc4c9065e7c15156234cfa173d0088fc5ebb49",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "energy_sidearm",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/weapons/energy_sidearm_128.png",
+          "sha256": "1ecad98545493e7dde843dd120519e42b486ede2f7899f1fd520816ff30fee14",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/weapons/energy_sidearm_256.png",
+          "sha256": "5b7874ff559caa52e03cfdf0191067b211db2cd4c5e058d1eac585aca7a94632",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "leather_jacket",
+      "kind": "armor",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/armor/leather_jacket_128.png",
+          "sha256": "f6c1a203002e6fa0db0c829076a833e7008cb4a98bcc862c06167ae9f5646ac4",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/armor/leather_jacket_256.png",
+          "sha256": "7a5ed62c15b02d93917c0aa008c734d1c67482b262c996dfc95595fa97cf9b8a",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "metal_chest_armor",
+      "kind": "armor",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/armor/metal_chest_armor_128.png",
+          "sha256": "e6072f0767923d07a7de42394d63b7b11f4cabf56e11272a08106177929e2e0d",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/armor/metal_chest_armor_256.png",
+          "sha256": "6c61ddf565b625c8155e85e4aa4d1ce9a90da43e616a548c32f7e9005e1de579",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "old_automatic_pistol",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/weapons/old_automatic_pistol_128.png",
+          "sha256": "9c2e927549186fcc1b5313722130a079209b5c0bf0aaa1e87c2031b2eb5ebb46",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/weapons/old_automatic_pistol_256.png",
+          "sha256": "8b9ec2b1862f6d5b118ea2e1fef178e650a41a76b60ab1fbfe81d795c8202a39",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "portable_generator",
+      "kind": "world",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/world/portable_generator_128.png",
+          "sha256": "6f4e8964ce3d2b633f2b4be34870b1c623f3b0e67deda171983c8c82657b4041",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/world/portable_generator_256.png",
+          "sha256": "dd74e22be812feea7ec5cf4b10097a41b1223439f39cf04915d71e554b683562",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "pump_shotgun",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/weapons/pump_shotgun_128.png",
+          "sha256": "5a535f20671f014745de0622b81cc46053b5d908032897b549a22f6c653cce2c",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/weapons/pump_shotgun_256.png",
+          "sha256": "c10adf1fa24f53cd6f69f115ebd77ef5909946b245692c65d4d82143bf71337f",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "surplus_rifle",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/weapons/surplus_rifle_128.png",
+          "sha256": "c2341b20cee96b5581c7dd7367fde6d7edea14886b9a0e51b0a42b9214c815b9",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/weapons/surplus_rifle_256.png",
+          "sha256": "7f9a97cec4313364504c52460effda044124a45ac9343969822ca571537a4520",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "workbench",
+      "kind": "world",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/world/workbench_128.png",
+          "sha256": "82e25a16640026dc2f29d9faa0ebccf52a20a16fcd0ac9a62eb414cc26eb99d7",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/world/workbench_256.png",
+          "sha256": "2a7ced2cf51d4c7333a7a6e4fcb5d21d1f1d06b77b3c10ab4111da6260319cd1",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "nov10",
+      "ref": "art/pipeline-staging-20261110",
+      "manifest": "art/production/wave_2026_11_10/manifest.json",
+      "status": "staged_unapproved",
+      "id": "worn_revolver",
+      "kind": "weapons",
+      "variants": [
+        {
+          "path": "art/production/wave_2026_11_10/weapons/worn_revolver_128.png",
+          "sha256": "32309bbb9b2a12dd4ced918327c33dd73724291f7a3a24b69efd44045e616ce5",
+          "size": 128
+        },
+        {
+          "path": "art/production/wave_2026_11_10/weapons/worn_revolver_256.png",
+          "sha256": "327fea3a7e7edb88d156cdad7628c269ac3afc080b1de03e407d8f4de521c03d",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/player_survivor/view_00_front",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/player_survivor/view_00_front.png",
+          "sha256": "bbf9fc1430e35fadcc539d0297eef2461e2b2ab4d937300acaf98e366cb2fbf9",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/player_survivor/view_01_front_right",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/player_survivor/view_01_front_right.png",
+          "sha256": "2c0fb6103abfe03c1a1152d443b1ee1c4176c7d3d524dcd399c8b1a6712395f6",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/player_survivor/view_02_right",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/player_survivor/view_02_right.png",
+          "sha256": "2f97c9458a6c58efe122f81fd69b9661da99893b76334fd7c0845a9e0daaa0ee",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/player_survivor/view_03_back_right",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/player_survivor/view_03_back_right.png",
+          "sha256": "ea7654e4d8af47a2e6a40485b49d12498859e761ba625d6ebbbfb2ace8e40216",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/player_survivor/view_04_back",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/player_survivor/view_04_back.png",
+          "sha256": "599211ec28384650c6d3f3a191119b77582eb06d9e68bf0d458f413debc4774e",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/player_survivor/view_05_back_left",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/player_survivor/view_05_back_left.png",
+          "sha256": "3ead55702f7984e5a8e5f0b5c3f6b8a021677c03319bc3ebfd626d0461289f00",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/player_survivor/view_06_left",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/player_survivor/view_06_left.png",
+          "sha256": "bad4b09d11f98e1de9b3671d785add594ec1df8ec4473fe8c6d2dc8536bf311d",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/player_survivor/view_07_front_left",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/player_survivor/view_07_front_left.png",
+          "sha256": "ea836ab59e2a7754f36bd4c58549439bac53d102d08c9785f168544df7cb9b6c",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/raider/view_00_front",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/raider/view_00_front.png",
+          "sha256": "19608666894d5d28e05ab71081bef8d2012de46a913e802c8ec8114c592b44fa",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/raider/view_01_front_right",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/raider/view_01_front_right.png",
+          "sha256": "57d8a9bfea2e33164b9c27ddbd1837edf27d837b9939d2fd583be53971dfb40a",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/raider/view_02_right",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/raider/view_02_right.png",
+          "sha256": "5ffae27b5555dc52c787d154298a3b499162848b02017786fa9f7e4592cd594d",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/raider/view_03_back_right",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/raider/view_03_back_right.png",
+          "sha256": "6cd2b86862fac29165260b5f960375363378328af38d85b9d06f4d7482609236",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/raider/view_04_back",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/raider/view_04_back.png",
+          "sha256": "e7447dbd9837ee2cd47b60e779340cdbd833ee531c36eeb0ad72f9825ee8406f",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/raider/view_05_back_left",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/raider/view_05_back_left.png",
+          "sha256": "c8366e3100791e26422bc8d5b0f7ff756b55cf861e4f5316e582d0043962b530",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/raider/view_06_left",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/raider/view_06_left.png",
+          "sha256": "2a687c396ecc83b8b7ab3791185b2d871fabf13740a76d2c8cfd796c42c33e43",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "characters/raider/view_07_front_left",
+      "kind": "character_pose_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/characters/raider/view_07_front_left.png",
+          "sha256": "962ff6636c3e5aadfac59d49dc129f62652a299076360647b554c0086121f63a",
+          "size": [
+            362,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/backpack",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/backpack.png",
+          "sha256": "ae7f76662f4f6c18f04d1ea09a939c6452258d60fbef985e3ac85a9b8deafa71",
+          "size": [
+            334,
+            344
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/bottle_caps",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/bottle_caps.png",
+          "sha256": "7cfefa8a3fb5823900776a0c94d168a56c3867fd1857a617899aa260e554461c",
+          "size": [
+            296,
+            216
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/canteen",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/canteen.png",
+          "sha256": "382e939d7412d8a7a84e23a26f18cb3213a6ef01f0c62e7520f43f4395b5494a",
+          "size": [
+            198,
+            294
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/combat_knife",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/combat_knife.png",
+          "sha256": "091ba206a485e3d3cc4b52e63246027289ac5b6349f5cfe7c5730269093088d4",
+          "size": [
+            479,
+            151
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/combat_shotgun",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/combat_shotgun.png",
+          "sha256": "60fcd3c9a25e7631144c16250c647f6684b7f6883e699658573cae1e842d9df3",
+          "size": [
+            809,
+            210
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/gas_mask",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/gas_mask.png",
+          "sha256": "9ba205adedca325c0d682bd25d8d3e013bf1048863dc4c646fe78d766c7a84f0",
+          "size": [
+            283,
+            300
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/hunting_rifle",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/hunting_rifle.png",
+          "sha256": "5a251613a267f10b10dbd58e929102336798db6f2f6e3c10a4b7e28d538b1e18",
+          "size": [
+            900,
+            226
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/lockpick_set",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/lockpick_set.png",
+          "sha256": "f35ff38f416bf72346f9096a7cebfdef62f90d7b907fa803a09d9c2c93672727",
+          "size": [
+            267,
+            258
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/medkit",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/medkit.png",
+          "sha256": "5e8c4969e9298549199995481f04590614d84d05992e90ddbe7f358c8563be8a",
+          "size": [
+            313,
+            264
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/pistol",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/pistol.png",
+          "sha256": "141a85fd99776b81f3cbc08625ccdbbf8ff6bf926a329ff2e8987f4c371bf06e",
+          "size": [
+            375,
+            228
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/pistol_ammo",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/pistol_ammo.png",
+          "sha256": "e39c50bf647fdc1e87ddc9ab2708d0b2a5abfa12b5ad9be42c2987f449f1c5a5",
+          "size": [
+            170,
+            188
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/radio_detector",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/radio_detector.png",
+          "sha256": "b0648a5c815a0c4fd3874ac24b09123448ad2b915481c5a0e2b3a70b6e05e556",
+          "size": [
+            200,
+            355
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/shotgun_shells",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/shotgun_shells.png",
+          "sha256": "f77c126d64e6bb23e2f8e7cf372cc9f71637e9f0347a53b8116ad155756785e5",
+          "size": [
+            204,
+            219
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/stim_injector",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/stim_injector.png",
+          "sha256": "0eab34173805f2d281db94d7b76b6ed10432e89b50d04dde30c78872e5bc18f6",
+          "size": [
+            219,
+            318
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "items/wrench",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/items/wrench.png",
+          "sha256": "d1531a28ffdf53e232ec04aa343ec60110ed5516ce03281e6d08ad400ba4d95b",
+          "size": [
+            146,
+            328
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/action_menu",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/action_menu.png",
+          "sha256": "301acc680d96d669583054f9faa08e9c21259344f92f507ccde91774c9d951a7",
+          "size": [
+            415,
+            377
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/ap_off",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/ap_off.png",
+          "sha256": "b22817a1b4c05f0b95393dd21f33e330dd67b426e03c4a3a3006a097c87c8407",
+          "size": [
+            141,
+            81
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/ap_on",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/ap_on.png",
+          "sha256": "7b0c78510282fc42aa5191f429640570ff100d9d4fa6a45157a71ac2cc23fc84",
+          "size": [
+            90,
+            81
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/barter_grid",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/barter_grid.png",
+          "sha256": "e238f7e3898108886cb0acbff41ab3739098b7f6e61e5d8d21db890bdb97f84f",
+          "size": [
+            621,
+            374
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/button_pressed",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/button_pressed.png",
+          "sha256": "2cfc44c74ac78db6b2111c1910908da103bca0945ac82dc230cf76aaf7d333d0",
+          "size": [
+            304,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/button_primary",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/button_primary.png",
+          "sha256": "74507aaf7c3daa2f727536307daad9f01968f0964b7d33f66df073c14ba4544c",
+          "size": [
+            311,
+            131
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/button_secondary",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/button_secondary.png",
+          "sha256": "3ab76faecb66b8d6eb2db0272f96226d88c6b6da439fdc08b07f039118900c17",
+          "size": [
+            298,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/dialogue_frame",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/dialogue_frame.png",
+          "sha256": "396ad733d71f858ae08a1098e63c3c980623e036101324020663e93b747b03be",
+          "size": [
+            994,
+            452
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/item_slot",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/item_slot.png",
+          "sha256": "4e5e296967cbaa45b6ca546463f8583602a60cbd89834ed5f21a981f350d49bb",
+          "size": [
+            218,
+            200
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/portrait_frame",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/portrait_frame.png",
+          "sha256": "f36c7d9fc7b404930bf51b3eb1e565cc79c04adef07ad259fbe9aab4a18d7109",
+          "size": [
+            251,
+            235
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/radar",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/radar.png",
+          "sha256": "20e883f1833ed57a5f581636a0c254fee900b2260bb75af4f7a480954a275063",
+          "size": [
+            338,
+            329
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/scroll_bar",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/scroll_bar.png",
+          "sha256": "2bcea75d5a5a7793f85f49360886b44fd6c775ff7f1eb1a5edcb1239ec936607",
+          "size": [
+            77,
+            437
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "ui/target_reticle",
+      "kind": "ui_reference",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/ui/target_reticle.png",
+          "sha256": "c5fe05dfe122c52fb288ef39f4997f0a53df1831b0bbd9e2b6a32056b63e1fc4",
+          "size": [
+            144,
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/bunker_door",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/bunker_door.png",
+          "sha256": "2a5c174e5fbd1e853a91a17e4916db9d9e62c23ddafd448fbeea0f44160a8d2f",
+          "size": [
+            505,
+            315
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/chainlink_fence",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/chainlink_fence.png",
+          "sha256": "659801415ebb3ecd386e4ba0ca5b972189fa848f083bbbce29b90b5cd07947ce",
+          "size": [
+            567,
+            252
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/concrete_barricade",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/concrete_barricade.png",
+          "sha256": "a223b433e8ba0789f290fbcbff3ca5f95288912a81e1354a2d97ce4d498e854e",
+          "size": [
+            339,
+            223
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/crt_terminal",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/crt_terminal.png",
+          "sha256": "1918ab374d2365a794dc70bdfe934bcf031f8a384ac4b5f3a6ed96dd254817da",
+          "size": [
+            262,
+            229
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/floodlight_pole",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/floodlight_pole.png",
+          "sha256": "e8e5d3bc30f566088c67ccc255ed182317f72fe846261a93d8a279b7ed60ca76",
+          "size": [
+            189,
+            325
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/generator",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/generator.png",
+          "sha256": "65aaeab582caaa740d506a1850c7dc618a5349e82045c675d0616d87229aed2e",
+          "size": [
+            326,
+            243
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/road_sign",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/road_sign.png",
+          "sha256": "34873a3ac30ba814c825f852cf6ed44971a91a68106eb7dbd8c004d3470e6faa",
+          "size": [
+            203,
+            318
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/road_tile",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/road_tile.png",
+          "sha256": "a636ba1d4fe9a09f53ea485fd69f39feb39b8fbc725b82a7c20bc9830a802a82",
+          "size": [
+            510,
+            251
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/rust_barrel",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/rust_barrel.png",
+          "sha256": "10b88925e2f052ec7e7ba44e7a5f22b75c3259c36fbbda148aec3ebcd0d353e0",
+          "size": [
+            161,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/sandbag_wall",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/sandbag_wall.png",
+          "sha256": "5afff8f2dac6630e4c121bf6bac6a1505184a05540a4ba51ccd460c89d8fe661",
+          "size": [
+            436,
+            243
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/scrap_pile",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/scrap_pile.png",
+          "sha256": "c35e0c1c85071c6dc14d9799455e556fef7b36d9bbed5d69f6a1d8beab74ff06",
+          "size": [
+            407,
+            241
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/supply_crate",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/supply_crate.png",
+          "sha256": "3c6c8eedecf222789bf0aa978d232b24c8e53363ac3e5479f059e208151818b8",
+          "size": [
+            344,
+            242
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/water_drum",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/water_drum.png",
+          "sha256": "c379a22dda54ead23860e6313cbbe9563200de4cca004810c26b0ca6884ad59d",
+          "size": [
+            181,
+            270
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "painterly_v3",
+      "ref": "master",
+      "manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+      "status": "published_draft_asset",
+      "id": "world/water_pump",
+      "kind": "draft_object",
+      "variants": [
+        {
+          "path": "art/production/painterly_v3/world/water_pump.png",
+          "sha256": "50004c132fd7563fc627bfcbec6bdfb8521aa59b8e1aa822e18d47782f57e885",
+          "size": [
+            231,
+            311
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "interior/medical_cabinet",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/interior/medical_cabinet.png",
+          "sha256": "af86da2939c1d15114076b1b750c4d289e49b6e9b9418a352f5d6684375e7b2c",
+          "size": [
+            428,
+            729
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "interior/potbelly_stove",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/interior/potbelly_stove.png",
+          "sha256": "2ca5031aac3c4cd4f060bb3f09aa14ebca98d0d69ded1e18cae3dcdd22bf0033",
+          "size": [
+            366,
+            739
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "interior/retro_refrigerator",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/interior/retro_refrigerator.png",
+          "sha256": "2bcec2e23438b7b468b1c1d639d486da3b03d9e2ebcb9fa57feaf9b68d104cf4",
+          "size": [
+            609,
+            701
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "interior/scavenger_workbench",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/interior/scavenger_workbench.png",
+          "sha256": "f95fce3316fa5891366f17124b82ce11c7c95258708d710c0e9a54fd3f38e750",
+          "size": [
+            733,
+            650
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "interior/steel_locker",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/interior/steel_locker.png",
+          "sha256": "fde8e829146749ca030291a9d8d91b74254921207b2ac167e67b67ec727acb57",
+          "size": [
+            356,
+            759
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "interior/vending_machine",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/interior/vending_machine.png",
+          "sha256": "a7e27681be136e4a4f5b47f2cd9c1cd9022f52ebf6ca220a515058d685fb6589",
+          "size": [
+            507,
+            731
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "settlement/abandoned_bus_shelter",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/settlement/abandoned_bus_shelter.png",
+          "sha256": "ca1e4c42d84397910e8d8385a150b6745ef88330e18b70be3397cd7bb06287e3",
+          "size": [
+            731,
+            701
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "settlement/abandoned_compact_car",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/settlement/abandoned_compact_car.png",
+          "sha256": "f29b4fc536f7537fa808cc07ec4c761140db7a5a9c0979bf2500b026bf0bc8cd",
+          "size": [
+            832,
+            552
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "settlement/dead_tree",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/settlement/dead_tree.png",
+          "sha256": "9c160f437edb4531b6364ddf8dffd295702250880fd0befc3a93bc3b4d124f1f",
+          "size": [
+            629,
+            733
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "settlement/salvage_market_stall",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/settlement/salvage_market_stall.png",
+          "sha256": "e8a0fcc80f9b1f8184e0a3691c01a02c90177c88e1641a61e77c5d4fcfa0f43f",
+          "size": [
+            713,
+            723
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "settlement/scrap_shack",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/settlement/scrap_shack.png",
+          "sha256": "b066cef11e575ff3536a3154bf5c43e54d531e90b813fb0120b2189c7f83679f",
+          "size": [
+            738,
+            681
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "settlement/water_tower",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/settlement/water_tower.png",
+          "sha256": "6f46a9f85edd0465dbc5062faa9757bd267296b7e4cfec3bc706fa166891741f",
+          "size": [
+            477,
+            745
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "weapons/compact_submachine_gun",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/weapons/compact_submachine_gun.png",
+          "sha256": "aa47390ec7de458910e771c7e9d607f36823eae12117fd18c45dac5168e7308b",
+          "size": [
+            867,
+            487
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "weapons/fragmentation_grenade",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/weapons/fragmentation_grenade.png",
+          "sha256": "4a2681e9b2cdd2e844e725ceca77d4c7e7496931e11147779c147e7af63b86cc",
+          "size": [
+            417,
+            660
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "weapons/heavy_revolver",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/weapons/heavy_revolver.png",
+          "sha256": "657db6815af91ba9e7e2a40fc176936ed7bcf8ec7fc75652eb413299c7d3e5c1",
+          "size": [
+            803,
+            539
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "weapons/laser_pistol",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/weapons/laser_pistol.png",
+          "sha256": "8c9ffd854d08b8ac67229c2261ca7b6ddd047febeb30644cab0aae636d672ff1",
+          "size": [
+            813,
+            567
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "weapons/pump_shotgun",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/weapons/pump_shotgun.png",
+          "sha256": "1f7a013f6c4289cffb5adff483dcca838199703bc389bd44427ed474675682c2",
+          "size": [
+            888,
+            400
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave01",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave01/manifest.json",
+      "status": "published_draft_asset",
+      "id": "weapons/sledgehammer",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave01/objects/weapons/sledgehammer.png",
+          "sha256": "9c766214601231bf1825087fc8d0495af8c3db1b729d841c42dcd408fd24a6be",
+          "size": [
+            821,
+            717
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave03_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave03_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "antenna_radio_tower",
+      "kind": "world",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave03_unique/world/antenna_radio_tower.png",
+          "sha256": "8054175ffb02ff56aab42ab2a42e8e4a03a14808e0a490f65eb7cb98e460f0b1",
+          "size": [
+            241,
+            346
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave03_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave03_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "campfire_with_kettle",
+      "kind": "world",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave03_unique/world/campfire_with_kettle.png",
+          "sha256": "e38e34c390e73340141e75c4c5f0d108ea2cf6b5c6bcef13538d8f1f60cfb856",
+          "size": [
+            295,
+            285
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave03_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave03_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "double_bunk_bed",
+      "kind": "world",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave03_unique/world/double_bunk_bed.png",
+          "sha256": "a629654846ddf445614d6e8998710d86405a1b67b6d2ecccbd8715b91bf341ce",
+          "size": [
+            301,
+            290
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave03_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave03_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "military_ammo_case",
+      "kind": "world",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave03_unique/world/military_ammo_case.png",
+          "sha256": "8564d42ef1793e6561ab29b1902df39b35644bb14f271cf388e61dd53e6461b2",
+          "size": [
+            296,
+            258
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave03_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave03_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "patched_leather_coat",
+      "kind": "equipment",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave03_unique/equipment/patched_leather_coat.png",
+          "sha256": "52c6b404920452c71f9cff68b36c8ee1a946b81f349a25b4a0bd0667929781f8",
+          "size": [
+            282,
+            303
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave03_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave03_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "steel_filing_cabinet",
+      "kind": "world",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave03_unique/world/steel_filing_cabinet.png",
+          "sha256": "66d945f5477ef54b0a6bedae03440ad58a539051d4b5b37b7ec7f0d1e62f5cab",
+          "size": [
+            210,
+            293
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave03_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave03_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "torn_settlement_sofa",
+      "kind": "world",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave03_unique/world/torn_settlement_sofa.png",
+          "sha256": "7904c3c9051d050ee66fc94723c0b8393ddd7734f849f4654a233aab9b34b101",
+          "size": [
+            360,
+            243
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "abandoned_motorcycle",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/urban/abandoned_motorcycle.png",
+          "sha256": "6f803ae31611004db9ee82fb5138e1ad79a9e966b23f0566b41e92cb21bfbbae",
+          "size": [
+            636,
+            590
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "air_compressor",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/industrial/air_compressor.png",
+          "sha256": "ac34c788268f937cd0d55e084875e1f4b1d6c11f9d6e75aa769a4aea1c89ae4d",
+          "size": [
+            650,
+            714
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "broken_park_bench",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/urban/broken_park_bench.png",
+          "sha256": "8b4e9697ebbce394f93f91d337a295f0fe97ffe75c751f4c564c6f46f26f9bc5",
+          "size": [
+            683,
+            618
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "fuse_cabinet",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/industrial/fuse_cabinet.png",
+          "sha256": "4567afded7618c650cf17b8869d9778f3038bdc57907af78b2cf530dc4ca17c7",
+          "size": [
+            622,
+            711
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "hydraulic_jack",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/industrial/hydraulic_jack.png",
+          "sha256": "0578a2aa8aaa772763e9e8e2ff05f65e1b8e445d7422a525630cd92e2f421696",
+          "size": [
+            764,
+            523
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "newspaper_box",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/urban/newspaper_box.png",
+          "sha256": "fe61013b67b42e53e31e01d48b989fd985d0ea6dc02554daa1d24413fa90f63d",
+          "size": [
+            548,
+            701
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "power_transformer",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/industrial/power_transformer.png",
+          "sha256": "b72ca8ef573afcb415824f660963ccc20157c26498e1a191e14c3ce06bc41745",
+          "size": [
+            647,
+            758
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "road_divider",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/urban/road_divider.png",
+          "sha256": "41b27404fe451c96bdff56f53d1c80f2f6bada9597787d2b91d3d09946dcf662",
+          "size": [
+            653,
+            564
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "shortwave_transmitter",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/industrial/shortwave_transmitter.png",
+          "sha256": "314dd72339c8cb2d6ee789502860ef382272bf886c2529dffe3224a910b517eb",
+          "size": [
+            581,
+            731
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "street_lamp",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/urban/street_lamp.png",
+          "sha256": "4566a2a5c55a48987c1b5bbf76566df7177b3eb27855ee524999d3bdaa36940c",
+          "size": [
+            409,
+            723
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "traffic_signal",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/urban/traffic_signal.png",
+          "sha256": "d84c6095bcab8f08efe41b717b943c39773539d979563c6cd65ce3323f3c0590",
+          "size": [
+            332,
+            731
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave04",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave04/manifest.json",
+      "status": "published_draft_asset",
+      "id": "water_purifier",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave04/objects/industrial/water_purifier.png",
+          "sha256": "0b1dda58d55ca5aa5a299d0aaf560a36a411bfbdfc331bc51f0db7295d57109a",
+          "size": [
+            707,
+            619
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave06_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave06_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "field_binoculars",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave06_unique/sprites/field_binoculars.png",
+          "sha256": "3749182af6fd06c77c88634158802dd263394e66c436d4a99ac46b4496a1e8de",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave06_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave06_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "field_cot",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave06_unique/sprites/field_cot.png",
+          "sha256": "2829dd5fb7f2cfb37a4427740b29ac9c5fe386a24a543501698a58fb012681c8",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave06_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave06_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "mechanical_safe",
+      "kind": "unknown",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave06_unique/sprites/mechanical_safe.png",
+          "sha256": "5b2cb7f2661dfd600d7be524b91341183f7dd003d85a8926d3de0e928724f1c6",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave07",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave07/manifest.json",
+      "status": "published_draft_asset",
+      "id": "ammunition_reloading_press",
+      "kind": "industrial",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave07/objects/ammunition_reloading_press.png",
+          "sha256": "6ac90c9865331536636f982aef194b4a4ae8c80438d831c3ae36929ad319422b",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave07",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave07/manifest.json",
+      "status": "published_draft_asset",
+      "id": "analog_oscilloscope",
+      "kind": "electronics",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave07/objects/analog_oscilloscope.png",
+          "sha256": "0bb4598599c707e92ede82667597dc37812fdf9a9b1f4095e64098ba6f9d70b9",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave07",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave07/manifest.json",
+      "status": "published_draft_asset",
+      "id": "industrial_lathe",
+      "kind": "machinery",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave07/objects/industrial_lathe.png",
+          "sha256": "570d91f12179386a0627667ba7ff0d6979563dc610f2e19355096b6672e9958c",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave07",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave07/manifest.json",
+      "status": "published_draft_asset",
+      "id": "meat_drying_rack",
+      "kind": "settlement",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave07/objects/meat_drying_rack.png",
+          "sha256": "f8b107f9db8924df2be915d5cd7d9f225877a5d86c00ba5e2b2266a785bd6a61",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave07",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave07/manifest.json",
+      "status": "published_draft_asset",
+      "id": "mobile_welding_cart",
+      "kind": "industrial",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave07/objects/mobile_welding_cart.png",
+          "sha256": "84f3ee4204c8d04e07420d4352777b48ed7220dff740f97d889f513ba4565d78",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave07",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave07/manifest.json",
+      "status": "published_draft_asset",
+      "id": "retro_jukebox",
+      "kind": "interior",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave07/objects/retro_jukebox.png",
+          "sha256": "b2cb15797b3d38a369ccba03f5c5c0c691ca81e4b509d918f80319dbe33e5eea",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave07",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave07/manifest.json",
+      "status": "published_draft_asset",
+      "id": "ventilation_fan",
+      "kind": "industrial",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave07/objects/ventilation_fan.png",
+          "sha256": "346a82278f682cfff3c6919771666ad2dd8b2e5ef043453408ef88160fe6544d",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave08",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave08/manifest.json",
+      "status": "published_draft_asset",
+      "id": "scavenged_medicine_bottles",
+      "kind": "inventory_medicine_loot",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave08/objects/scavenged_medicine_bottles.png",
+          "sha256": "1f29edd03a09bb0378683acc91ec5dee5bae151dec09bb3b7a0ca19fc786f38b",
+          "size": [
+            96,
+            98
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave09_unique",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave09_unique/manifest.json",
+      "status": "published_draft_asset",
+      "id": "salvaged_surgical_tools",
+      "kind": "medical_instrument_inventory",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave09_unique/objects/salvaged_surgical_tools.png",
+          "sha256": "e35662f9b206343b77cad055c6c156899b2abd9e1230c1d6b0b579a477dba3ca",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave10",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave10/manifest.json",
+      "status": "published_draft_asset",
+      "id": "salvaged_field_duffel",
+      "kind": "survival_container_inventory",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave10/objects/salvaged_field_duffel.png",
+          "sha256": "35a7f0c170e0d9a1c93a1636c6a4547ade6bef1a812f777fcd9ac3fffd66c74b",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave11",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave11/manifest.json",
+      "status": "published_draft_asset",
+      "id": "open_canned_beans",
+      "kind": "consumable_food_inventory",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave11/objects/open_canned_beans.png",
+          "sha256": "f196a94cf8f0183a132171da5ce4019abeb099fffcded9406e145dc2992409bb",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave11",
+      "ref": "master",
+      "manifest": "art/production/painterly_v4/wave11/manifest.json",
+      "status": "published_draft_asset",
+      "id": "salvaged_distillation_still",
+      "kind": "world_industrial_apparatus",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave11/objects/salvaged_distillation_still.png",
+          "sha256": "41ca59a58829b7ec3cbdb7b68ab92ee6dee59aa51a8d14c898588e0ec839e325",
+          "size": null
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "blue_wasteland_jacket",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/blue_wasteland_jacket_64.png",
+          "sha256": "6e128255b33975f2c967f1d6318a9f11a8170b13995f1254760564da62ab98f7",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/blue_wasteland_jacket_128.png",
+          "sha256": "b7ff9c082a7118e86ea2f16806d8a9a56449d7227584c6748515cf20b392607f",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/blue_wasteland_jacket_256.png",
+          "sha256": "de0c604bf0b0d5f833129c9812d9f21b7426787aad0fea146b6630926f77da14",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "concrete_barricade_piece",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/concrete_barricade_piece_256.png",
+          "sha256": "ffc1a5a36b2448255f84deaf330cbb88dacb264e20b4376b80409a6269f77754",
+          "size": 256
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/concrete_barricade_piece_384.png",
+          "sha256": "afe0ae5577b02769d9f81e1b38f1cf9e94c6a425154059947ebab1dde1bf92f5",
+          "size": 384
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "helmet_with_goggles",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/helmet_with_goggles_64.png",
+          "sha256": "67ff9ca47eeb80684549f2bf5a86a1513723d78c6cbdf8eed5ae163ff75fc1b1",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/helmet_with_goggles_128.png",
+          "sha256": "0b27d8284c010af377c44e7b503bb30b04bf7d8d59e8082be234b248b8e263f9",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/helmet_with_goggles_256.png",
+          "sha256": "e0bdc27bf5a41b775fb1b2f552110f095d590de472f5835997374e63075ac05c",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "portable_radiation_meter",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/portable_radiation_meter_64.png",
+          "sha256": "390fa47d6f5261f7f6f4983facdcf6aa28957a4597b9a1ec0549e75f79b0e588",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/portable_radiation_meter_128.png",
+          "sha256": "e7d0d405192634c903472fc01537ab26637d09ee86941ab29d62fcf15c583787",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/portable_radiation_meter_256.png",
+          "sha256": "7a274be17b493fa47580aad070b10269835ccb8732adaedd03192aa8ef2d4fa2",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "retro_crt_terminal",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/retro_crt_terminal_256.png",
+          "sha256": "dd3bcdff07b55f3f4ce31bba3e2a9fa81819528f31df4b2a38bc3c40e45a8ede",
+          "size": 256
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/retro_crt_terminal_384.png",
+          "sha256": "a2008d32d1a80bef94174f48537e2f993e20bf77e10d449b8f4d99c4796dc21f",
+          "size": 384
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "roadside_barrier_and_tires",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/roadside_barrier_and_tires_256.png",
+          "sha256": "0855ab59306ec048944bcb5a99a342d3e36e48294038988536cea5ef7d2a376b",
+          "size": 256
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/roadside_barrier_and_tires_384.png",
+          "sha256": "fa74b8dbda982862d6877f492eb1af6b38872b6724e49a4ce35d2521d7f56ce3",
+          "size": 384
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "scavenger_backpack",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/scavenger_backpack_64.png",
+          "sha256": "b3117741fa7c6f0da0d67c0119a60b3fd12411efb5eeda890f0614bb03fc7a23",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/scavenger_backpack_128.png",
+          "sha256": "c2d83e95bc99ae5d1c8a95005c4696ef0e3c6e0c7ecf4ce50bd2e163e23d9a19",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/scavenger_backpack_256.png",
+          "sha256": "08ce2ae2fe83bac061803a55e84dcf18f7108067f6374e9f75d4a4d2fe6f307f",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "surgical_tool_roll",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/surgical_tool_roll_64.png",
+          "sha256": "efc82176cfc6c895d336790d4badfb0a09c687a3b983b6d24d8a47157cec23f8",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/surgical_tool_roll_128.png",
+          "sha256": "0b93324d6d15292e972fd596b1c278ceeb5e275fae1afab2911348b4b7e47d24",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/surgical_tool_roll_256.png",
+          "sha256": "71c8a62ef3108870959175b097458d324bcd822db85feb170098728e809e7f91",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "used_tire_stack",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/used_tire_stack_256.png",
+          "sha256": "211869a595eec57fb416d8398612b55792dd376a2c47c651982ae6e3f1f5467f",
+          "size": 256
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/used_tire_stack_384.png",
+          "sha256": "d6e300a8f448e1e8a2d9294089a4df8eb7143c50e32b83fd1bd9c29764c8814b",
+          "size": 384
+        }
+      ]
+    },
+    {
+      "wave": "wave12",
+      "ref": "art/radzone-wave12-wasteland-objects",
+      "manifest": "art/production/painterly_v4/wave12/manifest.json",
+      "status": "staged_unapproved",
+      "id": "wasteland_field_boots",
+      "kind": "prop_or_item",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave12/objects/wasteland_field_boots_64.png",
+          "sha256": "f8ad5fb2c78abd69d013bb7fefb40b33512f0f1b505f75a15faa0882f0a13328",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/wasteland_field_boots_128.png",
+          "sha256": "cc466b37ec41f5615fe2867cee16eaff6c09feaaa60ff88e7512c864c1ad047f",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave12/objects/wasteland_field_boots_256.png",
+          "sha256": "2b1d6d33762a3d51d664e582f769e47fd5cbab68746d1cccbe45d6bfb4566ef3",
+          "size": 256
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "antique_cash_register",
+      "kind": "commerce",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/antique_cash_register_128.png",
+          "sha256": "90560b28b23aae75d51ca9a08d88ff2d4c2b9325a0d19415f8efffc919cb0a21",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/antique_cash_register_256.png",
+          "sha256": "a541037fd137837ea4d089bb4e5574a8d3270ab4f5eae772a8a0c5ac6f652c44",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "corroded_street_dumpster",
+      "kind": "street",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/corroded_street_dumpster_128.png",
+          "sha256": "e1c7183275ae622e9ce912954fddabac4b793e520c66f34011372d07d82d697d",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/corroded_street_dumpster_256.png",
+          "sha256": "e6723d26a870271d2c3c3e24397db724a6ea71051bbab6201e376307b4cdb64b",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "field_medical_gurney",
+      "kind": "medical",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/field_medical_gurney_128.png",
+          "sha256": "c23fee7ef0d1e17b256b8eb69bb1a40e928089ab524b1751b2550b03a5beb2f4",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/field_medical_gurney_256.png",
+          "sha256": "2e20ac7f4cc0482d9ecb6af9a191cf4a01e3b2385dd8df20722b94dc460ac49d",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "glass_market_display",
+      "kind": "commerce",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/glass_market_display_128.png",
+          "sha256": "2a69305694957e17ffcb3d48e775adb379d32fc528b789acbcad64e73aa06b55",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/glass_market_display_256.png",
+          "sha256": "400d92bd44ffa1b90c3b056b5257b919adb65f9d96cba15cd0db4d5bd0afa619",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "portable_dual_floodlight",
+      "kind": "street",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/portable_dual_floodlight_128.png",
+          "sha256": "b112a5820a4591c72208e77d1b0c8cccadee1a133d720cca8513681e45b98013",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/portable_dual_floodlight_256.png",
+          "sha256": "7f1703e487b0d95d964e3e9bc914d64c23c902ddd4724620f570a5699fca9b73",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "rusted_air_conditioner",
+      "kind": "machinery",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/rusted_air_conditioner_128.png",
+          "sha256": "5f0a7763c1035bdfdd14a8df3f71f5308ea6c68fd4a75c8950218f5de4fd3d82",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/rusted_air_conditioner_256.png",
+          "sha256": "676490c75914334e4f67dd998c67cf11b6e69248bc5a91b568888783016ca33f",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "settlement_canned_goods_shelf",
+      "kind": "commerce",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_canned_goods_shelf_128.png",
+          "sha256": "62a01a6c80823675b81c371cbfc0a2d6b16b77c654f7120daac9fa44ccee8f06",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_canned_goods_shelf_256.png",
+          "sha256": "89fbfe7552e75166a0b7ad7ac3751c61d76e7e3674c28ec81e32e88077b79ef7",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "settlement_loudspeaker_pole",
+      "kind": "street",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_loudspeaker_pole_128.png",
+          "sha256": "0d3aae96e11fb79b01ac10675858f65790d4bd115ff71a285fe2b484c81654c0",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_loudspeaker_pole_256.png",
+          "sha256": "e9360da17cdadc4b0f86e109c3ac57629d61359339d39bc5104164a63c33ceb8",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "settlement_notice_board",
+      "kind": "interior",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_notice_board_128.png",
+          "sha256": "b2176eafb053148923fe1b880977b380152b12932355651305943ca30b572442",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_notice_board_256.png",
+          "sha256": "3d810518533c7c0ba1001d5291c4ab39e5f3834d32c7400c4adb569f12f452e7",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "wave": "wave13",
+      "ref": "art/radzone-wave13-settlement-props",
+      "manifest": "art/production/painterly_v4/wave13/manifest.json",
+      "status": "staged_unapproved",
+      "id": "worn_leather_armchair",
+      "kind": "interior",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/worn_leather_armchair_128.png",
+          "sha256": "f7e4b4d844f6dd2cd96b0dbbb7ae8c40743ede998d47ef514cf4c707a5bd84ec",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/worn_leather_armchair_256.png",
+          "sha256": "8f44286ec2c9e882efcfe358289f3a2d27cee053c5227b9552c2aa24858da303",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    }
+  ]
+}
