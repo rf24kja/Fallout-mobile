@@ -25,8 +25,9 @@ def check(path: Path) -> dict:
         image.verify()
     with Image.open(path) as image:
         result.update(width=image.width, height=image.height, mode=image.mode, format=image.format)
-        if "A" in image.getbands():
-            lo, hi = image.getchannel("A").getextrema()
+        if "A" in image.getbands() or "transparency" in image.info:
+            # Paletted PNGs may store transparency in tRNS rather than an A band.
+            lo, hi = image.convert("RGBA").getchannel("A").getextrema()
             result.update(alpha_channel_present=True, has_transparent_pixels=lo < 255,
                           fully_transparent=hi == 0)
         else:
