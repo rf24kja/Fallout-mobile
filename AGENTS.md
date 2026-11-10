@@ -1,5 +1,9 @@
 # AGENTS.md — Fallout 2 Reborn Mobile
 
+## Mandatory graphics-provider directive (owner, 2026-11-10)
+
+**Applies to all art/visual agents:** [GRAPHICS_CANONICAL_RULES.md](docs/art/GRAPHICS_CANONICAL_RULES.md) is the canonical graphics production policy. The owner **forbids Runway** (sometimes called Railway) and any substitute third-party image-generation service. **Only ChatGPT's built-in image-generation capability** may generate new RADZONE art unless the owner explicitly changes this rule. OpenCode must not switch providers. The 2026-11-10 Runway generation is `REJECTED_WRONG_PROVIDER` and must not be published as an asset. Any portrait, poster, collage, or concept sheet is **not** an in-game PNG sprite. Before generation: inspect approved v2 screens, the cross-branch asset registry and visual duplicates. Before publishing: verify PNG/alpha/provenance, label as candidate, use `art/*` PR, never claim Android validation without runtime proof. This graphics directive does not alter Fallout 2 gameplay fidelity or REA restrictions.
+
 ## Agent Guidelines
 
 ### Primary Agent: Technical Supervisor

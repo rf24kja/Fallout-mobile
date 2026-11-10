@@ -1,5 +1,7 @@
 # RADZONE — Graphics Pipeline & Publication Rules
 
+> **Owner directive 2026-11-10:** The authoritative rules are [GRAPHICS_CANONICAL_RULES.md](./GRAPHICS_CANONICAL_RULES.md). Only ChatGPT's built-in image generation is permitted. **Do not use Runway** or a replacement external generator. No graphic is a game-ready sprite until isolated PNG files and runtime checks prove it.
+
 ## Scope
 
 - User-approved **cinematic retro-CRPG concepts** define final game quality.
@@ -20,9 +22,9 @@ screenshots/actual/            // Captures from running game ONLY
 
 ## Process
 
-1. Map the real Godot resource or item/NPC ID. Inspect existing character/weapon atlasses and visual layer contracts.
-2. Produce original reference art at the approved lighting, materials and isometric perspective.
-3. **Human approval** before replacing baseline game art or showing new sources as final.
+1. First check cross-branch `art/production/catalog/asset_registry.json`, semantic aliases and visually similar images. Do not generate duplicates. Then map the real Godot resource or item/NPC ID. Inspect existing character/weapon atlasses and visual layer contracts.
+2. Use only ChatGPT's built-in image-generation capability for **new** original art; never substitute Runway or another model provider. Require one isolated object per asset (unless a concept sheet was expressly requested). Produce original reference art at the approved lighting, materials and isometric perspective.
+3. Review actual output pixels. Reject poster/collage/text overlays as `REJECTED_WRONG_FORMAT`; mark any unauthorized provider `REJECTED_WRONG_PROVIDER`. **Human approval** before replacing baseline game art or showing new sources as final.
 4. Produce isolated transparent PNG exports per component, not only a multi-object collaged sheet.
 5. Record art source, content hash, size, canvas, alpha, orientation, rig/socket anchors, expected in-game pixel scale, animation mapping and draw order.
 6. Validate 8-direction frames and alpha halos. Use deterministic source re-exports when corrections are needed.

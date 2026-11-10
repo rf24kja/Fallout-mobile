@@ -1,5 +1,7 @@
 # RADZONE — Art Handoff to OpenCode
 
+> **Mandatory owner rule:** [GRAPHICS_CANONICAL_RULES.md](./GRAPHICS_CANONICAL_RULES.md). ChatGPT makes new RADZONE graphics **only with its built-in image tool**; no Runway (aka Railway), no alternate third-party generator. OpenCode imports and verifies provided art but may not autonomously choose another image-generation provider. Poster/board outputs are not isolated engine sprites.
+
 ## Responsibilities
 
 **ChatGPT:** creates the visual reference artwork, variant concepts, modular graphics, naming and manifests, and publishes graphics and visual documentation to GitHub.
