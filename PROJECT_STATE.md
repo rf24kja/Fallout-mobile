@@ -220,20 +220,29 @@ Implemented explicit save schema versioning and migration from v1 (old SPECIAL n
 - **Total: 32/32 PASS**
 
 ---
-
-### DT/DR Damage Fidelity Verification ✅ (2026-11-10)
-- **DT/DR Formula**: Verified against Fallout 2 Community Edition combat.cc reference
-- **Ammo Modifiers**: JHP (1.4 dmg, 1.5 DT, 1.0 DR), AP (0.8 dmg, 0.5 DT, 1.0 DR), Standard (1.0, 1.0, 1.0) — matching vanilla
-- **Damage Formula**: `(raw * dmg_mod - DT * dt_mod) * (1 - DR * dr_mod / 100)` with floor and minimum 1 clamp — matches Fallout 2
-- **Tests**: `tests/test_dtdr_fidelity.gd` — 25 tests ALL PASS
-  - Basic DT/DR calculation (no armor, light, heavy)
-  - JHP/AP/Standard ammo modifier tests vs various armor tiers
-  - Minimum damage clamp verification
-  - Ammo type parsing from ItemDatabase
-  - Weapon damage bonus integration
-
+ 
+## DT/DR Damage Fidelity Verification ✅ (2026-11-10 — CORRECTED 2026-11-10)
+- **Vanilla Algorithm**: Implemented exact Fallout 2 Community Edition combat.cc DAMAGE_CALCULATION_TYPE_VANILLA
+- **Ammo Prototype Parameters**: Updated from generic multipliers to exact fallout2-ce values
+  - 10mm JHP: damage_multiplier=2, damage_divisor=1, damage_resistance_modifier=+25, armor_class_modifier=+25
+  - 10mm AP: damage_multiplier=1, damage_divisor=2, damage_resistance_modifier=-25, armor_class_modifier=-25
+  - All ammo types now use correct vanilla field names (damage_multiplier, damage_divisor, damage_resistance_modifier, armor_class_modifier)
+- **Damage Formula** (exact vanilla order):
+  1. damage = weaponDamage + damageBonus
+  2. damage *= damageMultiplier
+  3. if damageDivisor != 0: damage /= damageDivisor
+  4. damage /= 2 (vanilla mystery halving)
+  5. damage *= combatDifficultyDamageModifier / 100
+  6. damage -= damageThreshold
+  7. if damage > 0: damage -= damage * damageResistance / 100
+  8. NO minimum 1 damage clamp (vanilla allows zero)
+- **Critical Armor Bypass**: Leaves 20% DT/DR (not 25%)
+- **DR Modifier**: Adds to target resistance (DR += modifier), clamped 0-100 (not multiply)
+- **Tests**: `tests/test_dtdr_fidelity.gd` — 25 tests ALL PASS (vanilla-correct expected values)
+- **Python Validation**: `scripts/test_combat_damage.py` — 14 test groups ALL PASS (Standard/JHP/AP vs Leather/Combat/T-51b/Enclave, Energy weapons with ignore_DT, Shotgun variants, Zero damage allowed, Critical bypass 20%)
+ 
 ---
-
+ 
 ## Next Actions
 
 See `docs/NEXT_ACTIONS.md` for full execution queue.
