@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/portable_radiation_meter_256.png" id="1_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/retro_crt_terminal_256.png" id="2_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/surgical_tool_roll_256.png" id="3_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/scavenger_backpack_256.png" id="4_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/wasteland_field_boots_256.png" id="5_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/helmet_with_goggles_256.png" id="6_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/blue_wasteland_jacket_256.png" id="7_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/roadside_barrier_and_tires_256.png" id="8_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/concrete_barricade_piece_256.png" id="9_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave12/objects/used_tire_stack_256.png" id="10_tex"]
+
+[node name="Wave12AssetReview" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.07, 0.09, 0.08, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+enabled = true
+
+[node name="Asset_1" type="Sprite2D" parent="."]
+position = Vector2(136, 203)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("1_tex")
+
+[node name="Name_1" type="Label" parent="."]
+position = Vector2(31, 319)
+text = "portable radiation meter"
+
+[node name="Asset_2" type="Sprite2D" parent="."]
+position = Vector2(386, 203)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("2_tex")
+
+[node name="Name_2" type="Label" parent="."]
+position = Vector2(281, 319)
+text = "retro crt terminal"
+
+[node name="Asset_3" type="Sprite2D" parent="."]
+position = Vector2(636, 203)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("3_tex")
+
+[node name="Name_3" type="Label" parent="."]
+position = Vector2(531, 319)
+text = "surgical tool roll"
+
+[node name="Asset_4" type="Sprite2D" parent="."]
+position = Vector2(886, 203)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("4_tex")
+
+[node name="Name_4" type="Label" parent="."]
+position = Vector2(781, 319)
+text = "scavenger backpack"
+
+[node name="Asset_5" type="Sprite2D" parent="."]
+position = Vector2(1136, 203)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("5_tex")
+
+[node name="Name_5" type="Label" parent="."]
+position = Vector2(1031, 319)
+text = "wasteland field boots"
+
+[node name="Asset_6" type="Sprite2D" parent="."]
+position = Vector2(136, 548)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("6_tex")
+
+[node name="Name_6" type="Label" parent="."]
+position = Vector2(31, 664)
+text = "helmet with goggles"
+
+[node name="Asset_7" type="Sprite2D" parent="."]
+position = Vector2(386, 548)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("7_tex")
+
+[node name="Name_7" type="Label" parent="."]
+position = Vector2(281, 664)
+text = "blue wasteland jacket"
+
+[node name="Asset_8" type="Sprite2D" parent="."]
+position = Vector2(636, 548)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("8_tex")
+
+[node name="Name_8" type="Label" parent="."]
+position = Vector2(531, 664)
+text = "roadside barrier and tires"
+
+[node name="Asset_9" type="Sprite2D" parent="."]
+position = Vector2(886, 548)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("9_tex")
+
+[node name="Name_9" type="Label" parent="."]
+position = Vector2(781, 664)
+text = "concrete barricade piece"
+
+[node name="Asset_10" type="Sprite2D" parent="."]
+position = Vector2(1136, 548)
+scale = Vector2(0.82, 0.82)
+texture_filter = 2
+texture = ExtResource("10_tex")
+
+[node name="Name_10" type="Label" parent="."]
+position = Vector2(1031, 664)
+text = "used tire stack"
