@@ -89,6 +89,11 @@
       "wave": "industrial_props_v1",
       "ref": "art/pipeline-staging-20261110",
       "manifest": "art/production/props_v1/MANIFEST.json"
+    },
+    {
+      "wave": "wave14",
+      "ref": "art/radzone-wave14-game-sprites-20261110",
+      "manifest": "art/production/painterly_v4/wave14/manifest.json"
     }
   ],
   "families": [
@@ -3254,6 +3259,108 @@
             256,
             256
           ]
+        }
+      ]
+    },
+    {
+      "wave": "wave14",
+      "ref": "art/radzone-wave14-game-sprites-20261110",
+      "manifest": "art/production/painterly_v4/wave14/manifest.json",
+      "status": "staged_unapproved",
+      "id": "plasma_rifle",
+      "kind": "weapon_visual_variant",
+      "gameplay_item_id": "plasma_rifle",
+      "subject_status": "existing_gameplay_item_new_art",
+      "source_original_sha256": "bc78707b1a0366fffe883e44be83b7782db95551b50641ac0afd7bd577fc8dab",
+      "source_archive_repo_path": "art/production/painterly_v4/wave14/plasma_rifle/source_archive.webp",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave14/plasma_rifle/icon_64.png",
+          "sha256": "0cd7a3783ab1eab4c6bd4dbae8c6f73d00bac1080f0e56fbb6ade9942ff17264",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/plasma_rifle/icon_128.png",
+          "sha256": "9b9d8238d955179287faf9c9b31e2a935f55769974abcc4154fcbd5d667b8536",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/plasma_rifle/sprite_256.png",
+          "sha256": "0e4da4dbea36aef3e58ffb3e7f8082f93e23fb0ee7574c92088d8877af773310",
+          "size": 256
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/plasma_rifle/inspection_512.png",
+          "sha256": "98256a10330d09ea04269ef87d55fa1aebd884fd24c490f4299c168c10058783",
+          "size": 512
+        }
+      ]
+    },
+    {
+      "wave": "wave14",
+      "ref": "art/radzone-wave14-game-sprites-20261110",
+      "manifest": "art/production/painterly_v4/wave14/manifest.json",
+      "status": "staged_unapproved",
+      "id": "reinforced_knee_guards",
+      "kind": "armor_visual_candidate",
+      "gameplay_item_id": null,
+      "subject_status": "art_subject_without_gameplay_id",
+      "source_original_sha256": "983ebbb7ded68b919ab8a1260d5b4187f9f885c86ee1262b018a2fc873222910",
+      "source_archive_repo_path": "art/production/painterly_v4/wave14/reinforced_knee_guards/source_archive.webp",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave14/reinforced_knee_guards/icon_64.png",
+          "sha256": "4af5ea9b6c45061d59e7e325b372dd4ba0dca1484e74b9c4e9840150b48cc103",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/reinforced_knee_guards/icon_128.png",
+          "sha256": "b3c6a02353faedaf53525f894436d42272b1c4cf2e393d3dfb19a2d56c84773e",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/reinforced_knee_guards/sprite_256.png",
+          "sha256": "77e6e2ffc37f131aa06e0ea1dc5d840cf5cad38b59cfce5ee5df86a584e0c2c3",
+          "size": 256
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/reinforced_knee_guards/inspection_512.png",
+          "sha256": "b2a1d521ca683016e9bab40590a18edbc1e1d7eda3b38c1023f62c8a3a32fda0",
+          "size": 512
+        }
+      ]
+    },
+    {
+      "wave": "wave14",
+      "ref": "art/radzone-wave14-game-sprites-20261110",
+      "manifest": "art/production/painterly_v4/wave14/manifest.json",
+      "status": "staged_unapproved",
+      "id": "water_purification_tablets",
+      "kind": "existing_utility_icon_candidate",
+      "gameplay_item_id": "water_purification_tablets",
+      "subject_status": "existing_gameplay_item_new_art",
+      "source_original_sha256": "2f4d5e33f534c738220680ae40862dc6cf89b46bb62a39ff5f8308596ebb12da",
+      "source_archive_repo_path": "art/production/painterly_v4/wave14/water_purification_tablets/source_archive.webp",
+      "variants": [
+        {
+          "path": "art/production/painterly_v4/wave14/water_purification_tablets/icon_64.png",
+          "sha256": "a81c6c057e1c5a4c1ff4bfafab40bd835d26584db4801801b7a7694a8163ae64",
+          "size": 64
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/water_purification_tablets/icon_128.png",
+          "sha256": "be7546f4c7e602fe5f6071400d74cd7d0c8bd37f7a1c312412b9b2ec32da1b5c",
+          "size": 128
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/water_purification_tablets/sprite_256.png",
+          "sha256": "6a79270b6eb7726cbdeeeee23f593b968cc4ae4c6d48a0f4e7d6803de2586b3f",
+          "size": 256
+        },
+        {
+          "path": "art/production/painterly_v4/wave14/water_purification_tablets/inspection_512.png",
+          "sha256": "4a6a7ce4975ebfd92bd204df42dfa3c8e4fa0c2d461edcbb1750de2c2557d819",
+          "size": 512
         }
       ]
     }

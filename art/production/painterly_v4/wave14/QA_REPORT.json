@@ -1,0 +1,40 @@
+{
+  "batch": "RADZONE_WAVE14_GAME_ASSET_CANDIDATES",
+  "status": "PNG_VALIDATED__GODOT_AND_ANDROID_UNTESTED",
+  "generated_subjects": 3,
+  "new_gameplay_item_ids": 0,
+  "new_visual_subject_without_gameplay_id": [
+    "reinforced_knee_guards"
+  ],
+  "existing_gameplay_visual_candidates": [
+    "plasma_rifle",
+    "water_purification_tablets"
+  ],
+  "source_type": "individual ChatGPT-generated transparent item images, NOT multi-item collage",
+  "file_tests": {
+    "png_signature_pass": 12,
+    "png_rgba_alpha_pass": 12,
+    "dimensions_and_sha256_pass": 12,
+    "archive_webp_alpha_sha256_pass": 3,
+    "godot_preview_references_pass": 6,
+    "review_sheet_sha256_pass": 1
+  },
+  "runtime_tests": {
+    "godot_4_7_2": "NOT_RUN__NOT_INSTALLED",
+    "android": "NOT_RUN__NO_ANDROID_DEVICE_OR_ADB"
+  },
+  "duplicate_control": {
+    "registry": "art/production/catalog/asset_registry.json",
+    "semantic_id_check": "new subject ID knee guards absent; other two are pre-existing gameplay item IDs",
+    "pixel_level_full_historical_branch_check": "INCOMPLETE_NOT_ALL_IMAGES_LOCAL"
+  },
+  "production_cautions": [
+    "All files remain staged for user review; never overwrite live assets without visual and runtime QA",
+    "Distinct visual subjects are not new RPG item IDs",
+    "64px weapon icon needs in-game legibility check",
+    "No new armor gameplay slot/stats for knee guards",
+    "Source archive WebP is quality 92 and not an exact byte copy of source PNG",
+    "Commercial likeness/IP rights require review"
+  ],
+  "cost": "No paid GitHub Actions or image-generation API key usage reported by this workflow"
+}

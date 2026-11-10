@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave14/reinforced_knee_guards/sprite_256.png" id="1_world"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave14/reinforced_knee_guards/icon_64.png" id="1_icon"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave14/plasma_rifle/sprite_256.png" id="2_world"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave14/plasma_rifle/icon_64.png" id="2_icon"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave14/water_purification_tablets/sprite_256.png" id="3_world"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave14/water_purification_tablets/icon_64.png" id="3_icon"]
+
+[node name="Wave14_ArtReview" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.075, 0.082, 0.076, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640,360)
+enabled = true
+
+[node name="Sprite_reinforced_knee_guards" type="Sprite2D" parent="."]
+position = Vector2(212, 276)
+texture_filter = 2
+texture = ExtResource("1_world")
+
+[node name="Icon_reinforced_knee_guards" type="Sprite2D" parent="."]
+position = Vector2(212, 535)
+texture_filter = 2
+texture = ExtResource("1_icon")
+
+[node name="Name_reinforced_knee_guards" type="Label" parent="."]
+position = Vector2(32, 602)
+text = "reinforced knee guards"
+
+[node name="Sprite_plasma_rifle" type="Sprite2D" parent="."]
+position = Vector2(638, 276)
+texture_filter = 2
+texture = ExtResource("2_world")
+
+[node name="Icon_plasma_rifle" type="Sprite2D" parent="."]
+position = Vector2(638, 535)
+texture_filter = 2
+texture = ExtResource("2_icon")
+
+[node name="Name_plasma_rifle" type="Label" parent="."]
+position = Vector2(458, 602)
+text = "plasma rifle"
+
+[node name="Sprite_water_purification_tablets" type="Sprite2D" parent="."]
+position = Vector2(1064, 276)
+texture_filter = 2
+texture = ExtResource("3_world")
+
+[node name="Icon_water_purification_tablets" type="Sprite2D" parent="."]
+position = Vector2(1064, 535)
+texture_filter = 2
+texture = ExtResource("3_icon")
+
+[node name="Name_water_purification_tablets" type="Label" parent="."]
+position = Vector2(884, 602)
+text = "water purification tablets"
