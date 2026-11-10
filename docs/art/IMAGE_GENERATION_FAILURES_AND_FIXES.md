@@ -36,3 +36,9 @@ We cannot disable or override provider safety checks. For ordinary, legitimate R
 | User-accepted + in-game tested | `APPROVED_FOR_PRODUCTION` | Promote using reviewed PR |
 
 **Do not upload or label a refused, missing, promotional, watermarked, or unsuitable image as a finished game asset.**
+
+## 2026-11-10 follow-up: output-format failure
+
+A single explicitly requested `reinforced_knee_guards` (new distinct leg-armor subject) **did not produce a usable object image**. Instead the generator returned a promotional **RADZONE Wave 14 / +64 objects** poster, reusing previously represented item classes. Its fake publication status, counts, branded elements and graphical grid make it unsuitable for sprite extraction or an accurate game-art inventory. **Accepted new objects: 0; uploaded game PNGs: 0; registry additions: 0.** No poster was published as a game asset.
+
+This is an output-format/adherence failure, different from the earlier malformed animation request and the opaque safety-filter refusal. The provider/model internals were not available, so no definitive root cause is asserted. The practical guard is to **reject poster layouts during QA**, require one new, isolated, source-sized image with real transparency, and record the rejected attempt rather than inflating production counts. Switching to a different provider may require credentials/credits and explicit authorization; do not spend money automatically.
