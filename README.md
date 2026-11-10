@@ -1,140 +1,66 @@
-# Fallout 2 Reborn Mobile
+<p align="center"><img src="./github-assets/approved/radzone-hero-approved.webp" width="100%" alt="RADZONE — official approved visual direction, concept artwork"/></p>
+<p align="center"><a href="./README.md">English</a> &nbsp;·&nbsp; <a href="./README.ru.md">Русский</a> &nbsp;·&nbsp; <a href="./README.es.md">Español</a> &nbsp;·&nbsp; <a href="./README.de.md">Deutsch</a> &nbsp;·&nbsp; <a href="./README.fr.md">Français</a></p>
 
-A faithful mobile adaptation of the classic **Fallout 2** RPG, built with **Godot 4.7.2** for Android.
+# RADZONE
 
-## Project Objective
+<p align="center"><strong>A post-apocalyptic mobile RPG crafted for fans of Fallout 2.</strong></p>
 
-Create a modern mobile version of Fallout 2 that preserves **100% of the original gameplay mechanics** while adding:
-- Modern graphical presentation
-- Mobile-optimized touch controls
-- Performance optimizations for mobile devices
-- Additional content extending the original foundation
+**The old-school RPG feel, rebuilt for touch.** RADZONE aims to retain the tactical depth, SPECIAL character building, equipment choices, branching conversations and wasteland atmosphere that made the classic memorable, while bringing original cinematic artwork and mobile-friendly interaction.
 
-## Current Development Status
+## Approved RADZONE visuals
 
-| System | Status |
-|--------|--------|
-| Core SPECIAL System | ✅ Verified Original Fidelity |
-| Character Creation | ✅ Implemented |
-| Combat Mechanics (AP, DT/DR, Criticals) | ✅ Verified Original Fidelity |
-| Inventory & Equipment | ✅ Implemented |
-| NPC Interaction & Dialogue | ✅ Implemented |
-| Quest System | ✅ Partial |
-| World Map & Locations | ✅ Partial |
-| Save/Load System | ✅ Implemented |
-| Android Build | ✅ Working (Debug) |
-| Touch Controls | ✅ Implemented |
+<p align="center"><a href="./github-assets/approved/radzone-approved-gallery.webp"><img src="./github-assets/approved/radzone-approved-gallery.webp" width="100%" alt="Ten user-approved RADZONE visual concepts; not real gameplay screenshots"/></a></p>
+<p align="center">
+<a href="./github-assets/approved/v2/01-main-menu.webp"><img src="./github-assets/approved/v2/01-main-menu.webp" width="19%" alt="RADZONE approved concept: 01-main-menu"/></a>
+<a href="./github-assets/approved/v2/02-character-special.webp"><img src="./github-assets/approved/v2/02-character-special.webp" width="19%" alt="RADZONE approved concept: 02-character-special"/></a>
+<a href="./github-assets/approved/v2/03-dialogue.webp"><img src="./github-assets/approved/v2/03-dialogue.webp" width="19%" alt="RADZONE approved concept: 03-dialogue"/></a>
+<a href="./github-assets/approved/v2/04-world-map-quests.webp"><img src="./github-assets/approved/v2/04-world-map-quests.webp" width="19%" alt="RADZONE approved concept: 04-world-map-quests"/></a>
+<a href="./github-assets/approved/v2/05-inventory-icon-reference.webp"><img src="./github-assets/approved/v2/05-inventory-icon-reference.webp" width="19%" alt="RADZONE approved concept: 05-inventory-icon-reference"/></a>
+</p>
+<p align="center">
+<a href="./github-assets/approved/v2/06-exploration.webp"><img src="./github-assets/approved/v2/06-exploration.webp" width="19%" alt="RADZONE approved concept: 06-exploration"/></a>
+<a href="./github-assets/approved/v2/07-tactical-combat.webp"><img src="./github-assets/approved/v2/07-tactical-combat.webp" width="19%" alt="RADZONE approved concept: 07-tactical-combat"/></a>
+<a href="./github-assets/approved/v2/08-barter.webp"><img src="./github-assets/approved/v2/08-barter.webp" width="19%" alt="RADZONE approved concept: 08-barter"/></a>
+<a href="./github-assets/approved/v2/09-loot-container.webp"><img src="./github-assets/approved/v2/09-loot-container.webp" width="19%" alt="RADZONE approved concept: 09-loot-container"/></a>
+<a href="./github-assets/approved/v2/10-skills-perks.webp"><img src="./github-assets/approved/v2/10-skills-perks.webp" width="19%" alt="RADZONE approved concept: 10-skills-perks"/></a>
+</p>
 
-**Latest Verified Android Build**: `builds/android/Fallout2_Reborn_Mobile_Debug.apk` (Commit `16a893b`)
+> **Visual development concepts — NOT screenshots of a playable Android build.** These ten images are the **user-approved art direction**. They show how the final game *should* look, not features already present in the Godot prototype.
 
-## Quick Start
+## Equipment you actually see
 
-### Prerequisites
-- **Godot 4.7.2** (standard or .NET version)
-- **Android SDK** (API 31+)
-- **Java 17+** (for Android export)
-- **Original Fallout 2 installation** (for reference data only - not included)
+Our target is a **responsive visual equipment system**: draw a pistol and it appears in the character's hand; equip a rifle or knife and the pose changes; swap leather, metal, advanced armor, helmet, mask or backpack and the on-screen character changes accordingly. The goal covers the playable hero **and NPCs**, not only inventory statistics. Integration is **planned/in progress**, not a completed feature.
 
-### Opening the Project
-1. Clone this repository
-2. Open `Fallout2_Reborn_Mobile` in Godot 4.7.2
-3. The project should load automatically
+We are designing distinct silhouettes and appearances for men, women, young and older characters, and varied communities, with contextual attire, bodies and equipment. Raiders, travelers, guards, merchants and creature types need recognizable visuals rather than one repeating NPC sprite.
 
-### Android Build
-```bash
-# From Godot Editor: Project → Export → Android → Export Project
-# Or via command line (requires export templates):
-godot --headless --export-release "Android" builds/android/Fallout2_Reborn_Mobile.apk
-```
+## Classic interface, modern environment
 
-### Required Original Game Data
-The original Fallout 2 installation is **NOT included** in this repository (copyright).
-You need a legitimate copy of Fallout 2 for reference data:
-- Location: `C:\Code\REA_FALLOUT\Fallout2` (configured in project settings)
-- Used for: Reverse engineering reference, asset comparison, mechanics verification
+- Long, scrollable dialogue text with green CRT terminal lettering and branching choices.
+- Riveted bronze/steel controls, industrial panels, readable touch targets.
+- Eight-direction character sprites, combat poses, weapon overlays and layered armor.
+- Detailed isometric settlements and interactable props.
+- Tactical AP, hit-location targeting, equipment and inventory information anchored to **actual game data**, not text baked into images.
 
-## Development Tools
+## Development status
 
-| Tool | Purpose |
-|------|---------|
-| **Godot 4.7.2** | Game engine |
-| **REA (Reverse Engineering Assistant)** | Binary analysis of original Fallout 2 |
-| **Ghidra** | Decompilation and reverse engineering |
-| **ADB** | Android debugging and deployment |
+| Area | Status |
+|---|---|
+| Godot and Android | Active prototype; no public stable release announced |
+| Gameplay fidelity | Under verification against original Fallout 2 |
+| RADZONE public visual direction | **10 concept screens approved** |
+| Production assets and equipment overlays | In production; **not yet verified in-game** |
+| UI and NPC variety | In development |
 
-## Project Structure
+Star or Watch this repository for progress. For implementation details, follow the technical documentation below.
 
-```
-Fallout2_Reborn_Mobile/
-├── project.godot              # Godot project configuration
-├── export_presets.cfg         # Export settings (debug keystore included)
-├── scenes/                    # Godot scenes (.tscn)
-│   ├── ui/                   # UI scenes (main_menu, combat_hud, inventory, dialogue)
-│   └── world/                # World scenes (test_map, locations)
-├── scripts/                  # GDScript source code
-│   ├── entities/             # Player, NPC, character entities
-│   ├── systems/              # Combat, interaction, inventory, SPECIAL
-│   └── ui/                   # UI controllers
-├── assets/                   # Game assets
-│   ├── characters/           # Character sprites, animations
-│   └── ...
-├── builds/                   # Build outputs (gitignored mostly)
-├── docs/                     # Documentation
-│   ├── PROJECT_MANDATE.md
-│   ├── FALLOUT2_FIDELITY_MATRIX.md
-│   ├── DEVELOPMENT_HISTORY.md
-│   ├── RECOVERY_GUIDE.md
-│   ├── PROJECT_STATE.md
-│   └── NEXT_ACTIONS.md
-├── AGENTS.md                 # Instructions for AI agents
-└── .gitignore
-```
+## Development & documentation
 
-## Key Documentation
+- [Verified project state](./PROJECT_STATE.md) · [Fallout 2 fidelity matrix](./docs/FALLOUT2_FIDELITY_MATRIX.md)
+- [Approved art catalog](./docs/art/APPROVED_VISUAL_CATALOG.md) · [RADZONE art direction](./docs/ART_DIRECTION_RADZONE.md)
+- [Equipment and character-appearance specification](./docs/art/CHARACTER_EQUIPMENT_VISUAL_SPEC.md)
+- [NPC variation matrix](./docs/art/NPC_VISUAL_DIVERSITY.md) · [OpenCode art integration handoff](./docs/art/OPENCODE_ART_HANDOFF.md)
+- [Art pipeline](./docs/art/ART_PRODUCTION_WORKFLOW.md) · [Recovery guide](./docs/RECOVERY_GUIDE.md)
 
-| Document | Purpose |
-|----------|---------|
-| `AGENTS.md` | Permanent instructions for AI agents |
-| `PROJECT_MANDATE.md` | Non-negotiable product requirements |
-| `FALLOUT2_FIDELITY_MATRIX.md` | Mechanics verification matrix |
-| `DEVELOPMENT_HISTORY.md` | Major milestones and decisions |
-| `RECOVERY_GUIDE.md` | Project recovery from GitHub |
-| `PROJECT_STATE.md` | Current verified status |
-| `NEXT_ACTIONS.md` | Prioritized development queue |
+For development, clone `https://github.com/rf24kja/Fallout-mobile.git` and open `project.godot` in the project's Godot version. Engine work and build tests are carried out separately from this art branch.
 
-## GitHub Repository
-
-- **URL**: https://github.com/rf24kja/Fallout-mobile
-- **Default Branch**: `main` (currently `master` locally)
-- **Owner**: rf24kja
-
-## Development Workflow
-
-1. **Inspect** → Check current state, verify tests pass
-2. **Implement** → Focused changes with fidelity verification
-3. **Test** → Run unit tests, verify on Android device
-4. **Commit** → Meaningful commit messages
-5. **Push** → Sync to GitHub
-6. **Verify** → Confirm remote state
-
-## Fidelity Requirements
-
-**NEVER** simplify or approximate original Fallout 2 mechanics if exact behavior can be verified via:
-- REA binary analysis
-- Ghidra decompilation
-- Original game testing
-- Existing verified implementations
-
-Allowed improvements:
-- Graphics, animations, visual effects
-- Mobile UI/UX
-- Performance optimizations
-- New content (weapons, quests, locations) extending original foundation
-
-## License
-
-This project is for educational and preservation purposes. Original Fallout 2 assets and IP belong to their respective owners (Bethesda/Interplay). This repository contains only original code and assets created for this adaptation.
-
-## Recovery
-
-See `docs/RECOVERY_GUIDE.md` for complete project recovery instructions.
+**Independent fan-oriented project.** RADZONE is inspired by Fallout 2; it is not an official Fallout product. Original commercial game archives are not distributed here.

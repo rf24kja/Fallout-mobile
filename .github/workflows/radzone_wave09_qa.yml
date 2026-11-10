@@ -1,0 +1,51 @@
+name: RADZONE Wave09 surgical-tool art QA
+on:
+  push:
+    branches:
+      - 'art/radzone-wave09-surgical-tools'
+    paths:
+      - 'art/production/painterly_v4/wave09_unique/**'
+      - 'tools/art_check_duplicates.py'
+      - 'tools/art_visual_duplicate_gate.py'
+      - '.github/workflows/radzone_wave09_qa.yml'
+  pull_request:
+    paths:
+      - 'art/production/painterly_v4/wave09_unique/**'
+      - 'tools/art_check_duplicates.py'
+      - 'tools/art_visual_duplicate_gate.py'
+      - '.github/workflows/radzone_wave09_qa.yml'
+  workflow_dispatch:
+jobs:
+  art-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image QA dependency
+        run: python -m pip install Pillow
+      - name: Semantic duplicate gate
+        run: python tools/art_check_duplicates.py art/production/painterly_v4/wave09_unique/manifest.json
+      - name: Perceptual duplicate gate
+        run: python tools/art_visual_duplicate_gate.py art/production/painterly_v4/wave09_unique/manifest.json
+      - name: Validate PNG RGBA, transparent border and SHA256
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          m=json.loads(Path('art/production/painterly_v4/wave09_unique/manifest.json').read_text())
+          for asset in m['assets']:
+              p=Path(asset['path'])
+              assert p.is_file(), p
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==asset['sha256'], p
+              with Image.open(p) as im:
+                  assert im.mode=='RGBA', (p,im.mode)
+                  assert im.size==(asset['width'],asset['height']), p
+                  alpha=im.getchannel('A')
+                  assert alpha.getextrema()[0]==0 and alpha.getextrema()[1]>0
+                  w,h=im.size
+                  assert max(alpha.crop((0,0,w,1)).getextrema()[1],alpha.crop((0,h-1,w,h)).getextrema()[1],alpha.crop((0,0,1,h)).getextrema()[1],alpha.crop((w-1,0,w,h)).getextrema()[1])==0, p
+                  print('RGBA SHA256 alpha OK:',p)
+          PY

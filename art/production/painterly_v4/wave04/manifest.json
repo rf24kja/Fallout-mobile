@@ -1,0 +1,308 @@
+{
+  "pack": "RADZONE_WAVE04",
+  "source_sheets": [
+    {
+      "path": "art/production/painterly_v4/wave04/source_sheets/urban.png",
+      "sha256": "946e91cdf99ccae618ab0b11c95ab065eff10df8137eecfdc351ed8f9933289d",
+      "task_id": "b3a45990-cd82-4dcb-ab8c-bf8663e6db4b"
+    },
+    {
+      "path": "art/production/painterly_v4/wave04/source_sheets/industrial.png",
+      "sha256": "185b4c3c31ca5386d4edd9c2ee942ede5953450645a564ad12ffb8e308e602d8",
+      "task_id": "290169b2-7392-4f72-83af-54ae4051e779"
+    }
+  ],
+  "asset_count": 12,
+  "assets": [
+    {
+      "name": "traffic_signal",
+      "path": "art/production/painterly_v4/wave04/objects/urban/traffic_signal.png",
+      "size": [
+        332,
+        731
+      ],
+      "sha256": "d84c6095bcab8f08efe41b717b943c39773539d979563c6cd65ce3323f3c0590",
+      "source": "art/production/painterly_v4/wave04/source_sheets/urban.png",
+      "source_cell": 0,
+      "bbox": [
+        318,
+        54,
+        626,
+        761
+      ],
+      "bg": [
+        245.0,
+        246.0,
+        246.0
+      ],
+      "coverage": 0.10557117693399386,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "newspaper_box",
+      "path": "art/production/painterly_v4/wave04/objects/urban/newspaper_box.png",
+      "size": [
+        548,
+        701
+      ],
+      "sha256": "fe61013b67b42e53e31e01d48b989fd985d0ea6dc02554daa1d24413fa90f63d",
+      "source": "art/production/painterly_v4/wave04/source_sheets/urban.png",
+      "source_cell": 1,
+      "bbox": [
+        1119,
+        84,
+        1643,
+        761
+      ],
+      "bg": [
+        245.0,
+        245.0,
+        245.0
+      ],
+      "coverage": 0.3180165045682287,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "street_lamp",
+      "path": "art/production/painterly_v4/wave04/objects/urban/street_lamp.png",
+      "size": [
+        409,
+        723
+      ],
+      "sha256": "4566a2a5c55a48987c1b5bbf76566df7177b3eb27855ee524999d3bdaa36940c",
+      "source": "art/production/painterly_v4/wave04/source_sheets/urban.png",
+      "source_cell": 2,
+      "bbox": [
+        2049,
+        62,
+        2434,
+        761
+      ],
+      "bg": [
+        245.0,
+        245.0,
+        245.0
+      ],
+      "coverage": 0.08626295648274092,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "road_divider",
+      "path": "art/production/painterly_v4/wave04/objects/urban/road_divider.png",
+      "size": [
+        653,
+        564
+      ],
+      "sha256": "41b27404fe451c96bdff56f53d1c80f2f6bada9597787d2b91d3d09946dcf662",
+      "source": "art/production/painterly_v4/wave04/source_sheets/urban.png",
+      "source_cell": 3,
+      "bbox": [
+        158,
+        885,
+        787,
+        1425
+      ],
+      "bg": [
+        245.0,
+        245.0,
+        245.0
+      ],
+      "coverage": 0.25058641638366236,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "broken_park_bench",
+      "path": "art/production/painterly_v4/wave04/objects/urban/broken_park_bench.png",
+      "size": [
+        683,
+        618
+      ],
+      "sha256": "8b4e9697ebbce394f93f91d337a295f0fe97ffe75c751f4c564c6f46f26f9bc5",
+      "source": "art/production/painterly_v4/wave04/source_sheets/urban.png",
+      "source_cell": 4,
+      "bbox": [
+        1033,
+        858,
+        1692,
+        1452
+      ],
+      "bg": [
+        245.0,
+        245.5,
+        245.0
+      ],
+      "coverage": 0.21517241379310345,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "abandoned_motorcycle",
+      "path": "art/production/painterly_v4/wave04/objects/urban/abandoned_motorcycle.png",
+      "size": [
+        636,
+        590
+      ],
+      "sha256": "6f803ae31611004db9ee82fb5138e1ad79a9e966b23f0566b41e92cb21bfbbae",
+      "source": "art/production/painterly_v4/wave04/source_sheets/urban.png",
+      "source_cell": 5,
+      "bbox": [
+        1980,
+        878,
+        2592,
+        1444
+      ],
+      "bg": [
+        245.0,
+        245.0,
+        245.0
+      ],
+      "coverage": 0.2015531551414333,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "water_purifier",
+      "path": "art/production/painterly_v4/wave04/objects/industrial/water_purifier.png",
+      "size": [
+        707,
+        619
+      ],
+      "sha256": "0b1dda58d55ca5aa5a299d0aaf560a36a411bfbdfc331bc51f0db7295d57109a",
+      "source": "art/production/painterly_v4/wave04/source_sheets/industrial.png",
+      "source_cell": 0,
+      "bbox": [
+        180,
+        91,
+        863,
+        686
+      ],
+      "bg": [
+        245.0,
+        245.0,
+        245.0
+      ],
+      "coverage": 0.2559430903184499,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "fuse_cabinet",
+      "path": "art/production/painterly_v4/wave04/objects/industrial/fuse_cabinet.png",
+      "size": [
+        622,
+        711
+      ],
+      "sha256": "4567afded7618c650cf17b8869d9778f3038bdc57907af78b2cf530dc4ca17c7",
+      "source": "art/production/painterly_v4/wave04/source_sheets/industrial.png",
+      "source_cell": 1,
+      "bbox": [
+        1118,
+        48,
+        1716,
+        735
+      ],
+      "bg": [
+        245.0,
+        245.0,
+        245.0
+      ],
+      "coverage": 0.32298850574712645,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "air_compressor",
+      "path": "art/production/painterly_v4/wave04/objects/industrial/air_compressor.png",
+      "size": [
+        650,
+        714
+      ],
+      "sha256": "ac34c788268f937cd0d55e084875e1f4b1d6c11f9d6e75aa769a4aea1c89ae4d",
+      "source": "art/production/painterly_v4/wave04/source_sheets/industrial.png",
+      "source_cell": 2,
+      "bbox": [
+        1979,
+        58,
+        2605,
+        748
+      ],
+      "bg": [
+        245.0,
+        245.0,
+        245.0
+      ],
+      "coverage": 0.3605228916302523,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "hydraulic_jack",
+      "path": "art/production/painterly_v4/wave04/objects/industrial/hydraulic_jack.png",
+      "size": [
+        764,
+        523
+      ],
+      "sha256": "0578a2aa8aaa772763e9e8e2ff05f65e1b8e445d7422a525630cd92e2f421696",
+      "source": "art/production/painterly_v4/wave04/source_sheets/industrial.png",
+      "source_cell": 3,
+      "bbox": [
+        149,
+        884,
+        889,
+        1383
+      ],
+      "bg": [
+        245.0,
+        246.0,
+        245.0
+      ],
+      "coverage": 0.1895858351306934,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "shortwave_transmitter",
+      "path": "art/production/painterly_v4/wave04/objects/industrial/shortwave_transmitter.png",
+      "size": [
+        581,
+        731
+      ],
+      "sha256": "314dd72339c8cb2d6ee789502860ef382272bf886c2529dffe3224a910b517eb",
+      "source": "art/production/painterly_v4/wave04/source_sheets/industrial.png",
+      "source_cell": 4,
+      "bbox": [
+        1090,
+        775,
+        1647,
+        1482
+      ],
+      "bg": [
+        245.0,
+        246.0,
+        245.0
+      ],
+      "coverage": 0.2680931329207191,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    },
+    {
+      "name": "power_transformer",
+      "path": "art/production/painterly_v4/wave04/objects/industrial/power_transformer.png",
+      "size": [
+        647,
+        758
+      ],
+      "sha256": "b72ca8ef573afcb415824f660963ccc20157c26498e1a191e14c3ce06bc41745",
+      "source": "art/production/painterly_v4/wave04/source_sheets/industrial.png",
+      "source_cell": 5,
+      "bbox": [
+        1988,
+        775,
+        2611,
+        1509
+      ],
+      "bg": [
+        245.0,
+        245.0,
+        245.0
+      ],
+      "coverage": 0.35944300032750803,
+      "status": "DRAFT_AUTO_MASKED_NEEDS_VISUAL_QA"
+    }
+  ],
+  "qa_preview": "art/production/painterly_v4/wave04/qa/contact_dark_light.jpg",
+  "classification": "DRAFT_NOT_ANDROID_VERIFIED"
+}

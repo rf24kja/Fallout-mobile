@@ -1,0 +1,38 @@
+name: RADZONE art Wave 04 binary publication
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/radzone_wave04_publish.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.repository == 'rf24kja/Fallout-mobile'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install image processing dependencies
+        run: |
+          python -m pip install --quiet pillow numpy opencv-python-headless
+      - name: Download source sheets, extract RGBA, validate
+        env:
+          RADZONE_URBAN_URL: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-3.1-flash-image/images/b3a45990-cd82-4dcb-ab8c-bf8663e6db4b/e72f0ad0-73ed-4583-bfc2-9bc45e7edf39/Professional_production_source_illustration_sheet_for_premiu.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiY2UyMDRlMDVjNzM5NTNhYyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NDMzMjQyMX0.rhkzhmYJRpcIZjzT9yxZb2qLMyLB70MRukVea0i3lfE'
+          RADZONE_INDUSTRIAL_URL: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-3.1-flash-image/images/290169b2-7392-4f72-83af-54ae4051e779/45824b0a-802a-4fb8-81e0-e65ab3c701ae/Professional_source_sheet_for_gritty_cinematic_realistic_pre.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiOTY1ZTQ2NTU5OWYzMDJhNyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NDQwODc4OX0.dJ73FbvK7wJJm0aQ41ofAoWPOw06JC5Ne4ccg7xwGB0'
+        run: python tools/art_import_wave04.py
+      - name: Commit and publish real PNG binaries to master
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art/production/painterly_v4/wave04/
+          git diff --cached --stat
+          git diff --cached --quiet && { echo 'No changes'; exit 0; }
+          git commit -m 'art(radzone): publish 12 wave04 RGBA PNG assets and source sheets'
+          git push origin HEAD:master

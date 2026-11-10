@@ -1,0 +1,1251 @@
+{
+  "project": "RADZONE",
+  "pack": "painterly_v3",
+  "version": "3.1",
+  "date": "2026-11-09",
+  "category": "DRAFT_SOURCE_ART",
+  "not_approved_final_game_art": true,
+  "not_runtime_tested": true,
+  "readme": "art/production/painterly_v3/README.md",
+  "notes": [
+    "These are isolated illustration crops for later refinement, not complete animations or equipped weapon overlays.",
+    "No sprites replace existing Godot textures until OpenCode integrates and tests them.",
+    "View_00_front etc describe the concept sheet only; they are not assigned to in-game N, NE, E, SE, S, SW, W, NW.",
+    "Character frames are static; do not call these full idle/walk/attack/death animation sets.",
+    "Equipment must visibly update per actual inventory item ID on player and NPCs; see docs/art/CHARACTER_EQUIPMENT_VISUAL_SPEC.md.",
+    "UI panels are illustration crops: trim, alpha edges, and nine-slice margins require manual QA and mobile tests."
+  ],
+  "counts": {
+    "characters/player_survivor": 8,
+    "characters/raider": 8,
+    "items": 15,
+    "world": 14,
+    "ui": 13
+  },
+  "asset_count": 58,
+  "source_reference_count": 6,
+  "assets": [
+    {
+      "path": "art/production/painterly_v3/characters/player_survivor/view_00_front.png",
+      "source_path": "characters/player_survivor/view_00_front.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        112,
+        12,
+        312,
+        495
+      ],
+      "has_transparency": true,
+      "sha256": "bbf9fc1430e35fadcc539d0297eef2461e2b2ab4d937300acaf98e366cb2fbf9",
+      "git_blob_sha": "727cf30d665538de52377775054cf0f04fff794d",
+      "bytes": 178632,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Character turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/player_survivor/view_01_front_right.png",
+      "source_path": "characters/player_survivor/view_01_front_right.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        90,
+        12,
+        291,
+        496
+      ],
+      "has_transparency": true,
+      "sha256": "2c0fb6103abfe03c1a1152d443b1ee1c4176c7d3d524dcd399c8b1a6712395f6",
+      "git_blob_sha": "871d721a9795073817c167994283262af6df9cf4",
+      "bytes": 172505,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Character turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/player_survivor/view_02_right.png",
+      "source_path": "characters/player_survivor/view_02_right.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        86,
+        14,
+        242,
+        496
+      ],
+      "has_transparency": true,
+      "sha256": "2f97c9458a6c58efe122f81fd69b9661da99893b76334fd7c0845a9e0daaa0ee",
+      "git_blob_sha": "57167ba0a922f44b60110e2c6f7c3f417e9b1123",
+      "bytes": 136474,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Character turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/player_survivor/view_03_back_right.png",
+      "source_path": "characters/player_survivor/view_03_back_right.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        66,
+        13,
+        248,
+        496
+      ],
+      "has_transparency": true,
+      "sha256": "ea7654e4d8af47a2e6a40485b49d12498859e761ba625d6ebbbfb2ace8e40216",
+      "git_blob_sha": "c473b7fc7ac07bbbc1712bbf0ec119a86014907d",
+      "bytes": 155355,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Character turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/player_survivor/view_04_back.png",
+      "source_path": "characters/player_survivor/view_04_back.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        107,
+        0,
+        315,
+        493
+      ],
+      "has_transparency": true,
+      "sha256": "599211ec28384650c6d3f3a191119b77582eb06d9e68bf0d458f413debc4774e",
+      "git_blob_sha": "7e8dd75a6f905c0627564c17071c79f660492e0c",
+      "bytes": 184395,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Character turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/player_survivor/view_05_back_left.png",
+      "source_path": "characters/player_survivor/view_05_back_left.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        104,
+        0,
+        303,
+        492
+      ],
+      "has_transparency": true,
+      "sha256": "3ead55702f7984e5a8e5f0b5c3f6b8a021677c03319bc3ebfd626d0461289f00",
+      "git_blob_sha": "fdd7caa61c37ce3aba078e2ad4ea322b220420f9",
+      "bytes": 165234,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Character turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/player_survivor/view_06_left.png",
+      "source_path": "characters/player_survivor/view_06_left.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        104,
+        0,
+        265,
+        494
+      ],
+      "has_transparency": true,
+      "sha256": "bad4b09d11f98e1de9b3671d785add594ec1df8ec4473fe8c6d2dc8536bf311d",
+      "git_blob_sha": "62a31393e84b130f5a777573d3ae221a53fc84c8",
+      "bytes": 143132,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Character turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/player_survivor/view_07_front_left.png",
+      "source_path": "characters/player_survivor/view_07_front_left.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        70,
+        0,
+        254,
+        492
+      ],
+      "has_transparency": true,
+      "sha256": "ea836ab59e2a7754f36bd4c58549439bac53d102d08c9785f168544df7cb9b6c",
+      "git_blob_sha": "79dd9c09b7cd4610fa62c2d5a4d66a698701a98e",
+      "bytes": 158166,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Character turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/raider/view_00_front.png",
+      "source_path": "characters/raider/view_00_front.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        81,
+        11,
+        304,
+        492
+      ],
+      "has_transparency": true,
+      "sha256": "19608666894d5d28e05ab71081bef8d2012de46a913e802c8ec8114c592b44fa",
+      "git_blob_sha": "134546079c202b524a517ee949c090c1498fdd6a",
+      "bytes": 190531,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Raider turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/raider/view_01_front_right.png",
+      "source_path": "characters/raider/view_01_front_right.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        102,
+        14,
+        286,
+        494
+      ],
+      "has_transparency": true,
+      "sha256": "57d8a9bfea2e33164b9c27ddbd1837edf27d837b9939d2fd583be53971dfb40a",
+      "git_blob_sha": "3f1203bfae96e3a29fa0e801ea59033b78f97198",
+      "bytes": 166896,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Raider turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/raider/view_02_right.png",
+      "source_path": "characters/raider/view_02_right.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        118,
+        13,
+        243,
+        494
+      ],
+      "has_transparency": true,
+      "sha256": "5ffae27b5555dc52c787d154298a3b499162848b02017786fa9f7e4592cd594d",
+      "git_blob_sha": "cede80be673dfa4f8e5731ac94a0df4e2000429c",
+      "bytes": 125855,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Raider turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/raider/view_03_back_right.png",
+      "source_path": "characters/raider/view_03_back_right.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        86,
+        13,
+        264,
+        492
+      ],
+      "has_transparency": true,
+      "sha256": "6cd2b86862fac29165260b5f960375363378328af38d85b9d06f4d7482609236",
+      "git_blob_sha": "98c82e7b1e23ffebfd386f7eedb7466a704fcf95",
+      "bytes": 161757,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Raider turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/raider/view_04_back.png",
+      "source_path": "characters/raider/view_04_back.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        94,
+        1,
+        309,
+        489
+      ],
+      "has_transparency": true,
+      "sha256": "e7447dbd9837ee2cd47b60e779340cdbd833ee531c36eeb0ad72f9825ee8406f",
+      "git_blob_sha": "c803594c992c76b83700838c73cf2dd3bb337c28",
+      "bytes": 191152,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Raider turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/raider/view_05_back_left.png",
+      "source_path": "characters/raider/view_05_back_left.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        92,
+        5,
+        267,
+        492
+      ],
+      "has_transparency": true,
+      "sha256": "c8366e3100791e26422bc8d5b0f7ff756b55cf861e4f5316e582d0043962b530",
+      "git_blob_sha": "9b5f515ed80a53fe4878029fe25caf94697d7a45",
+      "bytes": 164266,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Raider turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/raider/view_06_left.png",
+      "source_path": "characters/raider/view_06_left.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        119,
+        6,
+        247,
+        494
+      ],
+      "has_transparency": true,
+      "sha256": "2a687c396ecc83b8b7ab3791185b2d871fabf13740a76d2c8cfd796c42c33e43",
+      "git_blob_sha": "86102d3a523195bb94d826e8916cc0e38cfd3be1",
+      "bytes": 128687,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Raider turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/characters/raider/view_07_front_left.png",
+      "source_path": "characters/raider/view_07_front_left.png",
+      "dimensions": [
+        362,
+        543
+      ],
+      "alpha_bbox": [
+        71,
+        7,
+        244,
+        494
+      ],
+      "has_transparency": true,
+      "sha256": "962ff6636c3e5aadfac59d49dc129f62652a299076360647b554c0086121f63a",
+      "git_blob_sha": "7a3cb80fbdb82f3706c8deaa55776fa82d92b6b6",
+      "bytes": 160971,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Raider turnaround references; views not mapped to Godot 8 directions"
+    },
+    {
+      "path": "art/production/painterly_v3/items/backpack.png",
+      "source_path": "items/backpack.png",
+      "dimensions": [
+        334,
+        344
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        330,
+        344
+      ],
+      "has_transparency": true,
+      "sha256": "ae7f76662f4f6c18f04d1ea09a939c6452258d60fbef985e3ac85a9b8deafa71",
+      "git_blob_sha": "dfbe70c3d0ebd0239e6b5163b85bef0f2c5734d1",
+      "bytes": 239946,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/bottle_caps.png",
+      "source_path": "items/bottle_caps.png",
+      "dimensions": [
+        296,
+        216
+      ],
+      "alpha_bbox": [
+        0,
+        4,
+        292,
+        212
+      ],
+      "has_transparency": true,
+      "sha256": "7cfefa8a3fb5823900776a0c94d168a56c3867fd1857a617899aa260e554461c",
+      "git_blob_sha": "8d3597ec094e1f46944ca3501a1847dbf56fa507",
+      "bytes": 124681,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/canteen.png",
+      "source_path": "items/canteen.png",
+      "dimensions": [
+        198,
+        294
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        194,
+        294
+      ],
+      "has_transparency": true,
+      "sha256": "382e939d7412d8a7a84e23a26f18cb3213a6ef01f0c62e7520f43f4395b5494a",
+      "git_blob_sha": "9811aa8e59d761429d384342037d961d4b7666ef",
+      "bytes": 121928,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/combat_knife.png",
+      "source_path": "items/combat_knife.png",
+      "dimensions": [
+        479,
+        151
+      ],
+      "alpha_bbox": [
+        4,
+        0,
+        479,
+        147
+      ],
+      "has_transparency": true,
+      "sha256": "091ba206a485e3d3cc4b52e63246027289ac5b6349f5cfe7c5730269093088d4",
+      "git_blob_sha": "5fd7b59363bd7f30d4e509e6ff06a9b34e2a646e",
+      "bytes": 91858,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/combat_shotgun.png",
+      "source_path": "items/combat_shotgun.png",
+      "dimensions": [
+        809,
+        210
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        805,
+        206
+      ],
+      "has_transparency": true,
+      "sha256": "60fcd3c9a25e7631144c16250c647f6684b7f6883e699658573cae1e842d9df3",
+      "git_blob_sha": "af4a2ad23ba0f87ff804c964b8758f117a8510db",
+      "bytes": 245199,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/gas_mask.png",
+      "source_path": "items/gas_mask.png",
+      "dimensions": [
+        283,
+        300
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        283,
+        296
+      ],
+      "has_transparency": true,
+      "sha256": "9ba205adedca325c0d682bd25d8d3e013bf1048863dc4c646fe78d766c7a84f0",
+      "git_blob_sha": "601fe8230f148c519482c7bdcdffe94ba7200027",
+      "bytes": 161915,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/hunting_rifle.png",
+      "source_path": "items/hunting_rifle.png",
+      "dimensions": [
+        900,
+        226
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        900,
+        222
+      ],
+      "has_transparency": true,
+      "sha256": "5a251613a267f10b10dbd58e929102336798db6f2f6e3c10a4b7e28d538b1e18",
+      "git_blob_sha": "2179c0a8d0ae80231067e33d9d600d3e7742f0df",
+      "bytes": 216112,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/lockpick_set.png",
+      "source_path": "items/lockpick_set.png",
+      "dimensions": [
+        267,
+        258
+      ],
+      "alpha_bbox": [
+        0,
+        4,
+        267,
+        254
+      ],
+      "has_transparency": true,
+      "sha256": "f35ff38f416bf72346f9096a7cebfdef62f90d7b907fa803a09d9c2c93672727",
+      "git_blob_sha": "b7ff5598461767adbeef5509c72e2a889e6a1952",
+      "bytes": 132813,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/medkit.png",
+      "source_path": "items/medkit.png",
+      "dimensions": [
+        313,
+        264
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        309,
+        261
+      ],
+      "has_transparency": true,
+      "sha256": "5e8c4969e9298549199995481f04590614d84d05992e90ddbe7f358c8563be8a",
+      "git_blob_sha": "f22069e3f4c549094d345d9d1be6d58cd95808ad",
+      "bytes": 166133,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/pistol.png",
+      "source_path": "items/pistol.png",
+      "dimensions": [
+        375,
+        228
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        375,
+        228
+      ],
+      "has_transparency": true,
+      "sha256": "141a85fd99776b81f3cbc08625ccdbbf8ff6bf926a329ff2e8987f4c371bf06e",
+      "git_blob_sha": "016c40a747cd8aee469b827dba8fe3baa737d7dd",
+      "bytes": 139138,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/pistol_ammo.png",
+      "source_path": "items/pistol_ammo.png",
+      "dimensions": [
+        170,
+        188
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        170,
+        184
+      ],
+      "has_transparency": true,
+      "sha256": "e39c50bf647fdc1e87ddc9ab2708d0b2a5abfa12b5ad9be42c2987f449f1c5a5",
+      "git_blob_sha": "10091934dc9c296a01c8178d313b73fcc4459f4d",
+      "bytes": 63419,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/radio_detector.png",
+      "source_path": "items/radio_detector.png",
+      "dimensions": [
+        200,
+        355
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        196,
+        351
+      ],
+      "has_transparency": true,
+      "sha256": "b0648a5c815a0c4fd3874ac24b09123448ad2b915481c5a0e2b3a70b6e05e556",
+      "git_blob_sha": "045e58cd6cd939a63ce28fb353083fb9b6044235",
+      "bytes": 130556,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/shotgun_shells.png",
+      "source_path": "items/shotgun_shells.png",
+      "dimensions": [
+        204,
+        219
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        200,
+        215
+      ],
+      "has_transparency": true,
+      "sha256": "f77c126d64e6bb23e2f8e7cf372cc9f71637e9f0347a53b8116ad155756785e5",
+      "git_blob_sha": "f54d2d463a798e35acda5bb69671668079bb2898",
+      "bytes": 77717,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/stim_injector.png",
+      "source_path": "items/stim_injector.png",
+      "dimensions": [
+        219,
+        318
+      ],
+      "alpha_bbox": [
+        4,
+        2,
+        219,
+        316
+      ],
+      "has_transparency": true,
+      "sha256": "0eab34173805f2d281db94d7b76b6ed10432e89b50d04dde30c78872e5bc18f6",
+      "git_blob_sha": "2e585f059f0d1a55332b6d739dee5a43230c86e2",
+      "bytes": 65906,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/items/wrench.png",
+      "source_path": "items/wrench.png",
+      "dimensions": [
+        146,
+        328
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        142,
+        324
+      ],
+      "has_transparency": true,
+      "sha256": "d1531a28ffdf53e232ec04aa343ec60110ed5516ce03281e6d08ad400ba4d95b",
+      "git_blob_sha": "5462114cb7bb763e45aec88413e0299de5d18cf1",
+      "bytes": 66482,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Item concept crops without verified JSON item IDs"
+    },
+    {
+      "path": "art/production/painterly_v3/world/bunker_door.png",
+      "source_path": "world/bunker_door.png",
+      "dimensions": [
+        505,
+        315
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        502,
+        311
+      ],
+      "has_transparency": true,
+      "sha256": "2a5c174e5fbd1e853a91a17e4916db9d9e62c23ddafd448fbeea0f44160a8d2f",
+      "git_blob_sha": "34b1ac65a91ba5de49371f501765242808146870",
+      "bytes": 346601,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/chainlink_fence.png",
+      "source_path": "world/chainlink_fence.png",
+      "dimensions": [
+        567,
+        252
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        563,
+        248
+      ],
+      "has_transparency": true,
+      "sha256": "659801415ebb3ecd386e4ba0ca5b972189fa848f083bbbce29b90b5cd07947ce",
+      "git_blob_sha": "ea40397b39bea81b6b4c2191bbde3df06d93aa30",
+      "bytes": 350722,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/concrete_barricade.png",
+      "source_path": "world/concrete_barricade.png",
+      "dimensions": [
+        339,
+        223
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        335,
+        219
+      ],
+      "has_transparency": true,
+      "sha256": "a223b433e8ba0789f290fbcbff3ca5f95288912a81e1354a2d97ce4d498e854e",
+      "git_blob_sha": "4c053498fa38cc0d97af9ea99a1d368607c9f42e",
+      "bytes": 151656,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/crt_terminal.png",
+      "source_path": "world/crt_terminal.png",
+      "dimensions": [
+        262,
+        229
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        258,
+        225
+      ],
+      "has_transparency": true,
+      "sha256": "1918ab374d2365a794dc70bdfe934bcf031f8a384ac4b5f3a6ed96dd254817da",
+      "git_blob_sha": "9734a4dd66d02c10eedbafedbb8056ddf042c0bb",
+      "bytes": 96693,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/floodlight_pole.png",
+      "source_path": "world/floodlight_pole.png",
+      "dimensions": [
+        189,
+        325
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        185,
+        325
+      ],
+      "has_transparency": true,
+      "sha256": "e8e5d3bc30f566088c67ccc255ed182317f72fe846261a93d8a279b7ed60ca76",
+      "git_blob_sha": "8d2302af8374de819c20022f990bc4649d93e2c9",
+      "bytes": 82191,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/generator.png",
+      "source_path": "world/generator.png",
+      "dimensions": [
+        326,
+        243
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        322,
+        239
+      ],
+      "has_transparency": true,
+      "sha256": "65aaeab582caaa740d506a1850c7dc618a5349e82045c675d0616d87229aed2e",
+      "git_blob_sha": "a71ad74c08f4450f36b5d930a04dde938e4dfd3c",
+      "bytes": 168384,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/road_sign.png",
+      "source_path": "world/road_sign.png",
+      "dimensions": [
+        203,
+        318
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        199,
+        318
+      ],
+      "has_transparency": true,
+      "sha256": "34873a3ac30ba814c825f852cf6ed44971a91a68106eb7dbd8c004d3470e6faa",
+      "git_blob_sha": "c192d2d326799ec41e1cf69177b3f29554bee37a",
+      "bytes": 83397,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/road_tile.png",
+      "source_path": "world/road_tile.png",
+      "dimensions": [
+        510,
+        251
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        506,
+        251
+      ],
+      "has_transparency": true,
+      "sha256": "a636ba1d4fe9a09f53ea485fd69f39feb39b8fbc725b82a7c20bc9830a802a82",
+      "git_blob_sha": "d8b0350944d40542074af51a3b13c42bb1b70cf7",
+      "bytes": 227071,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/rust_barrel.png",
+      "source_path": "world/rust_barrel.png",
+      "dimensions": [
+        161,
+        255
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        157,
+        251
+      ],
+      "has_transparency": true,
+      "sha256": "10b88925e2f052ec7e7ba44e7a5f22b75c3259c36fbbda148aec3ebcd0d353e0",
+      "git_blob_sha": "bcc40dcdab822d75d1b5ebda06f89c181e01e82c",
+      "bytes": 94265,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/sandbag_wall.png",
+      "source_path": "world/sandbag_wall.png",
+      "dimensions": [
+        436,
+        243
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        432,
+        239
+      ],
+      "has_transparency": true,
+      "sha256": "5afff8f2dac6630e4c121bf6bac6a1505184a05540a4ba51ccd460c89d8fe661",
+      "git_blob_sha": "4014e0095bbe8d749ecedf14e669239c5f38f38d",
+      "bytes": 204911,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/scrap_pile.png",
+      "source_path": "world/scrap_pile.png",
+      "dimensions": [
+        407,
+        241
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        407,
+        241
+      ],
+      "has_transparency": true,
+      "sha256": "c35e0c1c85071c6dc14d9799455e556fef7b36d9bbed5d69f6a1d8beab74ff06",
+      "git_blob_sha": "15468611ba3fb8d0ef2b1de85cc417689456f264",
+      "bytes": 144057,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/supply_crate.png",
+      "source_path": "world/supply_crate.png",
+      "dimensions": [
+        344,
+        242
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        340,
+        238
+      ],
+      "has_transparency": true,
+      "sha256": "3c6c8eedecf222789bf0aa978d232b24c8e53363ac3e5479f059e208151818b8",
+      "git_blob_sha": "19152e933248abab8e1e04b9d8262fe99a07ae2e",
+      "bytes": 165310,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/water_drum.png",
+      "source_path": "world/water_drum.png",
+      "dimensions": [
+        181,
+        270
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        177,
+        269
+      ],
+      "has_transparency": true,
+      "sha256": "c379a22dda54ead23860e6313cbbe9563200de4cca004810c26b0ca6884ad59d",
+      "git_blob_sha": "b70b97f1a8a4f6eccbbf7eab95d8e1e96da0be5f",
+      "bytes": 98673,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/world/water_pump.png",
+      "source_path": "world/water_pump.png",
+      "dimensions": [
+        231,
+        311
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        227,
+        307
+      ],
+      "has_transparency": true,
+      "sha256": "50004c132fd7563fc627bfcbec6bdfb8521aa59b8e1aa822e18d47782f57e885",
+      "git_blob_sha": "4c7e3a0358a41a5b5caf1620f821f869db18628d",
+      "bytes": 101405,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Isolated environmental prop source crops; no verified TileMap placement"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/action_menu.png",
+      "source_path": "ui/action_menu.png",
+      "dimensions": [
+        415,
+        377
+      ],
+      "alpha_bbox": [
+        1,
+        4,
+        411,
+        373
+      ],
+      "has_transparency": true,
+      "sha256": "301acc680d96d669583054f9faa08e9c21259344f92f507ccde91774c9d951a7",
+      "git_blob_sha": "2dd70b7200cdc60f58fa7af19bcf01c1ab858c24",
+      "bytes": 330217,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/ap_off.png",
+      "source_path": "ui/ap_off.png",
+      "dimensions": [
+        141,
+        81
+      ],
+      "alpha_bbox": [
+        0,
+        4,
+        141,
+        77
+      ],
+      "has_transparency": true,
+      "sha256": "b22817a1b4c05f0b95393dd21f33e330dd67b426e03c4a3a3006a097c87c8407",
+      "git_blob_sha": "701ed4199c7e7a98042c22b53675aa00e05ef563",
+      "bytes": 20709,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/ap_on.png",
+      "source_path": "ui/ap_on.png",
+      "dimensions": [
+        90,
+        81
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        90,
+        77
+      ],
+      "has_transparency": true,
+      "sha256": "7b0c78510282fc42aa5191f429640570ff100d9d4fa6a45157a71ac2cc23fc84",
+      "git_blob_sha": "30ce05f678763480eb2fb2208e801c82f82e68f6",
+      "bytes": 14794,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/barter_grid.png",
+      "source_path": "ui/barter_grid.png",
+      "dimensions": [
+        621,
+        374
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        617,
+        370
+      ],
+      "has_transparency": true,
+      "sha256": "e238f7e3898108886cb0acbff41ab3739098b7f6e61e5d8d21db890bdb97f84f",
+      "git_blob_sha": "3441f1483df03c531c067f8c08c7ea9dd5114670",
+      "bytes": 443145,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/button_pressed.png",
+      "source_path": "ui/button_pressed.png",
+      "dimensions": [
+        304,
+        130
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        300,
+        126
+      ],
+      "has_transparency": true,
+      "sha256": "2cfc44c74ac78db6b2111c1910908da103bca0945ac82dc230cf76aaf7d333d0",
+      "git_blob_sha": "8c6845250e856c3bfd037a62ecf3181f066ddee0",
+      "bytes": 80580,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/button_primary.png",
+      "source_path": "ui/button_primary.png",
+      "dimensions": [
+        311,
+        131
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        308,
+        127
+      ],
+      "has_transparency": true,
+      "sha256": "74507aaf7c3daa2f727536307daad9f01968f0964b7d33f66df073c14ba4544c",
+      "git_blob_sha": "4a233c5a277559c100eac28b4fc5755126dff979",
+      "bytes": 82486,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/button_secondary.png",
+      "source_path": "ui/button_secondary.png",
+      "dimensions": [
+        298,
+        130
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        298,
+        126
+      ],
+      "has_transparency": true,
+      "sha256": "3ab76faecb66b8d6eb2db0272f96226d88c6b6da439fdc08b07f039118900c17",
+      "git_blob_sha": "0b762edd6e49189d09f5d9ae3cf9dca1b04c1bd4",
+      "bytes": 77327,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/dialogue_frame.png",
+      "source_path": "ui/dialogue_frame.png",
+      "dimensions": [
+        994,
+        452
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        994,
+        448
+      ],
+      "has_transparency": true,
+      "sha256": "396ad733d71f858ae08a1098e63c3c980623e036101324020663e93b747b03be",
+      "git_blob_sha": "ecd50d46de3b23d59b7a4c03e25ecbbc35b2029e",
+      "bytes": 687241,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/item_slot.png",
+      "source_path": "ui/item_slot.png",
+      "dimensions": [
+        218,
+        200
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        214,
+        200
+      ],
+      "has_transparency": true,
+      "sha256": "4e5e296967cbaa45b6ca546463f8583602a60cbd89834ed5f21a981f350d49bb",
+      "git_blob_sha": "c2c8e859b41da5878bf3c9c0985367d6994da8e8",
+      "bytes": 89906,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/portrait_frame.png",
+      "source_path": "ui/portrait_frame.png",
+      "dimensions": [
+        251,
+        235
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        247,
+        235
+      ],
+      "has_transparency": true,
+      "sha256": "f36c7d9fc7b404930bf51b3eb1e565cc79c04adef07ad259fbe9aab4a18d7109",
+      "git_blob_sha": "df4c56a01d5f02f85cc7b1e992326bbc7d8074ce",
+      "bytes": 83205,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/radar.png",
+      "source_path": "ui/radar.png",
+      "dimensions": [
+        338,
+        329
+      ],
+      "alpha_bbox": [
+        4,
+        4,
+        338,
+        325
+      ],
+      "has_transparency": true,
+      "sha256": "20e883f1833ed57a5f581636a0c254fee900b2260bb75af4f7a480954a275063",
+      "git_blob_sha": "28388ba8e6cb56c664b3fe8f0eaa9b2125ea72a0",
+      "bytes": 212046,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/scroll_bar.png",
+      "source_path": "ui/scroll_bar.png",
+      "dimensions": [
+        77,
+        437
+      ],
+      "alpha_bbox": [
+        6,
+        4,
+        73,
+        437
+      ],
+      "has_transparency": true,
+      "sha256": "2bcea75d5a5a7793f85f49360886b44fd6c775ff7f1eb1a5edcb1239ec936607",
+      "git_blob_sha": "44c158594fd1831c0a9c7e40124f376b75fea5e4",
+      "bytes": 63727,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    },
+    {
+      "path": "art/production/painterly_v3/ui/target_reticle.png",
+      "source_path": "ui/target_reticle.png",
+      "dimensions": [
+        144,
+        116
+      ],
+      "alpha_bbox": [
+        3,
+        4,
+        140,
+        112
+      ],
+      "has_transparency": true,
+      "sha256": "c5fe05dfe122c52fb288ef39f4997f0a53df1831b0bbd9e2b6a32056b63e1fc4",
+      "git_blob_sha": "50ad6f4d661167df13e6e976e32c10fc3287c344",
+      "bytes": 25761,
+      "classification": "DRAFT_SOURCE_NOT_INGAME_VERIFIED",
+      "category_note": "Painterly UI panel components; require nine-slice cleanup and dynamic Godot text"
+    }
+  ],
+  "references": [
+    {
+      "path": "docs/art/reference/drafts/v3/source_sheet_characters_player_survivor.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "1654fa1b76f93c193d030c471b201c6045a3bc565cca8f7f69d8c4d9a4669a2c",
+      "bytes": 399778,
+      "format": "WEBP_HIGH_QUALITY_REFERENCE"
+    },
+    {
+      "path": "docs/art/reference/drafts/v3/source_sheet_characters_raider.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "c1ed0aa53a305ded5cf518aa4a7e2de5a14e3b2494051831aa66ddf6112c4748",
+      "bytes": 422496,
+      "format": "WEBP_HIGH_QUALITY_REFERENCE"
+    },
+    {
+      "path": "docs/art/reference/drafts/v3/source_sheet_items.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "78a2dccf3f368fa78355c2d7683585f5012d738d761268634d5cdf728c2166e6",
+      "bytes": 652090,
+      "format": "WEBP_HIGH_QUALITY_REFERENCE"
+    },
+    {
+      "path": "docs/art/reference/drafts/v3/source_sheet_ui.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "5cd011b4c1d6c4ffb1c4ab86923a437c3b465deb310066a81fd5d3f3fd5a4b3d",
+      "bytes": 556656,
+      "format": "WEBP_HIGH_QUALITY_REFERENCE"
+    },
+    {
+      "path": "docs/art/reference/drafts/v3/source_sheet_world.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sha256": "ed89018197f0f2a7e004ec3a12c49a5f42b4dedc7f03857c9bc41352b655bb49",
+      "bytes": 804982,
+      "format": "WEBP_HIGH_QUALITY_REFERENCE"
+    },
+    {
+      "path": "docs/art/reference/drafts/v3/painterly_v3_review_contact_sheet.webp",
+      "dimensions": [
+        1600,
+        1200
+      ],
+      "sha256": "0cdc43e804e4a548a8c2c93466ef946a8723316dff906150a475d40d60dc648e",
+      "bytes": 174080,
+      "format": "WEBP_CONTACT_SHEET"
+    }
+  ]
+}

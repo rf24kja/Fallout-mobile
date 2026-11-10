@@ -1,0 +1,430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "1.0.0",
+  "project": "RADZONE",
+  "published_at": "2026-11-09",
+  "approved_concept_version": "RADZONE_APPROVED_v2",
+  "production_pack_version": "v3",
+  "source_license_note": "Original project-created SVG source assets; do not treat as imported original Fallout 2 game files.",
+  "status_note": "Source files, not approved final production painting; all need visual and Android QA before replacing placeholders.",
+  "release_ready": false,
+  "counts": {
+    "ui": 19,
+    "world": 14,
+    "items": 17,
+    "total": 50
+  },
+  "export_hints": {
+    "world": "512 and 1024 RGBA PNG, per-object anchor calibrated on Godot TileMap",
+    "items": "64,128,256 RGBA PNG, explicit mapping to item DB after verification",
+    "ui": "native sizes and 2x RGBA PNG with 9-slice margins set by scene author"
+  },
+  "sources": {
+    "ui": [
+      {
+        "path": "art/production/ui/source/ap_point_off.svg",
+        "size_bytes": 1955,
+        "git_blob_sha": "2f13304d1b34f8fb385bd69b95ac147c0fc18889",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/ap_point_on.svg",
+        "size_bytes": 1955,
+        "git_blob_sha": "86aee3638c0c2be5b46a95ce69c69774f765192f",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/button_focused.svg",
+        "size_bytes": 2083,
+        "git_blob_sha": "61d1452bd4cc7e8dfa57515b4c3228c2d7238705",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/button_idle.svg",
+        "size_bytes": 1971,
+        "git_blob_sha": "ce1bc3f55069ed7e82e5cae636468b09e3f8aa11",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/button_pressed.svg",
+        "size_bytes": 1967,
+        "git_blob_sha": "a2062be07201ffbc3a5cdb540f423eac3d729134",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/dialogue_choice_frame.svg",
+        "size_bytes": 1966,
+        "git_blob_sha": "040b61c4b016b5b084b35b78ca4565f24e5093b5",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/dialogue_frame_9slice.svg",
+        "size_bytes": 2094,
+        "git_blob_sha": "90658047bc7fcdfb1bad4c5903cdb259087f7887",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/item_slot.svg",
+        "size_bytes": 1976,
+        "git_blob_sha": "8b50be22a4facff082a47ec629080a374fdf42cb",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/map_radar_frame.svg",
+        "size_bytes": 2212,
+        "git_blob_sha": "536dadde3eba78599d72e8bacdc83ef916542b3e",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/panel_9slice.svg",
+        "size_bytes": 1982,
+        "git_blob_sha": "be99e9442cb1b7e2a6b730e873588d23fb3734a8",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/portrait_frame.svg",
+        "size_bytes": 1980,
+        "git_blob_sha": "81f166536d72f4a38d2455e3623b1afc27db434e",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/radzone_arrow_left.svg",
+        "size_bytes": 2053,
+        "git_blob_sha": "d7ca26344ac11e71cd1b25b8ecc6984c828f9ef3",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/radzone_arrow_right.svg",
+        "size_bytes": 2053,
+        "git_blob_sha": "fb1beb8746769c658108f9be7d7532ea64b92101",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/radzone_title_plate.svg",
+        "size_bytes": 2139,
+        "git_blob_sha": "06deb86248f526e94ca8b7bb0b9228a42709edb4",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/scroll_thumb.svg",
+        "size_bytes": 1966,
+        "git_blob_sha": "2444081caec39684e052b0e76d49740a93781f95",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/scroll_track.svg",
+        "size_bytes": 1966,
+        "git_blob_sha": "ef8ee0abeb59ed7f3d1cee6d0c8fecaafa62e18a",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/small_action_frame.svg",
+        "size_bytes": 1975,
+        "git_blob_sha": "2824ce4b0f1cf54791bf338e1caa92e4756e8eec",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/status_panel.svg",
+        "size_bytes": 1979,
+        "git_blob_sha": "82474336115b7176cf2c3254e11c7f1993d33012",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      },
+      {
+        "path": "art/production/ui/source/targeting_reticle.svg",
+        "size_bytes": 1204,
+        "git_blob_sha": "6d15a4f046d562198b065c4c46b6a1b48fb7b9f9",
+        "canvas_px": "variable",
+        "alpha": true,
+        "status": "editable source / integration pending"
+      }
+    ],
+    "world": [
+      {
+        "path": "art/production/world/props/source/bunker_door.svg",
+        "size_bytes": 3333,
+        "git_blob_sha": "338f5e832f779803d44f02b59767c8c343746201",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/chainlink_fence.svg",
+        "size_bytes": 4037,
+        "git_blob_sha": "fd77e526bfb4e4bd29a7299ee14acc91809fc7e8",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/concrete_barricade.svg",
+        "size_bytes": 3424,
+        "git_blob_sha": "6f0a5ca61c0ee7db57306b2ab9ec5e743990c302",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/crt_terminal.svg",
+        "size_bytes": 3393,
+        "git_blob_sha": "2dc1b0c570c974db9c0ea058a1b86d5030eec4bb",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/floodlight_pole.svg",
+        "size_bytes": 3484,
+        "git_blob_sha": "657726b32209debb58098f03111eb71ffd3d77f0",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/generator.svg",
+        "size_bytes": 3540,
+        "git_blob_sha": "049c574ce6184fb0484e43a7114b90603c1072ed",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/road_sign.svg",
+        "size_bytes": 3182,
+        "git_blob_sha": "1d87fc89604ba172d4bc89731d8378963edfc73a",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/road_tile_iso.svg",
+        "size_bytes": 2909,
+        "git_blob_sha": "40d8cd690e87b7cc9d7b68fe760f02eca1cf234e",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/rust_barrel.svg",
+        "size_bytes": 3213,
+        "git_blob_sha": "319a019081e85610ef220d319c3455c64d85a9bb",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/sandbag_wall.svg",
+        "size_bytes": 3135,
+        "git_blob_sha": "634426d6e622a774f4b46a29bce6485f86aa6549",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/scrap_pile.svg",
+        "size_bytes": 3332,
+        "git_blob_sha": "04e66efd47c25ad6de2cb69f1b77d3b64b492132",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/supply_crate.svg",
+        "size_bytes": 4701,
+        "git_blob_sha": "1e41f90f71e4d259675780bfede2ac6690995a40",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/water_drum.svg",
+        "size_bytes": 3032,
+        "git_blob_sha": "60364e6fc56eb73379e71c3b248a8e7d9ea1663f",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/world/props/source/water_pump.svg",
+        "size_bytes": 3498,
+        "git_blob_sha": "806cf2660e51fecced8661290d77295d4a841252",
+        "canvas_px": 512,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      }
+    ],
+    "items": [
+      {
+        "path": "art/production/items/icons/source/10mm_pistol.svg",
+        "size_bytes": 3036,
+        "git_blob_sha": "5d74f8f3f7c23ccc6c3536c64cdf5ac3895ab67b",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/backpack.svg",
+        "size_bytes": 2689,
+        "git_blob_sha": "fdf2a8a61fb145762e792a1e8c07fe15825f9623",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/bandage_roll.svg",
+        "size_bytes": 2323,
+        "git_blob_sha": "3d7a800e530284392ada007408dbb086f9e3e363",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/binoculars.svg",
+        "size_bytes": 2390,
+        "git_blob_sha": "73b40420a48aad7722c85bc6a67853119588dfd3",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/bottle_caps.svg",
+        "size_bytes": 5311,
+        "git_blob_sha": "4d41cf7b1ed526091029241ffd2e5b967028fe54",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/canteen.svg",
+        "size_bytes": 2445,
+        "git_blob_sha": "af27ec038e3b43a66dab636f0d2cb7df3bdfac24",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/combat_knife.svg",
+        "size_bytes": 2351,
+        "git_blob_sha": "5e932f2246836dfdb7d3b3ca16a11bd3da77b9e9",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/gas_mask.svg",
+        "size_bytes": 2878,
+        "git_blob_sha": "ca1b9a3257912e33aa933fe94abf7741c93ae427",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/hunting_rifle.svg",
+        "size_bytes": 2763,
+        "git_blob_sha": "128989f80583ceb9fef28340aa24b952e0bcdfdb",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/lockpick_set.svg",
+        "size_bytes": 2215,
+        "git_blob_sha": "7fead0bba25adc7530e5b71689c0e2498a375145",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/medkit.svg",
+        "size_bytes": 2477,
+        "git_blob_sha": "b8361443be68463bd748896c4fd2b93e5de8c546",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/pistol_ammo.svg",
+        "size_bytes": 2946,
+        "git_blob_sha": "bf3fdddfb9fbace5ff6cad5e6cf162ced53b0db1",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/radio_detector.svg",
+        "size_bytes": 2491,
+        "git_blob_sha": "32d9b3bc36c3645ca964e1852374ccaeeb5ea756",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/scrap_gears.svg",
+        "size_bytes": 4307,
+        "git_blob_sha": "a88691d91b3e58d6ca766e77ad0b1f7f3aed2677",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/shotgun_shells.svg",
+        "size_bytes": 2849,
+        "git_blob_sha": "8fd695be1b8ec537998134b9068c16e0f9b71042",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/stim_injector.svg",
+        "size_bytes": 2434,
+        "git_blob_sha": "82c9a5f0ea96aaf7a2eb253cef37b4f351bbf759",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      },
+      {
+        "path": "art/production/items/icons/source/wrench.svg",
+        "size_bytes": 2125,
+        "git_blob_sha": "ad3dca719c9ab48ccce2913ca6f8afaa41f4f6cb",
+        "canvas_px": 256,
+        "alpha": true,
+        "status": "draft vector source / not final painted art"
+      }
+    ]
+  }
+}

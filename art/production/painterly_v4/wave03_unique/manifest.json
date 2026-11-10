@@ -1,0 +1,129 @@
+{
+  "project": "RADZONE",
+  "source_wave": 3,
+  "pack": "wave03_unique",
+  "classification": "DRAFT_ART_QUALITY_GATE_PENDING",
+  "art_reference": "Owner screenshot 2 and 3, see docs/art/VISUAL_CONSISTENCY_CONTRACT.md",
+  "extraction_source": "RADZONE_WAVE03_24_TRUE_ALPHA_PNG.zip (user conversation)",
+  "asset_count": 7,
+  "published_files": [
+    {
+      "id": "patched_leather_coat",
+      "category": "equipment",
+      "path": "art/production/painterly_v4/wave03_unique/equipment/patched_leather_coat.png",
+      "dimensions": [
+        282,
+        303
+      ],
+      "sha256": "52c6b404920452c71f9cff68b36c8ee1a946b81f349a25b4a0bd0667929781f8",
+      "git_blob_sha": "a9f4a5bdd153b0378a04030fe548a2aa5fa198ea",
+      "status": "SOURCE_DRAFT_RGBA_NEEDS_MANUAL_QA"
+    },
+    {
+      "id": "military_ammo_case",
+      "category": "world",
+      "path": "art/production/painterly_v4/wave03_unique/world/military_ammo_case.png",
+      "dimensions": [
+        296,
+        258
+      ],
+      "sha256": "8564d42ef1793e6561ab29b1902df39b35644bb14f271cf388e61dd53e6461b2",
+      "git_blob_sha": "f0590ba1d0860e2e7582445210257230857981f6",
+      "status": "SOURCE_DRAFT_RGBA_NEEDS_MANUAL_QA"
+    },
+    {
+      "id": "campfire_with_kettle",
+      "category": "world",
+      "path": "art/production/painterly_v4/wave03_unique/world/campfire_with_kettle.png",
+      "dimensions": [
+        295,
+        285
+      ],
+      "sha256": "e38e34c390e73340141e75c4c5f0d108ea2cf6b5c6bcef13538d8f1f60cfb856",
+      "git_blob_sha": "71179d456ba94f8ca26f91bd4a8e845cffd86ac7",
+      "status": "SOURCE_DRAFT_RGBA_NEEDS_MANUAL_QA"
+    },
+    {
+      "id": "torn_settlement_sofa",
+      "category": "world",
+      "path": "art/production/painterly_v4/wave03_unique/world/torn_settlement_sofa.png",
+      "dimensions": [
+        360,
+        243
+      ],
+      "sha256": "7904c3c9051d050ee66fc94723c0b8393ddd7734f849f4654a233aab9b34b101",
+      "git_blob_sha": "141219e61007e46cc7c7d42432dc4b3f9c7350c6",
+      "status": "SOURCE_DRAFT_RGBA_NEEDS_MANUAL_QA"
+    },
+    {
+      "id": "double_bunk_bed",
+      "category": "world",
+      "path": "art/production/painterly_v4/wave03_unique/world/double_bunk_bed.png",
+      "dimensions": [
+        301,
+        290
+      ],
+      "sha256": "a629654846ddf445614d6e8998710d86405a1b67b6d2ecccbd8715b91bf341ce",
+      "git_blob_sha": "88df465797bcc007b7db609f0cdb6af195358b01",
+      "status": "SOURCE_DRAFT_RGBA_NEEDS_MANUAL_QA"
+    },
+    {
+      "id": "steel_filing_cabinet",
+      "category": "world",
+      "path": "art/production/painterly_v4/wave03_unique/world/steel_filing_cabinet.png",
+      "dimensions": [
+        210,
+        293
+      ],
+      "sha256": "66d945f5477ef54b0a6bedae03440ad58a539051d4b5b37b7ec7f0d1e62f5cab",
+      "git_blob_sha": "399cce2ccbbd55332e642c50de7835ea6818e1ef",
+      "status": "SOURCE_DRAFT_RGBA_NEEDS_MANUAL_QA"
+    },
+    {
+      "id": "antenna_radio_tower",
+      "category": "world",
+      "path": "art/production/painterly_v4/wave03_unique/world/antenna_radio_tower.png",
+      "dimensions": [
+        241,
+        346
+      ],
+      "sha256": "8054175ffb02ff56aab42ab2a42e8e4a03a14808e0a490f65eb7cb98e460f0b1",
+      "git_blob_sha": "75d50119a84e9ac74112fbdc62a92eadb893ac6d",
+      "status": "SOURCE_DRAFT_RGBA_NEEDS_MANUAL_QA"
+    }
+  ],
+  "excluded": {
+    "duplicate_names": [
+      "weathered_autopistol",
+      "compact_smg",
+      "pump_shotgun",
+      "field_knife",
+      "field_injector",
+      "field_medical_case",
+      "heavy_respirator",
+      "rolltop_scout_pack",
+      "steel_field_helmet",
+      "radioactive_waste_drum",
+      "reinforced_supply_crate",
+      "red_vending_machine",
+      "portable_generator",
+      "retro_crt_console",
+      "scavenger_workbench"
+    ],
+    "ip_sensitive_or_confusing": [
+      "wrist_computer",
+      "blue_work_jacket"
+    ],
+    "notes": "Only semantically distinct subject types retained; excludes duplicate categories already in v3.1, Wave01, Wave02 draft, Wave04, and Wave06."
+  },
+  "validation": {
+    "sha256_verified": true,
+    "git_blob_hash_locally_verified": true,
+    "rgba": true,
+    "transparent_border": true,
+    "visual_preview": "QA contact sheet inspected on dark/light checkerboard; do not mistake painted dark parts for background.",
+    "no_godot_tests": true,
+    "no_android_tests": true,
+    "no_canonical_item_id_mapping": true
+  }
+}
