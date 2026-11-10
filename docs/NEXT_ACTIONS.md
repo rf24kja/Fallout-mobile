@@ -22,13 +22,13 @@
 
 ## P1 — Core Fidelity Verification (This Week)
 
-| ID | Task | Description | Blocked By |
-|----|------|-------------|------------|
-| P1-1 | **Update FIDELITY_MATRIX** | Document REA verification for all P0 systems with evidence | None |
-| P1-2 | **Verify SPECIAL Calculations** | REA analysis of derived stats formulas → compare Godot implementation | P1-1 |
-| P1-3 | **Verify Combat AP Costs** | REA extraction of weapon AP costs → compare Godot combat.gd | P1-1 |
-| P1-4 | **Verify DT/DR Damage** | REA damage formula → compare Godot damage calculation | P1-1 |
-| P1-5 | **Verify Critical Tables** | REA critical hit tables → compare Godot critical system | P1-1 |
+| ID | Task | Description | Blocked By | Status |
+|----|------|-------------|------------|--------|
+| P1-1 | **Update FIDELITY_MATRIX** | Document REA verification for all P0 systems with evidence | None | ✅ **COMPLETE** |
+| P1-2 | **Verify SPECIAL Calculations** | REA analysis of derived stats formulas → compare Godot implementation | P1-1 | ✅ **COMPLETE** (68 tests PASS) |
+| P1-3 | **Verify Combat AP Costs** | REA extraction of weapon AP costs → compare Godot combat.gd | P1-1 | ✅ **COMPLETE** (26 tests PASS) |
+| P1-4 | **Verify DT/DR Damage** | REA damage formula → compare Godot damage calculation | P1-1 | 🟡 In Progress |
+| P1-5 | **Verify Critical Tables** | REA critical hit tables → compare Godot critical system | P1-1 | 🟡 In Progress |
 
 ---
 
@@ -67,16 +67,20 @@
 
 ---
 
-## Current Sprint Focus (Week of 2026-11-09)
+## Current Sprint Focus (Week of 2026-11-10)
 
-### Primary Goal: **Release Build + Fidelity Verification**
+### Primary Goal: **Fidelity Verification + Quest System Completion**
 
 ```
 [✅] P0-1: Clone recovery test (COMPLETE - 2026-11-09)
 [✅] P0-2: Release keystore generation + APK build + verify (COMPLETE - manual apksigner workaround)
 [✅] P0-3: GitHub sync + LFS migration (COMPLETE - 2026-11-09)
-[ ] P1-1: Update FIDELITY_MATRIX with current REA evidence (2 hrs)
-[ ] P1-2: Update DEVELOPMENT_HISTORY with milestone log (1 hr)
+[✅] P1-1: Update FIDELITY_MATRIX with current REA evidence (COMPLETE - 2026-11-10)
+[✅] P1-3: Verify Combat AP Costs (COMPLETE - 2026-11-10, 26 tests PASS)
+[ ] P1-2: Verify SPECIAL Calculations (2 hrs)
+[ ] P1-4: Verify DT/DR Damage (2 hrs)
+[ ] P1-5: Verify Critical Tables (2 hrs)
+[ ] P2-1: Complete Quest System Arroyo→Klamath (1 week)
 ```
 
 ### Success Criteria for This Sprint

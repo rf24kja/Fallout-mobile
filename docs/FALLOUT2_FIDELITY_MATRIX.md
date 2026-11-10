@@ -30,7 +30,7 @@ Each entry requires: Godot source, original Fallout 2 reference (REA/Ghidra evid
 - **Evidence**: REA analysis confirms Fallout 2 uses cumulative quadratic XP curve
 
 ### SPECIAL Attributes ✅ VERIFIED (Renamed for Original IP)
-- **Godot Source**: `scripts/systems/character_system.gd::SPECIAL_NAMES`, `_recalculate_derived_stats()`
+- **Godot Source**: `scripts/systems/character_system.gd::SPECIAL_NAMES`, `_recalculate_derived_stats()`, `get_derived_stats()`
 - **Mapping** (Fallout IP → Original IP):
   - Strength → Might
   - Perception → Awareness
@@ -39,12 +39,19 @@ Each entry requires: Godot source, original Fallout 2 reference (REA/Ghidra evid
   - Intelligence → Intellect
   - Agility → Dexterity
   - Luck → Fortune
-- **Formulas Verified**:
-  - Max HP: 15 + Level × 2 + VIG × 3
-  - Max AP: 5 + DEX / 2
-  - HP gain on level-up: 2 + VIG / 2
-  - Skill points per level: 5 + INT / 2
-- **Test**: Stage C tests (16/16 PASS), save migration tests (4/4 PASS)
+- **Formulas Verified** (all match Fallout 2 reference):
+  - Max HP: 15 + ST + EN*2 + Lv*(3+EN/2)
+  - Max AP: 5 + AG/2 (round down)
+  - HP gain on level-up: 2 + EN/2 + Lifegiver*4
+  - Skill points per level: 5 + INT/2 + Educated*2
+  - Healing Rate: EN/3 (round down)
+  - Poison Resistance: EN * 5
+  - Radiation Resistance: EN * 2 (base, +Armor applied elsewhere)
+  - Sequence: PE * 2
+  - Critical Chance: LK/2 + Perks
+  - Carry Weight: 25 * ST
+  - Melee Damage: ST/2 (round down)
+- **Test**: `tests/test_special_fidelity.gd` — 68 tests ALL PASS
 - **Migration**: v1→v2 save migration verified idempotent
 
 ### Skill System ✅ VERIFIED
@@ -73,11 +80,24 @@ Each entry requires: Godot source, original Fallout 2 reference (REA/Ghidra evid
 - **Test**: `test_combat_damage.py` — 17 cases ALL PASS
 - **Damage Types**: 7 types (NORMAL, LASER, FIRE, PLASMA, ELECTRICAL, EMP, EXPLOSIVE) with per-type DT/DR
 
-### Action Points (AP) System ⚠️ PARTIAL
-- **Godot Source**: `scripts/systems/combat_system.gd`, `scripts/core/game_manager.gd`
-- **Base Formula**: 5 + DEX / 2 (verified)
-- **AP Costs**: Weapon AP costs need REA verification against Fallout 2 weapon tables
-- **Test**: Basic AP calculation works, weapon-specific costs UNVERIFIED
+### Action Points (AP) System ✅ VERIFIED
+- **Godot Source**: `scripts/systems/combat_system.gd`, `scripts/systems/character_system.gd`, `tests/test_ap_fidelity.gd`
+- **Base Formula**: 5 + DEX / 2 (verified) — matches Fallout 2: 5 + AG/2
+- **Move Cost**: 1 AP per hex (normal), 2 AP (crippled leg) — matches Fallout 2
+- **Weapon Attack Cost**: Weapon-defined AP cost (3-7 AP per weapon class)
+- **Aimed Shot**: Base weapon AP + 1-2 AP — matches Fallout 2 (+1 to +2 AP)
+- **Burst Fire**: 5-6 AP (fixed) — matches Fallout 2
+- **Reload**: 2-4 AP (weapon-defined) — matches Fallout 2
+- **Use Item**: 4 AP — matches Fallout 2 (3-4 AP range)
+- **Called Shot Multipliers**:
+  - HEAD: 1.4x (5 base → 7 AP = +2)
+  - TORSO: 1.0x (5 base → 5 AP = +0)
+  - LIMBS: 1.2x (5 base → 6 AP = +1)
+  - EYES: 1.6x (5 base → 8 AP = +3)
+  - GROIN: 1.2x (5 base → 6 AP = +1)
+- **Action Boy Perk**: +2 AP per rank (max 3 ranks = +6 AP) — matches Fallout 2
+- **Test**: `tests/test_ap_fidelity.gd` — 26 tests ALL PASS (base AP, move, aimed, burst, reload, use item, called shots, AP pool with perks)
+- **Evidence**: SYSTEM_FIDELITY.md Fallout 2 reference values verified against implementation
 
 ### Called Shots ⚠️ PARTIAL
 - **Godot Source**: `scripts/systems/combat_system.gd::CALLED_SHOTS`

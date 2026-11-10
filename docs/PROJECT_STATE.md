@@ -1,7 +1,7 @@
 # PROJECT STATE — Fallout 2 Reborn Mobile
 
-**Last Updated**: 2026-11-09
-**Git Commit**: `ea7cb64` (chore: remove large binary files from git tracking + LFS migration)
+**Last Updated**: 2026-11-10
+**Git Commit**: `42dc81a` (fix(special): align SPECIAL derived stats with Fallout 2 reference)
 **Git Branch**: `master` (local) / `master` (remote)
 **GitHub Remote**: ✅ Connected — https://github.com/rf24kja/Fallout-mobile
 
@@ -94,7 +94,13 @@
 
 | Commit | Message | Notes |
 |--------|---------|-------|
-| `ea7cb64` | chore: remove large binary files (APKs, .so libs) from git tracking | **Current HEAD** — LFS migration |
+| `42dc81a` | fix(special): align SPECIAL derived stats with Fallout 2 reference | **Current HEAD** — SPECIAL fidelity complete |
+| `e97281a` | Merge branch 'master' + fix(combat): align AP system with Fallout 2 reference values | AP fidelity complete |
+| `fb25603` | fix(combat): align AP system with Fallout 2 reference values | Move AP=1/2, Called shots corrected, 26 tests PASS |
+| `4ac94af` | Merge pull request #27 from rf24kja/art/radzone-wave11-industrial-consumable | RADZONE art waves 1-11 merged (105+ PNGs) |
+| `bf3159b` | art(RADZONE): publish Wave11 true RGBA distillation still and canned beans | Art wave 11 |
+| `b8ebbf5` | Merge pull request #26 from rf24kja/art/radzone-wave10-field-duffel | Art wave 10 |
+| `ea7cb64` | chore: remove large binary files (APKs, .so libs) from git tracking | LFS migration |
 | `aeb21c7` | docs: update PROJECT_STATE and NEXT_ACTIONS with release build verification | Release build docs |
 | `8ee14b2` | docs: update PROJECT_STATE and NEXT_ACTIONS after recovery validation | Recovery test passed |
 | `9b8c9d1` | fix(ui): remove duplicate code block from main_menu.gd _ready | Parse error fix |
