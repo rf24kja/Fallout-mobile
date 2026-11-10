@@ -61,9 +61,10 @@ extends Resource
 @export var caliber: String = ""
 @export var ammo_class: AmmoClass = AmmoClass.STANDARD
 @export var compatible_weapons: Array[String] = []
-@export var damage_modifier: float = 1.0
-@export var dt_modifier: float = 1.0
-@export var dr_modifier: float = 1.0
+@export var damage_multiplier: float = 1.0
+@export var damage_divisor: float = 1.0
+@export var damage_resistance_modifier: int = 0
+@export var armor_class_modifier: int = 0
 @export var damage_type_override: int = -1
 @export var special_effect: String = "NONE"
 @export var effect_magnitude: float = 0.0
@@ -143,18 +144,23 @@ func get_effective_damage(ammo: ItemDefinition = null) -> Vector2i:
 	var min_dmg = damage_min
 	var max_dmg = damage_max
 	if ammo:
-		min_dmg = int(min_dmg * ammo.damage_modifier)
-		max_dmg = int(max_dmg * ammo.damage_modifier)
+		# Vanilla: damage *= damageMultiplier, then if damageDivisor != 0: damage /= damageDivisor
+		min_dmg = int(min_dmg * ammo.damage_multiplier)
+		if ammo.damage_divisor != 0:
+			min_dmg = int(min_dmg / ammo.damage_divisor)
+		max_dmg = int(max_dmg * ammo.damage_multiplier)
+		if ammo.damage_divisor != 0:
+			max_dmg = int(max_dmg / ammo.damage_divisor)
 	return Vector2i(min_dmg, max_dmg)
 
 func get_effective_dt(ammo: ItemDefinition = null) -> float:
-	if ammo:
-		return dt_modifier * ammo.dt_modifier
+	# Vanilla: damageThreshold is NOT modified by ammo, it's target's DT
+	# Ammo only affects DR via damage_resistance_modifier (added to target DR)
 	return 1.0
 
 func get_effective_dr(ammo: ItemDefinition = null) -> float:
-	if ammo:
-		return dr_modifier * ammo.dr_modifier
+	# Vanilla: damageResistance is modified by ammo's damage_resistance_modifier (added)
+	# This returns a multiplier for compatibility, but actual DR calc is in CombatSystem
 	return 1.0
 
 func is_energy_weapon() -> bool:

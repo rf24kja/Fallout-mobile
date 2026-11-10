@@ -81,3 +81,7 @@ artifacts_backup/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# REA decoded APK artifacts (local analysis only)
+custom_template_fixed_decoded/
+stage_f0_decoded/

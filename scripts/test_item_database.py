@@ -59,19 +59,19 @@ def test_ammo():
     
     for a in ammo:
         required = ["item_id", "display_name", "category", "caliber", "ammo_class", 
-                   "compatible_weapons", "damage_modifier", "dt_modifier", "dr_modifier",
+                   "compatible_weapons", "damage_multiplier", "damage_divisor", "damage_resistance_modifier", "armor_class_modifier",
                    "damage_type_override", "special_effect", "effect_magnitude"]
         for field in required:
             if field not in a:
                 print(f"  ERROR: {a.get('item_id', 'unknown')} missing {field}")
                 return False
         
-        ammo_classes = ["STANDARD", "JHP", "AP", "INCENDIARY", "MICROFUSION", "SMALL_ENERGY"]
+        ammo_classes = ["STANDARD", "JHP", "AP", "ENERGY_CELL", "MICROFUSION", "SHOTGUN", "ROCKET", "GRENADE", "FLAME_FUEL"]
         if a["ammo_class"] not in ammo_classes:
             print(f"  ERROR: {a['item_id']} invalid ammo_class: {a['ammo_class']}")
             return False
         
-        print(f"  OK: {a['item_id']} ({a['display_name']}) - {a['caliber']} {a['ammo_class']} dmg_mod={a['damage_modifier']} dt_mod={a['dt_modifier']}")
+        print(f"  OK: {a['item_id']} ({a['display_name']}) - {a['caliber']} {a['ammo_class']} dmg_mult={a['damage_multiplier']} dmg_div={a['damage_divisor']} dr_mod={a['damage_resistance_modifier']}")
     
     return True
 

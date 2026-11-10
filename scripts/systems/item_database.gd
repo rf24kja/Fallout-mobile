@@ -160,9 +160,10 @@ func _make_item_from_dict(data: Dictionary) -> ItemDefinition:
 		"STANDARD": 0, "JHP": 1, "AP": 2, "ENERGY_CELL": 3, "MICROFUSION": 4, "SHOTGUN": 5, "ROCKET": 6, "GRENADE": 7, "FLAME_FUEL": 8
 	})
 	item.compatible_weapons = _to_string_array(data.get("compatible_weapons", []))
-	item.damage_modifier = float(data.get("damage_modifier", 1.0))
-	item.dt_modifier = float(data.get("dt_modifier", 1.0))
-	item.dr_modifier = float(data.get("dr_modifier", 1.0))
+	item.damage_multiplier = float(data.get("damage_multiplier", 1.0))
+	item.damage_divisor = float(data.get("damage_divisor", 1.0))
+	item.damage_resistance_modifier = int(data.get("damage_resistance_modifier", 0))
+	item.armor_class_modifier = int(data.get("armor_class_modifier", 0))
 	item.damage_type_override = _enum_from_string(data.get("damage_type_override", "NONE"), {
 		"NONE": -1, "NORMAL": 0, "LASER": 1, "PLASMA": 2, "ELECTRICAL": 3, "FIRE": 4, "EXPLOSIVE": 5, "MELEE": 6
 	})

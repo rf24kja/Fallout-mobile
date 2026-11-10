@@ -513,34 +513,51 @@ func _apply_damage(target: Dictionary, damage: int, damage_type: int, ammo_type:
 	var dr = armor.get("damage_resistance", {}).get(str(final_damage_type), 0)
 	var dt = armor.get("damage_threshold", {}).get(str(final_damage_type), 0)
 	
-	# Apply ammo modifiers if present
+	# Apply ammo modifiers if present (vanilla algorithm)
 	if ammo_type != "" and _item_database:
 		var ammo_def = _item_database.get_item(ammo_type)
 		if ammo_def:
-			# Damage modifier
-			damage = int(damage * ammo_def.damage_modifier)
-			# DT modifier (JHP increases DT effectiveness, AP reduces it)
-			dt = int(dt * ammo_def.dt_modifier)
-			# DR modifier
-			dr = int(dr * ammo_def.dr_modifier)
+			# Vanilla: damageResistance += ammo.damageResistanceModifier (ADDS to target DR)
+			dr += ammo_def.damage_resistance_modifier
+			# Clamp DR to 0-100
+			dr = clamp(dr, 0, 100)
+			
+			# Vanilla: damage *= damageMultiplier, then if damageDivisor != 0: damage /= damageDivisor
+			damage = int(damage * ammo_def.damage_multiplier)
+			if ammo_def.damage_divisor != 0:
+				damage = int(damage / ammo_def.damage_divisor)
+			
+			# Vanilla mystery halving
+			damage = int(damage / 2)
 	
-	# Apply weapon special effects for DT reduction
+	# Apply weapon special effects for DT reduction (critical armor bypass: leaves 20% DT/DR)
 	var special_effects = weapon.get("special_effects", [])
 	for effect in special_effects:
 		if effect.begins_with("ignore_"):
 			var percent_str = effect.get_slice("_", 1)
 			if percent_str.is_valid_int():
 				var ignore_percent = percent_str.to_int()
+				# Critical bypass leaves 20% of DT (ignores 80%)
 				dt = int(dt * (100 - ignore_percent) / 100)
-		# pierce_cover is handled in hit chance calculation
 	
-	# Fallout 2 Formula: Apply DT first, then DR
-	# final_damage = max(1, (raw_damage * dmg_mod - DT * dt_mod) * (1 - DR * dr_mod / 100))
+	# Fallout 2 Vanilla Formula: Apply DT first, then DR
+	# damage = weaponDamage + damageBonus
+	# damage *= damageMultiplier
+	# if damageDivisor != 0: damage /= damageDivisor
+	# damage /= 2
+	# damage *= combatDifficultyDamageModifier / 100
+	# damage -= damageThreshold
+	# if damage > 0: damage -= damage * damageResistance / 100
+	# NO minimum 1 damage clamp in vanilla
+	
 	var after_dt = damage - dt
-	var after_dr = int(after_dt * (100 - dr) / 100)
-	var final = max(1, after_dr)  # Fallout 2: minimum 1 damage if hit
+	var final_damage = 0
+	if after_dt > 0:
+		final_damage = int(after_dt * (100 - dr) / 100)
+	else:
+		final_damage = 0
 	
-	return final
+	return final_damage
 
 func _perform_reload(actor_id: String) -> bool:
 	var actor = _get_participant(actor_id)
@@ -708,7 +725,7 @@ func force_end_combat() -> void:
 
 # Test helper: calculate_damage with all parameters for unit testing
 func calculate_damage_test(raw_damage: int, ammo_type: String, target_armor: Dictionary, damage_type: int = DamageType.NORMAL, weapon: Dictionary = {}) -> int:
-	"""Test helper for DT/DR calculation with ammo modifiers."""
+	"""Test helper for DT/DR calculation with ammo modifiers - vanilla algorithm."""
 	var damage = raw_damage
 	
 	# First, apply damage type override if ammo specifies it
@@ -725,11 +742,19 @@ func calculate_damage_test(raw_damage: int, ammo_type: String, target_armor: Dic
 	if ammo_type != "" and _item_database:
 		var ammo_def = _item_database.get_item(ammo_type)
 		if ammo_def:
-			damage = int(damage * ammo_def.damage_modifier)
-			dt = int(dt * ammo_def.dt_modifier)
-			dr = int(dr * ammo_def.dr_modifier)
+			# Vanilla: damageResistance += ammo.damageResistanceModifier (ADDS to target DR)
+			dr += ammo_def.damage_resistance_modifier
+			dr = clamp(dr, 0, 100)
+			
+			# Vanilla: damage *= damageMultiplier, then if damageDivisor != 0: damage /= damageDivisor
+			damage = int(damage * ammo_def.damage_multiplier)
+			if ammo_def.damage_divisor != 0:
+				damage = int(damage / ammo_def.damage_divisor)
+			
+			# Vanilla mystery halving
+			damage = int(damage / 2)
 	
-	# Apply weapon special effects for DT reduction
+	# Apply weapon special effects for DT reduction (critical armor bypass: leaves 20% DT/DR)
 	var special_effects = weapon.get("special_effects", [])
 	for effect in special_effects:
 		if effect.begins_with("ignore_"):
@@ -738,5 +763,13 @@ func calculate_damage_test(raw_damage: int, ammo_type: String, target_armor: Dic
 				var ignore_percent = percent_str.to_int()
 				dt = int(dt * (100 - ignore_percent) / 100)
 	
-	var after_dr = int(damage * (100 - dr) / 100)
-	return max(0, after_dr - dt)
+	# Vanilla formula: Apply DT first, then DR
+	# NO minimum 1 damage clamp in vanilla
+	var after_dt = damage - dt
+	var final_damage = 0
+	if after_dt > 0:
+		final_damage = int(after_dt * (100 - dr) / 100)
+	else:
+		final_damage = 0
+	
+	return final_damage
