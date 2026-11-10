@@ -35,3 +35,7 @@ For **each new visual object** in a PR:
 5. Update the audit report and run unit tests. Do not delete old art automatically.
 
 **No GitHub Actions added** to preserve GitHub minutes; OpenCode runs this guard locally before any art work.
+
+### Existing duplicate-check tooling
+
+This registry does **not** supersede or remove the older `tools/art_check_duplicates.py` (master-branch subject aliases) and `tools/art_visual_duplicate_gate.py` (Pillow hash gate). Those are still used by older Wave 08–11 checks. The new tool is a **cross-branch catalog admission gate** and extends their visibility to Wave 12/13, PR #28 and historical manifest variants. Run the older gates when their wave workflow requires them, and the catalog gate before ANY new art proposal. If consolidation is later needed, do it as a separately tested refactor, not by creating more duplicate validators.
