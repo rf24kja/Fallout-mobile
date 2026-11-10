@@ -2,6 +2,10 @@
 
 **Public game name:** RADZONE. **Intended audience:** fans of Fallout 2 and classic tactical isometric RPGs.
 
+## Authorized graphics creation (owner lock, 2026-11-10)
+
+All new RADZONE generated images must be produced **inside ChatGPT with its built-in image-generation tool only**. **Runway and replacement external generator providers are prohibited** unless the owner explicitly reverses this decision. Do not substitute poster/image-board results for isolated production sprites; rejected 2026-11-10 Runway results must not be published. Follow [Canonical Graphics Rules](./art/GRAPHICS_CANONICAL_RULES.md) before any new art.
+
 ## Approved visual target
 
 The 10 realistic concept images in [Approved Visual Catalog](./art/APPROVED_VISUAL_CATALOG.md) replace the previous unapproved schematic/vector visual presentation. Keep the approved cinematic wasteland visual tone, aged metal controls, detailed armor and weapons, amber lamps, green CRT lettering, dense but readable mobile UI and long scrolling branching dialogue.
