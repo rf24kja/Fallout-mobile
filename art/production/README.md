@@ -2,12 +2,25 @@
 
 **This is the visual assets pipeline, not the Godot gameplay source tree.** Concept art is archived separately; modular game assets are found here.
 
+**OWNER GRAPHICS RULE (2026-11-10):** [Canonical graphics creation / approval / provider rules](../../docs/art/GRAPHICS_CANONICAL_RULES.md). New art: ChatGPT built-in image generator only. Runway and alternative providers are forbidden; draft posters are not assets.
+
 | Group | Path | Source count | Status |
 |---|---|---:|---|
 | Retro UI pieces | [`ui/source/`](./ui/source/) | 19 | SVG source; Godot integration pending |
 | Wasteland props | [`world/props/source/`](./world/props/source/) | 14 | Transparent isometric-inspired SVG draft assets |
 | Inventory icons | [`items/icons/source/`](./items/icons/source/) | 17 | Transparent SVG draft icons |
-| **TOTAL** | | **50** | All source files on GitHub |
+| **SUBTOTAL — vector starter kit** | | **50** | Only editable SVG starter sources; NOT total art library |
+
+## Other confirmed art sources on master (snapshot 2026-11-10)
+
+| Group | Path | Files | Status |
+|---|---|---:|---|
+| Painterly v3.1 | [painterly_v3/](./painterly_v3/) | 58 PNG | Draft candidate cutouts / turnaround views; no Android approval |
+| Painterly v4 | [painterly_v4/](./painterly_v4/) | 84 PNG | Multiple waves; draft and candidate graphics, some source sheets/variants |
+| Cross-branch registry | [catalog/asset_registry.json](./catalog/asset_registry.json) | 161 logical records / 204 variants | Includes staged branches; NOT unique in-game item count |
+| Approved UI concepts | [approved v2](../../github-assets/approved/v2/) | 10 WebP | Approved visual target, NOT game-ready UI |
+
+Do not sum sources into unique item counts. The earlier 50 count referred **only** to SVG starter components. Review [duplicate audit](./catalog/AUDIT_2026-11-10.md) before adding work. No third-party Runway imagery may be published.
 
 ## Source vs visual reference
 

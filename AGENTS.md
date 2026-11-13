@@ -1,5 +1,9 @@
 # AGENTS.md — Fallout 2 Reborn Mobile
 
+## Mandatory graphics-provider directive (owner, 2026-11-10)
+
+**Applies to all art/visual agents:** [GRAPHICS_CANONICAL_RULES.md](docs/art/GRAPHICS_CANONICAL_RULES.md) is the canonical graphics production policy. The owner **forbids Runway** (sometimes called Railway) and any substitute third-party image-generation service. **Only ChatGPT's built-in image-generation capability** may generate new RADZONE art unless the owner explicitly changes this rule. OpenCode must not switch providers. The 2026-11-10 Runway generation is `REJECTED_WRONG_PROVIDER` and must not be published as an asset. Any portrait, poster, collage, or concept sheet is **not** an in-game PNG sprite. Before generation: inspect approved v2 screens, the cross-branch asset registry and visual duplicates. Before publishing: verify PNG/alpha/provenance, label as candidate, use `art/*` PR, never claim Android validation without runtime proof. This graphics directive does not alter Fallout 2 gameplay fidelity or REA restrictions.
+
 ## Agent Guidelines
 
 ### Primary Agent: Technical Supervisor
@@ -85,6 +89,18 @@
 | Android SDK | API 31+ |
 | Java | 17+ |
 | Export Templates | Godot 4.7.2 standard |
+
+## RADZONE Art Uniqueness Gate (MANDATORY for OpenCode and all art agents)
+
+Before **any** art-generation request, image extraction, or GitHub publication:
+
+1. Read `art/production/catalog/asset_registry.json` and `art/production/catalog/AUDIT_2026-11-10.md`. The registry includes historical staged branches — do not search only `master`.
+2. Choose a specific **new object ID** and purpose, not generic "pistol / armor / loot" repetitions. Run `python tools/art/asset_uniqueness_guard.py --catalog art/production/catalog/asset_registry.json --candidate-id proposed_unique_id`. An existing ID or semantic family hit **blocks treating it as a new item** until human review; variants must retain the existing canonical ID.
+3. When PNG bytes are available, rerun with `--candidate-image path/to/candidate.png` and provide `--reference-root REF=DIR` for local Git worktrees holding historical branches. A partial image scan is **not** a duplicate-free pass.
+4. Distinguish conceptual object, gameplay item ID, export resolutions, directional views, and sprite animations. **One subject with ten sizes/views is one subject**, not ten new game objects.
+5. Publish only genuinely isolated and decoded images with provenance/hash, record status as `candidate_not_in_game_verified` until Godot + Android tests, and update the central catalog in the **same PR** as the graphics. Never silently overwrite approved or live assets.
+6. Static image generation: **omit** animation settings. Never pass `frame_count=1` to an animation API. Safety refusals cannot be bypassed; record `BLOCKED_GENERATION` and continue other authorized content without fictitious success.
+7. No automatic deletions, no balance changes, no unrequested GitHub Actions runs or paid compute. REA MCP remains disabled.
 
 ## GitHub Synchronization Rules
 
