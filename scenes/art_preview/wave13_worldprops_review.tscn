@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/glass_market_display_256.png" id="1_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/antique_cash_register_256.png" id="2_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/settlement_canned_goods_shelf_256.png" id="3_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/corroded_street_dumpster_256.png" id="4_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/field_medical_gurney_256.png" id="5_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/settlement_loudspeaker_pole_256.png" id="6_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/rusted_air_conditioner_256.png" id="7_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/portable_dual_floodlight_256.png" id="8_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/settlement_notice_board_256.png" id="9_tex"]
+[ext_resource type="Texture2D" path="res://art/production/painterly_v4/wave13/objects/worn_leather_armchair_256.png" id="10_tex"]
+
+[node name="Wave13ArtReview" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.07, 0.09, 0.08, 1)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+enabled = true
+
+[node name="Item_1" type="Sprite2D" parent="."]
+position = Vector2(150, 182)
+texture_filter = 2
+texture = ExtResource("1_tex")
+
+[node name="Caption_1" type="Label" parent="."]
+position = Vector2(35, 314)
+text = "glass market display"
+
+[node name="Item_2" type="Sprite2D" parent="."]
+position = Vector2(395, 182)
+texture_filter = 2
+texture = ExtResource("2_tex")
+
+[node name="Caption_2" type="Label" parent="."]
+position = Vector2(280, 314)
+text = "antique cash register"
+
+[node name="Item_3" type="Sprite2D" parent="."]
+position = Vector2(640, 182)
+texture_filter = 2
+texture = ExtResource("3_tex")
+
+[node name="Caption_3" type="Label" parent="."]
+position = Vector2(525, 314)
+text = "settlement canned goods shelf"
+
+[node name="Item_4" type="Sprite2D" parent="."]
+position = Vector2(885, 182)
+texture_filter = 2
+texture = ExtResource("4_tex")
+
+[node name="Caption_4" type="Label" parent="."]
+position = Vector2(770, 314)
+text = "corroded street dumpster"
+
+[node name="Item_5" type="Sprite2D" parent="."]
+position = Vector2(1130, 182)
+texture_filter = 2
+texture = ExtResource("5_tex")
+
+[node name="Caption_5" type="Label" parent="."]
+position = Vector2(1015, 314)
+text = "field medical gurney"
+
+[node name="Item_6" type="Sprite2D" parent="."]
+position = Vector2(150, 522)
+texture_filter = 2
+texture = ExtResource("6_tex")
+
+[node name="Caption_6" type="Label" parent="."]
+position = Vector2(35, 654)
+text = "settlement loudspeaker pole"
+
+[node name="Item_7" type="Sprite2D" parent="."]
+position = Vector2(395, 522)
+texture_filter = 2
+texture = ExtResource("7_tex")
+
+[node name="Caption_7" type="Label" parent="."]
+position = Vector2(280, 654)
+text = "rusted air conditioner"
+
+[node name="Item_8" type="Sprite2D" parent="."]
+position = Vector2(640, 522)
+texture_filter = 2
+texture = ExtResource("8_tex")
+
+[node name="Caption_8" type="Label" parent="."]
+position = Vector2(525, 654)
+text = "portable dual floodlight"
+
+[node name="Item_9" type="Sprite2D" parent="."]
+position = Vector2(885, 522)
+texture_filter = 2
+texture = ExtResource("9_tex")
+
+[node name="Caption_9" type="Label" parent="."]
+position = Vector2(770, 654)
+text = "settlement notice board"
+
+[node name="Item_10" type="Sprite2D" parent="."]
+position = Vector2(1130, 522)
+texture_filter = 2
+texture = ExtResource("10_tex")
+
+[node name="Caption_10" type="Label" parent="."]
+position = Vector2(1015, 654)
+text = "worn leather armchair"

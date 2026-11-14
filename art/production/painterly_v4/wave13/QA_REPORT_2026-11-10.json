@@ -1,0 +1,45 @@
+{
+  "project": "RADZONE",
+  "wave": "13",
+  "classification": "CANDIDATE_NOT_IN_GAME_VERIFIED",
+  "checked_on": "2026-11-10",
+  "verified": {
+    "local_png_validity": {
+      "count": 20,
+      "pass": 20,
+      "properties": [
+        "PNG signature",
+        "Pillow decoding",
+        "RGBA alpha",
+        "dimensions match",
+        "SHA-256 match",
+        "transparent border",
+        "nonempty subject"
+      ]
+    },
+    "local_validator_fixture": "PASS: 20 transparent RGBA PNG, 10 scene references, review scene, manifest SHA-256",
+    "github_tree": {
+      "object_png_paths": 20,
+      "found": 20,
+      "missing": [],
+      "prefab_scene_paths": 10,
+      "found_prefabs": 10,
+      "review_scene_texture_refs": 10,
+      "missing_review_refs": []
+    },
+    "source_art": "10 crops from one freshly generated poster (not 42 independent original assets)"
+  },
+  "not_tested": [
+    "Godot 4.7 scene runtime",
+    "Android emulator / device",
+    "collision",
+    "occlusion / correct world scale",
+    "commercial art rights"
+  ],
+  "notes": [
+    "Do not merge without in-engine screenshots and user art review.",
+    "256px variants are upscaled from smaller source-crop regions; not truly native 256px detail.",
+    "No game code or production resource was replaced."
+  ],
+  "next": "OpenCode run validator and 10-object review scene; confirm grounds/alpha quality and actual gameplay scale."
+}

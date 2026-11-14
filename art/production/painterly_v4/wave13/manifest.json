@@ -1,0 +1,606 @@
+{
+  "project": "RADZONE",
+  "wave": "13",
+  "revision": 1,
+  "status": "CANDIDATE_NOT_IN_GAME_VERIFIED",
+  "generated_source_file": "a_highly_detailed_isometric_style_game_asset_showc.png",
+  "generated_source_sha256": "720631ddaa504f8dfb660a9e7743d97261ecfeb0e382baf9c29229603545463a",
+  "generated_source_dimensions": [
+    1536,
+    1024
+  ],
+  "generated_source_notice": "Original was a promotional montage with unverified claims and some unrelated game-IP references. It is NOT published as a game asset. Only generic illustrated objects were extracted.",
+  "generation_method": "Isolated crops from one ChatGPT-generated montage, automatic GrabCut alpha extraction plus manual cleanup; NOT 10 independently generated assets.",
+  "not_included_in_release": "Any fake progress/status text, decorative framing, Vault 13/Nuka-Cola branded material, character portrait, or scene background.",
+  "assets": [
+    {
+      "id": "glass_market_display",
+      "type": "commerce",
+      "source_crop": [
+        916,
+        217,
+        1056,
+        346
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        4,
+        5,
+        138,
+        126
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/glass_market_display_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 26573,
+          "sha256": "2a69305694957e17ffcb3d48e775adb379d32fc528b789acbcad64e73aa06b55",
+          "alpha_bbox": [
+            8,
+            19,
+            120,
+            120
+          ],
+          "source_crop_resolution": [
+            140,
+            129
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/glass_market_display_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 37116,
+          "sha256": "400d92bd44ffa1b90c3b056b5257b919adb65f9d96cba15cd0db4d5bd0afa619",
+          "alpha_bbox": [
+            61,
+            127,
+            195,
+            248
+          ],
+          "source_crop_resolution": [
+            140,
+            129
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "antique_cash_register",
+      "type": "commerce",
+      "source_crop": [
+        1056,
+        230,
+        1161,
+        346
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        4,
+        2,
+        94,
+        114
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/antique_cash_register_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 21757,
+          "sha256": "90560b28b23aae75d51ca9a08d88ff2d4c2b9325a0d19415f8efffc919cb0a21",
+          "alpha_bbox": [
+            19,
+            8,
+            109,
+            120
+          ],
+          "source_crop_resolution": [
+            105,
+            116
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/antique_cash_register_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 22516,
+          "sha256": "a541037fd137837ea4d089bb4e5574a8d3270ab4f5eae772a8a0c5ac6f652c44",
+          "alpha_bbox": [
+            83,
+            136,
+            173,
+            248
+          ],
+          "source_crop_resolution": [
+            105,
+            116
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "settlement_canned_goods_shelf",
+      "type": "commerce",
+      "source_crop": [
+        1162,
+        222,
+        1246,
+        346
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        2,
+        2,
+        69,
+        120
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_canned_goods_shelf_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 16101,
+          "sha256": "62a01a6c80823675b81c371cbfc0a2d6b16b77c654f7120daac9fa44ccee8f06",
+          "alpha_bbox": [
+            32,
+            8,
+            96,
+            120
+          ],
+          "source_crop_resolution": [
+            84,
+            124
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_canned_goods_shelf_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 18430,
+          "sha256": "89fbfe7552e75166a0b7ad7ac3751c61d76e7e3674c28ec81e32e88077b79ef7",
+          "alpha_bbox": [
+            94,
+            130,
+            161,
+            248
+          ],
+          "source_crop_resolution": [
+            84,
+            124
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "corroded_street_dumpster",
+      "type": "street",
+      "source_crop": [
+        19,
+        605,
+        135,
+        731
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        6,
+        2,
+        114,
+        116
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/corroded_street_dumpster_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 26413,
+          "sha256": "e1c7183275ae622e9ce912954fddabac4b793e520c66f34011372d07d82d697d",
+          "alpha_bbox": [
+            11,
+            8,
+            117,
+            120
+          ],
+          "source_crop_resolution": [
+            116,
+            126
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/corroded_street_dumpster_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 28247,
+          "sha256": "e6723d26a870271d2c3c3e24397db724a6ea71051bbab6201e376307b4cdb64b",
+          "alpha_bbox": [
+            74,
+            134,
+            182,
+            248
+          ],
+          "source_crop_resolution": [
+            116,
+            126
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "field_medical_gurney",
+      "type": "medical",
+      "source_crop": [
+        581,
+        792,
+        707,
+        929
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        2,
+        12,
+        124,
+        133
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/field_medical_gurney_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 20806,
+          "sha256": "c23fee7ef0d1e17b256b8eb69bb1a40e928089ab524b1751b2550b03a5beb2f4",
+          "alpha_bbox": [
+            8,
+            9,
+            120,
+            120
+          ],
+          "source_crop_resolution": [
+            126,
+            137
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/field_medical_gurney_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 25001,
+          "sha256": "2e20ac7f4cc0482d9ecb6af9a191cf4a01e3b2385dd8df20722b94dc460ac49d",
+          "alpha_bbox": [
+            67,
+            127,
+            189,
+            248
+          ],
+          "source_crop_resolution": [
+            126,
+            137
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "settlement_loudspeaker_pole",
+      "type": "street",
+      "source_crop": [
+        289,
+        787,
+        354,
+        933
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        4,
+        14,
+        63,
+        138
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_loudspeaker_pole_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 9032,
+          "sha256": "0d3aae96e11fb79b01ac10675858f65790d4bd115ff71a285fe2b484c81654c0",
+          "alpha_bbox": [
+            37,
+            8,
+            90,
+            120
+          ],
+          "source_crop_resolution": [
+            65,
+            146
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_loudspeaker_pole_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 11384,
+          "sha256": "e9360da17cdadc4b0f86e109c3ac57629d61359339d39bc5104164a63c33ceb8",
+          "alpha_bbox": [
+            98,
+            124,
+            157,
+            248
+          ],
+          "source_crop_resolution": [
+            65,
+            146
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "rusted_air_conditioner",
+      "type": "machinery",
+      "source_crop": [
+        941,
+        423,
+        1052,
+        548
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        2,
+        2,
+        99,
+        101
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/rusted_air_conditioner_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 19751,
+          "sha256": "5f0a7763c1035bdfdd14a8df3f71f5308ea6c68fd4a75c8950218f5de4fd3d82",
+          "alpha_bbox": [
+            15,
+            21,
+            112,
+            120
+          ],
+          "source_crop_resolution": [
+            111,
+            125
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/rusted_air_conditioner_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 20433,
+          "sha256": "676490c75914334e4f67dd998c67cf11b6e69248bc5a91b568888783016ca33f",
+          "alpha_bbox": [
+            79,
+            149,
+            176,
+            248
+          ],
+          "source_crop_resolution": [
+            111,
+            125
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "portable_dual_floodlight",
+      "type": "street",
+      "source_crop": [
+        1420,
+        416,
+        1517,
+        547
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        27,
+        2,
+        82,
+        108
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/portable_dual_floodlight_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 10207,
+          "sha256": "b112a5820a4591c72208e77d1b0c8cccadee1a133d720cca8513681e45b98013",
+          "alpha_bbox": [
+            36,
+            14,
+            91,
+            120
+          ],
+          "source_crop_resolution": [
+            97,
+            131
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/portable_dual_floodlight_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 10809,
+          "sha256": "7f1703e487b0d95d964e3e9bc914d64c23c902ddd4724620f570a5699fca9b73",
+          "alpha_bbox": [
+            100,
+            142,
+            155,
+            248
+          ],
+          "source_crop_resolution": [
+            97,
+            131
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "settlement_notice_board",
+      "type": "interior",
+      "source_crop": [
+        1376,
+        784,
+        1518,
+        927
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        26,
+        12,
+        137,
+        137
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_notice_board_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 26010,
+          "sha256": "b2176eafb053148923fe1b880977b380152b12932355651305943ca30b572442",
+          "alpha_bbox": [
+            14,
+            8,
+            113,
+            120
+          ],
+          "source_crop_resolution": [
+            142,
+            143
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/settlement_notice_board_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 32736,
+          "sha256": "3d810518533c7c0ba1001d5291c4ab39e5f3834d32c7400c4adb569f12f452e7",
+          "alpha_bbox": [
+            72,
+            123,
+            183,
+            248
+          ],
+          "source_crop_resolution": [
+            142,
+            143
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    },
+    {
+      "id": "worn_leather_armchair",
+      "type": "interior",
+      "source_crop": [
+        205,
+        228,
+        298,
+        355
+      ],
+      "isolation_alpha_bbox_in_crop": [
+        2,
+        14,
+        86,
+        114
+      ],
+      "outputs": [
+        {
+          "path": "art/production/painterly_v4/wave13/objects/worn_leather_armchair_128.png",
+          "size": [
+            128,
+            128
+          ],
+          "byte_size": 18008,
+          "sha256": "f7e4b4d844f6dd2cd96b0dbbb7ae8c40743ede998d47ef514cf4c707a5bd84ec",
+          "alpha_bbox": [
+            22,
+            20,
+            106,
+            120
+          ],
+          "source_crop_resolution": [
+            93,
+            127
+          ]
+        },
+        {
+          "path": "art/production/painterly_v4/wave13/objects/worn_leather_armchair_256.png",
+          "size": [
+            256,
+            256
+          ],
+          "byte_size": 18692,
+          "sha256": "8f44286ec2c9e882efcfe358289f3a2d27cee053c5227b9552c2aa24858da303",
+          "alpha_bbox": [
+            86,
+            148,
+            170,
+            248
+          ],
+          "source_crop_resolution": [
+            93,
+            127
+          ]
+        }
+      ],
+      "pipeline": "postprocessed_generated_collage_crop",
+      "status": "candidate_preview"
+    }
+  ],
+  "qa": {
+    "local_png_signature_decode_rgba_alpha_sha256": "PASS_20_OF_20",
+    "godot_runtime": "NOT_RUN",
+    "android_runtime": "NOT_RUN",
+    "art_review": "PENDING",
+    "review_sheet_sha256": "7252315a0499fafb5df9e4f08fcd6b95058cb3ac13804a8fe3665651069029fd"
+  },
+  "art_direction": "RADZONE approved cinematic industrial post-apocalyptic art; drafts may require further quality review",
+  "rights": "AI-generated source in conversation; examine similarity to third-party visual IP before commercial use. No original Fallout logos or names included in output."
+}
