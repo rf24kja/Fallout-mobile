@@ -299,5 +299,6 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 - `test_radzone_scene_integration.gd` — RESULT: ALL PASS (4/4)
 - `tests/test_asset_uniqueness_guard.py` — 6 tests OK
 - `scripts/tests/test_critical_fidelity.gd` — ALL TESTS PASSED
+- Fresh-clone check: shallow clone of `origin/master` (`616cfcb`) into a clean directory — all 8 ctex/md5 present and `test_radzone_scene_integration.gd` reports ALL PASS with exit 0. Confirms the committed import metadata makes the integration work without an editor import pass.
 
 **Status constraints:** All RADZONE PNGs remain `staged_unapproved` / `published_draft_asset` per `art/production/catalog/asset_registry.json` and `docs/art/VISUAL_CONSISTENCY_CONTRACT.md` — no asset is approved for gameplay integration merely by being committed. Only the 10 concept screens are the approved visual target. This integration is a draft-art scene candidate, not production approval.
