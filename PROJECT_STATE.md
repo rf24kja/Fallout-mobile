@@ -281,4 +281,23 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 
 ---
 
-*Last Updated: 2026-11-09 — GitHub sync complete, XP progression fidelity verified (41 tests PASS), documentation published*
+*Last Updated: 2026-11-14 — RADZONE Wave12 props integrated into test map scene (commit 7b43d34)*
+
+---
+
+## RADZONE Art Integration (2026-11-14)
+
+**Wave12 props integrated into a live scene:**
+- `scenes/world/test_map.tscn` now instances 4 RADZONE Wave12 prop prefabs under a `RadzoneProps` node (inserted after `NavigationRegion2D`, before `Player`, so they render above `BackgroundRect` and below the player):
+  - `ConcreteBarricadePiece` @ (700, 260), `RetroCrtTerminal` @ (940, 520), `RoadsideBarrierAndTires` @ (430, 720), `UsedTireStack` @ (1060, 740)
+  - Existing `CoverObjects` stubs and all other nodes untouched.
+- New test `scripts/tests/test_radzone_scene_integration.gd` — 4/4 PASS (each prop instance resolves a non-empty texture).
+- Wave12 `.import` files plus `.godot/imported` ctex/md5 committed so textures resolve on fresh clones. Art commit `8d2da26` published the Wave12 PNGs without import metadata, leaving the prefabs broken outside an editor import pass.
+- Published: commit `7b43d3499f2a57f85513c7fb871dd4893115179b` on `origin/master` (verified via `git ls-remote` and GitHub API).
+
+**Verified:**
+- `test_radzone_scene_integration.gd` — RESULT: ALL PASS (4/4)
+- `tests/test_asset_uniqueness_guard.py` — 6 tests OK
+- `scripts/tests/test_critical_fidelity.gd` — ALL TESTS PASSED
+
+**Status constraints:** All RADZONE PNGs remain `staged_unapproved` / `published_draft_asset` per `art/production/catalog/asset_registry.json` and `docs/art/VISUAL_CONSISTENCY_CONTRACT.md` — no asset is approved for gameplay integration merely by being committed. Only the 10 concept screens are the approved visual target. This integration is a draft-art scene candidate, not production approval.
