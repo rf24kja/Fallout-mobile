@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://scripts/entities/player.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/entities/npc.gd" id="2"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" path="res://scenes/entities/world_item.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://scenes/ui/dialogue_ui.tscn" id="6"]
 [ext_resource type="PackedScene" path="res://scenes/ui/inventory_ui.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/wave12/concrete_barricade_piece.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/wave12/retro_crt_terminal.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/wave12/roadside_barrier_and_tires.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/wave12/used_tire_stack.tscn" id="11"]
 
 [sub_resource type="RectangleShape2D" id="CollisionShape2D_1"]
 x = 16.0
@@ -81,6 +85,20 @@ source_geometry_mode = 0
 cell_size = 1.0
 agent_radiuses = PackedFloat32Array(16.0)
 navigation_polygon = SubResource("NavigationPolygon_1")
+
+[node name="RadzoneProps" type="Node2D" parent="."]
+
+[node name="ConcreteBarricadePiece" parent="RadzoneProps" instance=ExtResource("8")]
+position = Vector2(700, 260)
+
+[node name="RetroCrtTerminal" parent="RadzoneProps" instance=ExtResource("9")]
+position = Vector2(940, 520)
+
+[node name="RoadsideBarrierAndTires" parent="RadzoneProps" instance=ExtResource("10")]
+position = Vector2(430, 720)
+
+[node name="UsedTireStack" parent="RadzoneProps" instance=ExtResource("11")]
+position = Vector2(1060, 740)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 global_position = Vector2(200, 200)
