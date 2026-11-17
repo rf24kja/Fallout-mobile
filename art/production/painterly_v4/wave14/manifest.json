@@ -1,0 +1,322 @@
+{
+  "project": "RADZONE",
+  "batch": "wave14-isolated-game-sprites",
+  "created_utc": "2026-11-10",
+  "status": "CANDIDATE_NOT_IN_GAME_VERIFIED",
+  "source": "Three independently generated ChatGPT RGBA images available in this conversation; not a concept collage",
+  "duplicate_precheck": {
+    "catalog": "art/production/catalog/asset_registry.json",
+    "result": "reinforced_knee_guards not in 161 logical art entries; plasma_rifle and water_purification_tablets are already canonical gameplay item IDs, only their appearance is a candidate. Full all-branches perceptual scan not performed."
+  },
+  "important": [
+    "No gameplay item ID is created or updated.",
+    "New knee guards have NO approved gameplay/equipment slot.",
+    "Never treat variants, export sizes and icons as new items.",
+    "No pixels are fabricated by upscaling: all exports are DOWNscaled from 1254px generated source.",
+    "Godot/Android runtime pending; user must approve before production mapping."
+  ],
+  "assets": [
+    {
+      "asset_id": "reinforced_knee_guards",
+      "role": "armor_visual_candidate",
+      "gameplay_item_id": null,
+      "intended_existing_icon_path": null,
+      "source_original_filename": "пара_потёртых_защитных_наколенников.png",
+      "source_original_dimensions": [
+        1254,
+        1254
+      ],
+      "source_original_sha256": "983ebbb7ded68b919ab8a1260d5b4187f9f885c86ee1262b018a2fc873222910",
+      "source_archive": "source_archive.webp",
+      "source_archive_sha256": "51c6bfe29a4939b590fa8309521c04871130a025e32e0055c86cad8f9e9efb54",
+      "source_archive_codec": "WebP quality 92 with full alpha; derived archive NOT byte-identical original PNG",
+      "source_subject_bbox": [
+        95,
+        106,
+        1169,
+        1182
+      ],
+      "crop_with_padding": [
+        57,
+        67,
+        1207,
+        1220
+      ],
+      "exports": [
+        {
+          "file": "icon_64.png",
+          "sha256": "4af5ea9b6c45061d59e7e325b372dd4ba0dca1484e74b9c4e9840150b48cc103",
+          "size": [
+            64,
+            64
+          ],
+          "bytes": 8742,
+          "alpha_bbox": [
+            5,
+            5,
+            59,
+            59
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/reinforced_knee_guards/icon_64.png"
+        },
+        {
+          "file": "icon_128.png",
+          "sha256": "b3c6a02353faedaf53525f894436d42272b1c4cf2e393d3dfb19a2d56c84773e",
+          "size": [
+            128,
+            128
+          ],
+          "bytes": 30098,
+          "alpha_bbox": [
+            10,
+            10,
+            118,
+            118
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/reinforced_knee_guards/icon_128.png"
+        },
+        {
+          "file": "sprite_256.png",
+          "sha256": "77e6e2ffc37f131aa06e0ea1dc5d840cf5cad38b59cfce5ee5df86a584e0c2c3",
+          "size": [
+            256,
+            256
+          ],
+          "bytes": 109607,
+          "alpha_bbox": [
+            18,
+            18,
+            237,
+            238
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/reinforced_knee_guards/sprite_256.png"
+        },
+        {
+          "file": "inspection_512.png",
+          "sha256": "b2a1d521ca683016e9bab40590a18edbc1e1d7eda3b38c1023f62c8a3a32fda0",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 414637,
+          "alpha_bbox": [
+            34,
+            34,
+            477,
+            478
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/reinforced_knee_guards/inspection_512.png"
+        }
+      ],
+      "status": "candidate_unapproved",
+      "reference_catalog_subject": "new_visual_only",
+      "human_review": "required",
+      "godot_runtime": "NOT_RUN",
+      "android_runtime": "NOT_RUN",
+      "source_archive_repo_path": "art/production/painterly_v4/wave14/reinforced_knee_guards/source_archive.webp"
+    },
+    {
+      "asset_id": "plasma_rifle",
+      "role": "weapon_visual_variant",
+      "gameplay_item_id": "plasma_rifle",
+      "intended_existing_icon_path": "res://assets/ui/icons/plasma_rifle.png",
+      "source_original_filename": "ретроиндустриальный_плазменный_карабин.png",
+      "source_original_dimensions": [
+        1254,
+        1254
+      ],
+      "source_original_sha256": "bc78707b1a0366fffe883e44be83b7782db95551b50641ac0afd7bd577fc8dab",
+      "source_archive": "source_archive.webp",
+      "source_archive_sha256": "da502703776c161269741f6348639ccf0d8995be6aa670eb042e6d1501dcc0ad",
+      "source_archive_codec": "WebP quality 92 with full alpha; derived archive NOT byte-identical original PNG",
+      "source_subject_bbox": [
+        20,
+        331,
+        1235,
+        944
+      ],
+      "crop_with_padding": [
+        0,
+        288,
+        1254,
+        987
+      ],
+      "exports": [
+        {
+          "file": "icon_64.png",
+          "sha256": "0cd7a3783ab1eab4c6bd4dbae8c6f73d00bac1080f0e56fbb6ade9942ff17264",
+          "size": [
+            64,
+            64
+          ],
+          "bytes": 3910,
+          "alpha_bbox": [
+            4,
+            18,
+            60,
+            46
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/plasma_rifle/icon_64.png"
+        },
+        {
+          "file": "icon_128.png",
+          "sha256": "9b9d8238d955179287faf9c9b31e2a935f55769974abcc4154fcbd5d667b8536",
+          "size": [
+            128,
+            128
+          ],
+          "bytes": 12417,
+          "alpha_bbox": [
+            8,
+            35,
+            121,
+            92
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/plasma_rifle/icon_128.png"
+        },
+        {
+          "file": "sprite_256.png",
+          "sha256": "0e4da4dbea36aef3e58ffb3e7f8082f93e23fb0ee7574c92088d8877af773310",
+          "size": [
+            256,
+            256
+          ],
+          "bytes": 43767,
+          "alpha_bbox": [
+            13,
+            70,
+            243,
+            186
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/plasma_rifle/sprite_256.png"
+        },
+        {
+          "file": "inspection_512.png",
+          "sha256": "98256a10330d09ea04269ef87d55fa1aebd884fd24c490f4299c168c10058783",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 156251,
+          "alpha_bbox": [
+            25,
+            139,
+            487,
+            372
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/plasma_rifle/inspection_512.png"
+        }
+      ],
+      "status": "candidate_unapproved",
+      "reference_catalog_subject": "existing_gameplay_item",
+      "human_review": "required",
+      "godot_runtime": "NOT_RUN",
+      "android_runtime": "NOT_RUN",
+      "source_archive_repo_path": "art/production/painterly_v4/wave14/plasma_rifle/source_archive.webp"
+    },
+    {
+      "asset_id": "water_purification_tablets",
+      "role": "existing_utility_icon_candidate",
+      "gameplay_item_id": "water_purification_tablets",
+      "intended_existing_icon_path": "res://assets/ui/icons/water_tablets.png",
+      "source_original_filename": "потёртый_контейнер_таблеток_для_очистки_воды.png",
+      "source_original_dimensions": [
+        1254,
+        1254
+      ],
+      "source_original_sha256": "2f4d5e33f534c738220680ae40862dc6cf89b46bb62a39ff5f8308596ebb12da",
+      "source_archive": "source_archive.webp",
+      "source_archive_sha256": "5fae8916c46731105254ce3a6e97eaa3feb04b349a664106b026c5c836dc4f44",
+      "source_archive_codec": "WebP quality 92 with full alpha; derived archive NOT byte-identical original PNG",
+      "source_subject_bbox": [
+        296,
+        48,
+        1007,
+        1214
+      ],
+      "crop_with_padding": [
+        255,
+        7,
+        1049,
+        1254
+      ],
+      "exports": [
+        {
+          "file": "icon_64.png",
+          "sha256": "a81c6c057e1c5a4c1ff4bfafab40bd835d26584db4801801b7a7694a8163ae64",
+          "size": [
+            64,
+            64
+          ],
+          "bytes": 5155,
+          "alpha_bbox": [
+            15,
+            5,
+            48,
+            59
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/water_purification_tablets/icon_64.png"
+        },
+        {
+          "file": "icon_128.png",
+          "sha256": "be7546f4c7e602fe5f6071400d74cd7d0c8bd37f7a1c312412b9b2ec32da1b5c",
+          "size": [
+            128,
+            128
+          ],
+          "bytes": 17497,
+          "alpha_bbox": [
+            31,
+            10,
+            97,
+            118
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/water_purification_tablets/icon_128.png"
+        },
+        {
+          "file": "sprite_256.png",
+          "sha256": "6a79270b6eb7726cbdeeeee23f593b968cc4ae4c6d48a0f4e7d6803de2586b3f",
+          "size": [
+            256,
+            256
+          ],
+          "bytes": 64660,
+          "alpha_bbox": [
+            60,
+            17,
+            195,
+            239
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/water_purification_tablets/sprite_256.png"
+        },
+        {
+          "file": "inspection_512.png",
+          "sha256": "4a6a7ce4975ebfd92bd204df42dfa3c8e4fa0c2d461edcbb1750de2c2557d819",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 251962,
+          "alpha_bbox": [
+            119,
+            33,
+            391,
+            479
+          ],
+          "repo_path": "art/production/painterly_v4/wave14/water_purification_tablets/inspection_512.png"
+        }
+      ],
+      "status": "candidate_unapproved",
+      "reference_catalog_subject": "existing_gameplay_item",
+      "human_review": "required",
+      "godot_runtime": "NOT_RUN",
+      "android_runtime": "NOT_RUN",
+      "source_archive_repo_path": "art/production/painterly_v4/wave14/water_purification_tablets/source_archive.webp"
+    }
+  ],
+  "review": {
+    "file": "qa_review.webp",
+    "sha256": "c1a89b3e17e20a6a380210a185627e586e95ce3f9778c4486feb7c1307f96da4",
+    "repo_path": "art/production/painterly_v4/wave14/qa_review.webp"
+  }
+}
