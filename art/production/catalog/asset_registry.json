@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-11-10",
+  "snapshot_date": "2026-11-17",
   "scope": "Manifest-backed art from master and 3 staging branches; not a claim of complete binary repository inventory",
   "rules": [
     "Different source SHA-256 values are NOT proof of different visual content.",
@@ -89,6 +89,11 @@
       "wave": "industrial_props_v1",
       "ref": "art/pipeline-staging-20261110",
       "manifest": "art/production/props_v1/MANIFEST.json"
+    },
+    {
+      "wave": "isolated_inventory_v1",
+      "ref": "art/radzone-rope-icon-20261117",
+      "manifest": "art/production/isolated_inventory_v1/manifest.json"
     }
   ],
   "families": [
@@ -3254,6 +3259,21 @@
             256,
             256
           ]
+        }
+      ]
+    },
+    {
+      "wave": "isolated_inventory_v1",
+      "ref": "art/radzone-rope-icon-20261117",
+      "manifest": "art/production/isolated_inventory_v1/manifest.json",
+      "status": "candidate_asset",
+      "id": "rope",
+      "kind": "utility_inventory",
+      "variants": [
+        {
+          "path": "art/production/isolated_inventory_v1/rope/icon_64.png",
+          "sha256": "48bc0f91e1a136ea210fd1f4a4ede2cebbc29f6b3c9396f221f5a9fb02ebe8cb",
+          "size": 64
         }
       ]
     }
