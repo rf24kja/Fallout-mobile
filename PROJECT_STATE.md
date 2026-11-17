@@ -285,6 +285,39 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 
 ---
 
+## Wave13 Settlement Props — Visual Review (2026-11-17)
+
+Review-only artifact on branch `review/wave13-props`. **The wave13 branch was not merged.**
+
+Reviewed `origin/art/radzone-wave13-settlement-props` @ `c98ef27` (36 files, +920 vs master):
+10 prop prefabs `scenes/world/props/wave13/*.tscn`, 20 PNG (128/256) under
+`art/production/painterly_v4/wave13/objects/`, review scene
+`scenes/art_preview/wave13_worldprops_review.tscn`, manifest
+(`status: CANDIDATE_NOT_IN_GAME_VERIFIED`) and `QA_REPORT_2026-11-10.json`.
+
+Method: checked the branch out, ran `godot --headless --path . --import`, then captured
+with Godot 4.7.2 non-headless (OpenGL 3.3, 1280x720) — the branch's own review scene, plus
+a throwaway 2x5 world-scale layout of all 10 prefabs on a ground plane.
+
+Findings: all 10 prefabs instantiate and draw (`Node2D` → `Sprite2D`, `texture_filter = 2`,
+`offset = Vector2(0, -120)`, 256x256 texture); alpha is clean with no boxes or halos;
+palette and treatment are cohesive and match the RADZONE direction. Scale reads small
+(~100-150px in a 1280x720 frame) and the prefabs carry **no collision shapes**, so
+collision/occlusion/gameplay-scale validation is still outstanding. The branch's own QA
+report lists `godot_runtime: NOT_RUN`, `android_runtime: NOT_RUN`, `art_review: PENDING`,
+and warns "Do not merge without in-engine screenshots and user art review" — the two
+captures in `artifacts/qa/wave13/` are those screenshots.
+
+Recommendation: visual candidate accepted as **draft**, not approved. Still required
+before production use: owner art review sign-off, collision/occlusion work, Android
+runtime check. Do not relabel the assets — they remain `CANDIDATE_NOT_IN_GAME_VERIFIED`.
+
+Evidence: `artifacts/qa/wave13/wave13_worldprops_review.png`,
+`artifacts/qa/wave13/wave13_world_scale.png`, `artifacts/qa/wave13/README.md`.
+
+
+---
+
 ## RADZONE Art Integration (2026-11-14)
 
 **Wave12 props integrated into a live scene:**
