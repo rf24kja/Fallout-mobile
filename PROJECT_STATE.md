@@ -384,4 +384,6 @@ relative to the anchor and pushed the label outside the button. Now uses
 **Status:** draft art only. All RADZONE PNGs remain `staged_unapproved` /
 `published_draft_asset`; nothing is `production_approved`. Not Android-validated.
 
-*Last Updated: 2026-11-17 — RADZONE inventory icon integration (branch `feature/inventory-radzone-icons`)*
+**PR:** https://github.com/rf24kja/Fallout-mobile/pull/36 — `feature/inventory-radzone-icons` (head `a569163aa3a0fd9d596607ddb53aa2e1b3653ab1`, base `master`), 20 files, state OPEN.
+
+*Last Updated: 2026-11-17 — RADZONE inventory icon integration (branch `feature/inventory-radzone-icons`, PR #36)*

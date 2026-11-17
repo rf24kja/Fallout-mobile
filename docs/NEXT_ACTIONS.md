@@ -147,7 +147,7 @@ git add docs/ README.md AGENTS.md && git commit -m "docs: update project documen
 
 | ID | Task | Notes |
 |----|------|-------|
-| A-1 | **PR + merge `feature/inventory-radzone-icons`** | commit → push → Pull Request → verify remote |
+| A-1 | **PR + merge `feature/inventory-radzone-icons`** | ✅ PR #36 open: https://github.com/rf24kja/Fallout-mobile/pull/36 (head `a569163`, base `master`). Merge pending owner review |
 | A-2 | **Materialise `anchor_*` in the remaining 8 scenes** | 64 nodes: `ui/called_shot_panel.tscn` (16), `ui/combat_hud.tscn` (10), `ui/combat_ui.tscn` (8), `ui/quest_log.tscn` (3), `ui/dialogue_ui.tscn` (4), `ui/main_menu.tscn`, `entities/npc.tscn`, `entities/world_item.tscn`, `world/test_map.tscn`. Same rule that fixed `inventory_ui.tscn`: derive anchors from the encoded offsets. Verify each with a real capture. |
 | A-3 | **Audit `anchors_preset` values against intent** | The preset numbers in the `.tscn` files do not match the offsets' intent; treat them as unreliable and derive anchors from offsets only. |
 | A-4 | **Assign the unambiguous remaining RADZONE crops** | `medkit`, `stim_injector`, `pistol`, `pistol_ammo`, `shotgun_shells`, `wrench`, `heavy_revolver`, `compact_submachine_gun`, `scavenged_medicine_bottles`, `patched_leather_coat`, `helmet_with_goggles` — needs an owner decision per crop; do not guess. |
