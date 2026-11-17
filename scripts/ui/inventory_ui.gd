@@ -134,6 +134,10 @@ func _refresh_inventory() -> void:
 		var btn = TextureButton.new()
 		btn.custom_minimum_size = Vector2(64, 64)
 		btn.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+		# Ignore the source texture size so custom_minimum_size (64x64) is the button size.
+		# Without this, TextureButton derives its minimum size from the texture and the icon
+		# renders at native resolution, overflowing the inventory grid cell.
+		btn.ignore_texture_size = true
 		
 		if def.icon_path != "":
 			var tex = null
@@ -158,11 +162,14 @@ func _refresh_inventory() -> void:
 			amount_label.add_theme_font_size_override("font_size", 12)
 			amount_label.add_theme_color_override("font_color", Color(1, 1, 1))
 			btn.add_child(amount_label)
-			amount_label.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-			amount_label.offset_left = 4
-			amount_label.offset_top = 4
-			amount_label.offset_right = -4
-			amount_label.offset_bottom = -4
+			# Anchor to the button's bottom-right corner with a 4px inset. Setting the
+			# preset first and then assigning offsets put the label outside the button
+			# (offsets are relative to the anchor, so positive values moved it past
+			# the right/bottom edge); set_anchors_and_offsets_preset keeps the label's
+			# minimum size and applies the margin in one step.
+			amount_label.set_anchors_and_offsets_preset(
+				Control.PRESET_BOTTOM_RIGHT, Control.PRESET_MODE_MINSIZE, 4
+			)
 	
 	_update_weight_display()
 

@@ -302,3 +302,88 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 - Fresh-clone check: shallow clone of `origin/master` (`616cfcb`) into a clean directory — all 8 ctex/md5 present and `test_radzone_scene_integration.gd` reports ALL PASS with exit 0. Confirms the committed import metadata makes the integration work without an editor import pass.
 
 **Status constraints:** All RADZONE PNGs remain `staged_unapproved` / `published_draft_asset` per `art/production/catalog/asset_registry.json` and `docs/art/VISUAL_CONSISTENCY_CONTRACT.md` — no asset is approved for gameplay integration merely by being committed. Only the 10 concept screens are the approved visual target. This integration is a draft-art scene candidate, not production approval.
+---
+
+## RADZONE Inventory Icon Integration (2026-11-17)
+
+**7 items mapped to real RADZONE PNGs via `icon_path`** (previously every `icon_path`
+pointed at `res://assets/ui/icons/<id>.png`, a directory that does not exist on master,
+so the whole grid rendered blue placeholder squares):
+
+| item_id | icon_path |
+|---------|-----------|
+| `combat_knife` | `res://art/production/painterly_v3/items/combat_knife.png` |
+| `combat_shotgun` | `res://art/production/painterly_v3/items/combat_shotgun.png` |
+| `hunting_rifle` | `res://art/production/painterly_v3/items/hunting_rifle.png` |
+| `gas_mask` | `res://art/production/painterly_v3/items/gas_mask.png` |
+| `lockpick_set` | `res://art/production/painterly_v3/items/lockpick_set.png` |
+| `laser_pistol` | `res://art/production/painterly_v4/wave01/objects/weapons/laser_pistol.png` |
+| `pump_shotgun` | `res://art/production/painterly_v4/wave01/objects/weapons/pump_shotgun.png` |
+
+Paths point straight at the art under `art/production/...` (no copies into
+`assets/ui/icons/`), so each object keeps a single file and its provenance.
+Ambiguous crops were intentionally left unmapped — see
+`artifacts/qa/inventory_radzone/README.md` for the full mapping and the gap list.
+
+### Three real engine/UI defects found and fixed while integrating
+
+1. **`.tscn` theme overrides used method-call syntax.** `scenes/**/*.tscn` contained
+   lines such as `add_theme_color_override("font_color", Color(...))`. Godot 4
+   serializes these as properties (`theme_override_colors/font_color = ...`); the
+   method-call form is not a valid property line, and the loader silently swallows it
+   **and the following `[node ...]` header**. Affected: `scenes/ui/inventory_ui.tscn`
+   (17 declared / 9 parsed), `scenes/ui/dialogue_ui.tscn` (6/4),
+   `scenes/ui/main_menu.tscn` (12/10). Fixed by rewriting 77 lines across 6 scenes to
+   the `theme_override_*` property form. Regression test added:
+   `scripts/tests/test_scene_parse_integrity.gd` (19 scenes, MISMATCH=0).
+
+2. **`anchors_preset` is inert at load time.** `Control.set_anchors_preset()` is a
+   runtime method; the `anchors_preset` property written in a `.tscn` is not applied on
+   load. Every UI scene relied on it, so at runtime `InventoryPanel` had size 0x0 and
+   `ScrollContainer` had height 0 with `clip=true` — the icon grid was laid out but
+   clipped away. Fixed `scenes/ui/inventory_ui.tscn` by materialising explicit
+   `anchor_left/top/right/bottom` on all 12 nodes (derived from the encoded offsets).
+   **Still open:** the same defect class remains in `called_shot_panel.tscn` (16),
+   `combat_hud.tscn` (10), `combat_ui.tscn` (8), `quest_log.tscn` (3),
+   `dialogue_ui.tscn` (4), `main_menu.tscn` (several), `entities/npc.tscn`,
+   `entities/world_item.tscn`, `world/test_map.tscn` — 64 nodes across 9 scenes.
+
+3. **`TextureButton` rendered icons at native resolution.** `scripts/ui/inventory_ui.gd`
+   set `custom_minimum_size = Vector2(64, 64)` and
+   `stretch_mode = STRETCH_KEEP_ASPECT_CENTERED` but not `ignore_texture_size`, which
+   defaults to `false` in Godot 4 — so the button's minimum size came from the texture
+   (479x151, 900x226, ...) and the icons overflowed the 72x72 grid cell. Fixed by
+   setting `btn.ignore_texture_size = true`.
+
+Also fixed: the stack amount label was parented to the `TextureButton` and positioned
+with `set_anchors_preset(PRESET_BOTTOM_RIGHT)` followed by positive offsets, which are
+relative to the anchor and pushed the label outside the button. Now uses
+`set_anchors_and_offsets_preset(PRESET_BOTTOM_RIGHT, PRESET_MODE_MINSIZE, 4)`.
+
+### Evidence
+
+- `artifacts/qa/inventory_radzone/inventory_radzone_icons.png` — real capture, grid at 64x64
+- `artifacts/qa/inventory_radzone/inventory_radzone_details.png` — real capture, details panel populated
+- `artifacts/qa/inventory_radzone/README.md` — mapping table, gap list, test results
+- Capture driver `scripts/art/inventory_radzone_review_capture.gd`, preview scene
+  `scenes/art_preview/inventory_radzone_review.tscn`
+
+### Verification
+
+- `scripts/tests/test_inventory_icons.gd` — 7/7 PASS, exit 0
+  (`SUMMARY: 8/88 items resolve to a real icon; 80 still point at missing files`)
+- `scripts/tests/test_scene_parse_integrity.gd` — `SCENES_CHECKED=19 MISMATCH=0`, exit 0
+- `scripts/tests/test_radzone_scene_integration.gd` — ALL PASS, exit 0
+- `scripts/tests/test_critical_fidelity.gd` — ALL TESTS PASSED, exit 0
+- `tests/test_ap_fidelity.gd`, `test_dtdr_fidelity.gd`, `test_special_fidelity.gd`,
+  `test_xp_progression.gd` — ALL TESTS PASSED, exit 0
+- `tests/test_asset_uniqueness_guard.py` — 6 tests OK
+- `tests/test_art_visual_duplicate_gate.py` — 3 tests OK
+- `scripts/test_combat_damage.py`, `scripts/test_item_database.py` — ALL TESTS PASSED
+
+**Status:** draft art only. All RADZONE PNGs remain `staged_unapproved` /
+`published_draft_asset`; nothing is `production_approved`. Not Android-validated.
+
+**PR:** https://github.com/rf24kja/Fallout-mobile/pull/36 — `feature/inventory-radzone-icons` (head `a569163aa3a0fd9d596607ddb53aa2e1b3653ab1`, base `master`), 20 files, state OPEN.
+
+*Last Updated: 2026-11-17 — RADZONE inventory icon integration (branch `feature/inventory-radzone-icons`, PR #36)*

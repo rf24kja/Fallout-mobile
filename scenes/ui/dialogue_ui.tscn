@@ -70,8 +70,8 @@ offset_right = -16.0
 offset_bottom = 50.0
 horizontal_alignment = 0
 vertical_alignment = 0
-add_theme_color_override("font_color", Color(0.8, 1.0, 0.8, 1))
-add_theme_font_size_override("font_size", 20)
+theme_override_colors/font_color = Color(0.8, 1.0, 0.8, 1)
+theme_override_font_sizes/font_size = 20
 
 [node name="DialogueText" type="Label" parent="DialoguePanel"]
 anchors_preset = 0
@@ -82,8 +82,8 @@ offset_bottom = 140.0
 horizontal_alignment = 0
 vertical_alignment = 0
 autowrap_mode = 1
-add_theme_color_override("font_color", Color(0.9, 0.9, 0.9, 1))
-add_theme_font_size_override("font_size", 18)
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
 
 [node name="OptionsContainer" type="VBoxContainer" parent="DialoguePanel"]
 anchors_preset = 8
@@ -103,5 +103,5 @@ theme_type_variation = "DialogueOption"
 custom_styles/normal = SubResource("ButtonStyle")
 custom_styles/hover = SubResource("ButtonStyleHover")
 custom_styles/pressed = SubResource("ButtonStylePressed")
-add_theme_color_override("font_color", Color(0.9, 0.9, 0.9, 1))
-add_theme_font_size_override("font_size", 16)
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 16

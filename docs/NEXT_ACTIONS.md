@@ -126,3 +126,31 @@ git add docs/ README.md AGENTS.md && git commit -m "docs: update project documen
 - **Fidelity first** — REA verification before implementation
 - **One task at a time** — complete verification before moving on
 - **Document as you go** — update FIDELITY_MATRIX and PROJECT_STATE immediately
+---
+
+## Current — RADZONE Inventory Icons (2026-11-17)
+
+**Done (branch `feature/inventory-radzone-icons`)**
+- 7 items mapped to real RADZONE PNGs via `icon_path` (see
+  `artifacts/qa/inventory_radzone/README.md` for the mapping and the gap list).
+- Fixed `.tscn` `add_theme_*_override(...)` method-call syntax (77 lines, 6 scenes) —
+  it silently swallowed the following `[node]` header, so `inventory_ui.tscn` lost 8 of
+  17 nodes at load. Regression test `scripts/tests/test_scene_parse_integrity.gd`.
+- Fixed inert `anchors_preset` in `scenes/ui/inventory_ui.tscn` (12 nodes) — the panel
+  was 0x0 and the clipped grid rendered nothing.
+- Fixed `TextureButton.ignore_texture_size` in `scripts/ui/inventory_ui.gd` — icons
+  rendered at native resolution and overflowed the grid cell.
+- Fixed the stack amount label anchoring (was outside the button).
+- Real in-game captures committed under `artifacts/qa/inventory_radzone/`.
+
+**Next actions (priority order)**
+
+| ID | Task | Notes |
+|----|------|-------|
+| A-1 | **PR + merge `feature/inventory-radzone-icons`** | ✅ PR #36 open: https://github.com/rf24kja/Fallout-mobile/pull/36 (head `a569163`, base `master`). Merge pending owner review |
+| A-2 | **Materialise `anchor_*` in the remaining 8 scenes** | 64 nodes: `ui/called_shot_panel.tscn` (16), `ui/combat_hud.tscn` (10), `ui/combat_ui.tscn` (8), `ui/quest_log.tscn` (3), `ui/dialogue_ui.tscn` (4), `ui/main_menu.tscn`, `entities/npc.tscn`, `entities/world_item.tscn`, `world/test_map.tscn`. Same rule that fixed `inventory_ui.tscn`: derive anchors from the encoded offsets. Verify each with a real capture. |
+| A-3 | **Audit `anchors_preset` values against intent** | The preset numbers in the `.tscn` files do not match the offsets' intent; treat them as unreliable and derive anchors from offsets only. |
+| A-4 | **Assign the unambiguous remaining RADZONE crops** | `medkit`, `stim_injector`, `pistol`, `pistol_ammo`, `shotgun_shells`, `wrench`, `heavy_revolver`, `compact_submachine_gun`, `scavenged_medicine_bottles`, `patched_leather_coat`, `helmet_with_goggles` — needs an owner decision per crop; do not guess. |
+| A-5 | **Resolve the duplicate object** | `wave09_unique/objects/salvaged_surgical_tools.png` and `wave12/objects/surgical_tool_roll_256.png` look identical — one object, two IDs, violating the "one object = one ID" rule. |
+| A-6 | **Wave13 preview + QA review** | Check `art/radzone-wave13-settlement-props` preview scene and its QA report; prepare visual evidence for a merge decision. Do NOT merge automatically. |
+| A-7 | **Android validation of the inventory** | Real device capture; do not claim Android validation without runtime proof. |
