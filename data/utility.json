@@ -96,7 +96,7 @@
       "display_name": "Lockpick Set",
       "description": "Allows picking mechanical locks. Consumed on use.",
       "category": 5,
-      "icon_path": "res://assets/ui/icons/lockpick_set.png",
+      "icon_path": "res://art/production/painterly_v3/items/lockpick_set.png",
       "weight": 0.5,
       "value": 30,
       "is_stackable": true,

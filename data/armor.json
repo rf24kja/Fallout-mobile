@@ -776,7 +776,7 @@
       "display_name": "Gas Mask",
       "description": "Surplus military gas mask. Filters airborne toxins and radiation particles. No ballistic protection.",
       "category": "ARMOR",
-      "icon_path": "res://assets/ui/icons/gas_mask.png",
+      "icon_path": "res://art/production/painterly_v3/items/gas_mask.png",
       "weight": 1.5,
       "value": 200,
       "is_stackable": false,
