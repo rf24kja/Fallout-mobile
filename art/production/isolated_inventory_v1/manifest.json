@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "batch_id": "isolated_inventory_v1",
+  "created_utc": "2026-11-17",
+  "generator": "ChatGPT built-in image_gen",
+  "generator_provenance_id": "19c30181-d5b6-49c7-b1c3-2dd14d76b766",
+  "status": "candidate_asset",
+  "assets": [
+    {
+      "canonical_id": "rope",
+      "gameplay_item_id": "rope",
+      "role": "inventory_icon",
+      "description": "One weathered coil of rugged braided survival rope",
+      "asset_path": "art/production/isolated_inventory_v1/rope/icon_64.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "dimensions": [
+        64,
+        64
+      ],
+      "bytes": 5212,
+      "sha256": "48bc0f91e1a136ea210fd1f4a4ede2cebbc29f6b3c9396f221f5a9fb02ebe8cb",
+      "alpha_bbox": [
+        2,
+        10,
+        61,
+        53
+      ],
+      "edge_alpha_max": 0,
+      "view": "three_quarter_isometric",
+      "sprite_pivot_px": [
+        32,
+        32
+      ],
+      "scale": "64px inventory slot",
+      "hand_socket": null,
+      "direction_frames": "not_applicable_inventory_icon",
+      "animation_frames": "not_applicable_inventory_icon",
+      "source_original_dimensions": [
+        1536,
+        1024
+      ],
+      "source_original_sha256": "d1132098153bdf5f20c81ab1a8eaebc56d4248fe4cc9ff168c60da020e02c312",
+      "source_alpha_bbox_threshold_8": [
+        105,
+        33,
+        1436,
+        987
+      ],
+      "source_archival_state": "Source high-res image was created in ChatGPT and kept as a handoff file, not committed in this PR",
+      "license_status": "Original AI-generated independent object, commercial/IP review pending",
+      "duplicates": {
+        "exact_id_matches": 0,
+        "semantically_known_matches": 0,
+        "status": "INCOMPLETE_VISUAL_AUDIT",
+        "note": "Cross-branch manifest registry and known aliases checked including Wave14; remote reference PNGs from all staging branches were not downloaded for a full perceptual scan"
+      },
+      "manual_visual_review": "PASS_SINGLE_OBJECT_NO_TEXT_OR_POSTER",
+      "godot_runtime": "NOT_TESTED",
+      "android_runtime": "NOT_TESTED",
+      "human_owner_approval": "VISUAL_APPROVED_2026-11-20",
+      "owner_visual_review": {
+        "status": "APPROVED_BY_OWNER",
+        "date": "2026-11-20",
+        "basis": "Explicit owner message: 'Веревка принята.'",
+        "scope": "Visual asset acceptance only; does not certify cross-branch perceptual uniqueness, Godot integration, Android runtime, or production readiness."
+      }
+    }
+  ]
+}
