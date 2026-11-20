@@ -58,7 +58,13 @@
       "manual_visual_review": "PASS_SINGLE_OBJECT_NO_TEXT_OR_POSTER",
       "godot_runtime": "NOT_TESTED",
       "android_runtime": "NOT_TESTED",
-      "human_owner_approval": "PENDING"
+      "human_owner_approval": "VISUAL_APPROVED_2026-11-20",
+      "owner_visual_review": {
+        "status": "APPROVED_BY_OWNER",
+        "date": "2026-11-20",
+        "basis": "Explicit owner message: 'Веревка принята.'",
+        "scope": "Visual asset acceptance only; does not certify cross-branch perceptual uniqueness, Godot integration, Android runtime, or production readiness."
+      }
     }
   ]
 }
