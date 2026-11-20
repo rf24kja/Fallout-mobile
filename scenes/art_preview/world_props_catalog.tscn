@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/bunker_door.tscn" id="1_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/chainlink_fence.tscn" id="2_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/concrete_barricade.tscn" id="3_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/crt_terminal.tscn" id="4_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/floodlight_pole.tscn" id="5_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/generator.tscn" id="6_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/road_sign.tscn" id="7_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/road_tile.tscn" id="8_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/rust_barrel.tscn" id="9_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/sandbag_wall.tscn" id="10_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/scrap_pile.tscn" id="11_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/supply_crate.tscn" id="12_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/water_drum.tscn" id="13_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/painterly_v3/water_pump.tscn" id="14_p"]
+
+[node name="WorldPropsCatalog" type="Node2D"]
+
+[node name="Backdrop" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.073, 0.083, 0.077, 1)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+enabled = true
+
+[node name="BunkerDoor" parent="." instance=ExtResource("1_p")]
+position = Vector2(150, 155)
+scale = Vector2(0.42345, 0.42345)
+
+[node name="Label_1" type="Label" parent="."]
+position = Vector2(30, 165)
+text = "bunker door"
+
+[node name="ChainlinkFence" parent="." instance=ExtResource("2_p")]
+position = Vector2(460, 155)
+scale = Vector2(0.42934, 0.42934)
+
+[node name="Label_2" type="Label" parent="."]
+position = Vector2(340, 165)
+text = "chainlink fence"
+
+[node name="ConcreteBarricade" parent="." instance=ExtResource("3_p")]
+position = Vector2(770, 155)
+scale = Vector2(0.60465, 0.60465)
+
+[node name="Label_3" type="Label" parent="."]
+position = Vector2(650, 165)
+text = "concrete barricade"
+
+[node name="CrtTerminal" parent="." instance=ExtResource("4_p")]
+position = Vector2(1080, 155)
+scale = Vector2(0.58824, 0.58824)
+
+[node name="Label_4" type="Label" parent="."]
+position = Vector2(960, 165)
+text = "crt terminal"
+
+[node name="FloodlightPole" parent="." instance=ExtResource("5_p")]
+position = Vector2(150, 323)
+scale = Vector2(0.40498, 0.40498)
+
+[node name="Label_5" type="Label" parent="."]
+position = Vector2(30, 333)
+text = "floodlight pole"
+
+[node name="Generator" parent="." instance=ExtResource("6_p")]
+position = Vector2(460, 323)
+scale = Vector2(0.55319, 0.55319)
+
+[node name="Label_6" type="Label" parent="."]
+position = Vector2(340, 333)
+text = "generator"
+
+[node name="RoadSign" parent="." instance=ExtResource("7_p")]
+position = Vector2(770, 323)
+scale = Vector2(0.41401, 0.41401)
+
+[node name="Label_7" type="Label" parent="."]
+position = Vector2(650, 333)
+text = "road sign"
+
+[node name="RoadTile" parent="." instance=ExtResource("8_p")]
+position = Vector2(1080, 323)
+scale = Vector2(0.47809, 0.47809)
+
+[node name="Label_8" type="Label" parent="."]
+position = Vector2(960, 333)
+text = "road tile"
+
+[node name="RustBarrel" parent="." instance=ExtResource("9_p")]
+position = Vector2(150, 491)
+scale = Vector2(0.52632, 0.52632)
+
+[node name="Label_9" type="Label" parent="."]
+position = Vector2(30, 501)
+text = "rust barrel"
+
+[node name="SandbagWall" parent="." instance=ExtResource("10_p")]
+position = Vector2(460, 491)
+scale = Vector2(0.55319, 0.55319)
+
+[node name="Label_10" type="Label" parent="."]
+position = Vector2(340, 501)
+text = "sandbag wall"
+
+[node name="ScrapPile" parent="." instance=ExtResource("11_p")]
+position = Vector2(770, 491)
+scale = Vector2(0.53942, 0.53942)
+
+[node name="Label_11" type="Label" parent="."]
+position = Vector2(650, 501)
+text = "scrap pile"
+
+[node name="SupplyCrate" parent="." instance=ExtResource("12_p")]
+position = Vector2(1080, 491)
+scale = Vector2(0.55556, 0.55556)
+
+[node name="Label_12" type="Label" parent="."]
+position = Vector2(960, 501)
+text = "supply crate"
+
+[node name="WaterDrum" parent="." instance=ExtResource("13_p")]
+position = Vector2(150, 659)
+scale = Vector2(0.49057, 0.49057)
+
+[node name="Label_13" type="Label" parent="."]
+position = Vector2(30, 669)
+text = "water drum"
+
+[node name="WaterPump" parent="." instance=ExtResource("14_p")]
+position = Vector2(460, 659)
+scale = Vector2(0.42904, 0.42904)
+
+[node name="Label_14" type="Label" parent="."]
+position = Vector2(340, 669)
+text = "water pump"

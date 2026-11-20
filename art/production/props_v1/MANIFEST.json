@@ -1,0 +1,355 @@
+{
+  "project": "RADZONE",
+  "version": "industrial_props_v1",
+  "classification": "candidate_world_sprite_not_android_tested",
+  "source": "Owner-supplied transparent image: Постапокалиптический набор индустриальных артефактов.png",
+  "source_sha256": "a3c6b4edb8df4daba743e02651b7cb7b10029340efba709c516a575846c91cec",
+  "method": "Extract alpha components from selected crops; resample preserving aspect and align visible base to fixed 256x256 canvas, quantize PNG palette.",
+  "pixel_size": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    248
+  ],
+  "rights": "User supplied source; confirm commercial distribution rights before release.",
+  "assets": [
+    {
+      "name": "machinist_lathe",
+      "png": "art/production/props_v1/machinist_lathe.png",
+      "scene": "scenes/world/props/industrial_v1/machinist_lathe.tscn",
+      "sha256": "cd0c8da3861ddd9fca74594f544f405306fd78835cb7d13cc3a28a302d3846ad",
+      "git_blob_sha": "812c05db870ebba44596956c7cdda3c40c32ed66",
+      "source_crop": [
+        4,
+        8,
+        434,
+        335
+      ],
+      "visible_alpha_bbox": [
+        8,
+        63,
+        248,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "chemical_distiller",
+      "png": "art/production/props_v1/chemical_distiller.png",
+      "scene": "scenes/world/props/industrial_v1/chemical_distiller.tscn",
+      "sha256": "dac27df8e5ea6efec74d827f2d514db7cb375246c15fc0a0f9ce84439389685c",
+      "git_blob_sha": "07773238422b631394234366640833ffeec48c03",
+      "source_crop": [
+        470,
+        1,
+        799,
+        332
+      ],
+      "visible_alpha_bbox": [
+        8,
+        14,
+        248,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "field_radio",
+      "png": "art/production/props_v1/field_radio.png",
+      "scene": "scenes/world/props/industrial_v1/field_radio.tscn",
+      "sha256": "340439b7bdb94f62f4adc552a8e96d660d68656ced9e147fbf774f726d7c0012",
+      "git_blob_sha": "f0598110f44d2a107aefff4c46c8a5269b5e5d47",
+      "source_crop": [
+        834,
+        82,
+        1184,
+        332
+      ],
+      "visible_alpha_bbox": [
+        8,
+        60,
+        248,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "wasteland_jukebox",
+      "png": "art/production/props_v1/wasteland_jukebox.png",
+      "scene": "scenes/world/props/industrial_v1/wasteland_jukebox.tscn",
+      "sha256": "5dc10995184a634b48f829452cdb7acb97529ab56cdf075032d71a8953499aa4",
+      "git_blob_sha": "aedf7ab841a6a012d0d0dfe803a67a0bb121a671",
+      "source_crop": [
+        1247,
+        0,
+        1523,
+        336
+      ],
+      "visible_alpha_bbox": [
+        39,
+        13,
+        217,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "vault_safe",
+      "png": "art/production/props_v1/vault_safe.png",
+      "scene": "scenes/world/props/industrial_v1/vault_safe.tscn",
+      "sha256": "edb94e958ab5d0aef3fd630cbf8ba378a9b27d59850ace52ce39e84c42dce506",
+      "git_blob_sha": "ebfd7d58b49682f923e099a8d414d79f57939d4d",
+      "source_crop": [
+        23,
+        335,
+        352,
+        656
+      ],
+      "visible_alpha_bbox": [
+        13,
+        13,
+        243,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "field_binoculars",
+      "png": "art/production/props_v1/field_binoculars.png",
+      "scene": "scenes/world/props/industrial_v1/field_binoculars.tscn",
+      "sha256": "6e096b375829a3a0d7dad31a8445915b997e41ca3e84090af45df61e27c9aad1",
+      "git_blob_sha": "0fe73a79fbdf9def0345e87ef2e162e40a059f39",
+      "source_crop": [
+        399,
+        358,
+        764,
+        638
+      ],
+      "visible_alpha_bbox": [
+        8,
+        89,
+        248,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "signal_oscilloscope",
+      "png": "art/production/props_v1/signal_oscilloscope.png",
+      "scene": "scenes/world/props/industrial_v1/signal_oscilloscope.tscn",
+      "sha256": "6f3f2a21483309c6826dd302cf3a4cbbf524bc9eb9f0a856191f2eae70e3ed5f",
+      "git_blob_sha": "b6cda93f6359026085a4c1e1bca648f49580e0f5",
+      "source_crop": [
+        795,
+        347,
+        1165,
+        637
+      ],
+      "visible_alpha_bbox": [
+        8,
+        65,
+        248,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "industrial_vent_fan",
+      "png": "art/production/props_v1/industrial_vent_fan.png",
+      "scene": "scenes/world/props/industrial_v1/industrial_vent_fan.tscn",
+      "sha256": "7d7a022e23e348f432a07089fdd2dc377e6e2a136736f6635e479b5784f89248",
+      "git_blob_sha": "d4e73cd64090f332821e87d0c9a2714839efa6b8",
+      "source_crop": [
+        1196,
+        345,
+        1528,
+        649
+      ],
+      "visible_alpha_bbox": [
+        8,
+        36,
+        248,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "welding_cart",
+      "png": "art/production/props_v1/welding_cart.png",
+      "scene": "scenes/world/props/industrial_v1/welding_cart.tscn",
+      "sha256": "d5862fb3aed57901fecf384a8820b3ba9dc4f8f9af308691f5dc3668d6deac08",
+      "git_blob_sha": "5545e996b7ed66ea0cc57d7bd35da787ebb0a24f",
+      "source_crop": [
+        18,
+        674,
+        356,
+        1023
+      ],
+      "visible_alpha_bbox": [
+        10,
+        13,
+        246,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "ammo_reloading_bench",
+      "png": "art/production/props_v1/ammo_reloading_bench.png",
+      "scene": "scenes/world/props/industrial_v1/ammo_reloading_bench.tscn",
+      "sha256": "23252530268252daf8e550d30a0e59c9a09dbb112b8f8d5f0fe510ebaa359a5a",
+      "git_blob_sha": "4a1a41f13e53396a2db0039cffd22c077b7c5ae8",
+      "source_crop": [
+        406,
+        680,
+        746,
+        1023
+      ],
+      "visible_alpha_bbox": [
+        11,
+        13,
+        245,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "smoke_drying_rack",
+      "png": "art/production/props_v1/smoke_drying_rack.png",
+      "scene": "scenes/world/props/industrial_v1/smoke_drying_rack.tscn",
+      "sha256": "d6afa6a707a36c37aff75f96236920eaa09ece8d845bba5f2a14128e3dffb7d4",
+      "git_blob_sha": "758fe3abc043c92ca407b8e7a280ced6a3b468b5",
+      "source_crop": [
+        764,
+        656,
+        1080,
+        1011
+      ],
+      "visible_alpha_bbox": [
+        18,
+        14,
+        237,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    },
+    {
+      "name": "field_cot",
+      "png": "art/production/props_v1/field_cot.png",
+      "scene": "scenes/world/props/industrial_v1/field_cot.tscn",
+      "sha256": "3ad670ab15e430b76a156951bad5c1392b9cb3ec89c6f3d355b933f7513afedd",
+      "git_blob_sha": "ec2ad080909f2f7a3d901cc2f95cbe91b8e20f7e",
+      "source_crop": [
+        1081,
+        669,
+        1525,
+        1013
+      ],
+      "visible_alpha_bbox": [
+        8,
+        77,
+        248,
+        248
+      ],
+      "canvas": [
+        256,
+        256
+      ],
+      "pivot": [
+        128,
+        248
+      ],
+      "status": "candidate_asset_not_in_game_verified"
+    }
+  ]
+}

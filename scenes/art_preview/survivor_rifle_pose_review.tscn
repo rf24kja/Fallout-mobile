@@ -1,0 +1,191 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="SpriteFrames" path="res://art/production/character_survivor_rifle_pose_v1/survivor_rifle_pose_sprite_frames.tres" id="1_frames"]
+
+[node name="RiflePoseReview" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -100
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.066, 0.078, 0.071, 1.0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+enabled = true
+
+[node name="rifle_ready_S" type="AnimatedSprite2D" parent="."]
+position = Vector2(170, 122)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_ready_S"
+texture_filter = 2
+
+[node name="Label_rifle_ready_S" type="Label" parent="."]
+position = Vector2(100, 198)
+text = "rifle_ready: S"
+
+[node name="rifle_ready_SE" type="AnimatedSprite2D" parent="."]
+position = Vector2(485, 122)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_ready_SE"
+texture_filter = 2
+
+[node name="Label_rifle_ready_SE" type="Label" parent="."]
+position = Vector2(415, 198)
+text = "rifle_ready: SE"
+
+[node name="rifle_ready_E" type="AnimatedSprite2D" parent="."]
+position = Vector2(800, 122)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_ready_E"
+texture_filter = 2
+
+[node name="Label_rifle_ready_E" type="Label" parent="."]
+position = Vector2(730, 198)
+text = "rifle_ready: E"
+
+[node name="rifle_ready_NE" type="AnimatedSprite2D" parent="."]
+position = Vector2(1115, 122)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_ready_NE"
+texture_filter = 2
+
+[node name="Label_rifle_ready_NE" type="Label" parent="."]
+position = Vector2(1045, 198)
+text = "rifle_ready: NE"
+
+[node name="rifle_ready_N" type="AnimatedSprite2D" parent="."]
+position = Vector2(170, 297)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_ready_N"
+texture_filter = 2
+
+[node name="Label_rifle_ready_N" type="Label" parent="."]
+position = Vector2(100, 373)
+text = "rifle_ready: N"
+
+[node name="rifle_ready_NW" type="AnimatedSprite2D" parent="."]
+position = Vector2(485, 297)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_ready_NW"
+texture_filter = 2
+
+[node name="Label_rifle_ready_NW" type="Label" parent="."]
+position = Vector2(415, 373)
+text = "rifle_ready: NW"
+
+[node name="rifle_ready_W" type="AnimatedSprite2D" parent="."]
+position = Vector2(800, 297)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_ready_W"
+texture_filter = 2
+
+[node name="Label_rifle_ready_W" type="Label" parent="."]
+position = Vector2(730, 373)
+text = "rifle_ready: W"
+
+[node name="rifle_ready_SW" type="AnimatedSprite2D" parent="."]
+position = Vector2(1115, 297)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_ready_SW"
+texture_filter = 2
+
+[node name="Label_rifle_ready_SW" type="Label" parent="."]
+position = Vector2(1045, 373)
+text = "rifle_ready: SW"
+
+[node name="rifle_fire_S" type="AnimatedSprite2D" parent="."]
+position = Vector2(170, 472)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_fire_S"
+texture_filter = 2
+
+[node name="Label_rifle_fire_S" type="Label" parent="."]
+position = Vector2(100, 548)
+text = "rifle_fire: S"
+
+[node name="rifle_fire_SE" type="AnimatedSprite2D" parent="."]
+position = Vector2(485, 472)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_fire_SE"
+texture_filter = 2
+
+[node name="Label_rifle_fire_SE" type="Label" parent="."]
+position = Vector2(415, 548)
+text = "rifle_fire: SE"
+
+[node name="rifle_fire_E" type="AnimatedSprite2D" parent="."]
+position = Vector2(800, 472)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_fire_E"
+texture_filter = 2
+
+[node name="Label_rifle_fire_E" type="Label" parent="."]
+position = Vector2(730, 548)
+text = "rifle_fire: E"
+
+[node name="rifle_fire_NE" type="AnimatedSprite2D" parent="."]
+position = Vector2(1115, 472)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_fire_NE"
+texture_filter = 2
+
+[node name="Label_rifle_fire_NE" type="Label" parent="."]
+position = Vector2(1045, 548)
+text = "rifle_fire: NE"
+
+[node name="rifle_fire_N" type="AnimatedSprite2D" parent="."]
+position = Vector2(170, 647)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_fire_N"
+texture_filter = 2
+
+[node name="Label_rifle_fire_N" type="Label" parent="."]
+position = Vector2(100, 723)
+text = "rifle_fire: N"
+
+[node name="rifle_fire_NW" type="AnimatedSprite2D" parent="."]
+position = Vector2(485, 647)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_fire_NW"
+texture_filter = 2
+
+[node name="Label_rifle_fire_NW" type="Label" parent="."]
+position = Vector2(415, 723)
+text = "rifle_fire: NW"
+
+[node name="rifle_fire_W" type="AnimatedSprite2D" parent="."]
+position = Vector2(800, 647)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_fire_W"
+texture_filter = 2
+
+[node name="Label_rifle_fire_W" type="Label" parent="."]
+position = Vector2(730, 723)
+text = "rifle_fire: W"
+
+[node name="rifle_fire_SW" type="AnimatedSprite2D" parent="."]
+position = Vector2(1115, 647)
+scale = Vector2(0.58, 0.58)
+sprite_frames = ExtResource("1_frames")
+animation = &"rifle_fire_SW"
+texture_filter = 2
+
+[node name="Label_rifle_fire_SW" type="Label" parent="."]
+position = Vector2(1045, 723)
+text = "rifle_fire: SW"

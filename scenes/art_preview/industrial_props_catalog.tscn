@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/machinist_lathe.tscn" id="1_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/chemical_distiller.tscn" id="2_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/field_radio.tscn" id="3_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/wasteland_jukebox.tscn" id="4_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/vault_safe.tscn" id="5_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/field_binoculars.tscn" id="6_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/signal_oscilloscope.tscn" id="7_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/industrial_vent_fan.tscn" id="8_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/welding_cart.tscn" id="9_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/ammo_reloading_bench.tscn" id="10_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/smoke_drying_rack.tscn" id="11_p"]
+[ext_resource type="PackedScene" path="res://scenes/world/props/industrial_v1/field_cot.tscn" id="12_p"]
+
+[node name="IndustrialPropsCatalog" type="Node2D"]
+
+[node name="Backdrop" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.07, 0.075, 0.065, 1)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+enabled = true
+
+[node name="machinist_lathe" parent="." instance=ExtResource("1_p")]
+position = Vector2(160, 205)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_1" type="Label" parent="."]
+position = Vector2(38, 217)
+text = "machinist lathe"
+
+[node name="chemical_distiller" parent="." instance=ExtResource("2_p")]
+position = Vector2(470, 205)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_2" type="Label" parent="."]
+position = Vector2(348, 217)
+text = "chemical distiller"
+
+[node name="field_radio" parent="." instance=ExtResource("3_p")]
+position = Vector2(780, 205)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_3" type="Label" parent="."]
+position = Vector2(658, 217)
+text = "field radio"
+
+[node name="wasteland_jukebox" parent="." instance=ExtResource("4_p")]
+position = Vector2(1090, 205)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_4" type="Label" parent="."]
+position = Vector2(968, 217)
+text = "wasteland jukebox"
+
+[node name="vault_safe" parent="." instance=ExtResource("5_p")]
+position = Vector2(160, 415)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_5" type="Label" parent="."]
+position = Vector2(38, 427)
+text = "vault safe"
+
+[node name="field_binoculars" parent="." instance=ExtResource("6_p")]
+position = Vector2(470, 415)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_6" type="Label" parent="."]
+position = Vector2(348, 427)
+text = "field binoculars"
+
+[node name="signal_oscilloscope" parent="." instance=ExtResource("7_p")]
+position = Vector2(780, 415)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_7" type="Label" parent="."]
+position = Vector2(658, 427)
+text = "signal oscilloscope"
+
+[node name="industrial_vent_fan" parent="." instance=ExtResource("8_p")]
+position = Vector2(1090, 415)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_8" type="Label" parent="."]
+position = Vector2(968, 427)
+text = "industrial vent fan"
+
+[node name="welding_cart" parent="." instance=ExtResource("9_p")]
+position = Vector2(160, 625)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_9" type="Label" parent="."]
+position = Vector2(38, 637)
+text = "welding cart"
+
+[node name="ammo_reloading_bench" parent="." instance=ExtResource("10_p")]
+position = Vector2(470, 625)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_10" type="Label" parent="."]
+position = Vector2(348, 637)
+text = "ammo reloading bench"
+
+[node name="smoke_drying_rack" parent="." instance=ExtResource("11_p")]
+position = Vector2(780, 625)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_11" type="Label" parent="."]
+position = Vector2(658, 637)
+text = "smoke drying rack"
+
+[node name="field_cot" parent="." instance=ExtResource("12_p")]
+position = Vector2(1090, 625)
+scale = Vector2(0.64, 0.64)
+
+[node name="Label_12" type="Label" parent="."]
+position = Vector2(968, 637)
+text = "field cot"

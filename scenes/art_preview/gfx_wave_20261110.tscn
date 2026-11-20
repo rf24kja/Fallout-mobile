@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/armor/combat_chest_armor_256.png" id="1_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/weapons/energy_sidearm_256.png" id="2_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/armor/leather_jacket_256.png" id="3_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/armor/metal_chest_armor_256.png" id="4_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/weapons/old_automatic_pistol_256.png" id="5_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/world/portable_generator_256.png" id="6_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/weapons/pump_shotgun_256.png" id="7_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/weapons/surplus_rifle_256.png" id="8_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/world/workbench_256.png" id="9_tex"]
+[ext_resource type="Texture2D" path="res://art/production/wave_2026_11_10/weapons/worn_revolver_256.png" id="10_tex"]
+
+[node name="GeneratedArtPreview" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.075, 0.075, 0.07, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+enabled = true
+
+[node name="Art_1" type="Sprite2D" parent="."]
+position = Vector2(148, 205)
+texture_filter = 2
+texture = ExtResource("1_tex")
+
+[node name="Label_1" type="Label" parent="."]
+position = Vector2(38, 317)
+text = "combat chest armor"
+
+[node name="Art_2" type="Sprite2D" parent="."]
+position = Vector2(390, 205)
+texture_filter = 2
+texture = ExtResource("2_tex")
+
+[node name="Label_2" type="Label" parent="."]
+position = Vector2(280, 317)
+text = "energy sidearm"
+
+[node name="Art_3" type="Sprite2D" parent="."]
+position = Vector2(632, 205)
+texture_filter = 2
+texture = ExtResource("3_tex")
+
+[node name="Label_3" type="Label" parent="."]
+position = Vector2(522, 317)
+text = "leather jacket"
+
+[node name="Art_4" type="Sprite2D" parent="."]
+position = Vector2(874, 205)
+texture_filter = 2
+texture = ExtResource("4_tex")
+
+[node name="Label_4" type="Label" parent="."]
+position = Vector2(764, 317)
+text = "metal chest armor"
+
+[node name="Art_5" type="Sprite2D" parent="."]
+position = Vector2(1116, 205)
+texture_filter = 2
+texture = ExtResource("5_tex")
+
+[node name="Label_5" type="Label" parent="."]
+position = Vector2(1006, 317)
+text = "old automatic pistol"
+
+[node name="Art_6" type="Sprite2D" parent="."]
+position = Vector2(148, 530)
+texture_filter = 2
+texture = ExtResource("6_tex")
+
+[node name="Label_6" type="Label" parent="."]
+position = Vector2(38, 642)
+text = "portable generator"
+
+[node name="Art_7" type="Sprite2D" parent="."]
+position = Vector2(390, 530)
+texture_filter = 2
+texture = ExtResource("7_tex")
+
+[node name="Label_7" type="Label" parent="."]
+position = Vector2(280, 642)
+text = "pump shotgun"
+
+[node name="Art_8" type="Sprite2D" parent="."]
+position = Vector2(632, 530)
+texture_filter = 2
+texture = ExtResource("8_tex")
+
+[node name="Label_8" type="Label" parent="."]
+position = Vector2(522, 642)
+text = "surplus rifle"
+
+[node name="Art_9" type="Sprite2D" parent="."]
+position = Vector2(874, 530)
+texture_filter = 2
+texture = ExtResource("9_tex")
+
+[node name="Label_9" type="Label" parent="."]
+position = Vector2(764, 642)
+text = "workbench"
+
+[node name="Art_10" type="Sprite2D" parent="."]
+position = Vector2(1116, 530)
+texture_filter = 2
+texture = ExtResource("10_tex")
+
+[node name="Label_10" type="Label" parent="."]
+position = Vector2(1006, 642)
+text = "worn revolver"

@@ -1,0 +1,268 @@
+{
+  "project": "RADZONE",
+  "type": "Godot 4.7.2 world props prefabs",
+  "status": "candidate_asset_not_in_game_verified",
+  "source_manifest": "art/production/painterly_v3/RADZONE_GITHUB_MANIFEST.json",
+  "preview_scene": "scenes/art_preview/world_props_catalog.tscn",
+  "notes": [
+    "14 real existing transparent PNG artworks are now referenced by instantiable Godot scenes.",
+    "No new binary art pixels were generated in this GitHub commit.",
+    "Bottom-center ground anchors based on actual alpha bounding box; road_tile uses alpha center.",
+    "Godot runtime, collisions, layering, scale and Android tests still required.",
+    "Prefab root Node2D position is the anchor; no collision shapes have been guessed."
+  ],
+  "assets": [
+    {
+      "name": "bunker_door",
+      "scene": "scenes/world/props/painterly_v3/bunker_door.tscn",
+      "texture": "art/production/painterly_v3/world/bunker_door.png",
+      "sha256": "2a5c174e5fbd1e853a91a17e4916db9d9e62c23ddafd448fbeea0f44160a8d2f",
+      "alpha_bbox": [
+        4,
+        4,
+        502,
+        311
+      ],
+      "canvas": [
+        505,
+        315
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.42345
+    },
+    {
+      "name": "chainlink_fence",
+      "scene": "scenes/world/props/painterly_v3/chainlink_fence.tscn",
+      "texture": "art/production/painterly_v3/world/chainlink_fence.png",
+      "sha256": "659801415ebb3ecd386e4ba0ca5b972189fa848f083bbbce29b90b5cd07947ce",
+      "alpha_bbox": [
+        4,
+        4,
+        563,
+        248
+      ],
+      "canvas": [
+        567,
+        252
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.42934
+    },
+    {
+      "name": "concrete_barricade",
+      "scene": "scenes/world/props/painterly_v3/concrete_barricade.tscn",
+      "texture": "art/production/painterly_v3/world/concrete_barricade.png",
+      "sha256": "a223b433e8ba0789f290fbcbff3ca5f95288912a81e1354a2d97ce4d498e854e",
+      "alpha_bbox": [
+        4,
+        4,
+        335,
+        219
+      ],
+      "canvas": [
+        339,
+        223
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.60465
+    },
+    {
+      "name": "crt_terminal",
+      "scene": "scenes/world/props/painterly_v3/crt_terminal.tscn",
+      "texture": "art/production/painterly_v3/world/crt_terminal.png",
+      "sha256": "1918ab374d2365a794dc70bdfe934bcf031f8a384ac4b5f3a6ed96dd254817da",
+      "alpha_bbox": [
+        4,
+        4,
+        258,
+        225
+      ],
+      "canvas": [
+        262,
+        229
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.58824
+    },
+    {
+      "name": "floodlight_pole",
+      "scene": "scenes/world/props/painterly_v3/floodlight_pole.tscn",
+      "texture": "art/production/painterly_v3/world/floodlight_pole.png",
+      "sha256": "e8e5d3bc30f566088c67ccc255ed182317f72fe846261a93d8a279b7ed60ca76",
+      "alpha_bbox": [
+        4,
+        4,
+        185,
+        325
+      ],
+      "canvas": [
+        189,
+        325
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.40498
+    },
+    {
+      "name": "generator",
+      "scene": "scenes/world/props/painterly_v3/generator.tscn",
+      "texture": "art/production/painterly_v3/world/generator.png",
+      "sha256": "65aaeab582caaa740d506a1850c7dc618a5349e82045c675d0616d87229aed2e",
+      "alpha_bbox": [
+        4,
+        4,
+        322,
+        239
+      ],
+      "canvas": [
+        326,
+        243
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.55319
+    },
+    {
+      "name": "road_sign",
+      "scene": "scenes/world/props/painterly_v3/road_sign.tscn",
+      "texture": "art/production/painterly_v3/world/road_sign.png",
+      "sha256": "34873a3ac30ba814c825f852cf6ed44971a91a68106eb7dbd8c004d3470e6faa",
+      "alpha_bbox": [
+        4,
+        4,
+        199,
+        318
+      ],
+      "canvas": [
+        203,
+        318
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.41401
+    },
+    {
+      "name": "road_tile",
+      "scene": "scenes/world/props/painterly_v3/road_tile.tscn",
+      "texture": "art/production/painterly_v3/world/road_tile.png",
+      "sha256": "a636ba1d4fe9a09f53ea485fd69f39feb39b8fbc725b82a7c20bc9830a802a82",
+      "alpha_bbox": [
+        4,
+        4,
+        506,
+        251
+      ],
+      "canvas": [
+        510,
+        251
+      ],
+      "anchor": "center",
+      "preview_scale": 0.47809
+    },
+    {
+      "name": "rust_barrel",
+      "scene": "scenes/world/props/painterly_v3/rust_barrel.tscn",
+      "texture": "art/production/painterly_v3/world/rust_barrel.png",
+      "sha256": "10b88925e2f052ec7e7ba44e7a5f22b75c3259c36fbbda148aec3ebcd0d353e0",
+      "alpha_bbox": [
+        4,
+        4,
+        157,
+        251
+      ],
+      "canvas": [
+        161,
+        255
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.52632
+    },
+    {
+      "name": "sandbag_wall",
+      "scene": "scenes/world/props/painterly_v3/sandbag_wall.tscn",
+      "texture": "art/production/painterly_v3/world/sandbag_wall.png",
+      "sha256": "5afff8f2dac6630e4c121bf6bac6a1505184a05540a4ba51ccd460c89d8fe661",
+      "alpha_bbox": [
+        4,
+        4,
+        432,
+        239
+      ],
+      "canvas": [
+        436,
+        243
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.55319
+    },
+    {
+      "name": "scrap_pile",
+      "scene": "scenes/world/props/painterly_v3/scrap_pile.tscn",
+      "texture": "art/production/painterly_v3/world/scrap_pile.png",
+      "sha256": "c35e0c1c85071c6dc14d9799455e556fef7b36d9bbed5d69f6a1d8beab74ff06",
+      "alpha_bbox": [
+        0,
+        0,
+        407,
+        241
+      ],
+      "canvas": [
+        407,
+        241
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.53942
+    },
+    {
+      "name": "supply_crate",
+      "scene": "scenes/world/props/painterly_v3/supply_crate.tscn",
+      "texture": "art/production/painterly_v3/world/supply_crate.png",
+      "sha256": "3c6c8eedecf222789bf0aa978d232b24c8e53363ac3e5479f059e208151818b8",
+      "alpha_bbox": [
+        4,
+        4,
+        340,
+        238
+      ],
+      "canvas": [
+        344,
+        242
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.55556
+    },
+    {
+      "name": "water_drum",
+      "scene": "scenes/world/props/painterly_v3/water_drum.tscn",
+      "texture": "art/production/painterly_v3/world/water_drum.png",
+      "sha256": "c379a22dda54ead23860e6313cbbe9563200de4cca004810c26b0ca6884ad59d",
+      "alpha_bbox": [
+        4,
+        4,
+        177,
+        269
+      ],
+      "canvas": [
+        181,
+        270
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.49057
+    },
+    {
+      "name": "water_pump",
+      "scene": "scenes/world/props/painterly_v3/water_pump.tscn",
+      "texture": "art/production/painterly_v3/world/water_pump.png",
+      "sha256": "50004c132fd7563fc627bfcbec6bdfb8521aa59b8e1aa822e18d47782f57e885",
+      "alpha_bbox": [
+        4,
+        4,
+        227,
+        307
+      ],
+      "canvas": [
+        231,
+        311
+      ],
+      "anchor": "bottom_center",
+      "preview_scale": 0.42904
+    }
+  ]
+}

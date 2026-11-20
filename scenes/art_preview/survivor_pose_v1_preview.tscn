@@ -1,0 +1,320 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="SpriteFrames" path="res://assets/characters/radzone_survivor_pose_v1/survivor_pose_sprite_frames.tres" id="1_poses"]
+
+[node name="SurvivorPoseQA" type="Node2D"]
+
+[node name="Backdrop" type="ColorRect" parent="."]
+z_index = -20
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.055, 0.068, 0.062, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+enabled = true
+
+[node name="DirectionLabel_S" type="Label" parent="."]
+position = Vector2(81, 8)
+text = "S"
+
+[node name="DirectionLabel_SE" type="Label" parent="."]
+position = Vector2(235, 8)
+text = "SE"
+
+[node name="DirectionLabel_E" type="Label" parent="."]
+position = Vector2(389, 8)
+text = "E"
+
+[node name="DirectionLabel_NE" type="Label" parent="."]
+position = Vector2(543, 8)
+text = "NE"
+
+[node name="DirectionLabel_N" type="Label" parent="."]
+position = Vector2(697, 8)
+text = "N"
+
+[node name="DirectionLabel_NW" type="Label" parent="."]
+position = Vector2(851, 8)
+text = "NW"
+
+[node name="DirectionLabel_W" type="Label" parent="."]
+position = Vector2(1005, 8)
+text = "W"
+
+[node name="DirectionLabel_SW" type="Label" parent="."]
+position = Vector2(1159, 8)
+text = "SW"
+
+[node name="StateLabel_idle" type="Label" parent="."]
+position = Vector2(8, 178)
+text = "IDLE"
+
+[node name="Pose_idle_S" type="AnimatedSprite2D" parent="."]
+position = Vector2(100, 190)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"idle_S"
+offset = Vector2(0, -120)
+
+[node name="Pose_idle_SE" type="AnimatedSprite2D" parent="."]
+position = Vector2(254, 190)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"idle_SE"
+offset = Vector2(0, -120)
+
+[node name="Pose_idle_E" type="AnimatedSprite2D" parent="."]
+position = Vector2(408, 190)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"idle_E"
+offset = Vector2(0, -120)
+
+[node name="Pose_idle_NE" type="AnimatedSprite2D" parent="."]
+position = Vector2(562, 190)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"idle_NE"
+offset = Vector2(0, -120)
+
+[node name="Pose_idle_N" type="AnimatedSprite2D" parent="."]
+position = Vector2(716, 190)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"idle_N"
+offset = Vector2(0, -120)
+
+[node name="Pose_idle_NW" type="AnimatedSprite2D" parent="."]
+position = Vector2(870, 190)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"idle_NW"
+offset = Vector2(0, -120)
+
+[node name="Pose_idle_W" type="AnimatedSprite2D" parent="."]
+position = Vector2(1024, 190)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"idle_W"
+offset = Vector2(0, -120)
+
+[node name="Pose_idle_SW" type="AnimatedSprite2D" parent="."]
+position = Vector2(1178, 190)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"idle_SW"
+offset = Vector2(0, -120)
+
+[node name="StateLabel_ready" type="Label" parent="."]
+position = Vector2(8, 346)
+text = "READY"
+
+[node name="Pose_ready_S" type="AnimatedSprite2D" parent="."]
+position = Vector2(100, 358)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"ready_S"
+offset = Vector2(0, -120)
+
+[node name="Pose_ready_SE" type="AnimatedSprite2D" parent="."]
+position = Vector2(254, 358)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"ready_SE"
+offset = Vector2(0, -120)
+
+[node name="Pose_ready_E" type="AnimatedSprite2D" parent="."]
+position = Vector2(408, 358)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"ready_E"
+offset = Vector2(0, -120)
+
+[node name="Pose_ready_NE" type="AnimatedSprite2D" parent="."]
+position = Vector2(562, 358)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"ready_NE"
+offset = Vector2(0, -120)
+
+[node name="Pose_ready_N" type="AnimatedSprite2D" parent="."]
+position = Vector2(716, 358)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"ready_N"
+offset = Vector2(0, -120)
+
+[node name="Pose_ready_NW" type="AnimatedSprite2D" parent="."]
+position = Vector2(870, 358)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"ready_NW"
+offset = Vector2(0, -120)
+
+[node name="Pose_ready_W" type="AnimatedSprite2D" parent="."]
+position = Vector2(1024, 358)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"ready_W"
+offset = Vector2(0, -120)
+
+[node name="Pose_ready_SW" type="AnimatedSprite2D" parent="."]
+position = Vector2(1178, 358)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"ready_SW"
+offset = Vector2(0, -120)
+
+[node name="StateLabel_aim" type="Label" parent="."]
+position = Vector2(8, 514)
+text = "AIM"
+
+[node name="Pose_aim_S" type="AnimatedSprite2D" parent="."]
+position = Vector2(100, 526)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"aim_S"
+offset = Vector2(0, -120)
+
+[node name="Pose_aim_SE" type="AnimatedSprite2D" parent="."]
+position = Vector2(254, 526)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"aim_SE"
+offset = Vector2(0, -120)
+
+[node name="Pose_aim_E" type="AnimatedSprite2D" parent="."]
+position = Vector2(408, 526)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"aim_E"
+offset = Vector2(0, -120)
+
+[node name="Pose_aim_NE" type="AnimatedSprite2D" parent="."]
+position = Vector2(562, 526)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"aim_NE"
+offset = Vector2(0, -120)
+
+[node name="Pose_aim_N" type="AnimatedSprite2D" parent="."]
+position = Vector2(716, 526)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"aim_N"
+offset = Vector2(0, -120)
+
+[node name="Pose_aim_NW" type="AnimatedSprite2D" parent="."]
+position = Vector2(870, 526)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"aim_NW"
+offset = Vector2(0, -120)
+
+[node name="Pose_aim_W" type="AnimatedSprite2D" parent="."]
+position = Vector2(1024, 526)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"aim_W"
+offset = Vector2(0, -120)
+
+[node name="Pose_aim_SW" type="AnimatedSprite2D" parent="."]
+position = Vector2(1178, 526)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"aim_SW"
+offset = Vector2(0, -120)
+
+[node name="StateLabel_fire" type="Label" parent="."]
+position = Vector2(8, 682)
+text = "FIRE"
+
+[node name="Pose_fire_S" type="AnimatedSprite2D" parent="."]
+position = Vector2(100, 694)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"fire_S"
+offset = Vector2(0, -120)
+
+[node name="Pose_fire_SE" type="AnimatedSprite2D" parent="."]
+position = Vector2(254, 694)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"fire_SE"
+offset = Vector2(0, -120)
+
+[node name="Pose_fire_E" type="AnimatedSprite2D" parent="."]
+position = Vector2(408, 694)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"fire_E"
+offset = Vector2(0, -120)
+
+[node name="Pose_fire_NE" type="AnimatedSprite2D" parent="."]
+position = Vector2(562, 694)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"fire_NE"
+offset = Vector2(0, -120)
+
+[node name="Pose_fire_N" type="AnimatedSprite2D" parent="."]
+position = Vector2(716, 694)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"fire_N"
+offset = Vector2(0, -120)
+
+[node name="Pose_fire_NW" type="AnimatedSprite2D" parent="."]
+position = Vector2(870, 694)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"fire_NW"
+offset = Vector2(0, -120)
+
+[node name="Pose_fire_W" type="AnimatedSprite2D" parent="."]
+position = Vector2(1024, 694)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"fire_W"
+offset = Vector2(0, -120)
+
+[node name="Pose_fire_SW" type="AnimatedSprite2D" parent="."]
+position = Vector2(1178, 694)
+scale = Vector2(0.55, 0.55)
+texture_filter = 2
+sprite_frames = ExtResource("1_poses")
+animation = &"fire_SW"
+offset = Vector2(0, -120)
+

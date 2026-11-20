@@ -1,0 +1,315 @@
+{
+  "project": "RADZONE",
+  "pack": "inventory_icons_wave_v2",
+  "status": "candidate_pending_godot_qa",
+  "source": "user-provided Постапокалиптический арсенал выжившего.png",
+  "source_sha256": "9508f370086e1b97ee1a182e52d9207f0feeca26ecc58c0e987045da1b242fd2",
+  "created": "2026-11-10",
+  "sizes": [
+    64,
+    256
+  ],
+  "notes": [
+    "64px icons use the exact existing gameplay ID filename under assets/ui/icons/ on the staging branch.",
+    "256px art kept under art/production/inventory_icons_v2/high_res; both are derived from the same source (no invented native detail).",
+    "The source contains native RGBA alpha; extraction keeps the largest connected source silhouette to remove adjacent collage items.",
+    "Game stats, balance, inventory logic, save format and existing icons are unchanged; none of these seven destination paths existed on the staging branch when checked.",
+    "Visual identity mapping and commercial-use rights require final approval; Godot/Android runtime not executed."
+  ],
+  "icons": [
+    {
+      "item_id": "38_revolver",
+      "category": "weapons",
+      "target_icon_path": "assets/ui/icons/38_revolver.png",
+      "high_res_path": "art/production/inventory_icons_v2/high_res/38_revolver_256.png",
+      "files": [
+        {
+          "size": 64,
+          "sha256": "f0e5764bb88120b8a467f5d32343d75978b3e7bac6f40be6435d706fd0e7a05d",
+          "bytes": 4184,
+          "alpha_bbox": [
+            2,
+            12,
+            62,
+            52
+          ],
+          "repo_path": "assets/ui/icons/38_revolver.png"
+        },
+        {
+          "size": 256,
+          "sha256": "a62083d837afe325ba07d4597d5e0b32f6c978e1669e98ffd39a87b1dd6f0faa",
+          "bytes": 45217,
+          "alpha_bbox": [
+            9,
+            48,
+            247,
+            208
+          ],
+          "repo_path": "art/production/inventory_icons_v2/high_res/38_revolver_256.png"
+        }
+      ],
+      "license_notes": "Source artwork supplied by user; verify shipping rights before release",
+      "in_game_verified": false,
+      "original_crop_xyxy": [
+        10,
+        4,
+        283,
+        181
+      ],
+      "icon_64_sha256": "f0e5764bb88120b8a467f5d32343d75978b3e7bac6f40be6435d706fd0e7a05d",
+      "highres_256_sha256": "a62083d837afe325ba07d4597d5e0b32f6c978e1669e98ffd39a87b1dd6f0faa"
+    },
+    {
+      "item_id": "assault_rifle",
+      "category": "weapons",
+      "target_icon_path": "assets/ui/icons/assault_rifle.png",
+      "high_res_path": "art/production/inventory_icons_v2/high_res/assault_rifle_256.png",
+      "files": [
+        {
+          "size": 64,
+          "sha256": "1f115b80f36699613d496761532648c51d3c7a4c4a6a53f4b9db3570405d6227",
+          "bytes": 3593,
+          "alpha_bbox": [
+            2,
+            18,
+            62,
+            47
+          ],
+          "repo_path": "assets/ui/icons/assault_rifle.png"
+        },
+        {
+          "size": 256,
+          "sha256": "5c4b751965e4befd9a1aa84f6ec50fd76c3bbcfb9d3509e459acdc055e5079e0",
+          "bytes": 36251,
+          "alpha_bbox": [
+            9,
+            70,
+            247,
+            186
+          ],
+          "repo_path": "art/production/inventory_icons_v2/high_res/assault_rifle_256.png"
+        }
+      ],
+      "license_notes": "Source artwork supplied by user; verify shipping rights before release",
+      "in_game_verified": false,
+      "original_crop_xyxy": [
+        220,
+        6,
+        550,
+        174
+      ],
+      "icon_64_sha256": "1f115b80f36699613d496761532648c51d3c7a4c4a6a53f4b9db3570405d6227",
+      "highres_256_sha256": "5c4b751965e4befd9a1aa84f6ec50fd76c3bbcfb9d3509e459acdc055e5079e0"
+    },
+    {
+      "item_id": "sniper_rifle",
+      "category": "weapons",
+      "target_icon_path": "assets/ui/icons/sniper_rifle.png",
+      "high_res_path": "art/production/inventory_icons_v2/high_res/sniper_rifle_256.png",
+      "files": [
+        {
+          "size": 64,
+          "sha256": "a09278276d129fbb7a3d11d31300bee315c3352ea2b5bbdca4a516f5e225209a",
+          "bytes": 2652,
+          "alpha_bbox": [
+            2,
+            20,
+            62,
+            44
+          ],
+          "repo_path": "assets/ui/icons/sniper_rifle.png"
+        },
+        {
+          "size": 256,
+          "sha256": "5c2b641bd7e56a2fbbb80fa21aca4e69e9d5d0bdb9117ddc344d21a211f98869",
+          "bytes": 24817,
+          "alpha_bbox": [
+            9,
+            82,
+            247,
+            174
+          ],
+          "repo_path": "art/production/inventory_icons_v2/high_res/sniper_rifle_256.png"
+        }
+      ],
+      "license_notes": "Source artwork supplied by user; verify shipping rights before release",
+      "in_game_verified": false,
+      "original_crop_xyxy": [
+        545,
+        3,
+        987,
+        173
+      ],
+      "icon_64_sha256": "a09278276d129fbb7a3d11d31300bee315c3352ea2b5bbdca4a516f5e225209a",
+      "highres_256_sha256": "5c2b641bd7e56a2fbbb80fa21aca4e69e9d5d0bdb9117ddc344d21a211f98869"
+    },
+    {
+      "item_id": "laser_pistol",
+      "category": "weapons",
+      "target_icon_path": "assets/ui/icons/laser_pistol.png",
+      "high_res_path": "art/production/inventory_icons_v2/high_res/laser_pistol_256.png",
+      "files": [
+        {
+          "size": 64,
+          "sha256": "2658b7bf75f94c1f5e720226d575ae6244c800048e09ba38fbfc8b025ec6cd47",
+          "bytes": 4828,
+          "alpha_bbox": [
+            4,
+            12,
+            60,
+            52
+          ],
+          "repo_path": "assets/ui/icons/laser_pistol.png"
+        },
+        {
+          "size": 256,
+          "sha256": "62db8d966fbf226cf5de56417596914aaf73e304a202c1a04bdfc8f26d4b3d80",
+          "bytes": 49933,
+          "alpha_bbox": [
+            16,
+            47,
+            240,
+            208
+          ],
+          "repo_path": "art/production/inventory_icons_v2/high_res/laser_pistol_256.png"
+        }
+      ],
+      "license_notes": "Source artwork supplied by user; verify shipping rights before release",
+      "in_game_verified": false,
+      "original_crop_xyxy": [
+        919,
+        9,
+        1176,
+        177
+      ],
+      "icon_64_sha256": "2658b7bf75f94c1f5e720226d575ae6244c800048e09ba38fbfc8b025ec6cd47",
+      "highres_256_sha256": "62db8d966fbf226cf5de56417596914aaf73e304a202c1a04bdfc8f26d4b3d80"
+    },
+    {
+      "item_id": "machete",
+      "category": "weapons",
+      "target_icon_path": "assets/ui/icons/machete.png",
+      "high_res_path": "art/production/inventory_icons_v2/high_res/machete_256.png",
+      "files": [
+        {
+          "size": 64,
+          "sha256": "224e1f2e79e2ecbe53abf591ed10b8fdc6ad7b73b23582bc3a4880df15acfbda",
+          "bytes": 3194,
+          "alpha_bbox": [
+            4,
+            11,
+            60,
+            53
+          ],
+          "repo_path": "assets/ui/icons/machete.png"
+        },
+        {
+          "size": 256,
+          "sha256": "a2d6e85ba631b80f1af5a27021ecbaacc7582abffe53caa02bb3e70735590a05",
+          "bytes": 28957,
+          "alpha_bbox": [
+            18,
+            43,
+            239,
+            212
+          ],
+          "repo_path": "art/production/inventory_icons_v2/high_res/machete_256.png"
+        }
+      ],
+      "license_notes": "Source artwork supplied by user; verify shipping rights before release",
+      "in_game_verified": false,
+      "original_crop_xyxy": [
+        1117,
+        0,
+        1344,
+        174
+      ],
+      "icon_64_sha256": "224e1f2e79e2ecbe53abf591ed10b8fdc6ad7b73b23582bc3a4880df15acfbda",
+      "highres_256_sha256": "a2d6e85ba631b80f1af5a27021ecbaacc7582abffe53caa02bb3e70735590a05"
+    },
+    {
+      "item_id": "metal_helmet",
+      "category": "armor",
+      "target_icon_path": "assets/ui/icons/metal_helmet.png",
+      "high_res_path": "art/production/inventory_icons_v2/high_res/metal_helmet_256.png",
+      "files": [
+        {
+          "size": 64,
+          "sha256": "4014dcd6a24d3737fe394a377bbd67effcdf00b0c0631f4bfc6952a6bf40daf0",
+          "bytes": 6038,
+          "alpha_bbox": [
+            7,
+            7,
+            56,
+            57
+          ],
+          "repo_path": "assets/ui/icons/metal_helmet.png"
+        },
+        {
+          "size": 256,
+          "sha256": "c17a44f5ae52d0987d392f6187a60feadb47ef731d154377df5118dd259cf981",
+          "bytes": 66084,
+          "alpha_bbox": [
+            31,
+            29,
+            224,
+            226
+          ],
+          "repo_path": "art/production/inventory_icons_v2/high_res/metal_helmet_256.png"
+        }
+      ],
+      "license_notes": "Source artwork supplied by user; verify shipping rights before release",
+      "in_game_verified": false,
+      "original_crop_xyxy": [
+        638,
+        174,
+        856,
+        390
+      ],
+      "icon_64_sha256": "4014dcd6a24d3737fe394a377bbd67effcdf00b0c0631f4bfc6952a6bf40daf0",
+      "highres_256_sha256": "c17a44f5ae52d0987d392f6187a60feadb47ef731d154377df5118dd259cf981"
+    },
+    {
+      "item_id": "tool_kit",
+      "category": "utility",
+      "target_icon_path": "assets/ui/icons/tool_kit.png",
+      "high_res_path": "art/production/inventory_icons_v2/high_res/tool_kit_256.png",
+      "files": [
+        {
+          "size": 64,
+          "sha256": "4665ca329376a2281488c1b511482ef68152fd2d0f09dc7be66852d4e1bbb6c0",
+          "bytes": 6297,
+          "alpha_bbox": [
+            2,
+            12,
+            62,
+            52
+          ],
+          "repo_path": "assets/ui/icons/tool_kit.png"
+        },
+        {
+          "size": 256,
+          "sha256": "f0723c44be346ddceb9e80766ab0e331cd2d32def25fe27744b1c82b49b7d6dc",
+          "bytes": 76659,
+          "alpha_bbox": [
+            9,
+            49,
+            247,
+            206
+          ],
+          "repo_path": "art/production/inventory_icons_v2/high_res/tool_kit_256.png"
+        }
+      ],
+      "license_notes": "Source artwork supplied by user; verify shipping rights before release",
+      "in_game_verified": false,
+      "original_crop_xyxy": [
+        953,
+        390,
+        1260,
+        563
+      ],
+      "icon_64_sha256": "4665ca329376a2281488c1b511482ef68152fd2d0f09dc7be66852d4e1bbb6c0",
+      "highres_256_sha256": "f0723c44be346ddceb9e80766ab0e331cd2d32def25fe27744b1c82b49b7d6dc"
+    }
+  ]
+}

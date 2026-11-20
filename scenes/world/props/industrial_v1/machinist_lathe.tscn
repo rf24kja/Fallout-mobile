@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/props_v1/machinist_lathe.png" id="1_tex"]
+
+[node name="MachinistLathe" type="Node2D"]
+
+[node name="Art" type="Sprite2D" parent="."]
+texture_filter = 2
+texture = ExtResource("1_tex")
+offset = Vector2(0, -120)

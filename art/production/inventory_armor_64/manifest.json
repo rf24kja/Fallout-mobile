@@ -1,0 +1,58 @@
+{
+  "pack": "radzone-inventory-armor-64-v1",
+  "status": "candidate_asset_not_in_game_verified",
+  "source": "User-provided image: Постапокалиптический арсенал выжившего.png",
+  "source_sha256": "9508f370086e1b97ee1a182e52d9207f0feeca26ecc58c0e987045da1b242fd2",
+  "technique": "Manually defined crop from user source; largest connected alpha component; 5px dilation support; centered at 64x64; Lanczos resize; PNG palette 192 colors",
+  "metadata_version": 1,
+  "assets": [
+    {
+      "item_id": "combat_armor",
+      "file": "assets/ui/icons/combat_armor.png",
+      "crop": [
+        22,
+        169,
+        258,
+        390
+      ],
+      "dimensions": [
+        64,
+        64
+      ],
+      "mode": "P with transparency palette",
+      "sha256": "8a3f52a2ea9ff7082cd107b7cd2d39ef3b681bb4dd3a583af18f19910ab067e1",
+      "alpha_bbox": [
+        4,
+        6,
+        60,
+        57
+      ],
+      "git_blob_sha": "73802a661dfb7e560f74720b6c3186b443c5f6a5"
+    },
+    {
+      "item_id": "leather_armor",
+      "file": "assets/ui/icons/leather_armor.png",
+      "crop": [
+        254,
+        169,
+        452,
+        397
+      ],
+      "dimensions": [
+        64,
+        64
+      ],
+      "mode": "P with transparency palette",
+      "sha256": "102fe39b7417a773d4e67fa5d0f2634421a9aaa6b2a0637e9175813f23b872c3",
+      "alpha_bbox": [
+        9,
+        4,
+        54,
+        60
+      ],
+      "git_blob_sha": "81ee57d283e070dee44e3252cde9e2d27ade8929"
+    }
+  ],
+  "source_rights": "User supplied art. Confirm rights for commercial shipping before release.",
+  "qa": "PNG signature, decoded pixels, transparency, bounding boxes, SHA-256 checked locally. Godot headless/Android NOT executed."
+}

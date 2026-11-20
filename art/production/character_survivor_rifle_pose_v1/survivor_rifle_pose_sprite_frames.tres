@@ -1,0 +1,216 @@
+[gd_resource type="SpriteFrames" load_steps=19 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/character_survivor_rifle_pose_v1/atlas_rifle_ready.png" id="1_atlas"]
+[ext_resource type="Texture2D" path="res://art/production/character_survivor_rifle_pose_v1/atlas_rifle_fire.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_ready_S"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_ready_SE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_ready_E"]
+atlas = ExtResource("1_atlas")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_ready_NE"]
+atlas = ExtResource("1_atlas")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_ready_N"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_ready_NW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_ready_W"]
+atlas = ExtResource("1_atlas")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_ready_SW"]
+atlas = ExtResource("1_atlas")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_fire_S"]
+atlas = ExtResource("2_atlas")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_fire_SE"]
+atlas = ExtResource("2_atlas")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_fire_E"]
+atlas = ExtResource("2_atlas")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_fire_NE"]
+atlas = ExtResource("2_atlas")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_fire_N"]
+atlas = ExtResource("2_atlas")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_fire_NW"]
+atlas = ExtResource("2_atlas")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_fire_W"]
+atlas = ExtResource("2_atlas")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="atlas_rifle_fire_SW"]
+atlas = ExtResource("2_atlas")
+region = Rect2(768, 256, 256, 256)
+
+[resource]
+animations = [
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_ready_S")
+}],
+"loop": false,
+"name": &"rifle_ready_S",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_ready_SE")
+}],
+"loop": false,
+"name": &"rifle_ready_SE",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_ready_E")
+}],
+"loop": false,
+"name": &"rifle_ready_E",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_ready_NE")
+}],
+"loop": false,
+"name": &"rifle_ready_NE",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_ready_N")
+}],
+"loop": false,
+"name": &"rifle_ready_N",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_ready_NW")
+}],
+"loop": false,
+"name": &"rifle_ready_NW",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_ready_W")
+}],
+"loop": false,
+"name": &"rifle_ready_W",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_ready_SW")
+}],
+"loop": false,
+"name": &"rifle_ready_SW",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_fire_S")
+}],
+"loop": false,
+"name": &"rifle_fire_S",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_fire_SE")
+}],
+"loop": false,
+"name": &"rifle_fire_SE",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_fire_E")
+}],
+"loop": false,
+"name": &"rifle_fire_E",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_fire_NE")
+}],
+"loop": false,
+"name": &"rifle_fire_NE",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_fire_N")
+}],
+"loop": false,
+"name": &"rifle_fire_N",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_fire_NW")
+}],
+"loop": false,
+"name": &"rifle_fire_NW",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_fire_W")
+}],
+"loop": false,
+"name": &"rifle_fire_W",
+"speed": 1.0
+},
+{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("atlas_rifle_fire_SW")
+}],
+"loop": false,
+"name": &"rifle_fire_SW",
+"speed": 1.0
+}
+]

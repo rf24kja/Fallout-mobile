@@ -1,0 +1,151 @@
+[gd_resource type="SpriteFrames" load_steps=26 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/muzzle_fx_v1/atlas_rifle.png" id="1_atlas"]
+
+[sub_resource type="AtlasTexture" id="rifle_S_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_S_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_S_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_SE_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_SE_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(96, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_SE_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(96, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_E_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_E_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(192, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_E_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(192, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_NE_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_NE_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(288, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_NE_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(288, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_N_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_N_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_N_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(0, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_NW_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_NW_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(96, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_NW_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(96, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_W_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_W_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(192, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_W_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(192, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_SW_0"]
+atlas = ExtResource("1_atlas")
+region = Rect2(288, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_SW_1"]
+atlas = ExtResource("1_atlas")
+region = Rect2(288, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="rifle_SW_2"]
+atlas = ExtResource("1_atlas")
+region = Rect2(288, 480, 96, 96)
+
+[resource]
+animations = [
+{
+"frames": [{ "duration": 1.0, "texture": SubResource("rifle_S_0") }, { "duration": 1.0, "texture": SubResource("rifle_S_1") }, { "duration": 1.0, "texture": SubResource("rifle_S_2") }],
+"loop": false,
+"name": &"flash_S",
+"speed": 14.0
+},
+{
+"frames": [{ "duration": 1.0, "texture": SubResource("rifle_SE_0") }, { "duration": 1.0, "texture": SubResource("rifle_SE_1") }, { "duration": 1.0, "texture": SubResource("rifle_SE_2") }],
+"loop": false,
+"name": &"flash_SE",
+"speed": 14.0
+},
+{
+"frames": [{ "duration": 1.0, "texture": SubResource("rifle_E_0") }, { "duration": 1.0, "texture": SubResource("rifle_E_1") }, { "duration": 1.0, "texture": SubResource("rifle_E_2") }],
+"loop": false,
+"name": &"flash_E",
+"speed": 14.0
+},
+{
+"frames": [{ "duration": 1.0, "texture": SubResource("rifle_NE_0") }, { "duration": 1.0, "texture": SubResource("rifle_NE_1") }, { "duration": 1.0, "texture": SubResource("rifle_NE_2") }],
+"loop": false,
+"name": &"flash_NE",
+"speed": 14.0
+},
+{
+"frames": [{ "duration": 1.0, "texture": SubResource("rifle_N_0") }, { "duration": 1.0, "texture": SubResource("rifle_N_1") }, { "duration": 1.0, "texture": SubResource("rifle_N_2") }],
+"loop": false,
+"name": &"flash_N",
+"speed": 14.0
+},
+{
+"frames": [{ "duration": 1.0, "texture": SubResource("rifle_NW_0") }, { "duration": 1.0, "texture": SubResource("rifle_NW_1") }, { "duration": 1.0, "texture": SubResource("rifle_NW_2") }],
+"loop": false,
+"name": &"flash_NW",
+"speed": 14.0
+},
+{
+"frames": [{ "duration": 1.0, "texture": SubResource("rifle_W_0") }, { "duration": 1.0, "texture": SubResource("rifle_W_1") }, { "duration": 1.0, "texture": SubResource("rifle_W_2") }],
+"loop": false,
+"name": &"flash_W",
+"speed": 14.0
+},
+{
+"frames": [{ "duration": 1.0, "texture": SubResource("rifle_SW_0") }, { "duration": 1.0, "texture": SubResource("rifle_SW_1") }, { "duration": 1.0, "texture": SubResource("rifle_SW_2") }],
+"loop": false,
+"name": &"flash_SW",
+"speed": 14.0
+}
+]

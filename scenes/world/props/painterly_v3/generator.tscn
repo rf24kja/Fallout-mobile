@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://art/production/painterly_v3/world/generator.png" id="1_tex"]
+
+[node name="Generator" type="Node2D"]
+
+[node name="Art" type="Sprite2D" parent="."]
+texture_filter = 2
+texture = ExtResource("1_tex")
+offset = Vector2(0, -117.5)

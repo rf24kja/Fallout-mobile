@@ -1,0 +1,777 @@
+{
+  "asset_family": "RADZONE survivor male — directional static poses",
+  "status": "candidate_not_in_game_verified",
+  "source_generation": "ChatGPT generated sheets, provided in this conversation",
+  "purpose": "Godot 4 directional idle/ready/aim/fire static pose previews, not animated locomotion",
+  "source_layout": "4 columns x 2 rows",
+  "source_direction_order": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "frame_size": [
+    256,
+    256
+  ],
+  "foot_anchor_pixel": [
+    128,
+    248
+  ],
+  "notes": [
+    "One frame per direction/state, not a walk or attack animation sequence",
+    "The same character and weapon are baked into ready/aim/fire poses; these frames must not be combined with an independent weapon overlay",
+    "Generated directions and visual continuity require in-engine and human inspection",
+    "Alpha edge halo, small-scale visibility and z-sorting not yet verified in Godot",
+    "No gameplay data, inventory ID mapping or existing SpriteFrames is changed"
+  ],
+  "sources": {
+    "idle": {
+      "name": "изометрический_выживший_восемь_направлений.png",
+      "sha256": "e93b11bc050aafb05992b161810831b397b759d0f22ec81dca2d9a4f3f2c43cb",
+      "original_dimensions": [
+        1774,
+        887
+      ],
+      "published_compressed_source": "art/production/character_survivor_pose_v1/source/idle.webp",
+      "published_webp_sha256": "fb8ccb2a03c8276b378e4f6727bed4fd5a05f6df9404a61af4cdc8055aba7b01",
+      "published_source_lossy": true
+    },
+    "ready": {
+      "name": "изометрический_выживший_с_пистолетом.png",
+      "sha256": "a55a971cdbf2c5d5149b9e3dc46fa679bec7be9aa968070aafed005162aedbb0",
+      "original_dimensions": [
+        1774,
+        887
+      ],
+      "published_compressed_source": "art/production/character_survivor_pose_v1/source/ready.webp",
+      "published_webp_sha256": "4738aed26cac22e853e424d16a5370bd5da9b8457e73cbfd152aca05871eb08a",
+      "published_source_lossy": true
+    },
+    "aim": {
+      "name": "радзона_выживший_прицеливающийся_в_восьми_направ.png",
+      "sha256": "cd531490056ce8b993c5c6aa827280ef3301f27aff1f0bbfcd6c9c3354bfb181",
+      "original_dimensions": [
+        1774,
+        887
+      ],
+      "published_compressed_source": "art/production/character_survivor_pose_v1/source/aim.webp",
+      "published_webp_sha256": "e6e09ffd787f391199e10252414a18543cf371cf05e29b0129a69f39543c8e2e",
+      "published_source_lossy": true
+    },
+    "fire": {
+      "name": "спрайт_лист_выжившего_с_пистолетом.png",
+      "sha256": "e8d501ddacc93aed22dcc700cbd15404286ff47b39ebbcf2436bf74a6e923dcd",
+      "original_dimensions": [
+        1774,
+        887
+      ],
+      "published_compressed_source": "art/production/character_survivor_pose_v1/source/fire.webp",
+      "published_webp_sha256": "11c1a17d88b17ba48084e7945a46fbac6654b45338084d197c4101fb4f3c06f1",
+      "published_source_lossy": true
+    }
+  },
+  "frames": [
+    {
+      "state": "idle",
+      "direction": "S",
+      "file": "frames/idle/S.png",
+      "source_cell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "alpha_bbox": [
+        79,
+        10,
+        178,
+        248
+      ],
+      "sha256": "c528cf054962917292ac71851d0e001751fc3fadaf086625c91bdcfa7046ee33",
+      "size_bytes": 45917
+    },
+    {
+      "state": "idle",
+      "direction": "SE",
+      "file": "frames/idle/SE.png",
+      "source_cell": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "alpha_bbox": [
+        84,
+        9,
+        181,
+        248
+      ],
+      "sha256": "65816ed637d2cbe2c8fa096d37b6cbf93dddb7b24c374e58f17c0e3d95d1204c",
+      "size_bytes": 42327
+    },
+    {
+      "state": "idle",
+      "direction": "E",
+      "file": "frames/idle/E.png",
+      "source_cell": [
+        887,
+        0,
+        1330,
+        444
+      ],
+      "alpha_bbox": [
+        94,
+        10,
+        157,
+        248
+      ],
+      "sha256": "f77a5fdf8ac27fd1bf21bdca4210b0285ab2d6686dbe36c91be2f115a9320650",
+      "size_bytes": 30562
+    },
+    {
+      "state": "idle",
+      "direction": "NE",
+      "file": "frames/idle/NE.png",
+      "source_cell": [
+        1330,
+        0,
+        1774,
+        444
+      ],
+      "alpha_bbox": [
+        92,
+        10,
+        174,
+        248
+      ],
+      "sha256": "f0141cf5fa3423a1d22e6f26255958fd7be292865f3f2037fcac8c4d57538aab",
+      "size_bytes": 37846
+    },
+    {
+      "state": "idle",
+      "direction": "N",
+      "file": "frames/idle/N.png",
+      "source_cell": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "alpha_bbox": [
+        79,
+        9,
+        178,
+        248
+      ],
+      "sha256": "9597654a1dac6df7cbce956ce18ade6923386809f8b8d57b70a9a76928eba2e8",
+      "size_bytes": 44630
+    },
+    {
+      "state": "idle",
+      "direction": "NW",
+      "file": "frames/idle/NW.png",
+      "source_cell": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "alpha_bbox": [
+        83,
+        9,
+        172,
+        248
+      ],
+      "sha256": "6a9fb9172cf32d26b20a25619b7a2b6779c9cd158955f8fe374c8511be67cc4e",
+      "size_bytes": 40527
+    },
+    {
+      "state": "idle",
+      "direction": "W",
+      "file": "frames/idle/W.png",
+      "source_cell": [
+        887,
+        444,
+        1330,
+        887
+      ],
+      "alpha_bbox": [
+        102,
+        9,
+        162,
+        248
+      ],
+      "sha256": "cb9bd2f78702d6953000ddb4fed457e8d428983127ea2ab85cbf12ce92b512bf",
+      "size_bytes": 29599
+    },
+    {
+      "state": "idle",
+      "direction": "SW",
+      "file": "frames/idle/SW.png",
+      "source_cell": [
+        1330,
+        444,
+        1774,
+        887
+      ],
+      "alpha_bbox": [
+        80,
+        7,
+        172,
+        248
+      ],
+      "sha256": "9b72a94c89cc319314ceabae8d0ea48700266bd2f6073c0476d6200ddf547fdd",
+      "size_bytes": 40686
+    },
+    {
+      "state": "ready",
+      "direction": "S",
+      "file": "frames/ready/S.png",
+      "source_cell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "alpha_bbox": [
+        85,
+        9,
+        183,
+        248
+      ],
+      "sha256": "2ae4c600036ce950183711a5cc010e2e492a6f1ee23154268ad1ef1dd3381681",
+      "size_bytes": 44083
+    },
+    {
+      "state": "ready",
+      "direction": "SE",
+      "file": "frames/ready/SE.png",
+      "source_cell": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "alpha_bbox": [
+        81,
+        8,
+        175,
+        248
+      ],
+      "sha256": "80ee8c2f4e0af46faa1a30c0b0ed5d4dd4716ede56bdfb5020ee5f4cacba97be",
+      "size_bytes": 43136
+    },
+    {
+      "state": "ready",
+      "direction": "E",
+      "file": "frames/ready/E.png",
+      "source_cell": [
+        887,
+        0,
+        1330,
+        444
+      ],
+      "alpha_bbox": [
+        75,
+        8,
+        191,
+        248
+      ],
+      "sha256": "9ed312b024409d5f21c2f727ac4b726bde2c56876a2f421468177b33823d1a0d",
+      "size_bytes": 39140
+    },
+    {
+      "state": "ready",
+      "direction": "NE",
+      "file": "frames/ready/NE.png",
+      "source_cell": [
+        1330,
+        0,
+        1774,
+        444
+      ],
+      "alpha_bbox": [
+        74,
+        11,
+        186,
+        248
+      ],
+      "sha256": "607db45303db994a3b9c950ca9b33a03d5df6fe1a7fd2aa25cf2fe7329d1f9ff",
+      "size_bytes": 42144
+    },
+    {
+      "state": "ready",
+      "direction": "N",
+      "file": "frames/ready/N.png",
+      "source_cell": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "alpha_bbox": [
+        75,
+        7,
+        177,
+        248
+      ],
+      "sha256": "50df778e6465021b83337edd0cd94715c38dbd709a231e839996ae9dedab2849",
+      "size_bytes": 45043
+    },
+    {
+      "state": "ready",
+      "direction": "NW",
+      "file": "frames/ready/NW.png",
+      "source_cell": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "alpha_bbox": [
+        83,
+        10,
+        175,
+        248
+      ],
+      "sha256": "2b22bac5b25f9e69dd22cedab16613bec5d73d613eae9df7bccdae9467928137",
+      "size_bytes": 43129
+    },
+    {
+      "state": "ready",
+      "direction": "W",
+      "file": "frames/ready/W.png",
+      "source_cell": [
+        887,
+        444,
+        1330,
+        887
+      ],
+      "alpha_bbox": [
+        61,
+        3,
+        184,
+        248
+      ],
+      "sha256": "46393e7a9b70d4971ecdf7e4cb6604c8462e82b526d4d2802045c082ecf0b8b8",
+      "size_bytes": 39198
+    },
+    {
+      "state": "ready",
+      "direction": "SW",
+      "file": "frames/ready/SW.png",
+      "source_cell": [
+        1330,
+        444,
+        1774,
+        887
+      ],
+      "alpha_bbox": [
+        68,
+        6,
+        180,
+        248
+      ],
+      "sha256": "ddcfbd63d3a1b770bb31f463f0d0beabe83991a579ab520b8da9b5862ab3fb17",
+      "size_bytes": 44003
+    },
+    {
+      "state": "aim",
+      "direction": "S",
+      "file": "frames/aim/S.png",
+      "source_cell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "alpha_bbox": [
+        74,
+        8,
+        188,
+        248
+      ],
+      "sha256": "57aad09c1323c5f646f2202d6d51e1f447b3938cd2ce1d0d244f5740bc7dd3f4",
+      "size_bytes": 46546
+    },
+    {
+      "state": "aim",
+      "direction": "SE",
+      "file": "frames/aim/SE.png",
+      "source_cell": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "alpha_bbox": [
+        67,
+        11,
+        183,
+        248
+      ],
+      "sha256": "5832fc75c10f0a8f1c18516d78c9cf654751120abedf93c40f62028e38fb1512",
+      "size_bytes": 48562
+    },
+    {
+      "state": "aim",
+      "direction": "E",
+      "file": "frames/aim/E.png",
+      "source_cell": [
+        887,
+        0,
+        1330,
+        444
+      ],
+      "alpha_bbox": [
+        72,
+        8,
+        219,
+        248
+      ],
+      "sha256": "7402e92e85ed3fb7068ffff1a58d1101e356bda3bcc50426ed3a0532cbb5472d",
+      "size_bytes": 44343
+    },
+    {
+      "state": "aim",
+      "direction": "NE",
+      "file": "frames/aim/NE.png",
+      "source_cell": [
+        1330,
+        0,
+        1774,
+        444
+      ],
+      "alpha_bbox": [
+        72,
+        15,
+        202,
+        248
+      ],
+      "sha256": "a08ab4df09a40602b143513fb3fcfa5fe7f7e4a8e312878007641e8ac378a051",
+      "size_bytes": 45692
+    },
+    {
+      "state": "aim",
+      "direction": "N",
+      "file": "frames/aim/N.png",
+      "source_cell": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "alpha_bbox": [
+        68,
+        12,
+        189,
+        248
+      ],
+      "sha256": "51bf589b613dd39f08f6c51362b789a262314be174d8a6d112369d9601aa18ad",
+      "size_bytes": 47782
+    },
+    {
+      "state": "aim",
+      "direction": "NW",
+      "file": "frames/aim/NW.png",
+      "source_cell": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "alpha_bbox": [
+        73,
+        14,
+        187,
+        248
+      ],
+      "sha256": "0331ecf1d8254771795e51db76708ba47665c5bd75bc5b0fd21e0de41a3dbb18",
+      "size_bytes": 49143
+    },
+    {
+      "state": "aim",
+      "direction": "W",
+      "file": "frames/aim/W.png",
+      "source_cell": [
+        887,
+        444,
+        1330,
+        887
+      ],
+      "alpha_bbox": [
+        37,
+        9,
+        189,
+        248
+      ],
+      "sha256": "2982f22db1487993a08dad4069555661200b533c1238249062fb8ade44512808",
+      "size_bytes": 43344
+    },
+    {
+      "state": "aim",
+      "direction": "SW",
+      "file": "frames/aim/SW.png",
+      "source_cell": [
+        1330,
+        444,
+        1774,
+        887
+      ],
+      "alpha_bbox": [
+        52,
+        12,
+        200,
+        248
+      ],
+      "sha256": "657d5591b5c1a52e00e8adad656438e3ee505e8120bf6b6e087f5a6ca7cacde3",
+      "size_bytes": 53092
+    },
+    {
+      "state": "fire",
+      "direction": "S",
+      "file": "frames/fire/S.png",
+      "source_cell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "alpha_bbox": [
+        82,
+        7,
+        184,
+        248
+      ],
+      "sha256": "a053ced59c272375858af2ec1cc068f2c2fbcc415f70e33dcc8bbd47f707333b",
+      "size_bytes": 44108
+    },
+    {
+      "state": "fire",
+      "direction": "SE",
+      "file": "frames/fire/SE.png",
+      "source_cell": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "alpha_bbox": [
+        70,
+        9,
+        189,
+        248
+      ],
+      "sha256": "df1c5978d343b1a47a6765da7c70501ddc3c383cc951e1edf156fb50a095686d",
+      "size_bytes": 46657
+    },
+    {
+      "state": "fire",
+      "direction": "E",
+      "file": "frames/fire/E.png",
+      "source_cell": [
+        887,
+        0,
+        1330,
+        444
+      ],
+      "alpha_bbox": [
+        69,
+        8,
+        217,
+        248
+      ],
+      "sha256": "f2decffc207b4e2b7fb947a37ef9b8d0c9ece8a90d5ff87c973347d1dde1ea2d",
+      "size_bytes": 42334
+    },
+    {
+      "state": "fire",
+      "direction": "NE",
+      "file": "frames/fire/NE.png",
+      "source_cell": [
+        1330,
+        0,
+        1774,
+        444
+      ],
+      "alpha_bbox": [
+        68,
+        9,
+        205,
+        248
+      ],
+      "sha256": "439b067394f8d2b77707cb8477aadb4b43b5979060f2d0e866ac604295f68777",
+      "size_bytes": 44363
+    },
+    {
+      "state": "fire",
+      "direction": "N",
+      "file": "frames/fire/N.png",
+      "source_cell": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "alpha_bbox": [
+        72,
+        4,
+        181,
+        248
+      ],
+      "sha256": "96e03698f4d1f4d480787e219cd71223f58a945c0f900e939d3f8b21fddf44aa",
+      "size_bytes": 47118
+    },
+    {
+      "state": "fire",
+      "direction": "NW",
+      "file": "frames/fire/NW.png",
+      "source_cell": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "alpha_bbox": [
+        65,
+        7,
+        179,
+        248
+      ],
+      "sha256": "28d5a23b44d3a965850ba19cd97880f3d932d1105fa967cd854e0d751bc020b7",
+      "size_bytes": 47364
+    },
+    {
+      "state": "fire",
+      "direction": "W",
+      "file": "frames/fire/W.png",
+      "source_cell": [
+        887,
+        444,
+        1330,
+        887
+      ],
+      "alpha_bbox": [
+        24,
+        4,
+        185,
+        248
+      ],
+      "sha256": "ff3496ad40b189cf4f1f5932fb64b86c5ed58941847ba96c7ad8685be615307a",
+      "size_bytes": 45045
+    },
+    {
+      "state": "fire",
+      "direction": "SW",
+      "file": "frames/fire/SW.png",
+      "source_cell": [
+        1330,
+        444,
+        1774,
+        887
+      ],
+      "alpha_bbox": [
+        40,
+        7,
+        189,
+        248
+      ],
+      "sha256": "c0e4fcdc1fbe0bf59e9ceb9b1c31753ae4c56c0658cfc770fb2700ec7dde0f30",
+      "size_bytes": 48959
+    }
+  ],
+  "atlases": [
+    {
+      "state": "idle",
+      "file": "atlas_idle.png",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "sha256": "244b2f59236c48126a08cfc42d1647b6b2cf64bd2ddd2057fbef9828cd882dc0"
+    },
+    {
+      "state": "ready",
+      "file": "atlas_ready.png",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "sha256": "3fe799866232b9ca8c180ac0cfbc936cd34897b4cfb69bfea0898a1ca08113e8"
+    },
+    {
+      "state": "aim",
+      "file": "atlas_aim.png",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "sha256": "e5f48af52272c7036df63a087f1cf095d4fb2a466f3a8e48808d7f6e340ae81e"
+    },
+    {
+      "state": "fire",
+      "file": "atlas_fire.png",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "sha256": "02e5bd1fd9d97991d0e805a284cba0e131133229d82c23167bfb3cbb1fc0f1bf"
+    }
+  ],
+  "spriteframes_resource": "assets/characters/radzone_survivor_pose_v1/survivor_pose_sprite_frames.tres",
+  "preview_scene": "scenes/art_preview/survivor_pose_v1_preview.tscn",
+  "atlas_order": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "spriteframes_animations": [
+    "idle_S",
+    "idle_SE",
+    "idle_E",
+    "idle_NE",
+    "idle_N",
+    "idle_NW",
+    "idle_W",
+    "idle_SW",
+    "ready_S",
+    "ready_SE",
+    "ready_E",
+    "ready_NE",
+    "ready_N",
+    "ready_NW",
+    "ready_W",
+    "ready_SW",
+    "aim_S",
+    "aim_SE",
+    "aim_E",
+    "aim_NE",
+    "aim_N",
+    "aim_NW",
+    "aim_W",
+    "aim_SW",
+    "fire_S",
+    "fire_SE",
+    "fire_E",
+    "fire_NE",
+    "fire_N",
+    "fire_NW",
+    "fire_W",
+    "fire_SW"
+  ],
+  "godot_qa": "NOT_RUN — Godot runtime unavailable in this tool environment",
+  "production_usage": "STAGING: do not replace existing survivor_sprite_frames.tres or layer-based equipment logic",
+  "godot_anchor_note": "AnimatedSprite2D centered frame; offset Vector2(0,-120) with pixel foot at y=248; validate visually in engine",
+  "publication_date": "2026-11-10",
+  "github_staging_branch": "art/pipeline-staging-20261110"
+}
