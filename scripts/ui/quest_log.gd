@@ -33,7 +33,7 @@ func _on_close_pressed() -> void:
 func _on_quest_started(quest_id: String) -> void:
     _refresh_quest_list()
     if is_visible():
-        _select_quest(quest_id)
+        _on_quest_selected(quest_id)
 
 func _on_quest_updated(quest_id: String, objective_id: String, progress: int) -> void:
     _refresh_quest_list()
