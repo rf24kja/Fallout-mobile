@@ -124,3 +124,84 @@
 ---
 
 *Last Updated: 2026-11-09 — XP progression fidelity verified, documentation published to GitHub*
+---
+
+### 2026-11-17: RADZONE Inventory Icon Integration (branch `feature/inventory-radzone-icons`)
+
+**Feature**: 7 gameplay items now render real RADZONE artwork in the inventory grid
+(`combat_knife`, `combat_shotgun`, `hunting_rifle`, `gas_mask`, `lockpick_set`,
+`laser_pistol`, `pump_shotgun`). `icon_path` values point directly at the PNGs under
+`art/production/...`; no copies were made, so each art object keeps one file and its
+provenance. Previously all 86 `icon_path` values pointed at the non-existent
+`res://assets/ui/icons/` directory and the grid rendered only blue placeholder squares.
+
+**Mapping discipline**: only items matching the artwork by name *and* by visual content
+were mapped. Ambiguous crops (`pistol`, `medkit`, `stim_injector`, `wrench`,
+`pistol_ammo`, `shotgun_shells`, `heavy_revolver`, `compact_submachine_gun`,
+`scavenged_medicine_bottles`, `patched_leather_coat`, `helmet_with_goggles`) were left
+unmapped and recorded as gaps rather than guessed.
+
+**Three real defects found and fixed**
+
+1. `.tscn` theme overrides used method-call syntax (`add_theme_color_override(...)`).
+   Godot 4 serializes them as `theme_override_*` properties; the method-call form is not
+   a valid property line and the loader silently swallows it plus the following
+   `[node ...]` header. `scenes/ui/inventory_ui.tscn` lost 8 of 17 nodes at load,
+   `scenes/ui/dialogue_ui.tscn` lost 2 of 6, `scenes/ui/main_menu.tscn` lost 2 of 12.
+   Rewrote 77 lines across 6 scenes. Regression test:
+   `scripts/tests/test_scene_parse_integrity.gd`.
+2. `anchors_preset` is inert at load time (`Control.set_anchors_preset()` is a runtime
+   method), so `InventoryPanel` was 0x0 and `ScrollContainer` had height 0 with
+   `clip=true` — the grid was laid out but clipped away. Materialised explicit
+   `anchor_*` on all 12 nodes of `scenes/ui/inventory_ui.tscn` from the encoded offsets.
+   Same defect class remains in 8 other scenes (64 nodes) — recorded as an open task.
+3. `TextureButton` ignored `custom_minimum_size` because `ignore_texture_size` defaults
+   to `false`; icons rendered at native resolution (up to 900x226) and overflowed the
+   72x72 cell. Set `btn.ignore_texture_size = true` in `scripts/ui/inventory_ui.gd`.
+
+Also fixed the stack amount label, which was anchored bottom-right and then given
+positive offsets (relative to the anchor) so it landed outside the button; now uses
+`set_anchors_and_offsets_preset(PRESET_BOTTOM_RIGHT, PRESET_MODE_MINSIZE, 4)`.
+
+**Evidence**: `artifacts/qa/inventory_radzone/inventory_radzone_icons.png`,
+`inventory_radzone_details.png`, `README.md` (real in-game captures, Godot 4.7.2
+non-headless, 1280x720). Capture driver `scripts/art/inventory_radzone_review_capture.gd`,
+preview scene `scenes/art_preview/inventory_radzone_review.tscn`.
+
+**Verification**: `test_inventory_icons.gd` 7/7 PASS; `test_scene_parse_integrity.gd`
+19 scenes MISMATCH=0; `test_radzone_scene_integration.gd` ALL PASS;
+`test_critical_fidelity.gd`, `tests/test_ap_fidelity.gd`, `test_dtdr_fidelity.gd`,
+`test_special_fidelity.gd`, `test_xp_progression.gd` ALL TESTS PASSED;
+`tests/test_asset_uniqueness_guard.py` 6 OK; `tests/test_art_visual_duplicate_gate.py`
+3 OK; `scripts/test_combat_damage.py`, `scripts/test_item_database.py` ALL TESTS PASSED.
+
+**Status**: draft art only — all RADZONE PNGs remain `staged_unapproved` /
+`published_draft_asset`; nothing is `production_approved`. Not Android-validated.
+
+### 2026-11-21: RADZONE UI Anchor Materialization (branch `fix/ui-anchor-presets`, PR #38)
+
+**Feature**: Materialized inert `anchors_preset` into explicit `anchor_left/top/right/bottom` on 47 nodes across 8 UI scenes, fixing controls that rendered at 0×0 or drifted off-screen on mobile. Also fixed 26 root-relative parent paths in `combat_hud.tscn`/`quest_log.tscn` and added `unique_name_in_owner=true` to 15 named nodes in `called_shot_panel.tscn`.
+
+**Scenes fixed**:
+- `scenes/ui/called_shot_panel.tscn` (16 anchors + 15 unique_name_in_owner)
+- `scenes/ui/combat_hud.tscn` (10 anchors + 15 parent path fixes)
+- `scenes/ui/combat_ui.tscn` (8 anchors)
+- `scenes/ui/dialogue_ui.tscn` (4 anchors)
+- `scenes/ui/quest_log.tscn` (3 anchors + 11 parent path fixes)
+- `scenes/world/test_map.tscn` (4 anchors)
+- `scenes/entities/npc.tscn` (1 anchor)
+- `scenes/entities/world_item.tscn` (1 anchor)
+
+`main_menu.tscn` verified clean — no inert anchors.
+
+**Derivation rule**: for each (off_a, off_b) anchor pair, try 4 candidates `(0,0),(0,1),(1,0),(1,1)`; reject those giving non-positive extent; maximize score where each negative offset maps to `anchor=1`; all-zero offsets → `(0,0,1,1)`. Verified on all 44 non-degenerate cases.
+
+**New regression test**: `scripts/tests/test_ui_layout_integrity.gd` — source-based `.tscn` parsing (avoids pre-existing `.gd` script parse errors in combat_hud/quest_log). Verifies all `anchors_preset!=0` nodes have `anchor_*` materialized and called_shot_panel `%Name` lookup resolves.
+
+**Verification**: `test_ui_layout_integrity.gd` — SCENES=19, CHECKS=72, FAILURES=0, RESULT: ALL PASS, exit 0. `test_scene_parse_integrity.gd` — SCENES_CHECKED=19 MISMATCH=0, exit 0.
+
+**Pre-existing unrelated defects** (not in scope A-2): `quest_log.gd:36` calls `_select_quest()` which is not defined; `quest_log_entry.tscn` is missing; `combat_hud.gd:42` type mismatch RichTextLabel→Label.
+
+**PR**: https://github.com/rf24kja/Fallout-mobile/pull/38 — `fix/ui-anchor-presets` (head `c6afd2fd04c8ba43a108cb4b859b741871ac0cbd`, base `master`), 9 files, state OPEN. Merge pending owner review.
+
+**Status**: draft art only — all RADZONE PNGs remain `staged_unapproved` / `published_draft_asset`; nothing is `production_approved`. Not Android-validated.

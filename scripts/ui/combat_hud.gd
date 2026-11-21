@@ -20,9 +20,9 @@ var turn_indicator: Label
 var current_actor_portrait: TextureRect
 var weapon_panel: PanelContainer
 var weapon_name: Label
-var weapon_ammo: Label
-var weapon_ap_cost: Label
-var weapon_range: Label
+var weapon_ammo: RichTextLabel
+var weapon_ap_cost: RichTextLabel
+var weapon_range: RichTextLabel
 var called_shot_btn: Button
 var reload_btn: Button
 var defend_btn: Button
@@ -214,7 +214,7 @@ func _refresh_weapon_info() -> void:
 			if mag_size > 0:
 				weapon_ammo.bbcode_text = "[b]Боеприпасы:[/b] [color=cyan]%d/%d[/color] %s" % [ammo_count, mag_size, ammo_type]
 			else:
-				weapon_ammo.text = "[b]Боеприпасы:[/b] -"
+				weapon_ammo.bbcode_text = "[b]Боеприпасы:[/b] -"
 		
 		if weapon_ap_cost:
 			var ap_cost = def.get("ap_cost", 5)
@@ -228,11 +228,11 @@ func _refresh_weapon_info() -> void:
 		_update_hit_chance_display()
 	else:
 		if weapon_ammo:
-			weapon_ammo.text = "[b]Боеприпасы:[/b] -"
+			weapon_ammo.bbcode_text = "[b]Боеприпасы:[/b] -"
 		if weapon_ap_cost:
-			weapon_ap_cost.text = "[b]ОД за выстрел:[/b] -"
+			weapon_ap_cost.bbcode_text = "[b]ОД за выстрел:[/b] -"
 		if weapon_range:
-			weapon_range.text = "[b]Дальность:[/b] -"
+			weapon_range.bbcode_text = "[b]Дальность:[/b] -"
 
 func _refresh_actions() -> void:
 	var is_player = (_current_actor_id == "player")
