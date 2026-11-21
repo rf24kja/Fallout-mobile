@@ -386,4 +386,23 @@ relative to the anchor and pushed the label outside the button. Now uses
 
 **PR:** https://github.com/rf24kja/Fallout-mobile/pull/36 — `feature/inventory-radzone-icons` (head `a569163aa3a0fd9d596607ddb53aa2e1b3653ab1`, base `master`), 20 files, state OPEN.
 
-*Last Updated: 2026-11-17 — RADZONE inventory icon integration (branch `feature/inventory-radzone-icons`, PR #36)*
+---
+
+## RADZONE UI Anchor Materialization (Task A-2, 2026-11-21)
+
+**Problem:** `anchors_preset` written in `.tscn` files is inert at load time — Godot 4 does not apply it during scene parsing. 64 nodes across 9 UI scenes relied on it, causing controls to collapse to 0×0 or drift off-screen at runtime (e.g., `InventoryPanel` size 0×0, `ScrollContainer` height 0 with `clip=true`, combat panels at X=-320 off the left edge). Additionally, 26 nodes in `combat_hud.tscn`/`quest_log.tscn` used parent paths that caused orphan nodes ("Parent path has vanished" warnings), and `called_shot_panel.tscn` lacked `unique_name_in_owner=true`, so all 15 `%Name` lookups in `called_shot_panel.gd` failed.
+
+**Fix (branch `fix/ui-anchor-presets`, commit `c6afd2f`):**
+- Materialized `anchors_preset` → explicit `anchor_left/top/right/bottom` on 47 nodes across 8 scenes: `scenes/ui/called_shot_panel.tscn` (16), `scenes/ui/combat_hud.tscn` (10), `scenes/ui/combat_ui.tscn` (8), `scenes/ui/dialogue_ui.tscn` (4), `scenes/ui/quest_log.tscn` (3), `scenes/world/test_map.tscn` (4), `scenes/entities/npc.tscn` (1), `scenes/entities/world_item.tscn` (1). Rule derived and verified on all 44 non-degenerate cases: for each (off_a, off_b) pair, try 4 anchor candidates, reject those giving non-positive extent, maximize score where score counts whether each negative offset maps to anchor=1; all-zero offsets → (0,0,1,1).
+- Fixed root-relative parent paths: 15 nodes in `combat_hud.tscn`, 11 nodes in `quest_log.tscn` (e.g., `parent="WeaponVBox"` → `parent="WeaponPanel/WeaponVBox"`).
+- Added `unique_name_in_owner = true` to all 15 named nodes in `called_shot_panel.tscn` so `%Name` lookups resolve.
+- New regression test: `scripts/tests/test_ui_layout_integrity.gd` — source-based `.tscn` parsing (avoids pre-existing .gd script parse errors in combat_hud/quest_log). Verifies all anchors_preset!=0 nodes have anchor_* materialized and called_shot_panel %Name lookup resolves.
+
+**Verification:**
+- `scripts/tests/test_ui_layout_integrity.gd` — SCENES=19, CHECKS=72, FAILURES=0, RESULT: ALL PASS, exit 0
+- `scripts/tests/test_scene_parse_integrity.gd` — SCENES_CHECKED=19 MISMATCH=0, exit 0
+- Pre-existing unrelated defects (not in scope A-2): `quest_log.gd:36` calls `_select_quest()` which is not defined; `quest_log_entry.tscn` is missing; `combat_hud.gd:42` type mismatch RichTextLabel→Label.
+
+**PR:** https://github.com/rf24kja/Fallout-mobile/pull/38 — `fix/ui-anchor-presets` (head `c6afd2fd04c8ba43a108cb4b859b741871ac0cbd`, base `master`), 9 files, state OPEN.
+
+*Last Updated: 2026-11-21 — RADZONE UI anchor materialization (branch `fix/ui-anchor-presets`, PR #38)*

@@ -177,3 +177,31 @@ preview scene `scenes/art_preview/inventory_radzone_review.tscn`.
 
 **Status**: draft art only — all RADZONE PNGs remain `staged_unapproved` /
 `published_draft_asset`; nothing is `production_approved`. Not Android-validated.
+
+### 2026-11-21: RADZONE UI Anchor Materialization (branch `fix/ui-anchor-presets`, PR #38)
+
+**Feature**: Materialized inert `anchors_preset` into explicit `anchor_left/top/right/bottom` on 47 nodes across 8 UI scenes, fixing controls that rendered at 0×0 or drifted off-screen on mobile. Also fixed 26 root-relative parent paths in `combat_hud.tscn`/`quest_log.tscn` and added `unique_name_in_owner=true` to 15 named nodes in `called_shot_panel.tscn`.
+
+**Scenes fixed**:
+- `scenes/ui/called_shot_panel.tscn` (16 anchors + 15 unique_name_in_owner)
+- `scenes/ui/combat_hud.tscn` (10 anchors + 15 parent path fixes)
+- `scenes/ui/combat_ui.tscn` (8 anchors)
+- `scenes/ui/dialogue_ui.tscn` (4 anchors)
+- `scenes/ui/quest_log.tscn` (3 anchors + 11 parent path fixes)
+- `scenes/world/test_map.tscn` (4 anchors)
+- `scenes/entities/npc.tscn` (1 anchor)
+- `scenes/entities/world_item.tscn` (1 anchor)
+
+`main_menu.tscn` verified clean — no inert anchors.
+
+**Derivation rule**: for each (off_a, off_b) anchor pair, try 4 candidates `(0,0),(0,1),(1,0),(1,1)`; reject those giving non-positive extent; maximize score where each negative offset maps to `anchor=1`; all-zero offsets → `(0,0,1,1)`. Verified on all 44 non-degenerate cases.
+
+**New regression test**: `scripts/tests/test_ui_layout_integrity.gd` — source-based `.tscn` parsing (avoids pre-existing `.gd` script parse errors in combat_hud/quest_log). Verifies all `anchors_preset!=0` nodes have `anchor_*` materialized and called_shot_panel `%Name` lookup resolves.
+
+**Verification**: `test_ui_layout_integrity.gd` — SCENES=19, CHECKS=72, FAILURES=0, RESULT: ALL PASS, exit 0. `test_scene_parse_integrity.gd` — SCENES_CHECKED=19 MISMATCH=0, exit 0.
+
+**Pre-existing unrelated defects** (not in scope A-2): `quest_log.gd:36` calls `_select_quest()` which is not defined; `quest_log_entry.tscn` is missing; `combat_hud.gd:42` type mismatch RichTextLabel→Label.
+
+**PR**: https://github.com/rf24kja/Fallout-mobile/pull/38 — `fix/ui-anchor-presets` (head `c6afd2fd04c8ba43a108cb4b859b741871ac0cbd`, base `master`), 9 files, state OPEN. Merge pending owner review.
+
+**Status**: draft art only — all RADZONE PNGs remain `staged_unapproved` / `published_draft_asset`; nothing is `production_approved`. Not Android-validated.
