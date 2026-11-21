@@ -161,7 +161,11 @@ layer = 10
 mouse_filter = 2
 
 [node name="StatsPanel" type="VBoxContainer" parent="HUD"]
-anchors_preset = 9
+anchors_preset = 0
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 220.0
@@ -175,7 +179,11 @@ vertical_alignment = 0
 mouse_filter = 2
 
 [node name="Instructions" type="Label" parent="HUD"]
-anchors_preset = 12
+anchors_preset = 2
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
 offset_left = 10.0
 offset_top = -50.0
 offset_right = 300.0
@@ -186,7 +194,11 @@ vertical_alignment = 2
 mouse_filter = 2
 
 [node name="InteractButton" type="Button" parent="HUD"]
-anchors_preset = 12
+anchors_preset = 2
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
 offset_left = -80.0
 offset_top = -100.0
 offset_right = 80.0
@@ -235,6 +247,10 @@ visible = false
 
 [node name="IndicatorLabel" type="Label" parent="TestNPC/InteractionIndicator"]
 anchors_preset = 15
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
