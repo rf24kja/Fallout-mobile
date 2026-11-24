@@ -200,8 +200,10 @@ func _recalculate_derived_stats() -> void:
 	var aw = special.awareness
 	var lk = special.fortune
 	
-	# Fallout 2 Max HP: 15 + ST + EN*2 + Lv*(3+EN/2)
-	character_data.max_hp = 15 + st + en * 2 + level * (3 + int(en / 2))
+	# Fallout 2 Max HP: 15 + ST + EN*2 + (Lv-1)*(3+EN/2)
+	# Level 1 has no HP level bonus; matches get_derived_stats() and vanilla reference.
+	var hp_level_factor = max(0, level - 1)
+	character_data.max_hp = 15 + st + en * 2 + hp_level_factor * (3 + int(en / 2))
 	
 	# Fallout 2 AP: 5 + AG/2 (round down)
 	character_data.max_ap = 5 + int(ag / 2)
@@ -490,6 +492,10 @@ func get_derived_stats(stats: Dictionary) -> Dictionary:
 		"carry_weight": 25 + st * 25,  # Fallout 2: 25 + ST*25
 		"melee_damage": max(1, st - 5)  # Fallout 2: max(1, ST-5)
 	}
+
+func get_save_data() -> Dictionary:
+	"""Return a deep copy of the character state for save/load symmetry."""
+	return character_data.duplicate(true)
 
 func load_save_data(data: Dictionary) -> void:
 	character_data = data

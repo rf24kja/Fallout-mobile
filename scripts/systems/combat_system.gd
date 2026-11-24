@@ -703,7 +703,12 @@ func _get_critical_table_entry(kill_type: String, hit_location: String, roll: in
 
 func _check_stat(target: Dictionary, stat_name: Variant, stat_mod: int) -> bool:
 	"""Check if target passes a stat check (vanilla: stat + mod >= roll)."""
-	if stat_name == -1 or stat_name == "" or stat_name == "-1":
+	# Guard by type: comparing a String with an int using == raises
+	# "Invalid operands 'String' and 'int' in operator '=='" in GDScript 4.7.
+	if typeof(stat_name) == TYPE_STRING:
+		if stat_name == "" or stat_name == "-1":
+			return true  # No stat check = auto pass
+	elif typeof(stat_name) == TYPE_INT and stat_name == -1:
 		return true  # No stat check = auto pass
 	
 	var stat_map = {
@@ -743,10 +748,20 @@ func _apply_critical_effect(target: Dictionary, attacker: Dictionary, entry: Dic
 		# Single flag or integer
 		applied.append(_apply_single_effect(target, attacker, str(effect_flags), damage))
 	
-	# Check for stat check failure
-	if stat_check != -1 and stat_check != "" and stat_check != "-1":
+	# Check for stat check failure (type-guarded: String!=int comparison is invalid in GDScript 4.7)
+	var has_stat_check = true
+	if typeof(stat_check) == TYPE_INT:
+		has_stat_check = (stat_check != -1)
+	elif typeof(stat_check) == TYPE_STRING:
+		has_stat_check = (stat_check != "" and stat_check != "-1")
+	if has_stat_check:
 		var passed = _check_stat(target, stat_check, stat_mod)
-		if not passed and failure_effect != 0 and failure_effect != "" and failure_effect != "0":
+		var has_failure = true
+		if typeof(failure_effect) == TYPE_INT:
+			has_failure = (failure_effect != 0)
+		elif typeof(failure_effect) == TYPE_STRING:
+			has_failure = (failure_effect != "" and failure_effect != "0")
+		if not passed and has_failure:
 			if failure_effect is String:
 				var fail_flags = failure_effect.split("|")
 				for flag in fail_flags:

@@ -6,6 +6,7 @@ extends SceneTree
 class_name SpecialFidelityTests
 
 var _character_system
+var _character_script
 var _test_results = []
 
 func _init():
@@ -15,6 +16,7 @@ func _init():
 func load_systems():
 	# Load CharacterSystem
 	var char_script = preload("res://scripts/systems/character_system.gd")
+	_character_script = char_script
 	_character_system = char_script.new()
 
 func run_all_tests():
@@ -62,7 +64,8 @@ func test_max_hp_formula():
 		})
 	
 	# Test level scaling using internal character data (not get_derived_stats which defaults to level=1)
-	var char = _character_system.new()
+	var char = _character_script.new()
+	char._init_default_character()  # .new() does not run _ready(), so initialize explicitly
 	char.character_data.level = 10
 	char.character_data.special.might = 5
 	char.character_data.special.vigor = 5
