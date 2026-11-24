@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://scripts/entities/player.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/entities/npc.gd" id="2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" path="res://scenes/world/props/wave12/retro_crt_terminal.tscn" id="9"]
 [ext_resource type="PackedScene" path="res://scenes/world/props/wave12/roadside_barrier_and_tires.tscn" id="10"]
 [ext_resource type="PackedScene" path="res://scenes/world/props/wave12/used_tire_stack.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://scenes/ui/mobile_controls.tscn" id="12"]
 
 [sub_resource type="RectangleShape2D" id="CollisionShape2D_1"]
 x = 16.0
@@ -215,6 +216,8 @@ theme_override_colors/bg_color_pressed = Color(0.1, 0.4, 0.7, 1)
 theme_override_font_sizes/font_size = 18
 visible = false
 mouse_filter = 0
+
+[node name="MobileControls" parent="." instance=ExtResource(12)]
 
 [node name="DialogueUI" type="Node" parent="."]
 instance = ExtResource(6)

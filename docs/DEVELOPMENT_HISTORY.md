@@ -212,3 +212,13 @@ preview scene `scenes/art_preview/inventory_radzone_review.tscn`.
 - **Save/load QA (commit `092b1ce`)**: new `scripts/tests/test_save_load_roundtrip.gd` — 21 checks ALL PASS (save/load slot 9, v1→v2 SPECIAL migration, cleanup).
 - **APK**: `Fallout2_Reborn_Mobile_Release_1.0.apk` (185 MB), SHA256 `61cca9564075d3cd00ffdc3c6e382804c305106a5530b3f8d814444680bb23ab`, apksigner v2+v3 verified, 4 ABIs. Manual apksigner workaround (Godot 4.7.2 keystore bug). No device → runtime pending.
 - **Report**: `docs/RELEASE_1.0_INTEGRATION_REPORT.md`. PRs #36/#38 + Wave13 not merged (owner).
+
+
+### 2026-11-24: Campaign Engine, Original Data Importer, Mobile Joystick (m01690)
+- **Original data**: located local GOG `Fallout2\` install; decoded DAT directory format; extracted master.dat/critter.dat/patch000.dat into gitignored `.local/` (licensed, never published). `.local/` added to `.gitignore`.
+- **Importer**: `tools/fallout2_import/` (6 files) — dat_reader/msg_parser/pro_parser/map_parser/import_all/README. `import_all.py --verify` → OK: 492 items, 483 critters, 113 quests, 80 locations, 171 maps, 801 dialogues. Output in `.local/generated/`.
+- **Campaign engine**: `scripts/campaign/` (9 files) + `scenes/campaign/campaign_root.tscn` + `test_campaign_engine.gd` (53 checks PASS) — location graph, travel events, quests/dialogues registration, defensive JSON adapter with graceful degradation.
+- **Mobile controls**: `scripts/ui/mobile_controls.gd` + `scenes/ui/mobile_controls.tscn` + joystick branch in `player.gd` + instancing in `test_map.tscn`. `test_mobile_controls.gd` 54 checks PASS.
+- **Bug fixes**: Godot 4 `JSON.parse_string` API in `quest_manager.gd` + `save_system.gd`.
+- **Verification**: 12 Godot + 9 Python + importer + boot ALL GREEN, 0 SCRIPT ERROR/FAIL.
+- **Status**: campaign engine built but not wired into playable loop; no real playthrough/Android runtime; no APK rebuild yet. PR #39 open.

@@ -432,3 +432,24 @@ relative to the anchor and pushed the label outside the button. Now uses
 **Status:** draft RADZONE art (staged_unapproved); mobile controls partial (no virtual joystick/safe-area); Android runtime not verified.
 
 *Last Updated: 2026-11-24 — Release 1.0 integration branch, fidelity fixes, signed APK*
+
+
+## Campaign Engine + Original Fallout 2 Data Importer (2026-11-24)
+
+**Goal (m01690)**: turn `release/1.0-integration` from a systems prototype into a complete mobile Fallout 2 RPG; work autonomously, no merge without owner, no force push.
+
+**Original data found (local GOG install only, never published)**: `C:\Code\REA_FALLOUT\Fallout2\` — `master.dat` (333,177,805 B), `critter.dat` (166,951,131 B), `patch000.dat`, `data/MAPS/` 81 `.SAV`, `data/SAVEGAME/SLOT01..18`, `data/proto/`. Decoded DAT directory format `[LE u32 len][name][flag][LE u32 uncomp][LE u32 comp][LE u32 ofs]`, flag==1 = zlib. Extracted to gitignored `.local/` (master 11855 files, critter 7120, patch000 487). `.local/` added to `.gitignore`.
+
+**Importer** (`tools/fallout2_import/`): `dat_reader.py`, `msg_parser.py`, `pro_parser.py`, `map_parser.py`, `import_all.py`, `README.md`. CLI `python tools/fallout2_import/import_all.py --source <dir> [--verify]` writes 7 JSON to gitignored `.local/generated/`. `VERIFY OK: items 492 / critters 483 / quests 113 / locations 80 / maps_index 171 / dialog_index 801`. Fixed two bugs: (1) main() passed install dir instead of extracted master → 0 items; (2) msg_parser regex left trailing `}`. **License**: no game text or absolute paths in committed source; all original content stays local-only.
+
+**Campaign engine** (`scripts/campaign/`, 9 files + `scenes/campaign/campaign_root.tscn`): defensive JSON adapter, location graph with bidirectional exits + world_state gates, headless-safe 2D location scene, quest/dialogue registration into QuestManager/DialogueManager, `travel_to` events + save/load. `test_campaign_engine.gd`: 53 checks PASS, synthetic fixtures, no licensed text.
+
+**Mobile controls** (`scripts/ui/mobile_controls.gd`, `scenes/ui/mobile_controls.tscn`): virtual joystick + 5 action buttons, safe-area insets, pinch zoom/pan; additive joystick branch in `scripts/entities/player.gd`; instanced in `test_map.tscn`. `test_mobile_controls.gd`: 54 checks PASS.
+
+**Bug fixes**: `scripts/quest_manager.gd` `_load_player_quests()` and `scripts/core/save_system.gd` `list_saves()` — Godot 4 `JSON.parse_string` returns Dictionary directly (was using Godot 3 `{error,result}` shape).
+
+**Verification (HEAD + working tree)**: 12 Godot tests all exit 0, 0 SCRIPT ERROR, 0 FAIL; 9 Python unittest OK; combat_damage/item_database ALL PASSED; importer VERIFY OK; boot exit 0 with 0 errors.
+
+**Status**: NOT a complete Fallout 2 campaign yet — campaign engine + data layer built but not wired into the main playable loop; real 19-step playthrough and Android runtime not done; APK still the Release 1.0 build (no rebuild with new code). PR #39 open, not merged.
+
+*Last Updated: 2026-11-24 — campaign engine + original data importer + mobile joystick*

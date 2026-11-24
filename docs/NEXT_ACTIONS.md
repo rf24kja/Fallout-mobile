@@ -163,8 +163,26 @@ git add docs/ README.md AGENTS.md && git commit -m "docs: update project documen
 |----|------|--------|
 | R-1 | Attach Android device/emulator → install `Fallout2_Reborn_Mobile_Release_1.0.apk` → playthrough smoke test | BLOCKED (no adb device attached) |
 | R-2 | Owner decision: merge PR #36 / #38 / Wave13 review branch | PENDING owner |
-| R-3 | Implement virtual joystick + safe-area insets for full mobile control | NOT STARTED (controls partial) |
+| R-3 | Implement virtual joystick + safe-area insets for full mobile control | ✅ DONE (this branch): `scripts/ui/mobile_controls.gd` + `scenes/ui/mobile_controls.tscn`, joystick branch in `player.gd`, test 54/54 PASS. Android on-device validation still pending (R-1). |
 | R-4 | Android visual QA of RADZONE draft art (all staged_unapproved) | NOT STARTED |
 | R-5 | Integrate remaining RADZONE categories after art approval | PENDING art approval |
 
 **Release 1.0 status**: integration branch `release/1.0-integration` pushed (`d5370f6`, `092b1ce`); signed APK built with SHA256 `61cca9564075d3cd00ffdc3c6e382804c305106a5530b3f8d814444680bb23ab`; 13 tests green. NOT a final release — runtime playthrough + owner PR decisions pending.
+
+
+---
+
+## Campaign Engine + Original Data Importer (2026-11-24)
+
+| ID | Task | Status |
+|----|------|--------|
+| C-1 | Locate original Fallout 2 data locally | ✅ DONE — GOG install `C:\Code\REA_FALLOUT\Fallout2\` (master.dat 333MB, critter.dat 167MB, patch000.dat, 81 MAP .SAV, proto). Extracted to gitignored `.local/`. |
+| C-2 | Write DAT/MSG/PRO/MAP importer | ✅ DONE — `tools/fallout2_import/` (dat_reader, msg_parser, pro_parser, map_parser, import_all). `--verify` OK: items 492 / critters 483 / quests 113 / locations 80 / maps 171 / dialogues 801. Output stays in gitignored `.local/generated/`. |
+| C-3 | Campaign engine layer (world map, locations, quests, dialogues) | ✅ DONE — `scripts/campaign/` (9 files), `scenes/campaign/campaign_root.tscn`, test 53 checks PASS. Consumes importer JSON via defensive adapter, graceful degradation without licensed data. |
+| C-4 | JSON.parse_string Godot 3→4 API bugs | ✅ DONE — `scripts/quest_manager.gd` + `scripts/core/save_system.gd` return Dictionary directly. |
+| C-5 | Wire campaign root into main scene / playable loop | PENDING |
+| C-6 | Real 19-step playthrough automation | PENDING |
+| C-7 | Rebuild + re-sign APK with new code, SHA256 | PENDING |
+| C-8 | Android emulator install/screenshots/logcat | BLOCKED (no adb device) |
+
+**License note**: original licensed data stays in gitignored `.local/` and is NEVER published to public GitHub. Only Python importer source + synthetic-fixture tests are committed.

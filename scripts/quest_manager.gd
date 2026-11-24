@@ -464,10 +464,13 @@ func _load_player_quests() -> void:
         var file = FileAccess.open(save_path, FileAccess.READ)
         if file:
             var data = JSON.parse_string(file.get_as_text())
-            if data.error == OK:
-                _player_quests = data.result
-                _restore_quest_states()
             file.close()
+            # Godot 4: JSON.parse_string returns the parsed value directly
+            # (a Dictionary here), or null on a parse error. The old Godot 3
+            # `{ "error": ..., "result": ... }` wrapper no longer applies.
+            if data is Dictionary:
+                _player_quests = data
+                _restore_quest_states()
 
 func _restore_quest_states() -> void:
     """Restore quest states from loaded data."""
