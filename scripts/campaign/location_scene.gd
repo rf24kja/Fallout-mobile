@@ -47,8 +47,11 @@ func is_configured() -> bool:
 
 
 func _clear_built_children() -> void:
+	# Free immediately so freshly rebuilt nodes can reuse canonical names
+	# (Ground, PlayerSpawn, ...). queue_free() defers removal, causing Godot
+	# to auto-rename same-named new children to "Ground2" etc.
 	for child in get_children():
-		child.queue_free()
+		child.free()
 
 
 func _num(v: Variant, fallback: float = 0.0) -> float:
@@ -236,3 +239,19 @@ func get_exit_ids() -> Array:
 		if child is Area2D and child.has_meta("to_id"):
 			result.append(str(child.get_meta("to_id")))
 	return result
+
+
+## World-space player spawn, used by the campaign root when creating the Player.
+func get_player_spawn() -> Vector2:
+	var spawn := get_node_or_null("PlayerSpawn")
+	if spawn != null and spawn is Node2D:
+		return (spawn as Node2D).position
+	return Vector2(DEFAULT_WIDTH / 2.0, DEFAULT_HEIGHT / 2.0)
+
+
+## Map extents, used by the campaign root to configure camera limits.
+func get_map_size() -> Vector2:
+	return Vector2(
+		maxf(1.0, _num(map_data.get("width", DEFAULT_WIDTH), DEFAULT_WIDTH)),
+		maxf(1.0, _num(map_data.get("height", DEFAULT_HEIGHT), DEFAULT_HEIGHT))
+	)
