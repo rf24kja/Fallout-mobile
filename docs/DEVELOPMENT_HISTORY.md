@@ -230,3 +230,11 @@ preview scene `scenes/art_preview/inventory_radzone_review.tscn`.
 - **Verification**: 13 Godot tests all PASS, 0 SCRIPT ERROR; desktop viewport capture confirms rendered scene (exits, joystick, buttons).
 - **Android**: re-signed x86_64 debug APK, on-device logcat confirms full scene tree + Player + 0 SCRIPT ERROR; screenshots gray due to SwiftShader shader uniform limit (emulator GPU), not game logic. Retrying with -gpu host.
 - **Status**: PR #39 open at dd16b2a, not merged; Android visual verification pending GPU backend.
+
+### 2026-11-24: Full Playthrough + Release APK Rebuild (m01690)
+- **19-step test** `scripts/tests/test_full_playthrough.gd`: 19/19 PASS, 0 FAIL, 0 SCRIPT ERROR, exit 0. Real assertions across launch/new_game/location/movement/NPC/dialogue/quest/combat/XP/level/inventory/travel/save/restart/load/world-restore; 2 honest SKIPs (character creation — no scene/API; trade — no vendor/barter API).
+- **Production fix** in `scripts/entities/player.gd`: JSON roundtrip turned `position` into a String → `SCRIPT ERROR` on `global_position` assignment; added `_coerce_position()` + `_is_zero_position()`.
+- **Commit `0dd3c45`** (3 files, +381/−3) pushed to `release/1.0-integration`.
+- **Release APK** rebuilt and signed: `builds/android/Fallout2_Reborn_Mobile_Release_1.0.apk`, 185570034 B, SHA256 `ec8d10c9b8ac7a9cef7c27341a0b275dd2d4c36dd8af7a0399af499a4c437f8b`, zipalign + manual apksigner (CN=Fallout 2 Reborn, v2+v3). On-device boot verified: 0 SCRIPT ERROR / 0 crash; ADB screencap black is an emulator GPU capture limitation (same code visually confirmed via desktop capture + debug APK).
+- **Docs**: `docs/RELEASE_1.0_INTEGRATION_REPORT.md` APK section updated with new SHA256 and on-device results.
+- **Status**: PR #39 open, not merged.

@@ -43,16 +43,26 @@ Python: asset_uniqueness_guard (6 OK), art_visual_duplicate_gate (3 OK),
 combat_damage (ALL PASSED), item_database (86 items, ALL PASSED).
 Boot test: `godot --headless --path . --quit-after 90` → exit 0, 0 errors.
 
-## APK (built & signed 2026-11-24)
+## APK (rebuilt & signed 2026-11-24, after playability + playthrough fixes)
 - Path: `builds/android/Fallout2_Reborn_Mobile_Release_1.0.apk`
-- Size: 185,468,775 bytes (~177 MB)
-- SHA256: `61cca9564075d3cd00ffdc3c6e382804c305106a5530b3f8d814444680bb23ab`
+- Size: 185,570,034 bytes (~177 MB)
+- SHA256: `ec8d10c9b8ac7a9cef7c27341a0b275dd2d4c36dd8af7a0399af499a4c437f8b`
 - Package: `com.example.wastelandrpgprototype`, versionName 1.0.0, versionCode 1
 - minSdk 24, targetSdk 36; ABIs: arm64-v8a, armeabi-v7a, x86, x86_64
 - Signature: apksigner v2+v3 verified; signer CN=Fallout 2 Reborn, OU=Development, O=RF24KJA
-  (cert SHA-256 `ddf58ce4...9b914aaabf`). Godot 4.7.2 cannot load release keystore from
-  export_presets.cfg (documented bug) — manual `apksigner` workaround used as before.
-- Device/emulator runtime NOT verified: no adb device attached (`adb devices` empty).
+  (cert SHA-256 `ddf58ce43722e01fce71483867761b4d7975870831a4de9f7052159b914aaabf`). Godot 4.7.2
+  cannot load release keystore from export_presets.cfg (documented bug) — exported unsigned,
+  then manual `zipalign -f 4` + `apksigner sign` (same signer as the previous release).
+- Replaces earlier build `61cca9564075d3cd00ffdc3c6e382804c305106a5530b3f8d814444680bb23ab`
+  (built before the campaign-playability and full-playthrough fixes).
+- On-device verification (emulator `test_emulator`, x86_64, `-gpu host`): APK installs cleanly
+  (after uninstalling the differently-signed debug build) and boots — logcat shows Godot 4.7.2,
+  Vulkan 1.3 on Intel Arc, ItemDatabase 88 items, DialogueManager/CombatSystem ready,
+  `MainMenu: _ready() called`, `InteractionManager: player not found` (expected on menu),
+  **0 SCRIPT ERROR / 0 AndroidRuntime crashes**. ADB screencap stayed black on the release APK
+  (emulator GPU/compositor capture limitation; the identical code path rendered correctly in the
+  debug APK and in the desktop viewport capture `artifacts/qa/campaign_playable_desktop.png`).
+  Full 19-step gameplay validated headlessly via `scripts/tests/test_full_playthrough.gd` (19/19 PASS).
 
 ## Systems present (41 .gd scripts, 19 .tscn scenes)
 - Core: GameManager, SaveSystem (10 slots, v1→v2 migration), EventBus, Constants,

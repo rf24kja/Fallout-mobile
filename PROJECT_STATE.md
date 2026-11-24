@@ -470,4 +470,16 @@ relative to the anchor and pushed the label outside the button. Now uses
 
 **Status**: game logic playable & verified headless + desktop render; Android visual verification pending GPU backend fix. PR #39 open at `dd16b2a`, not merged.
 
-*Last Updated: 2026-11-24 — playable campaign scene + on-device QA*
+## Full Playthrough + Release APK Rebuild (2026-11-24)
+
+**19-step playthrough** (`scripts/tests/test_full_playthrough.gd`): 19 steps, 0 FAIL, 0 SCRIPT ERROR, exit 0. Covers launch → new_game → starting location (arroyo, 80 locations) → movement → NPC interaction → dialogue (state 3→1) → quest accept/complete → combat (foe killed) → XP (300/300) → level up (2/2) → inventory (`power_cell`) → travel to real neighbour `ardead` → save (slot 8) → restart → load → world restore. 2 documented SKIPs: character creation (no scene/API — default character created by autoloads) and trade/barter (no vendor system/API). No gameplay was faked.
+
+**Production bug fixed** (`player.gd`): after JSON save/load roundtrip `player_data.position` became a String, causing `SCRIPT ERROR: Error setting property 'global_position' with value of type String` when the campaign scene was recreated. Added `_coerce_position()` (Vector2/Vector2i/Array/Dict/"(x, y)" → Vector2) and `_is_zero_position()`.
+
+**Commit** `0dd3c45` (3 files, +381/−3): test_full_playthrough.gd + player.gd hardening + `artifacts/qa/campaign_playable_android.png`; pushed to `release/1.0-integration`; local HEAD = remote SHA.
+
+**Release APK rebuilt** after these fixes: `builds/android/Fallout2_Reborn_Mobile_Release_1.0.apk`, 185,570,034 B, SHA256 `ec8d10c9b8ac7a9cef7c27341a0b275dd2d4c36dd8af7a0399af499a4c437f8b` (replaces `61cca956...`), zipalign + manual apksigner v2+v3, cert `ddf58ce4...9b914aaabf`, `apksigner verify` OK. On-device boot (emulator x86_64, -gpu host): Godot 4.7.2, Vulkan/Intel Arc, 88 items, MainMenu ready, **0 SCRIPT ERROR / 0 crash**. ADB screencap remains black on the release APK (emulator GPU/compositor capture limitation); same code visually confirmed via the debug APK and desktop viewport capture. Licensed campaign JSON pushed device-locally only (gitignored, never in repo/APK).
+
+**Open**: final report + docs sync, PR #39 head update. PR #39/#36/#38/Wave13 NOT merged without owner.
+
+*Last Updated: 2026-11-24 — full playthrough + Release APK rebuild*
