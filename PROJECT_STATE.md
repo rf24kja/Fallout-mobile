@@ -453,3 +453,21 @@ relative to the anchor and pushed the label outside the button. Now uses
 **Status**: NOT a complete Fallout 2 campaign yet — campaign engine + data layer built but not wired into the main playable loop; real 19-step playthrough and Android runtime not done; APK still the Release 1.0 build (no rebuild with new code). PR #39 open, not merged.
 
 *Last Updated: 2026-11-24 — campaign engine + original data importer + mobile joystick*
+
+## Playable Campaign Scene + On-Device QA (2026-11-24)
+
+**Blocker root cause**: `scenes/campaign/campaign_root.tscn` had only 3 empty Nodes — no visuals, Player or camera. `location_scene.gd` could build a 2D scene but was never instantiated; `world_map._current_id` was never set. Real Android test: Start Game → uniform gray screen.
+
+**Fix (commit `dd16b2a`)**: `campaign_root.gd` now selects initial location `arroyo`, calls `world_map.travel_to()`, instantiates `LocationScene` (Ground/Boundary/PlayerSpawn/NPC+exit markers), creates a real `Player` (CharacterBody2D + CollisionShape2D + Camera2D + CharacterVisual with 8 typed sprite children), wires mobile-control signals and `exit_interacted → travel_to`. `location_scene.gd`: added `get_player_spawn()`/`get_map_size()`, changed `_clear_built_children()` to immediate `free()` so rebuilt nodes keep canonical names. New `scripts/tests/test_campaign_playable_scene.gd`: 14/14 PASS, 0 SCRIPT ERROR.
+
+**Bugs fixed during QA**: (1) `Camera2D.current` is not assignable in Godot 4.7 — use `make_current()`/`is_current()`; (2) `@onready` sprite type mismatch (ShadowSprite must be `Sprite2D`, others `AnimatedSprite2D`); (3) deferred `queue_free()` caused same-named rebuilds to be auto-renamed.
+
+**Verification**: all 13 Godot tests exit 0, 0 SCRIPT ERROR, 0 FAIL. Desktop non-headless viewport capture (`artifacts/qa/campaign_playable_desktop.png`, 1280x720) visually confirms rendered scene: exit labels `ardead`/`artemple`, joystick base, 5 mobile buttons — 90 distinct colors, not a blank screen.
+
+**Android status**: x86_64 debug APK rebuilt and re-signed (`playtest_v2_final.apk`, cert SHA-256 `3208ad898e6ee99f8979181a40ecb29f4e2885e1b9a36a003491fcfaac404794`). On-device `logcat` confirms `CampaignRoot: location='arroyo' rendered children=9`, Player created, InteractionManager found player, full node tree built, **0 SCRIPT ERROR** — game logic runs on Android. However `screencap` is uniform gray because the emulator's SwiftShader GLES3 cannot link Godot shaders (`Fragment shader active uniforms exceed GL_MAX_FRAGMENT_UNIFORM_VECTORS (261)`) — this also affected the main menu from first launch, so it is an emulator GPU limitation, NOT a game defect. Retrying with host GPU backend (`-gpu host`).
+
+**Data on Android**: licensed JSON pushed to `user://fallout2_data/` via `adb push` + `run-as cp` (7 files); campaign loader reports `available=true quests=113`. Data stays local-only, never in the repo/APK.
+
+**Status**: game logic playable & verified headless + desktop render; Android visual verification pending GPU backend fix. PR #39 open at `dd16b2a`, not merged.
+
+*Last Updated: 2026-11-24 — playable campaign scene + on-device QA*

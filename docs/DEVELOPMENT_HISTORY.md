@@ -222,3 +222,11 @@ preview scene `scenes/art_preview/inventory_radzone_review.tscn`.
 - **Bug fixes**: Godot 4 `JSON.parse_string` API in `quest_manager.gd` + `save_system.gd`.
 - **Verification**: 12 Godot + 9 Python + importer + boot ALL GREEN, 0 SCRIPT ERROR/FAIL.
 - **Status**: campaign engine built but not wired into playable loop; no real playthrough/Android runtime; no APK rebuild yet. PR #39 open.
+
+### 2026-11-24: Playable Campaign Scene + On-Device QA (m01690)
+- **Root cause of gray screen**: campaign_root.tscn had no visual nodes; location_scene.gd never instantiated; world_map._current_id unset.
+- **Fix `dd16b2a`**: campaign_root.gd renders LocationScene + real Player at arroyo, wires mobile controls and exit travel; location_scene.gd gets get_player_spawn()/get_map_size() and immediate free(); new test_campaign_playable_scene.gd (14/14 PASS).
+- **Godot 4.7 API bugs**: Camera2D.current not assignable (use make_current), @onready sprite type mismatch, deferred queue_free renaming.
+- **Verification**: 13 Godot tests all PASS, 0 SCRIPT ERROR; desktop viewport capture confirms rendered scene (exits, joystick, buttons).
+- **Android**: re-signed x86_64 debug APK, on-device logcat confirms full scene tree + Player + 0 SCRIPT ERROR; screenshots gray due to SwiftShader shader uniform limit (emulator GPU), not game logic. Retrying with -gpu host.
+- **Status**: PR #39 open at dd16b2a, not merged; Android visual verification pending GPU backend.
