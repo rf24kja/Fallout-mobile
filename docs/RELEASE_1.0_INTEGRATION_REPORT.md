@@ -82,3 +82,7 @@ Boot test: `godot --headless --path . --quit-after 90` → exit 0, 0 errors.
 2. Owner decision on merging PR #36/#38 and Wave13 review.
 3. Implement virtual joystick + safe-area for complete mobile control (Stage 4).
 4. Integrate remaining RADZONE asset categories after art approval.
+
+## Pull Request
+
+https://github.com/rf24kja/Fallout-mobile/pull/39 — `release/1.0-integration` → `master`, OPEN, MERGEABLE (owner decision required before merge).
