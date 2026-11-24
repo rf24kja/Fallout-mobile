@@ -311,7 +311,16 @@ func _on_load_requested(slot: int) -> void:
 	var data = save_system.load_game(slot)
 	if data:
 		load_save_data(data)
-		_get_eventbus().emit("scene_change_requested", ["res://scenes/world/" + current_map + ".tscn"])
+		# Resolve current_map to a scene path: full res:// paths and the campaign
+		# root are used directly; bare identifiers keep the legacy world/ layout.
+		var scene_path := ""
+		if current_map.begins_with("res://") or current_map.begins_with("user://"):
+			scene_path = current_map
+		elif current_map == "campaign_root":
+			scene_path = "res://scenes/campaign/campaign_root.tscn"
+		else:
+			scene_path = "res://scenes/world/" + current_map + ".tscn"
+		_get_eventbus().emit("scene_change_requested", [scene_path])
 
 func _on_scene_change_requested(scene_path: String) -> void:
 	print("GameManager: changing scene to ", scene_path)
