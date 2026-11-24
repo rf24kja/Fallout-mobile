@@ -78,16 +78,61 @@ func _ready() -> void:
 	# Wire virtual joystick / action buttons if a MobileControls overlay exists
 	_setup_mobile_controls()
 	
-	# Load player position from GameManager
+	# Load player position from GameManager.
+	# JSON roundtrips (save/load) turn Vector2 into a String like "(200.0, 200.0)".
+	# Accept Vector2, Vector2i, Array [x,y], Dictionary {x,y} or such a String —
+	# never assign an unvalidated Variant to global_position (causes a SCRIPT ERROR).
 	if _game_manager and _game_manager.player_data.has("position"):
-		global_position = _game_manager.player_data.position
-		target_position = global_position
+		var pos_variant: Variant = _game_manager.player_data.get("position")
+		var restored_pos := _coerce_position(pos_variant)
+		if restored_pos != Vector2.ZERO or _is_zero_position(pos_variant):
+			global_position = restored_pos
+			target_position = global_position
 	
 	# Set up character visuals
 	if character_visual:
 		character_visual.character_type = character_type
 		# Initial equipment sync
 		_sync_equipment_visual()
+
+## Coerce a saved position (Vector2, Array, Dict, or "(x, y)" String after a
+## JSON roundtrip) into a valid Vector2. Returns Vector2.ZERO for junk input.
+func _coerce_position(v: Variant) -> Vector2:
+	if v is Vector2:
+		return v
+	if v is Vector2i:
+		return Vector2(v)
+	if v is Array and (v as Array).size() >= 2:
+		return Vector2(float(v[0]), float(v[1]))
+	if v is Dictionary:
+		var d: Dictionary = v
+		return Vector2(float(d.get("x", 0.0)), float(d.get("y", 0.0)))
+	if v is String:
+		var s := (v as String).strip_edges().trim_prefix("(").trim_suffix(")")
+		var parts := s.split(",", false)
+		if parts.size() >= 2:
+			return Vector2(float(parts[0]), float(parts[1]))
+	return Vector2.ZERO
+
+
+## True when the saved position is genuinely (0,0) rather than corrupt/missing.
+func _is_zero_position(v: Variant) -> bool:
+	if v is Vector2:
+		return (v as Vector2) == Vector2.ZERO
+	if v is Vector2i:
+		return (v as Vector2i) == Vector2i.ZERO
+	if v is Array and (v as Array).size() >= 2:
+		return float(v[0]) == 0.0 and float(v[1]) == 0.0
+	if v is Dictionary:
+		var d: Dictionary = v
+		return float(d.get("x", 0.0)) == 0.0 and float(d.get("y", 0.0)) == 0.0
+	if v is String:
+		var s := (v as String).strip_edges().trim_prefix("(").trim_suffix(")")
+		var parts := s.split(",", false)
+		if parts.size() >= 2:
+			return float(parts[0]) == 0.0 and float(parts[1]) == 0.0
+	return false
+
 
 func _find_interact_button() -> void:
 	# Find the InteractButton in the current scene's HUD
