@@ -205,3 +205,10 @@ preview scene `scenes/art_preview/inventory_radzone_review.tscn`.
 **PR**: https://github.com/rf24kja/Fallout-mobile/pull/38 — `fix/ui-anchor-presets` (head `c6afd2fd04c8ba43a108cb4b859b741871ac0cbd`, base `master`), 9 files, state OPEN. Merge pending owner review.
 
 **Status**: draft art only — all RADZONE PNGs remain `staged_unapproved` / `published_draft_asset`; nothing is `production_approved`. Not Android-validated.
+
+### 2026-11-24: Release 1.0 Integration Branch + APK
+- **Branch**: `release/1.0-integration` from master `5629508`, ff-merged `fix/ui-anchor-presets` `93f2c81`; pushed no-force.
+- **Fidelity fixes (commit `d5370f6`)**: HP formula `(Lv-1)` in `character_system.gd`; GDScript 4.7 String/int comparison type-guards in `combat_system.gd`; symmetric `get_save_data()`; test `_new()` initialization. 13 tests ALL GREEN, 0 SCRIPT ERROR/FAIL.
+- **Save/load QA (commit `092b1ce`)**: new `scripts/tests/test_save_load_roundtrip.gd` — 21 checks ALL PASS (save/load slot 9, v1→v2 SPECIAL migration, cleanup).
+- **APK**: `Fallout2_Reborn_Mobile_Release_1.0.apk` (185 MB), SHA256 `61cca9564075d3cd00ffdc3c6e382804c305106a5530b3f8d814444680bb23ab`, apksigner v2+v3 verified, 4 ABIs. Manual apksigner workaround (Godot 4.7.2 keystore bug). No device → runtime pending.
+- **Report**: `docs/RELEASE_1.0_INTEGRATION_REPORT.md`. PRs #36/#38 + Wave13 not merged (owner).

@@ -154,3 +154,17 @@ git add docs/ README.md AGENTS.md && git commit -m "docs: update project documen
 | A-5 | **Resolve the duplicate object** | `wave09_unique/objects/salvaged_surgical_tools.png` and `wave12/objects/surgical_tool_roll_256.png` look identical — one object, two IDs, violating the "one object = one ID" rule. |
 | A-6 | **Wave13 preview + QA review** | Check `art/radzone-wave13-settlement-props` preview scene and its QA report; prepare visual evidence for a merge decision. Do NOT merge automatically. |
 | A-7 | **Android validation of the inventory** | Real device capture; do not claim Android validation without runtime proof. |
+
+---
+
+## Release 1.0 — Post-Integration Actions (2026-11-24)
+
+| ID | Task | Status |
+|----|------|--------|
+| R-1 | Attach Android device/emulator → install `Fallout2_Reborn_Mobile_Release_1.0.apk` → playthrough smoke test | BLOCKED (no adb device attached) |
+| R-2 | Owner decision: merge PR #36 / #38 / Wave13 review branch | PENDING owner |
+| R-3 | Implement virtual joystick + safe-area insets for full mobile control | NOT STARTED (controls partial) |
+| R-4 | Android visual QA of RADZONE draft art (all staged_unapproved) | NOT STARTED |
+| R-5 | Integrate remaining RADZONE categories after art approval | PENDING art approval |
+
+**Release 1.0 status**: integration branch `release/1.0-integration` pushed (`d5370f6`, `092b1ce`); signed APK built with SHA256 `61cca9564075d3cd00ffdc3c6e382804c305106a5530b3f8d814444680bb23ab`; 13 tests green. NOT a final release — runtime playthrough + owner PR decisions pending.

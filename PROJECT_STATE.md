@@ -406,3 +406,29 @@ relative to the anchor and pushed the label outside the button. Now uses
 **PR:** https://github.com/rf24kja/Fallout-mobile/pull/38 — `fix/ui-anchor-presets` (head `c6afd2fd04c8ba43a108cb4b859b741871ac0cbd`, base `master`), 9 files, state OPEN.
 
 *Last Updated: 2026-11-21 — RADZONE UI anchor materialization (branch `fix/ui-anchor-presets`, PR #38)*
+
+---
+
+## Release 1.0 Integration + APK (2026-11-24)
+
+**Branch:** `release/1.0-integration` (from master `5629508`, ff-merged `fix/ui-anchor-presets` at `93f2c81`). Pushed no-force. master untouched.
+
+**Real fixes (code, not tests):**
+- `character_system.gd:_recalculate_derived_stats()` HP formula `level`→`max(0,level-1)` (vanilla HP 75/197/57 now matches; was 80/205/63).
+- `combat_system.gd` `_check_stat`/`_apply_critical_effect` String/int comparisons type-guarded (GDScript 4.7 SCRIPT ERROR eliminated).
+- `character_system.gd` added symmetric `get_save_data()`.
+- `test_special_fidelity.gd` `.new()` on class + `_init_default_character()`.
+
+**Commits:** `d5370f6` (fidelity fixes), `092b1ce` (save/load round-trip test, 21 checks).
+
+**Verification:** 10 Godot tests + 4 Python tests ALL GREEN, SCRIPT_ERROR=0, FAIL=0. Boot test exit 0, 0 errors.
+
+**APK:** `builds/android/Fallout2_Reborn_Mobile_Release_1.0.apk` (185,468,775 B), SHA256 `61cca9564075d3cd00ffdc3c6e382804c305106a5530b3f8d814444680bb23ab`, apksigner v2+v3 verified, 4 ABIs, package `com.example.wastelandrpgprototype` v1.0.0. Signed via manual apksigner workaround (Godot 4.7.2 keystore bug). No device attached → runtime playthrough pending.
+
+**Full report:** `docs/RELEASE_1.0_INTEGRATION_REPORT.md`.
+
+**PRs NOT merged:** #36/#38 + Wave13 review (owner decision pending).
+
+**Status:** draft RADZONE art (staged_unapproved); mobile controls partial (no virtual joystick/safe-area); Android runtime not verified.
+
+*Last Updated: 2026-11-24 — Release 1.0 integration branch, fidelity fixes, signed APK*
