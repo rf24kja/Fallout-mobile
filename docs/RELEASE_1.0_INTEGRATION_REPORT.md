@@ -96,3 +96,10 @@ Boot test: `godot --headless --path . --quit-after 90` → exit 0, 0 errors.
 ## Pull Request
 
 https://github.com/rf24kja/Fallout-mobile/pull/39 — `release/1.0-integration` → `master`, OPEN, MERGEABLE (owner decision required before merge).
+
+## Character Creation Update (2026-11-25)
+
+- Local commit `9897e08` implements New Game → Character Creation → Confirm → Start with real SPECIAL/Traits/Tag Skills and verified formulas; playthrough step 3 is no longer SKIP.
+- Verified: creation tests 12/12 PASS, 19-step playthrough 19/19 PASS, derived-stat fidelity 72/72 PASS, exit 0, no SCRIPT ERROR.
+- Known limitation: exact age modifiers unconfirmed; age stored/displayed without stat changes.
+- Barter/trade not yet implemented in this build; current APK is the old Release 1.0 artifact and is NOT evidence for creation/trade. A new APK must be built after Phase 2.

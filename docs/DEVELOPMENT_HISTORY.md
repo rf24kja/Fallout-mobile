@@ -238,3 +238,10 @@ preview scene `scenes/art_preview/inventory_radzone_review.tscn`.
 - **Release APK** rebuilt and signed: `builds/android/Fallout2_Reborn_Mobile_Release_1.0.apk`, 185570034 B, SHA256 `ec8d10c9b8ac7a9cef7c27341a0b275dd2d4c36dd8af7a0399af499a4c437f8b`, zipalign + manual apksigner (CN=Fallout 2 Reborn, v2+v3). On-device boot verified: 0 SCRIPT ERROR / 0 crash; ADB screencap black is an emulator GPU capture limitation (same code visually confirmed via desktop capture + debug APK).
 - **Docs**: `docs/RELEASE_1.0_INTEGRATION_REPORT.md` APK section updated with new SHA256 and on-device results.
 - **Status**: PR #39 open, not merged.
+
+### 2026-11-25: Character Creation (m01691, Phase 1)
+- **Commit `9897e08`**: full new-game creation — `scripts/systems/character_creation.gd`, `scripts/ui/character_creation_ui.gd`, `scenes/ui/character_creation_ui.tscn`, `scripts/tests/test_character_creation.gd`; integration in `main_menu.gd`, `game_manager.gd`, `character_system.gd`, playthrough step 3, fidelity matrix docs.
+- **Rules**: 7 original-IP SPECIAL stats, 5+5 points (1..10), ≤2 optional traits, exactly 3 tag skills, verified vanilla skill/derived formulas and per-level SP; new game clears inventory/equipment/caps.
+- **Verification**: creation 12/12 PASS, playthrough 19/19 PASS (step 3 now real), derived-stat fidelity 72/72 PASS, all exit 0, no SCRIPT ERROR.
+- **Blocker recorded**: age modifiers unconfirmed from available sources; age stored/displayed only, no invented coefficients.
+- **Next**: trade/barter Phase 2, then APK rebuild and PR #39 update; PR still open, not merged.

@@ -184,5 +184,8 @@ git add docs/ README.md AGENTS.md && git commit -m "docs: update project documen
 | C-6 | Real 19-step playthrough automation | PENDING |
 | C-7 | Rebuild + re-sign APK with new code, SHA256 | PENDING |
 | C-8 | Android emulator install/screenshots/logcat | ✅ DONE (with caveat): install + launch + logcat OK (0 SCRIPT ERROR); ADB screencap remains black due to emulator GPU/compositor capture limitation, not a game defect — visual confirmation via desktop capture `artifacts/qa/campaign_playable_desktop.png`. |
+| M1-1 | Full new-game character creation (m01691) | ✅ DONE — commit `9897e08`; creation scene/API, vanilla formulas, save/load, 12/12 test PASS, step 3 of playthrough PASS. |
+| M1-2 | Full barter/trade with merchants (m01691) | IN PROGRESS — Phase 2 executor running; must make step 14 PASS with real operations. |
+| M1-3 | Rebuild + sign + verify new APK, update PR #39 and docs | PENDING — do not reuse old APK; no merge of PR #39/#36/#38/Wave13. |
 
 **License note**: original licensed data stays in gitignored `.local/` and is NEVER published to public GitHub. Only Python importer source + synthetic-fixture tests are committed.

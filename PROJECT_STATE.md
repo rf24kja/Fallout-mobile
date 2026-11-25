@@ -483,3 +483,14 @@ relative to the anchor and pushed the label outside the button. Now uses
 **Open**: final report + docs sync, PR #39 head update. PR #39/#36/#38/Wave13 NOT merged without owner.
 
 *Last Updated: 2026-11-24 — full playthrough + Release APK rebuild*
+
+## Character Creation Implemented (2026-11-25, m01691)
+
+- Commit `9897e08` `feat(character): implement full new-game character creation with vanilla formulas` on `release/1.0-integration` (9 files, +1574/−52). NOT pushed yet.
+- Main Menu → New Game now opens `scenes/ui/character_creation_ui.tscn`; confirm applies config through `GameManager.apply_character_config()` → `CharacterSystem.apply_created_character()` → campaign. Back/edit available before start.
+- SPECIAL keys remain original-IP (`might`/`awareness`/`vigor`/`presence`/`intellect`/`dexterity`/`fortune`): 5 base + 5 points, 1..10, max 2 optional traits, exactly 3 tag skills. Skills use verified `default + stat_modifier*(stat1+stat2) + invested` (+tag invested +20), trait modifiers, clamp 0..300. Derived stats use verified `stat.cc:567-577` formulas; new game resets Inventory items/equipment/caps.
+- Verified locally with Godot 4.7.2: `scripts/tests/test_character_creation.gd` Passed 12 / Failed 0 (incl. `inventory_reset_on_new_game`), `scripts/tests/test_full_playthrough.gd` STEPS=19 FAILURES=0 (step 3 now PASS, step 14 still SKIP), `tests/test_special_fidelity.gd` Passed 72 / Failed 0; all exit 0, no SCRIPT ERROR.
+- One documented blocker: exact age-related SPECIAL modifiers could not be confirmed from available sources (`pc.cc` 404; `character_editor.cc` stores age descriptively). Age is stored/displayed but does not alter stats; no coefficients invented.
+- Trade/barter implementation is IN PROGRESS (Phase 2); APK not rebuilt yet.
+
+*Last Updated: 2026-11-25 — character creation implemented and verified*
