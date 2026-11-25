@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://scripts/entities/player.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/entities/npc.gd" id="2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" path="res://scenes/world/props/wave12/roadside_barrier_and_tires.tscn" id="10"]
 [ext_resource type="PackedScene" path="res://scenes/world/props/wave12/used_tire_stack.tscn" id="11"]
 [ext_resource type="PackedScene" path="res://scenes/ui/mobile_controls.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://scenes/ui/trade_ui.tscn" id="13"]
 
 [sub_resource type="RectangleShape2D" id="CollisionShape2D_1"]
 x = 16.0
@@ -262,3 +263,49 @@ text = "💬"
 horizontal_alignment = 1
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 16
+
+[node name="MerchantNPC" type="CharacterBody2D" parent="."]
+script = ExtResource(2)
+global_position = Vector2(280, 220)
+is_merchant = true
+merchant_id = "test_trader"
+merchant_name = "Торговец"
+merchant_caps = 600
+merchant_barter_skill = 60
+merchant_stock = ["stimpak", "first_aid_kit", "38_standard", "scrap_pistol", "leather_armor", "rad_away"]
+merchant_stock_amounts = [5, 3, 20, 1, 1, 2]
+
+[node name="Interactable" type="Node" parent="MerchantNPC"]
+script = ExtResource(3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MerchantNPC"]
+shape = SubResource("CircleShape2D_1")
+position = Vector2(0, -10)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MerchantNPC"]
+position = Vector2(0, -32)
+scale = Vector2(1, 1)
+z_index = 1
+
+[node name="InteractionIndicator" type="Panel" parent="MerchantNPC"]
+position = Vector2(-16, -64)
+size = Vector2(32, 32)
+custom_styles/panel = SubResource("IndicatorStyle")
+visible = false
+
+[node name="IndicatorLabel" type="Label" parent="MerchantNPC/InteractionIndicator"]
+anchors_preset = 15
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+text = "💰"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="TradeUI" parent="." instance=ExtResource(13)]

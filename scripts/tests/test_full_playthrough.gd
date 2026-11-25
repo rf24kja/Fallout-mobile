@@ -32,6 +32,7 @@ var _inv: Node = null
 var _eb: Node = null
 var _cs: Node = null
 var _char: Node = null
+var _ts: Node = null
 
 var _quest_save_existed := false
 var _quest_save_text := ""
@@ -104,6 +105,7 @@ func _run() -> void:
 	_eb = get_root().get_node_or_null("/root/EventBus")
 	_cs = get_root().get_node_or_null("/root/CombatSystem")
 	_char = get_root().get_node_or_null("/root/CharacterSystem")
+	_ts = get_root().get_node_or_null("/root/TradeSystem")
 
 	var qs := _load_file_state(QUEST_SAVE_PATH)
 	_quest_save_existed = bool(qs[0])
@@ -302,7 +304,30 @@ func _run() -> void:
 	_expect(13, "inventory", added and item_count >= 1, "added=%s count=%d" % [str(added), item_count])
 
 	# ------------------------------------------------------------- 14 trade
-	_skip(14, "trade", "no trade/barter system, vendor scene or exchange API exists in current code")
+	var trade_ok := false
+	var trade_detail := "no TradeSystem"
+	if _ts and _db and _inv and _gm:
+		_ts.call("clear_merchants")
+		_ts.call("set_barter_mod", 0)
+		_ts.call("register_merchant", "test_trader", "Trader", 600, 60,
+			["stimpak", "first_aid_kit"], [5, 3])
+		_inv.call("add_money", 500)
+		var player_data: Dictionary = _gm.get("player_data")
+		player_data["caps"] = int(_inv.call("get_money"))
+		var caps_before := int(_inv.call("get_money"))
+		var buy_price := int(_ts.call("compute_buy_price", "test_trader", "stimpak", 2))
+		var buy_result: Dictionary = _ts.call("buy", "test_trader", "stimpak", 2)
+		var sell_value := int(_ts.call("compute_sell_price", "stimpak", 1))
+		var sell_result: Dictionary = _ts.call("sell", "test_trader", "stimpak", 1)
+		var expected_caps := caps_before - buy_price + sell_value
+		trade_ok = bool(buy_result.get("ok", false)) and bool(sell_result.get("ok", false)) \
+			and int(_inv.call("get_item_count", "stimpak")) >= 1 \
+			and int(_ts.call("get_merchant_item_count", "test_trader", "stimpak")) == 4 \
+			and int(_inv.call("get_money")) == expected_caps \
+			and int(player_data.get("caps", -1)) == expected_caps
+		trade_detail = "buy=%s sell=%s caps=%d price=%d sell=%d" % [
+			str(buy_result), str(sell_result), int(_inv.call("get_money")), buy_price, sell_value]
+	_expect(14, "trade", trade_ok, trade_detail)
 
 	# ------------------------------------------------------- 15 transitions
 	campaign = await _goto(CAMPAIGN_ROOT)

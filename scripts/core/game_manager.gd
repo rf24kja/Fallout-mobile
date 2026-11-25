@@ -282,10 +282,12 @@ func advance_time(hours: float) -> void:
 
 func get_save_data() -> Dictionary:
 	var inventory = get_node_or_null("/root/Inventory")
+	var trade_system = get_node_or_null("/root/TradeSystem")
 	return {
 		"version": 2,
 		"player": player_data,
 		"inventory": inventory.get_save_data() if inventory else [],
+		"merchants": trade_system.get_save_data() if trade_system else {},
 		"world": world_state,
 		"quests": quest_flags,
 		"time": game_time,
@@ -352,6 +354,11 @@ func load_save_data(data: Dictionary) -> void:
 	var inventory = get_node_or_null("/root/Inventory")
 	if inventory:
 		inventory.load_save_data(migrated_data.get("inventory", []))
+	
+	# Restore merchant stock/caps. Older saves have no "merchants" key -> skip.
+	var trade_system = get_node_or_null("/root/TradeSystem")
+	if trade_system and migrated_data.has("merchants"):
+		trade_system.load_save_data(migrated_data.get("merchants", {}))
 	
 	var cs = _get_character_system()
 	if cs and cs.has_method("load_save_data"):

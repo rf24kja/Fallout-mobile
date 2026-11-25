@@ -12,6 +12,15 @@ signal dialogue_requested(dialogue_id: String)
 # Character visual type (survivor, npc_friendly, hostile)
 @export var character_visual: String = "npc_friendly"
 
+# --- Merchant / barter ---
+@export var is_merchant: bool = false
+@export var merchant_id: String = ""
+@export var merchant_name: String = ""
+@export var merchant_caps: int = 600
+@export var merchant_barter_skill: int = 60
+@export var merchant_stock: Array[String] = []
+@export var merchant_stock_amounts: Array[int] = []
+
 @onready var interaction_component = $Interactable
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -32,7 +41,10 @@ func _ready() -> void:
 	if interaction_component:
 		print("NPC: found interaction_component = ", interaction_component, " instance_id = ", interaction_component.get_instance_id())
 		interaction_component.interaction_radius = interaction_radius
-		interaction_component.interaction_name = "Talk to " + npc_name
+		if is_merchant:
+			interaction_component.interaction_name = "Trade with " + get_merchant_display_name()
+		else:
+			interaction_component.interaction_name = "Talk to " + npc_name
 		# Only connect if not already connected
 		var connected = interaction_component.is_connected("interaction_started", _on_interaction_started.bind())
 		print("NPC: is_connected check = ", connected)
@@ -54,9 +66,46 @@ func _init_npc() -> void:
 	_game_manager = get_node_or_null("/root/GameManager")
 	_event_bus = get_node_or_null("/root/EventBus")
 	print("NPC: _init_npc called, _game_manager = ", _game_manager, " _event_bus = ", _event_bus)
+	if is_merchant:
+		register_as_merchant()
+
+func get_merchant_display_name() -> String:
+	return merchant_name if merchant_name != "" else npc_name
+
+func register_as_merchant() -> bool:
+	## Registers this NPC in TradeSystem. Safe to call repeatedly.
+	if not is_merchant:
+		return false
+	var trade_system = get_node_or_null("/root/TradeSystem")
+	if trade_system == null:
+		return false
+	var id := merchant_id if merchant_id != "" else ("npc_" + name)
+	if trade_system.has_merchant(id):
+		return true
+	return trade_system.register_merchant(
+		id,
+		get_merchant_display_name(),
+		merchant_caps,
+		merchant_barter_skill,
+		merchant_stock,
+		merchant_stock_amounts
+	)
+
+func get_trade_id() -> String:
+	return merchant_id if merchant_id != "" else ("npc_" + name)
 
 func _on_interaction_started(interactor: Node) -> void:
-	print("NPC: _on_interaction_started CALLED! dialogue_id = ", dialogue_id)
+	print("NPC: _on_interaction_started CALLED! dialogue_id = ", dialogue_id, " is_merchant = ", is_merchant)
+	# Merchants open the barter UI first; they do not need a dialogue_id.
+	if is_merchant:
+		register_as_merchant()
+		var trade_system = get_node_or_null("/root/TradeSystem")
+		if trade_system and trade_system.has_merchant(get_trade_id()):
+			var eb_trade = _event_bus if _event_bus else get_node_or_null("/root/EventBus")
+			if eb_trade:
+				eb_trade.emit("trade_requested", [self])
+				_has_spoken = true
+				return
 	if dialogue_id != "":
 		print("NPC: _on_interaction_started, dialogue_id = ", dialogue_id)
 		if _event_bus:
