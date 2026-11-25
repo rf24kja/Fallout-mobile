@@ -18,6 +18,8 @@ const QUEST_ID := "qst_find_vault"
 const QUEST_SAVE_PATH := "user://quest_save.json"
 const MENU_DEBUG_PATH := "user://mainmenu_debug.txt"
 
+const CharacterCreationRules = preload("res://scripts/systems/character_creation.gd")
+
 var _failures := 0
 var _steps := 0
 
@@ -140,7 +142,35 @@ func _run() -> void:
 	_expect(2, "new_game", ng_state == 1 and ng_level == 1 and ng_caps == 150, "state=%d level=%d caps=%d" % [ng_state, ng_level, ng_caps])
 
 	# ----------------------------------------------------- 3 character creation
-	_skip(3, "character_creation", "no character-creation scene or API; default character is created by CharacterSystem/GameManager autoloads")
+	# Build a real character through the creation rules and apply it exactly as
+	# the creation UI's Confirm button does (GameManager.apply_character_config).
+	var creation_cfg: Dictionary = CharacterCreationRules.create_default_config("Playthrough Wanderer")
+	CharacterCreationRules.increase(creation_cfg, "might")
+	CharacterCreationRules.increase(creation_cfg, "vigor")
+	CharacterCreationRules.increase(creation_cfg, "dexterity")
+	CharacterCreationRules.increase(creation_cfg, "intellect")
+	CharacterCreationRules.increase(creation_cfg, "fortune")
+	for skill_id in ["small_guns", "speech", "science"]:
+		CharacterCreationRules.toggle_tag_skill(creation_cfg, str(skill_id))
+	CharacterCreationRules.toggle_trait(creation_cfg, "gifted")
+	var creation_valid: Dictionary = CharacterCreationRules.validate(creation_cfg)
+	var creation_calc: Dictionary = CharacterCreationRules.calculate(creation_cfg)
+	var creation_applied: bool = bool(_gm.call("apply_character_config", creation_cfg)) if _gm else false
+	var created_player: Dictionary = _gm.get("player_data") if _gm else {}
+	var created_char: Dictionary = _char.get("character_data") if _char else {}
+	var created_effective: Dictionary = created_player.get("effective_special", {})
+	var creation_ok: bool = bool(creation_valid.get("ok", false)) and creation_applied \
+		and str(created_player.get("name", "")) == "Playthrough Wanderer" \
+		and int(created_char.get("level", 0)) == 1 \
+		and int(created_effective.get("might", 0)) == int((creation_calc.get("special_effective", {}) as Dictionary).get("might", -1)) \
+		and (created_player.get("tag_skills", []) as Array).size() == 3 \
+		and (created_player.get("traits", []) as Array).has("gifted") \
+		and int(created_char.get("max_hp", 0)) == int((creation_calc.get("derived", {}) as Dictionary).get("max_hp", -1))
+	_expect(3, "character_creation", creation_ok, "valid=%s applied=%s name='%s' level=%d might=%d tags=%d traits=%s hp=%d" % [
+		str(creation_valid.get("ok", false)), str(creation_applied), str(created_player.get("name", "")),
+		int(created_char.get("level", 0)), int(created_effective.get("might", 0)),
+		(created_player.get("tag_skills", []) as Array).size(), str(created_player.get("traits", [])),
+		int(created_char.get("max_hp", 0))])
 
 	# --------------------------------------------------- 4 starting location
 	var campaign := await _goto(CAMPAIGN_ROOT)

@@ -138,17 +138,10 @@ func _on_start_pressed() -> void:
      if debug_file:
            debug_file.store_line("MainMenu: Start Game pressed")
            debug_file.close()
-     # Reset game state for new game
-     if _game_manager:
-           _game_manager._load_default_state()
-           _game_manager.change_state(1)  # PLAYING
-           _game_manager.current_map = "campaign_root"
+     # A new game starts with character creation; GameManager state is applied
+     # only after the player confirms a valid character (see CharacterCreationUI).
      if _event_bus:
-           # Start the campaign scene when available, fall back to test_map.
-           var start_scene := "res://scenes/world/test_map.tscn"
-           if ResourceLoader.exists("res://scenes/campaign/campaign_root.tscn"):
-               start_scene = "res://scenes/campaign/campaign_root.tscn"
-           _event_bus.emit_signal("scene_change_requested", start_scene)
+           _event_bus.emit_signal("scene_change_requested", "res://scenes/ui/character_creation_ui.tscn")
      _emit_game_started()
 
 func _on_continue_pressed() -> void:

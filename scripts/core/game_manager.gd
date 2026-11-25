@@ -1,6 +1,8 @@
 class_name GameManager
 extends Node
 
+const CharacterCreationRules = preload("res://scripts/systems/character_creation.gd")
+
 ## Central game state manager. Handles game flow, state persistence, and system coordination.
 
 var save_system
@@ -109,6 +111,82 @@ func _load_default_state() -> void:
 	world_state = {}
 	quest_flags = {}
 	game_time = 0.0
+
+## Apply a validated PHASE 1 character-creation config and enter the campaign.
+## Returns false (leaving the current state untouched) when the config is invalid.
+func apply_character_config(config: Dictionary) -> bool:
+	var validation: Dictionary = CharacterCreationRules.validate(config)
+	if not bool(validation.get("ok", false)):
+		print("GameManager: character config rejected: ", validation.get("errors", []))
+		return false
+
+	var calculated: Dictionary = CharacterCreationRules.calculate(config)
+	var character_system = _get_character_system()
+	if character_system and character_system.has_method("apply_created_character"):
+		character_system.apply_created_character(config, calculated)
+
+	var effective: Dictionary = calculated.get("special_effective", {}).duplicate(true)
+	var skills: Dictionary = calculated.get("skills", {}).duplicate(true)
+	var derived: Dictionary = calculated.get("derived", {})
+	var caps := 150
+	var max_hp := int(derived.get("max_hp", 15 + int(effective.get("might", 5)) + int(effective.get("vigor", 5)) * 2))
+	var max_ap := int(derived.get("max_action_points", 5 + int(int(effective.get("dexterity", 5)) / 2)))
+
+	player_data = {
+		"name": str(config.get("name", "Vault Dweller")).strip_edges(),
+		"gender": str(config.get("gender", "male")),
+		"age": int(config.get("age", 25)),
+		"level": 1,
+		"xp": 0,
+		"xp_to_next": 1000,
+		"hp": max_hp,
+		"max_hp": max_hp,
+		"ap": max_ap,
+		"max_ap": max_ap,
+		"caps": caps,
+		"special": (config.get("special", {}) as Dictionary).duplicate(true),
+		"effective_special": effective,
+		"traits": (config.get("traits", []) as Array).duplicate(),
+		"skills": skills,
+		"tag_skills": (config.get("tag_skills", []) as Array).duplicate(),
+		"perks": [],
+		"inventory": [],
+		"equipment": {
+			"weapon": null,
+			"armor": null
+		},
+		"position": Vector2(200, 200)
+	}
+
+	# CharacterSystem is the single source of truth for the created character.
+	var sheet: Dictionary = get_character_sheet()
+	if not sheet.is_empty():
+		player_data["hp"] = int(sheet.get("hp", max_hp))
+		player_data["max_hp"] = int(sheet.get("max_hp", max_hp))
+		player_data["ap"] = int(sheet.get("ap", max_ap))
+		player_data["max_ap"] = int(sheet.get("max_ap", max_ap))
+		player_data["skills"] = (sheet.get("skills", skills) as Dictionary).duplicate(true)
+
+	world_state = {}
+	quest_flags = {}
+	game_time = 0.0
+	var inventory = get_node_or_null("/root/Inventory")
+	if inventory:
+		# A new game must never inherit items/equipment from a previous session.
+		# Clear equipment slots directly: unequip_item() puts items back into `items`.
+		var equipment_slots = inventory.get("equipment")
+		if equipment_slots is Dictionary:
+			for slot in (equipment_slots as Dictionary).keys():
+				equipment_slots[slot] = null
+		if inventory.has_method("clear"):
+			inventory.call("clear")
+		inventory.caps = caps
+	current_map = "campaign_root"
+	change_state(1)
+	var event_bus = _get_eventbus()
+	if event_bus:
+		event_bus.emit("stats_changed", ["special", effective])
+	return true
 
 func change_state(new_state: int) -> void:
 	if current_state == new_state:

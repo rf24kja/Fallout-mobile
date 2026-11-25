@@ -54,9 +54,18 @@ Each entry requires: Godot source, original Fallout 2 reference (REA/Ghidra evid
 - **Test**: `tests/test_special_fidelity.gd` — 68 tests ALL PASS
 - **Migration**: v1→v2 save migration verified idempotent
 
+### Character Creation ✅ VERIFIED (PHASE 1)
+- **Godot Source**: `scripts/systems/character_creation.gd` (rules), `scripts/ui/character_creation_ui.gd` + `scenes/ui/character_creation_ui.tscn` (UI), `scripts/core/game_manager.gd::apply_character_config()`, `scripts/systems/character_system.gd::apply_created_character()`
+- **Vanilla Sources** (verified `fallout2-ce`): `character_editor.cc:1892-1909`, `character_editor.cc:3742-3759`, `character_editor.cc:6741-6752`, `stat.cc:43-49` (base 5 / 5 free points / 1..10), `skill.cc:78-97` (skill table), `skill.cc:230-269` (`skillGetValue`), `trait.cc:180-279` (trait stat mods), `trait.cc:284-312` (trait skill mods), `trait_defs.h:7` (max 2 traits), `skill_defs.h:6-9` (`DEFAULT_TAGGED_SKILLS 3`), `character_editor.cc:5681-5701` (skill points per level)
+- **Rules Implemented**: SPECIAL base 5, 5 allocatable points, each stat clamped 1..10 (sum 35 → 40); up to 2 traits (optional); exactly 3 tag skills; tagged skills get +20 and double invested points
+- **Traits Implemented**: all 10 vanilla traits (Gifted, Bruiser, Small Frame, Kamikaze, Heavy Handed, Fast Shot, Fast Metabolism, Finesse, Good Natured, Skilled) with their vanilla stat/skill/AP modifiers
+- **Skill Points Per Level**: `5 + 2*INT + Educated*2 + Skilled*5 - Gifted*5` (clamped 0..99)
+- **Test**: `scripts/tests/test_character_creation.gd` — 11/11 PASS; `scripts/tests/test_full_playthrough.gd` step 3 — PASS
+- **BLOCKER (age modifiers)**: Fallout 2 has NO age-based modifiers in the verified sources. `pc.cc` (404 lines) contains no age handling, and `character_editor.cc` stores age as a descriptive field only. Character age is therefore recorded and displayed but never alters SPECIAL, skills or derived stats. Do not invent age modifiers; if evidence appears later, extend `character_creation.gd::effective_special()`.
+
 ### Skill System ✅ VERIFIED
 - **Godot Source**: `scripts/systems/character_system.gd::SKILL_DEFS`, `_recalculate_skills()`
-- **Formula**: Base Value + SPECIAL × 2 + Tag Bonus (20) + Invested Points
+- **Formula** (vanilla `skill.cc:230-269` `skillGetValue`): `default_value + stat_modifier*(stat1+stat2) + invested`; if tagged add `+ invested + 20`; then trait modifier; clamp 0..300
 - **Original Fallout 2 Skills**: 18 skills mapped (Small Guns, Big Guns, Energy Weapons, Unarmed, Melee, Throwing, First Aid, Doctor, Sneak, Lockpick, Steal, Traps, Science, Repair, Speech, Barter, Gambling, Outdoorsman)
 - **Test**: Character initialization and recalculation verified via Stage C tests
 
