@@ -185,7 +185,7 @@ git add docs/ README.md AGENTS.md && git commit -m "docs: update project documen
 | C-7 | Rebuild + re-sign APK with new code, SHA256 | PENDING |
 | C-8 | Android emulator install/screenshots/logcat | ✅ DONE (with caveat): install + launch + logcat OK (0 SCRIPT ERROR); ADB screencap remains black due to emulator GPU/compositor capture limitation, not a game defect — visual confirmation via desktop capture `artifacts/qa/campaign_playable_desktop.png`. |
 | M1-1 | Full new-game character creation (m01691) | ✅ DONE — commit `9897e08`; creation scene/API, vanilla formulas, save/load, 12/12 test PASS, step 3 of playthrough PASS. |
-| M1-2 | Full barter/trade with merchants (m01691) | IN PROGRESS — Phase 2 executor running; must make step 14 PASS with real operations. |
-| M1-3 | Rebuild + sign + verify new APK, update PR #39 and docs | PENDING — do not reuse old APK; no merge of PR #39/#36/#38/Wave13. |
+| M1-2 | Full barter/trade with merchants (m01691) | ✅ DONE — commit `64830b4`; TradeSystem, merchant NPC, two-pane UI, vanilla buy formula, atomic buy/sell, save/load, 15/15 trade tests, step 14 of playthrough PASS. |
+| M1-3 | Rebuild + sign + verify new APK, update PR #39 and docs | ✅ DONE — new APK `Fallout2_Reborn_Mobile_Release_CharCreation_Barter.apk` (SHA256 `F5C5DE...C363`), apksigner v2+v3 OK, installed/launched on `emulator-5554` with no crash; ADB screencap black so Android visual QA is NOT confirmed. Docs synced; PR #39 stays OPEN, not merged. |
 
 **License note**: original licensed data stays in gitignored `.local/` and is NEVER published to public GitHub. Only Python importer source + synthetic-fixture tests are committed.

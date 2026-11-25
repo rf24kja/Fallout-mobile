@@ -79,13 +79,11 @@ Boot test: `godot --headless --path . --quit-after 90` → exit 0, 0 errors.
   `staged_unapproved` / draft (NOT production_approved) per catalog/contract.
 
 ## Limitations (honest)
-- Mobile controls are PARTIAL: no virtual joystick, no safe-area insets. Input Map has
-  only `interact` (KEY_E); player supports mouse/touch tap-to-move/tap-to-interact,
-  UI via Button nodes. Full touch d-pad not implemented.
-- RADZONE graphics are draft/staged (not production_approved); no Android visual QA yet.
-- No emulator/device attached at build time → APK install + runtime playthrough pending.
+- Mobile controls remain PARTIAL: no virtual joystick; Input Map has only `interact` (KEY_E). Player supports mouse/touch tap-to-move/tap-to-interact and UI Buttons; a full touch d-pad is not implemented. The new Character Creation and Trade screens do apply `DisplayServer.get_display_safe_area()` insets and use large buttons/scroll containers.
+- RADZONE graphics remain draft/staged (not production_approved). Android visual QA is still NOT achieved: the release APK installs and launches on `emulator-5554` with no script errors, but ADB screencap is black; only desktop render evidence exists for the new screens.
+- Exact age-related SPECIAL modifiers remain unconfirmed from available sources; age is stored/displayed but does not change stats (one documented blocker, no invented coefficients).
 - `fix/ui-anchor-presets`/inventory/Wave13 PRs intentionally not merged (owner decision).
-- Release keystore bug in Godot 4.7.2 requires manual apksigner after each export.
+- Release keystore bug in Godot 4.7.2 requires manual `zipalign` + `apksigner` after each export.
 
 ## Next actions (blocked on owner/environment)
 1. Attach Android device/emulator → install APK → run playthrough smoke test.
@@ -102,4 +100,6 @@ https://github.com/rf24kja/Fallout-mobile/pull/39 — `release/1.0-integration` 
 - Local commit `9897e08` implements New Game → Character Creation → Confirm → Start with real SPECIAL/Traits/Tag Skills and verified formulas; playthrough step 3 is no longer SKIP.
 - Verified: creation tests 12/12 PASS, 19-step playthrough 19/19 PASS, derived-stat fidelity 72/72 PASS, exit 0, no SCRIPT ERROR.
 - Known limitation: exact age modifiers unconfirmed; age stored/displayed without stat changes.
-- Barter/trade not yet implemented in this build; current APK is the old Release 1.0 artifact and is NOT evidence for creation/trade. A new APK must be built after Phase 2.
+- Barter/trade now implemented in local commit `64830b4` (not yet pushed at time of writing): merchant NPC, two-pane trade UI, vanilla buy formula, atomic buy/sell, caps sync, save/load. Trade tests 15/15 PASS; playthrough step 14 PASS (`buy price=202`, `sell price=40`, `caps=488`).
+- New signed APK replaces the old artifact: `builds/android/Fallout2_Reborn_Mobile_Release_CharCreation_Barter.apk` (185,661,660 B; SHA256 `F5C5DE9646040E3338AAA8718F529DC78F0BEDC2F8D6B74FDB230BA9C963C363`), apksigner v2+v3 OK, cert SHA-256 `ddf58ce43722e01fce71483867761b4d7975870831a4de9f7052159b914aaabf`, package `com.example.wastelandrpgprototype`, versionName 1.0.0/code 1, ABI arm64-v8a/armeabi-v7a/x86/x86_64. Installed and launched on `emulator-5554` with no SCRIPT ERROR/FATAL. ADB screenshot is uniformly black, so Android VISUAL verification is NOT claimed; desktop render evidence is separate and gitignored.
+- PR #39 remains OPEN and is not merged; no force push and no merge of PR #36/#38/Wave13. Age modifiers remain the one documented unconfirmed rule; no coefficients invented.

@@ -275,7 +275,7 @@ Each tier must feel like a **real upgrade**, not just +numbers.
 | Perks | None | HIGH | — | MEDIUM |
 | Dialogue | Basic | HIGH | No skill gates, no persistence | HIGH |
 | Quest System | Linear | HIGH | No branching | HIGH |
-| Economy | Basic | HIGH | No scarcity, no barter | MEDIUM |
+| Economy | Barter with merchants | HIGH | Vanilla buy-price formula, atomic buy/sell and merchant stock/caps persistence implemented; scarcity model still limited | MEDIUM |
 
 ---
 
