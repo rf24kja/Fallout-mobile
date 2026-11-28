@@ -189,3 +189,15 @@ git add docs/ README.md AGENTS.md && git commit -m "docs: update project documen
 | M1-3 | Rebuild + sign + verify new APK, update PR #39 and docs | ✅ DONE — final APK `Fallout2_Reborn_Mobile_Release_Final.apk` (SHA256 `9E7ECF6C...AE0D65`), built after UI-anchor fix, apksigner v2+v3 OK, installed/launched on `emulator-5554` (`pidof` 2605) with no crash; ADB screencap still black so Android visual QA is NOT confirmed. Docs synced; PR #39 stays OPEN, not merged. |
 
 **License note**: original licensed data stays in gitignored `.local/` and is NEVER published to public GitHub. Only Python importer source + synthetic-fixture tests are committed.
+
+## Fallout 2 Fidelity Corrections (m01692, 2026-11-28)
+
+| ID | Task | Status |
+|----|------|--------|
+| M2-1 | Full 16-trait support + source-verified effects | DONE - missing 6 traits added; Bloody Mess visual-only, Sex Appeal flag only (effect unverified) |
+| M2-2 | SPECIAL/derived formulas and single source of truth | DONE - `CharacterCreationRules.derive_stats()` reused by creation/CharacterSystem/GameManager; HP/AP/AC/heal/crit/carry/melee corrected |
+| M2-3 | SP/level + perk progression + Master Trader | DONE - source-backed SP formula, 37-rank cap, progression 3(+Skilled), Master Trader at level12/Barter75/INT7 |
+| M2-4 | Barter reaction + party-best + real barter_mod caller | DONE - vanilla thresholds, party-best includes player, dialogue/NPC/UI plumbing, save wrapper backward compatible |
+| M2-5 | Numeric source-backed tests | DONE - special fidelity 81/81, creation 13/13, trade 19/19, full regression green |
+| M2-6 | Docs / PR #39 | DONE - matrix + project docs updated, commits pushed, PR description updated; PR remains OPEN |
+| M2-7 | Rebuild signed APK after m01692 | PENDING - not requested by m01692; current APK reflects m01691 only |
