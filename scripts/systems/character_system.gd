@@ -152,6 +152,14 @@ static var PERK_DEFS = {
 		"stat_reqs": {"might": 8, "dexterity": 8},
 		"ranks": 1
 	},
+	"master_trader": {
+		"name": "Master Trader",
+		"description": "You have mastered the art of the deal — 25% better prices when buying and selling.",
+		"level_req": 12,
+		"stat_reqs": {"intellect": 7},
+		"skill_reqs": {"barter": 75},
+		"ranks": 1
+	},
 }
 
 var character_data: Dictionary = {}
@@ -200,37 +208,19 @@ func _recalculate_all() -> void:
 	_update_available_perks()
 
 func _recalculate_derived_stats() -> void:
-	# Created characters carry trait-modified SPECIAL in `effective_special`;
-	# legacy/default characters only have `special` (tests rely on this).
-	var special: Dictionary = character_data.get("effective_special", character_data.special)
-	var level = character_data.level
-	var en = special.vigor
-	var st = special.might
-	var ag = special.dexterity
-	var aw = special.awareness
-	var lk = special.fortune
-	
-	# Fallout 2 Max HP: 15 + ST + EN*2 + (Lv-1)*(3+EN/2)
-	# Level 1 has no HP level bonus; matches get_derived_stats() and vanilla reference.
-	var hp_level_factor = max(0, level - 1)
-	character_data.max_hp = 15 + st + en * 2 + hp_level_factor * (3 + int(en / 2))
-	
-	# Fallout 2 AP: 5 + AG/2 (round down) + trait modifiers (Bruiser: -2)
-	var ap_modifier = 0
-	if character_data.get("traits", []).has("bruiser"):
-		ap_modifier -= 2
-	character_data.max_ap = 5 + int(ag / 2) + ap_modifier
-	
-	# Fallout 2 derived stats
-	# Healing Rate: EN/3 (round down)
-	# Poison Resistance: EN * 5
-	# Radiation Resistance: EN * 2 (base, +Armor applied elsewhere)
-	# Sequence: PE * 2
-	# Critical Chance: LK + trait/perk modifiers
-	
-	# Clamp current HP/AP
-	character_data.hp = min(character_data.hp, character_data.max_hp)
-	character_data.ap = min(character_data.ap, character_data.max_ap)
+	# Single source of truth: the same vanilla formula used by character creation
+	# (stat.cc:554-578, trait.cc:180-279). Created characters carry trait-modified
+	# SPECIAL in `effective_special`; legacy/default characters use `special`.
+	var special: Dictionary = character_data.get("effective_special", character_data.get("special", {}))
+	var base_special: Dictionary = character_data.get("special", special)
+	var traits: Array = character_data.get("traits", [])
+	var level := int(character_data.get("level", 1))
+	var derived: Dictionary = CharacterCreationRules.derive_stats(special, traits, level, base_special)
+	character_data["derived"] = derived.duplicate(true)
+	character_data.max_hp = int(derived.get("max_hp", character_data.max_hp))
+	character_data.max_ap = int(derived.get("max_action_points", character_data.max_ap))
+	character_data.hp = min(int(character_data.hp), character_data.max_hp)
+	character_data.ap = min(int(character_data.ap), character_data.max_ap)
 
 func _recalculate_skills() -> void:
 	# Vanilla skillGetValue() (skill.cc:230-269) via the shared rules engine.
@@ -246,7 +236,8 @@ func _recalculate_skills() -> void:
 func _update_available_perks() -> void:
 	var available = []
 	var level = character_data.level
-	var special = character_data.special
+	# Vanilla checks perk requirements against the trait-modified SPECIAL.
+	var special: Dictionary = character_data.get("effective_special", character_data.get("special", {}))
 	var current_perks = character_data.perks
 	
 	for perk_id in PERK_DEFS:
@@ -269,7 +260,14 @@ func _update_available_perks() -> void:
 		# Check stat requirements
 		var meets_reqs = true
 		for stat in def.stat_reqs:
-			if special[stat] < def.stat_reqs[stat]:
+			if int(special.get(stat, 0)) < int(def.stat_reqs[stat]):
+				meets_reqs = false
+				break
+		
+		# Check skill requirements (perk.cc:74 — Master Trader: Barter 75)
+		var skill_reqs: Dictionary = def.get("skill_reqs", {})
+		for skill_name in skill_reqs:
+			if int(character_data.get("skills", {}).get(skill_name, 0)) < int(skill_reqs[skill_name]):
 				meets_reqs = false
 				break
 		
@@ -280,6 +278,7 @@ func _update_available_perks() -> void:
 				"description": def.description,
 				"level_req": def.level_req,
 				"stat_reqs": def.stat_reqs,
+				"skill_reqs": skill_reqs,
 				"max_ranks": def.ranks,
 				"current_rank": current_rank
 			})
@@ -308,23 +307,31 @@ func add_xp(amount: int) -> void:
 func _on_level_up(old_level: int, new_level: int) -> void:
 	print("Level up! ", old_level, " -> ", new_level)
 	
-	# HP gain on level up: 2 + VIG/2
-	var hp_gain = 2 + int(character_data.special.vigor / 2)
+	# Vanilla reads the trait-modified SPECIAL for level-up gains.
+	var effective: Dictionary = character_data.get("effective_special", character_data.get("special", {}))
+	
+	# HP gain on level up: 2 + EN/2 (stat.cc:554-578) + Lifegiver*4 per rank.
+	var hp_gain = 2 + int(int(effective.get("vigor", 5)) / 2)
+	hp_gain += get_perk_rank("lifegiver") * 4
 	character_data.max_hp += hp_gain
 	character_data.hp = character_data.max_hp
 	
-	# Skill points
-	var sp = 5 + int(character_data.special.intellect / 2)
-	# Educated perk
-	for p in character_data.perks:
-		if p.perk_id == "educated":
-			sp += 2
+	# Skill points per level: character_editor.cc:5681-5701 through the shared
+	# rules engine — 5 + 2*INT + Educated*2 + Skilled*5 - Gifted*5, clamp 0..99.
+	var sp = CharacterCreationRules.skill_points_per_level(
+		effective,
+		character_data.get("perks", []),
+		character_data.get("traits", [])
+	)
 	
 	character_data.skill_points_per_level = sp
 	character_data.unspent_skill_points += sp
 	
-	# Perk every 3 levels (3, 6, 9, 12, 15, 18)
-	if new_level % 3 == 0:
+	# Perks: one every 3 levels, every 4 with Skilled (character_editor.cc:5703-5722),
+	# capped at 37 total perk ranks.
+	var traits: Array = character_data.get("traits", [])
+	var progression = 3 + (1 if traits.has("skilled") else 0)
+	if new_level % progression == 0 and _total_perk_ranks() < 37:
 		character_data.unspent_perk_points += 1
 	
 	_recalculate_derived_stats()
@@ -332,12 +339,20 @@ func _on_level_up(old_level: int, new_level: int) -> void:
 	
 	level_up.emit(new_level, sp, character_data.unspent_perk_points > 0)
 
+## Total perk ranks owned — vanilla caps perks at 37 (character_editor.cc:5703-5722).
+func _total_perk_ranks() -> int:
+	var total := 0
+	for p in character_data.get("perks", []):
+		total += int(p.rank)
+	return total
+
 func spend_skill_point(skill_name: String) -> bool:
 	if not character_data.skills.has(skill_name):
 		return false
 	if character_data.unspent_skill_points <= 0:
 		return false
-	if character_data.skills[skill_name] >= 200:
+	# skill.cc:264-266 — skill cap is 300.
+	if character_data.skills[skill_name] >= 300:
 		return false
 	
 	var old = character_data.skills[skill_name]
@@ -353,11 +368,12 @@ func spend_skill_points(skill_name: String, amount: int) -> bool:
 		return false
 	
 	var new_val = character_data.skills[skill_name] + amount
-	if new_val > 200:
-		amount = 200 - character_data.skills[skill_name]
+	# skill.cc:264-266 — skill cap is 300.
+	if new_val > 300:
+		amount = 300 - character_data.skills[skill_name]
 		if amount <= 0:
 			return false
-		new_val = 200
+		new_val = 300
 	
 	var old = character_data.skills[skill_name]
 	character_data.skills[skill_name] = new_val
@@ -518,41 +534,10 @@ func get_character_sheet() -> Dictionary:
 
 func get_derived_stats(stats: Dictionary) -> Dictionary:
 	"""Get derived stats for given SPECIAL values without modifying character data."""
-	var special = stats
-	var level = 1  # Default level for calculation
-	var en = special.get("vigor", 5)
-	var st = special.get("might", 5)
-	var ag = special.get("dexterity", 5)
-	var aw = special.get("awareness", 5)
-	var lk = special.get("fortune", 5)
-	
-	# Fallout 2 Max HP: 15 + ST + EN*2 + Lv*(3+EN/2) [Lv = level-1 for HP at level]
-	var hp_level_factor = max(0, level - 1)
-	var max_hp = 15 + st + en * 2 + hp_level_factor * (3 + int(en / 2))
-	
-	# Fallout 2 AP: 5 + AG/2 (round down)
-	var max_ap = 5 + int(ag / 2)
-	
-	# Fallout 2 derived stats
-	# Healing Rate: EN/3 (round down)
-	# Poison Resistance: EN * 5
-	# Radiation Resistance: EN * 2 (base, +Armor applied elsewhere)
-	# Sequence: PE * 2
-	# Critical Chance: LK% (Fallout 2 base = Luck%)
-	# Carry Weight: 25 + ST * 25
-	# Melee Damage: max(1, ST - 5)
-	
-	return {
-		"max_hp": max_hp,
-		"max_action_points": max_ap,
-		"healing_rate": int(en / 3),
-		"poison_resistance": en * 5,
-		"radiation_resistance": en * 2,
-		"sequence": aw * 2,
-		"critical_chance": lk,  # Fallout 2: base = Luck%
-		"carry_weight": 25 + st * 25,  # Fallout 2: 25 + ST*25
-		"melee_damage": max(1, st - 5)  # Fallout 2: max(1, ST-5)
-	}
+	var traits: Array = stats.get("traits", character_data.get("traits", []))
+	var level := int(stats.get("level", 1))
+	var base_special: Dictionary = stats.get("base_special", stats)
+	return CharacterCreationRules.derive_stats(stats, traits, level, base_special)
 
 func get_save_data() -> Dictionary:
 	"""Return a deep copy of the character state for save/load symmetry."""

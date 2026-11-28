@@ -142,6 +142,11 @@ func _on_trade_requested(npc: Node) -> void:
 	if _trade == null or not bool(_trade.call("has_merchant", _merchant_id)):
 		_set_message("Торговец не зарегистрирован: " + _merchant_id)
 		return
+	if _trade:
+		var npc_barter_mod := int(npc.get("trade_barter_mod")) if npc else 0
+		var npc_reaction := int(npc.get("reaction_value")) if npc else 0
+		_trade.call("set_barter_mod", npc_barter_mod)
+		_trade.call("set_reaction_value", npc_reaction)
 	_merchant_amounts.clear()
 	_player_amounts.clear()
 	_amount_labels.clear()

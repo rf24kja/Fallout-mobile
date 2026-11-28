@@ -21,8 +21,17 @@ extends Node
 const MASTER_TRADER_PERK := "master_trader"
 const MASTER_TRADER_BONUS := 25.0
 
-## `_barter_mod` from vanilla. 0 = neutral, -15 = NPC_REACTION_GOOD.
+## `_barter_mod` from vanilla, kept as its two real sources:
+##   * `barter_mod`        - the dialogue-script part set by `gdialog_set_barter_mod`
+##                           (interpreter_extra.cc:4697-4701, opcode 0x814E; the
+##                           dialog script calls it, then `inventoryOpenTrade(...,
+##                           gGameDialogBarterModifier)`, game_dialog.cc:3156-3159).
+##   * `reaction_modifier` - the NPC reaction part (inventory.cc:5031-5035,5091-5124;
+##                           thresholds from reaction.cc:13-25).
+## Vanilla composes them as `_barter_mod = dialogBarterMod + reactionModifier`.
+## 0 = neutral, -15 = NPC_REACTION_GOOD, +25 = NPC_REACTION_BAD.
 var barter_mod: int = 0
+var reaction_modifier: int = 0
 
 ## merchant_id -> {display_name: String, caps: int, barter_skill: int, items: Array[Dictionary]}
 ## Each item instance is {item_id: String, amount: int, instance_id: String}
@@ -139,7 +148,25 @@ func get_merchant_caps(id: String) -> int:
 	return int((merchants[id] as Dictionary).get("caps", 0))
 
 func set_barter_mod(value: int) -> void:
+	## Dialogue-script part of `_barter_mod` (opcode 0x814E, `gdialog_set_barter_mod`).
 	barter_mod = value
+
+func set_reaction_value(reaction_value: int) -> void:
+	## Reaction part of `_barter_mod`. Vanilla `inventory.cc:5091-5124`:
+	##   reaction > 10  -> NPC_REACTION_GOOD -> -15
+	##   reaction > -10 -> NPC_REACTION_NEUTRAL -> 0
+	##   otherwise      -> NPC_REACTION_BAD -> +25
+	## (thresholds mirrored from reaction.cc:13-25).
+	if reaction_value > 10:
+		reaction_modifier = -15
+	elif reaction_value > -10:
+		reaction_modifier = 0
+	else:
+		reaction_modifier = 25
+
+func total_barter_mod() -> int:
+	## `_barter_mod = dialogBarterMod + reactionModifier` (inventory.cc:5124).
+	return barter_mod + reaction_modifier
 
 # --------------------------------------------------------------------- pricing
 
@@ -156,6 +183,37 @@ func _player_barter() -> int:
 		if skills is Dictionary:
 			return int((skills as Dictionary).get("barter", 0))
 	return 0
+
+func _party_barter() -> int:
+	## Vanilla `partyBarter` is `partyGetBestSkillValue(SKILL_BARTER)`
+	## (party_member.cc:1182): the MAXIMUM Barter among the player
+	## (gPartyMembers[0] == gDude, party_member.cc:725) and every active,
+	## non-hidden critter companion.
+	## This project has no companion/party system yet, so the party collapses to
+	## the player. Optional data is honoured if it ever appears:
+	## player_data["party_members"] = [ {"skills": {"barter": n}} | {"barter": n} ].
+	var best := _player_barter()
+	var gm = _gm()
+	if gm == null:
+		return best
+	var player_data = gm.get("player_data")
+	if not (player_data is Dictionary):
+		return best
+	var members = (player_data as Dictionary).get("party_members", [])
+	if not (members is Array):
+		return best
+	for member in members:
+		if not (member is Dictionary):
+			continue
+		var value := 0
+		var member_skills = (member as Dictionary).get("skills", null)
+		if member_skills is Dictionary:
+			value = int((member_skills as Dictionary).get("barter", 0))
+		elif (member as Dictionary).has("barter"):
+			value = int((member as Dictionary).get("barter", 0))
+		if value > best:
+			best = value
+	return best
 
 func _has_master_trader() -> bool:
 	var cs = _cs()
@@ -201,10 +259,13 @@ func compute_buy_price(merchant_id: String, item_id: String, amount: int) -> int
 	var cost_without_caps := cost - caps
 
 	var perk_bonus := MASTER_TRADER_BONUS if _has_master_trader() else 0.0
-	var party_barter := float(max(1, _player_barter()))
+	# partyBarter = partyGetBestSkillValue(SKILL_BARTER) — see _party_barter().
+	# Vanilla does NOT clamp it to 1: a 0 skill is legal and the 160 in the
+	# denominator keeps the ratio finite.
+	var party_barter := float(_party_barter())
 	var npc_barter := float(max(0, int((merchants[merchant_id] as Dictionary).get("barter_skill", 0))))
 
-	var barter_mod_mult := (float(barter_mod) + 100.0 - perk_bonus) * 0.01
+	var barter_mod_mult := (float(total_barter_mod()) + 100.0 - perk_bonus) * 0.01
 	if barter_mod_mult < 0.0:
 		barter_mod_mult = 0.0099999998
 
@@ -456,16 +517,27 @@ func sell(merchant_id: String, item_id: String, amount: int) -> Dictionary:
 # ----------------------------------------------------------------- persistence
 
 func get_save_data() -> Dictionary:
-	## Serializable merchant state keyed by merchant id (no Node references).
-	return merchants.duplicate(true)
+	## Serializable merchant state keyed by merchant id (no Node references),
+	## plus the two `_barter_mod` components so an in-progress deal keeps its
+	## price across a save/load.
+	return {
+		"merchants": merchants.duplicate(true),
+		"barter_mod": barter_mod,
+		"reaction_modifier": reaction_modifier,
+	}
 
 func load_save_data(data) -> void:
-	## Restores merchant stock/caps. Missing or corrupt data leaves the current
-	## registry untouched (backward compatible with saves lacking "merchants").
+	## Restores merchant stock/caps and the barter modifiers. Missing or corrupt
+	## data leaves the current registry untouched (backward compatible with saves
+	## written before the modifiers were serialized: absent fields mean 0, and a
+	## legacy payload is a bare merchant map without the "merchants" key).
 	if not (data is Dictionary):
 		return
 	var source: Dictionary = data
-	if source.has("merchants") and source["merchants"] is Dictionary:
+	var has_wrapper := source.has("merchants") and source["merchants"] is Dictionary
+	if has_wrapper:
+		barter_mod = int(source.get("barter_mod", 0))
+		reaction_modifier = int(source.get("reaction_modifier", 0))
 		source = source["merchants"]
 	if source.is_empty():
 		return

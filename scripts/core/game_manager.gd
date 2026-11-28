@@ -233,17 +233,19 @@ func modify_player_stat(stat: String, delta: int) -> void:
 	set_player_stat(stat, get_player_stat(stat) + delta)
 
 func _recalculate_derived_stats() -> void:
-	var s = player_data.special
-	# HP = 15 + Might + Vigor * 2
-	player_data.max_hp = 15 + s.might + s.vigor * 2
-	player_data.hp = min(player_data.hp, player_data.max_hp)
-	# AP = 5 + Dexterity / 2
-	player_data.max_ap = 5 + int(s.dexterity / 2)
-	player_data.ap = min(player_data.ap, player_data.max_ap)
-	# Carry Weight = 25 + Might * 25
-	# Sequence = Awareness * 2
-	# Healing Rate = Vigor / 3
-	# Critical Chance = Fortune / 2
+	# Mirror the shared vanilla calculation used at character creation. Traits
+	# and level are included; HP/AP are clamped but other derived values are
+	# exposed for combat, dialogue and inventory consumers.
+	var base_special: Dictionary = player_data.get("special", {})
+	var effective: Dictionary = player_data.get("effective_special", base_special)
+	var traits: Array = player_data.get("traits", [])
+	var derived: Dictionary = CharacterCreationRules.derive_stats(
+		effective, traits, int(player_data.get("level", 1)), base_special)
+	player_data["derived"] = derived.duplicate(true)
+	player_data.max_hp = int(derived.get("max_hp", player_data.max_hp))
+	player_data.hp = min(int(player_data.hp), player_data.max_hp)
+	player_data.max_ap = int(derived.get("max_action_points", player_data.max_ap))
+	player_data.ap = min(int(player_data.ap), player_data.max_ap)
 
 func add_xp(amount: int) -> void:
 	player_data.xp += amount

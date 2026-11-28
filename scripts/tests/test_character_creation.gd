@@ -287,6 +287,23 @@ func _run_tests() -> void:
 			int(reloaded_effective.get("might", 0)), str(reloaded_traits), reloaded_tags.size(),
 			int(reloaded_skills.get("small_guns", -1)), int(saved_skills.get("small_guns", -2))])
 
+	# ------------------------------------- 13 all 16 traits + derived stats
+	var trait_ids: Array = CharacterCreationRules.TRAIT_DEFS.keys()
+	var base_special: Dictionary = {}
+	for key in CharacterCreationRules.SPECIAL_KEYS:
+		base_special[key] = 5
+	var derived_check: Dictionary = CharacterCreationRules.derive_stats(base_special, [], 1, base_special)
+	var required_derived := ["max_hp", "hp_per_level", "max_action_points", "armor_class", "sequence", "critical_chance", "carry_weight", "melee_damage", "healing_rate", "skill_points_per_level"]
+	var all_derived := true
+	for key in required_derived:
+		all_derived = all_derived and derived_check.has(key)
+	_expect("all_sixteen_traits_and_derived",
+		trait_ids.size() == 16 and trait_ids.has("one_handed") and trait_ids.has("jinxed") \
+			and trait_ids.has("chem_reliant") and trait_ids.has("chem_resistant") \
+			and trait_ids.has("bloody_mess") and trait_ids.has("sex_appeal") \
+			and all_derived and int(derived_check.get("armor_class", -1)) == 5,
+		"traits=%d derived=%s" % [trait_ids.size(), str(derived_check.keys())])
+
 func _finish() -> void:
 	if _save:
 		_save.call("delete_save", SAVE_SLOT)

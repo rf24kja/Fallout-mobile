@@ -5,6 +5,7 @@ extends SceneTree
 ## Run: godot --headless --path . --script scripts/tests/test_trade.gd --quit-after 90
 
 const TEST_MERCHANT := "test_trade_trader"
+const DialogueTypes = preload("res://scripts/systems/dialogue_types.gd")
 const TRADE_UI_SCENE := "res://scenes/ui/trade_ui.tscn"
 const TEST_MAP_SCENE := "res://scenes/world/test_map.tscn"
 
@@ -24,6 +25,7 @@ var _dialogue_hits: int = 0
 
 var _backup_merchants: Dictionary = {}
 var _backup_barter_mod: int = 0
+var _backup_reaction_modifier: int = 0
 var _backup_inv: Dictionary = {}
 var _backup_gm_caps: int = 0
 var _backup_barter_skill: int = -1
@@ -54,6 +56,7 @@ func _run() -> void:
 func _backup_state() -> void:
 	_backup_merchants = _ts.call("get_save_data")
 	_backup_barter_mod = int(_ts.get("barter_mod"))
+	_backup_reaction_modifier = int(_ts.get("reaction_modifier"))
 	_backup_inv = _inv.call("get_save_data")
 	_backup_gm_caps = int((_gm.get("player_data") as Dictionary).get("caps", 0))
 	var char_data: Dictionary = _cs.get("character_data")
@@ -63,6 +66,7 @@ func _backup_state() -> void:
 func _restore_state() -> void:
 	_ts.call("load_save_data", _backup_merchants)
 	_ts.call("set_barter_mod", _backup_barter_mod)
+	_ts.set("reaction_modifier", _backup_reaction_modifier)
 	_inv.call("load_save_data", _backup_inv)
 	var player_data: Dictionary = _gm.get("player_data")
 	player_data["caps"] = _backup_gm_caps
@@ -265,7 +269,7 @@ func _run_tests() -> void:
 	_ts.call("load_save_data", load_result)
 	var after_load: Dictionary = _ts.call("get_save_data")
 	var save_ok: bool = after_load == before_save and _inv.call("get_save_data") == before_save_inv
-	_ts.call("load_save_data", {"merchants": before_save})
+	_ts.call("load_save_data", before_save)
 	save_ok = save_ok and _ts.call("get_save_data") == before_save
 	_ts.call("load_save_data", {})
 	save_ok = save_ok and _ts.call("get_save_data") == before_save
@@ -329,6 +333,42 @@ func _run_tests() -> void:
 		ui_instance.queue_free()
 	_expect("ui_and_merchant_scene", ui_ok, "ui=%s panel=%s merchant_in_map=%s" % [
 		str(ui_packed != null), str(ui_panel != null), str(merchant_in_map)])
+
+	# --------------- 15 vanilla numeric buy prices (stimpak 40, leather 300)
+	_ts.call("set_barter_mod", 0)
+	_ts.call("set_reaction_value", 0)
+	var skills_numeric: Dictionary = (_cs.get("character_data") as Dictionary).get("skills", {})
+	skills_numeric["barter"] = 60
+	var stimpak_price := int(_ts.call("compute_buy_price", TEST_MERCHANT, "stimpak", 1))
+	var leather_price_vanilla := int(_ts.call("compute_buy_price", TEST_MERCHANT, "leather_armor", 1))
+	_expect("vanilla_buy_prices", stimpak_price == 80 and leather_price_vanilla == 600,
+		"stimpak=%d leather=%d" % [stimpak_price, leather_price_vanilla])
+
+	# ------------------------- 16 vanilla reaction thresholds (inventory.cc)
+	_ts.call("set_reaction_value", 11)
+	var good_price_vanilla := int(_ts.call("compute_buy_price", TEST_MERCHANT, "stimpak", 1))
+	_ts.call("set_reaction_value", 0)
+	var neutral_price_vanilla := int(_ts.call("compute_buy_price", TEST_MERCHANT, "stimpak", 1))
+	_ts.call("set_reaction_value", -11)
+	var bad_price_vanilla := int(_ts.call("compute_buy_price", TEST_MERCHANT, "stimpak", 1))
+	_ts.call("set_reaction_value", 0)
+	_expect("vanilla_reaction_thresholds", good_price_vanilla == 68 and neutral_price_vanilla == 80 and bad_price_vanilla == 100,
+		"good=%d neutral=%d bad=%d" % [good_price_vanilla, neutral_price_vanilla, bad_price_vanilla])
+
+	# ----------------- 17 SET_BARTER_MOD dialogue consequence (opcode 0x814E)
+	var consequence = DialogueTypes.DialogueConsequence.new()
+	consequence.consequence_type = DialogueTypes.DialogueConsequence.ConsequenceType.SET_BARTER_MOD
+	consequence.barter_mod_value = -15
+	consequence.apply(null, null)
+	var dialogue_price := int(_ts.call("compute_buy_price", TEST_MERCHANT, "stimpak", 1))
+	_ts.call("set_barter_mod", 0)
+	_expect("dialogue_set_barter_mod", dialogue_price == 68, "dialogue_price=%d" % dialogue_price)
+
+	# ----------------------------- 18 zero Barter skill is not clamped to 1
+	skills_numeric["barter"] = 0
+	var zero_skill_price := int(_ts.call("compute_buy_price", TEST_MERCHANT, "stimpak", 1))
+	skills_numeric["barter"] = 60
+	_expect("zero_barter_no_clamp", zero_skill_price == 110, "price=%d" % zero_skill_price)
 
 func _on_trade_signal(_npc: Node) -> void:
 	_trade_hits += 1

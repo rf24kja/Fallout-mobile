@@ -293,6 +293,11 @@ func _execute_action(action: String) -> void:
 					var def = _inventory._item_database.get_item(item_id)
 					if def:
 						_inventory.add_item(def.create_instance(amount))
+		"set_barter_mod":
+			if parts.size() > 1:
+				var trade_system = get_node_or_null("/root/TradeSystem")
+				if trade_system:
+					trade_system.call("set_barter_mod", parts[1].to_int())
 		"quest_started":
 			if parts.size() > 1:
 				_game_manager.add_quest_flag(parts[1], "started", true)

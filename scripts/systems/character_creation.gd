@@ -75,9 +75,15 @@ const COMBAT_SKILLS := ["small_guns", "big_guns", "energy_weapons", "unarmed", "
 const NON_COMBAT_HEALING_SKILLS := ["first_aid", "doctor"]
 const NON_COMBAT_SOCIAL_SKILLS := ["speech", "barter"]
 
-## Traits with verified effects only (trait.cc:180-312).
-## Asterisked vanilla traits whose effects are not yet decoded are intentionally
-## absent so the UI never offers a trait with invented behaviour.
+## All 16 vanilla Fallout 2 traits (trait.cc:180-312, trait_defs.h:7).
+## Every entry carries only effects that are verified in the fallout2-ce sources:
+##   - stat / AP / sequence / carry / melee / crit modifiers — trait.cc:180-279
+##   - One Hander to-hit — combat.cc:4404-4410
+##   - Jinxed failure roll — combat.cc:3856-3862
+##   - chem addiction / duration multipliers — trait.cc:180-279
+## Bloody Mess is visual only (actions.cc:208-235) and Sex Appeal's reaction
+## effect is NOT confirmed by the available sources — both are exposed as flags
+## with no invented numeric coefficients.
 const TRAIT_DEFS := {
 	"gifted": {
 		"name": "Gifted",
@@ -134,6 +140,39 @@ const TRAIT_DEFS := {
 		"name": "Skilled",
 		"description": "Skill points per level +5.",
 		"skill_points_modifier": 5,
+	},
+	"one_handed": {
+		"name": "One Hander",
+		"description": "Two-handed weapons: -40 to hit. One-handed weapons: +20 to hit.",
+		"two_handed_tohit_modifier": -40,
+		"one_handed_tohit_modifier": 20,
+	},
+	"jinxed": {
+		"name": "Jinxed",
+		"description": "Misses by anyone near you have a 50% chance to become critical failures.",
+		"jinxed": true,
+	},
+	"chem_reliant": {
+		"name": "Chem Reliant",
+		"description": "Addiction chance is doubled, withdrawal lasts half as long.",
+		"addiction_chance_multiplier": 2.0,
+		"withdrawal_duration_multiplier": 0.5,
+	},
+	"chem_resistant": {
+		"name": "Chem Resistant",
+		"description": "Addiction chance is halved, drug effects last half as long.",
+		"addiction_chance_multiplier": 0.5,
+		"drug_duration_multiplier": 0.5,
+	},
+	"bloody_mess": {
+		"name": "Bloody Mess",
+		"description": "Deaths are far gorier. Visual effect only — the vanilla sources give no numeric bonus.",
+		"bloody_mess_visual": true,
+	},
+	"sex_appeal": {
+		"name": "Sex Appeal",
+		"description": "Reaction bonus with the opposite sex is not confirmed by the available vanilla sources; no numeric bonus is applied.",
+		"sex_appeal_unverified": true,
 	},
 }
 
@@ -369,20 +408,21 @@ static func skill_points_per_level(effective: Dictionary, perks: Array, traits: 
 	var sp := 5 + 2 * intellect + educated * 2 + skilled * 5 - gifted * 5
 	return clampi(sp, 0, 99)
 
-static func calculate(config: Dictionary) -> Dictionary:
-	var effective := effective_special(config)
-	var traits: Array = config.get("traits", [])
-	var tags: Array = config.get("tag_skills", [])
-	var skill_bonus: Dictionary = config.get("skill_bonus", {})
-	var skills := calculate_skills(effective, tags, skill_bonus, traits)
+## stat.cc:554-578 — derived stats, plus the trait modifiers of trait.cc:180-279.
+## `special` must already contain the trait SPECIAL modifiers (effective_special);
+## `base_special` is the pre-trait allocation and is only used where vanilla
+## subtracts the BASE stat (Small Frame carry weight, Kamikaze armor class).
+static func derive_stats(special: Dictionary, traits: Array, level: int = 1, base_special: Dictionary = {}) -> Dictionary:
+	if base_special.is_empty():
+		base_special = special
 
-	var st := int(effective.get("might", BASE_STAT))
-	var en := int(effective.get("vigor", BASE_STAT))
-	var ag := int(effective.get("dexterity", BASE_STAT))
-	var aw := int(effective.get("awareness", BASE_STAT))
-	var lk := int(effective.get("fortune", BASE_STAT))
-	var level := 1
-	var hp_level_factor: int = max(0, level - 1)
+	var st := int(special.get("might", BASE_STAT))
+	var en := int(special.get("vigor", BASE_STAT))
+	var ag := int(special.get("dexterity", BASE_STAT))
+	var aw := int(special.get("awareness", BASE_STAT))
+	var lk := int(special.get("fortune", BASE_STAT))
+	var base_st := int(base_special.get("might", st))
+	var base_ag := int(base_special.get("dexterity", ag))
 
 	var ap_modifier := 0
 	var sequence_modifier := 0
@@ -396,7 +436,14 @@ static func calculate(config: Dictionary) -> Dictionary:
 	var ranged_ap_modifier := 0
 	var no_aimed_shots := false
 	var armor_class_zeroed := false
-	var skill_points_modifier := 0
+	var two_handed_tohit_modifier := 0
+	var one_handed_tohit_modifier := 0
+	var jinxed := false
+	var addiction_chance_multiplier := 1.0
+	var withdrawal_duration_multiplier := 1.0
+	var drug_duration_multiplier := 1.0
+	var bloody_mess_visual := false
+	var sex_appeal_unverified := false
 
 	# Trait effects are additive (verified in trait.cc:180-279). Only the
 	# projectile AP reduction of Fast Shot is conditional at combat time, so the
@@ -411,7 +458,11 @@ static func calculate(config: Dictionary) -> Dictionary:
 		critical_roll_modifier += int(tdef.get("critical_roll_modifier", 0))
 		critical_chance_modifier += int(tdef.get("critical_chance_modifier", 0))
 		ranged_ap_modifier += int(tdef.get("ranged_ap_modifier", 0))
-		skill_points_modifier += int(tdef.get("skill_points_modifier", 0))
+		two_handed_tohit_modifier += int(tdef.get("two_handed_tohit_modifier", 0))
+		one_handed_tohit_modifier += int(tdef.get("one_handed_tohit_modifier", 0))
+		addiction_chance_multiplier *= float(tdef.get("addiction_chance_multiplier", 1.0))
+		withdrawal_duration_multiplier *= float(tdef.get("withdrawal_duration_multiplier", 1.0))
+		drug_duration_multiplier *= float(tdef.get("drug_duration_multiplier", 1.0))
 		if bool(tdef.get("zero_poison_resistance", false)):
 			zero_poison = true
 		if bool(tdef.get("zero_radiation_resistance", false)):
@@ -420,32 +471,64 @@ static func calculate(config: Dictionary) -> Dictionary:
 			no_aimed_shots = true
 		if bool(tdef.get("armor_class_zeroed", false)):
 			armor_class_zeroed = true
+		if bool(tdef.get("jinxed", false)):
+			jinxed = true
+		if bool(tdef.get("bloody_mess_visual", false)):
+			bloody_mess_visual = true
+		if bool(tdef.get("sex_appeal_unverified", false)):
+			sex_appeal_unverified = true
+
+	# stat.cc:554-578 — HP/level is 2 + EN/2 (Lifegiver adds 4 per rank at level-up).
+	var hp_per_level: int = 2 + int(en / 2)
 
 	var derived := {
-		# Fallout 2: HP = 15 + ST + EN*2 + (Lv-1)*(3+EN/2)
-		"max_hp": 15 + st + en * 2 + hp_level_factor * (3 + int(en / 2)),
-		# Fallout 2: AP = 5 + AG/2, plus trait modifiers (Bruiser -2)
+		# HP = 15 + ST + 2*EN, plus (level-1) * (2 + EN/2)
+		"max_hp": 15 + st + en * 2 + max(0, level - 1) * hp_per_level,
+		"hp_per_level": hp_per_level,
+		# AP = 5 + AG/2, plus trait modifiers (Bruiser -2)
 		"max_action_points": 5 + int(ag / 2) + ap_modifier,
+		# Healing = max(EN/3, 1) (+ Fast Metabolism 2)
 		"healing_rate": max(1, int(en / 3)) + healing_rate_modifier,
 		"poison_resistance": 0 if zero_poison else en * 5,
 		"radiation_resistance": 0 if zero_radiation else en * 2,
+		# Sequence = 2*PE (+ Kamikaze 5)
 		"sequence": aw * 2 + sequence_modifier,
+		# Critical chance = LK (+ Finesse 10)
 		"critical_chance": lk + critical_chance_modifier,
-		"carry_weight": 25 + st * 25 + carry_weight_per_might * st,
+		# Carry = 25 + ST*25; Small Frame subtracts 10 * BASE Might.
+		"carry_weight": 25 + base_st * 25 + carry_weight_per_might * base_st,
+		# Melee = max(ST-5, 1) (+ Heavy Handed 4)
 		"melee_damage": max(1, st - 5) + melee_damage_modifier,
-		# Kamikaze forces armor class to 0 (trait.cc:180-279).
-		"armor_class": 0,
+		# Armor class = AG. Kamikaze removes only the base AGI contribution, it
+		# does not zero the other derived stats (trait.cc:180-279).
+		"armor_class": ag - (base_ag if armor_class_zeroed else 0),
 		"armor_class_zeroed": armor_class_zeroed,
 		"critical_roll_modifier": critical_roll_modifier,
 		"critical_chance_modifier": critical_chance_modifier,
 		"ranged_ap_modifier": ranged_ap_modifier,
 		"ranged_ap_threshold": 2,
 		"aimed_shots_allowed": not no_aimed_shots,
+		"two_handed_tohit_modifier": two_handed_tohit_modifier,
+		"one_handed_tohit_modifier": one_handed_tohit_modifier,
+		"jinxed": jinxed,
+		"addiction_chance_multiplier": addiction_chance_multiplier,
+		"withdrawal_duration_multiplier": withdrawal_duration_multiplier,
+		"drug_duration_multiplier": drug_duration_multiplier,
+		"bloody_mess_visual": bloody_mess_visual,
+		"sex_appeal_unverified": sex_appeal_unverified,
 		"skill_points_per_level": 0,
 	}
-	var sp := clampi(5 + 2 * int(effective.get("intellect", BASE_STAT)) + skill_points_modifier
-		- (5 if traits.has("gifted") else 0), 0, 99)
-	derived["skill_points_per_level"] = sp
+	return derived
+
+static func calculate(config: Dictionary) -> Dictionary:
+	var effective := effective_special(config)
+	var traits: Array = config.get("traits", [])
+	var tags: Array = config.get("tag_skills", [])
+	var skill_bonus: Dictionary = config.get("skill_bonus", {})
+	var skills := calculate_skills(effective, tags, skill_bonus, traits)
+
+	var derived := derive_stats(effective, traits, 1, config.get("special", {}))
+	derived["skill_points_per_level"] = skill_points_per_level(effective, [], traits)
 
 	return {
 		"special_effective": effective,

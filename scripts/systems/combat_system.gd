@@ -1,6 +1,8 @@
 class_name CombatSystem
 extends Node
 
+const CharacterCreationRules = preload("res://scripts/systems/character_creation.gd")
+
 ## Turn-based combat system (Fallout 1/2 style).
 ## Action Points, hit chance, damage types, critical hits, DT/DR, ammo, called shots.
 
@@ -25,7 +27,8 @@ enum DamageType {
 enum CombatResult {
 	MISS = 0,
 	HIT = 1,
-	CRITICAL = 2
+	CRITICAL = 2,
+	CRITICAL_FAILURE = 3
 }
 
 # Body parts for called shots
@@ -311,6 +314,19 @@ func _apply_body_part_effect(target: Dictionary, effect: String, body_part: int)
 	
 	target.status_effects = status_effects
 
+## Derived stats supplied by CharacterSystem/GameManager are authoritative;
+## for legacy combatants we derive them from traits/SPECIAL with the shared
+## vanilla rules engine (stat.cc:554-578, trait.cc:180-279).
+func _combat_derived(participant: Dictionary) -> Dictionary:
+	var derived: Dictionary = participant.get("derived", {})
+	if not derived.is_empty():
+		return derived
+	var traits: Array = participant.get("traits", [])
+	if traits.is_empty():
+		return {}
+	var stats: Dictionary = participant.get("stats", {})
+	return CharacterCreationRules.derive_stats(stats, traits, int(participant.get("level", 1)), stats)
+
 func _calculate_hit_chance(attacker: Dictionary, target: Dictionary, weapon: Dictionary, aim_mode: String) -> int:
 	var base_chance = 50
 	var skill_name = weapon.get("skill", "small_guns")
@@ -318,6 +334,14 @@ func _calculate_hit_chance(attacker: Dictionary, target: Dictionary, weapon: Dic
 	
 	# Base from skill
 	base_chance += skill
+	
+	# One Hander: -40 with two-handed weapons, +20 with one-handed (combat.cc:4404-4410).
+	var derived := _combat_derived(attacker)
+	var is_two_handed := str(weapon.get("equipment_slot", "")) == "WEAPON_TWO_HANDED" or bool(weapon.get("two_handed", false))
+	if is_two_handed:
+		base_chance += int(derived.get("two_handed_tohit_modifier", 0))
+	else:
+		base_chance += int(derived.get("one_handed_tohit_modifier", 0))
 	
 	# Distance penalty
 	var dist = attacker.position.distance_to(target.position)
@@ -901,11 +925,23 @@ func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -
 		print("No weapon equipped or empty weapon dict")
 		return false
 	
+	var derived := _combat_derived(attacker)
+	if aim_mode == "aimed" and not bool(derived.get("aimed_shots_allowed", true)):
+		print("Aimed shots unavailable (Fast Shot)")
+		return false
+	
 	var ap_cost = weapon.get("ap_cost", 5)
 	if aim_mode == "aimed":
 		ap_cost = int(ap_cost * 1.5)
 	elif aim_mode == "burst":
 		ap_cost = int(ap_cost * 2)
+	
+	# Fast Shot: ranged attacks costing more than 2 AP cost 1 AP less (trait.cc:216-220).
+	var weapon_skill := str(weapon.get("skill", ""))
+	if weapon_skill != "melee" and weapon_skill != "unarmed":
+		var ranged_ap_delta := int(derived.get("ranged_ap_modifier", 0))
+		if ranged_ap_delta != 0 and ap_cost > int(derived.get("ranged_ap_threshold", 2)):
+			ap_cost += ranged_ap_delta
 	
 	if attacker.ap < ap_cost:
 		print("Not enough AP")
@@ -916,6 +952,7 @@ func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -
 	# Calculate hit chance
 	var hit_chance = _calculate_hit_chance(attacker, target, weapon, aim_mode)
 	var roll = randi() % 100
+	var jinxed := bool(_combat_derived(attacker).get("jinxed", false))
 	var is_critical = false
 	var damage = 0
 	var actual_damage = 0
@@ -928,7 +965,7 @@ func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -
 		damage = _calculate_damage(attacker, target, weapon, aim_mode)
 		
 		# Critical check
-		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("fortune", 5)
+		var crit_chance = weapon.get("crit_chance", 5) + int(_combat_derived(attacker).get("critical_chance", attacker.stats.get("fortune", 5)))
 		if roll < crit_chance:
 			result_type = CombatResult.CRITICAL
 			is_critical = true
@@ -947,6 +984,11 @@ func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -
 			target.is_alive = false
 			_on_combatant_death(target_id, attacker_id)
 	
+	elif jinxed and randf() < 0.5:
+		# Jinxed: 50% of misses become critical failures (combat.cc:3856-3862).
+		result_type = CombatResult.CRITICAL_FAILURE
+		critical_data = {"jinxed": true}
+	
 	var result = {
 		"attacker": attacker_id,
 		"target": target_id,
@@ -954,6 +996,7 @@ func _perform_attack(attacker_id: String, target_id: String, aim_mode: String) -
 		"damage": actual_damage,
 		"hit_chance": hit_chance,
 		"roll": roll,
+		"bloody_mess_visual": bool(_combat_derived(attacker).get("bloody_mess_visual", false)),
 		"ap_cost": ap_cost,
 		"is_critical": is_critical,
 		"aim_mode": aim_mode
@@ -1002,6 +1045,7 @@ func _perform_called_shot(attacker_id: String, target_id: String, body_part: int
 	hit_chance = clamp(hit_chance, 5, 95)
 	
 	var roll = randi() % 100
+	var jinxed := bool(_combat_derived(attacker).get("jinxed", false))
 	var is_critical = false
 	var damage = 0
 	var actual_damage = 0
@@ -1016,7 +1060,7 @@ func _perform_called_shot(attacker_id: String, target_id: String, body_part: int
 		damage = int(damage * part_data.dmg_mult)
 		
 		# Critical check
-		var crit_chance = weapon.get("crit_chance", 5) + attacker.stats.get("fortune", 5)
+		var crit_chance = weapon.get("crit_chance", 5) + int(_combat_derived(attacker).get("critical_chance", attacker.stats.get("fortune", 5)))
 		if roll < crit_chance:
 			result_type = CombatResult.CRITICAL
 			is_critical = true
@@ -1039,6 +1083,11 @@ func _perform_called_shot(attacker_id: String, target_id: String, body_part: int
 			target.is_alive = false
 			_on_combatant_death(target_id, attacker_id)
 	
+	elif jinxed and randf() < 0.5:
+		# Jinxed: 50% of misses become critical failures (combat.cc:3856-3862).
+		result_type = CombatResult.CRITICAL_FAILURE
+		critical_data = {"jinxed": true}
+	
 	var part_names = ["HEAD", "TORSO", "LEFT_ARM", "RIGHT_ARM", "LEFT_LEG", "RIGHT_LEG", "EYES", "GROIN"]
 	var part_name = part_names[body_part] if body_part < part_names.size() else "UNKNOWN"
 	
@@ -1049,6 +1098,7 @@ func _perform_called_shot(attacker_id: String, target_id: String, body_part: int
 		"damage": actual_damage,
 		"hit_chance": hit_chance,
 		"roll": roll,
+		"bloody_mess_visual": bool(_combat_derived(attacker).get("bloody_mess_visual", false)),
 		"ap_cost": ap_cost,
 		"is_critical": is_critical,
 		"body_part": body_part,

@@ -51,7 +51,8 @@ class DialogueConsequence:
 		GIVE_CAPS = 4,
 		SET_WORLD_STATE = 5,
 		MODIFY_STAT = 6,
-		ADD_XP = 7
+		ADD_XP = 7,
+		SET_BARTER_MOD = 8
 	}
 	
 	var consequence_type: int = 0
@@ -66,13 +67,24 @@ class DialogueConsequence:
 	var stat_name: String = ""
 	var stat_delta: int = 0
 	var xp_amount: int = 0
+	## Dialogue-script barter modifier (vanilla opcode 0x814E,
+	## `gdialog_set_barter_mod`, interpreter_extra.cc:4697-4701).
+	var barter_mod_value: int = 0
 	
 	func apply(game_manager, inventory) -> void:
 		print("DialogueConsequence.apply: type=" + str(consequence_type) + ", game_manager=" + str(game_manager))
+		# SET_BARTER_MOD only needs the TradeSystem autoload (vanilla opcode 0x814E
+		# `gdialog_set_barter_mod`, interpreter_extra.cc:4697-4701), so it must not
+		# depend on game_manager being present.
+		if consequence_type == ConsequenceType.SET_BARTER_MOD:
+			_apply_barter_mod()
+			return
 		if not game_manager:
 			return
 		
 		match consequence_type:
+			ConsequenceType.SET_BARTER_MOD:
+				_apply_barter_mod()
 			ConsequenceType.SET_QUEST_FLAG:
 				print("DialogueConsequence.apply: SET_QUEST_FLAG quest_id=" + quest_id + ", flag=" + quest_flag + ", value=" + str(quest_flag_value))
 				game_manager.add_quest_flag(quest_id, quest_flag, quest_flag_value)
@@ -95,6 +107,17 @@ class DialogueConsequence:
 				game_manager.modify_player_stat(stat_name, stat_delta)
 			ConsequenceType.ADD_XP:
 				game_manager.add_xp(xp_amount)
+	
+	## Port of the `gdialog_set_barter_mod` opcode: pushes the script's barter
+	## modifier into TradeSystem, which is what `inventoryOpenTrade(...,
+	## gGameDialogBarterModifier)` consumes in vanilla (game_dialog.cc:3156-3159).
+	func _apply_barter_mod() -> void:
+		var tree := Engine.get_main_loop() as SceneTree
+		if tree == null or tree.root == null:
+			return
+		var trade = tree.root.get_node_or_null("TradeSystem")
+		if trade and trade.has_method("set_barter_mod"):
+			trade.call("set_barter_mod", barter_mod_value)
 
 
 class DialogueOption:

@@ -18,6 +18,10 @@ signal dialogue_requested(dialogue_id: String)
 @export var merchant_name: String = ""
 @export var merchant_caps: int = 600
 @export var merchant_barter_skill: int = 60
+## Dialogue-script barter modifier (vanilla opcode 0x814E).
+@export var trade_barter_mod: int = 0
+## NPC reaction value translated with the vanilla >10/>-10 thresholds.
+@export var reaction_value: int = 0
 @export var merchant_stock: Array[String] = []
 @export var merchant_stock_amounts: Array[int] = []
 

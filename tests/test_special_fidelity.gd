@@ -5,6 +5,8 @@ extends SceneTree
 
 class_name SpecialFidelityTests
 
+const Rules = preload("res://scripts/systems/character_creation.gd")
+
 var _character_system
 var _character_script
 var _test_results = []
@@ -33,11 +35,12 @@ func run_all_tests():
 	test_melee_damage()
 	test_level_up_hp_gain()
 	test_skill_points_per_level()
+	test_source_backed_derived_and_perks()
 	
 	print_results()
 
 func test_max_hp_formula():
-	# Fallout 2: HP = 15 + ST + EN*2 + (Lv-1)*(3+EN/2)
+	# Fallout 2: HP = 15 + ST + EN*2 + (Lv-1)*(2+EN/2) (stat.cc:554-578)
 	# This test verifies the authoritative Fallout 2 formula
 	
 	var test_cases = [
@@ -56,7 +59,7 @@ func test_max_hp_formula():
 		
 		_test_results.append({
 			"name": "Max HP " + case.desc,
-			"formula": "Fallout 2: 15+ST+EN*2+Lv*(3+EN/2)",
+			"formula": "Fallout 2: 15+ST+EN*2+Lv*(2+EN/2)",
 			"expected": expected,
 			"actual": actual,
 			"passed": passed,
@@ -71,12 +74,12 @@ func test_max_hp_formula():
 	char.character_data.special.vigor = 5
 	char._recalculate_derived_stats()
 	var actual_l10 = char.character_data.max_hp
-	# Fallout 2: HP = 15 + ST + EN*2 + (Lv-1)*(3+EN/2)
-	# L10: 15 + 5 + 10 + 9*(3+2) = 30 + 45 = 75
-	var expected_l10 = 15 + 5 + 10 + 9*(3+2)
+	# Fallout 2: HP = 15 + ST + EN*2 + (Lv-1)*(2+EN/2) (stat.cc:554-578)
+	# L10: 15 + 5 + 10 + 9*(2+2) = 30 + 36 = 66
+	var expected_l10 = 15 + 5 + 10 + 9*(2+2)
 	_test_results.append({
 		"name": "Max HP Average stats L10 (internal)",
-		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(3+EN/2)",
+		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(2+EN/2)",
 		"expected": expected_l10,
 		"actual": actual_l10,
 		"passed": actual_l10 == expected_l10,
@@ -88,11 +91,11 @@ func test_max_hp_formula():
 	char.character_data.special.vigor = 10
 	char._recalculate_derived_stats()
 	var actual_l20 = char.character_data.max_hp
-	# L20: 15 + 10 + 20 + 19*(3+5) = 45 + 152 = 197
-	var expected_l20 = 15 + 10 + 20 + 19*(3+5)
+	# L20: 15 + 10 + 20 + 19*(2+5) = 45 + 133 = 178
+	var expected_l20 = 15 + 10 + 20 + 19*(2+5)
 	_test_results.append({
 		"name": "Max HP Max stats L20 (internal)",
-		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(3+EN/2)",
+		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(2+EN/2)",
 		"expected": expected_l20,
 		"actual": actual_l20,
 		"passed": actual_l20 == expected_l20,
@@ -104,11 +107,11 @@ func test_max_hp_formula():
 	char.character_data.special.vigor = 6
 	char._recalculate_derived_stats()
 	var actual_l5 = char.character_data.max_hp
-	# L5: 15 + 6 + 12 + 4*(3+3) = 33 + 24 = 57
-	var expected_l5 = 15 + 6 + 12 + 4*(3+3)
+	# L5: 15 + 6 + 12 + 4*(2+3) = 33 + 20 = 53
+	var expected_l5 = 15 + 6 + 12 + 4*(2+3)
 	_test_results.append({
 		"name": "Max HP VIG=6 L5 (internal)",
-		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(3+EN/2)",
+		"formula": "Fallout 2: 15+ST+EN*2+(Lv-1)*(2+EN/2)",
 		"expected": expected_l5,
 		"actual": actual_l5,
 		"passed": actual_l5 == expected_l5,
@@ -151,8 +154,8 @@ func test_healing_rate():
 	# Current Godot: VIG/3 (VIG = EN equivalent)
 	
 	var test_cases = [
-		{"vigor": 1, "expected": 0},
-		{"vigor": 2, "expected": 0},
+		{"vigor": 1, "expected": 1},
+		{"vigor": 2, "expected": 1},
 		{"vigor": 3, "expected": 1},
 		{"vigor": 4, "expected": 1},
 		{"vigor": 5, "expected": 1},
@@ -171,7 +174,7 @@ func test_healing_rate():
 		
 		_test_results.append({
 			"name": "Healing Rate (VIG=" + str(case.vigor) + ")",
-			"formula": "Fallout 2: EN/3 (round down)",
+			"formula": "Fallout 2: max(1, EN/3) (round down)",
 			"expected": case.expected,
 			"actual": actual,
 			"passed": passed
@@ -275,7 +278,7 @@ func test_critical_chance():
 		
 		_test_results.append({
 			"name": "Critical Chance (FOR=" + str(case.fortune) + ")",
-			"formula": "Fallout 2: LK/2 + Perks",
+			"formula": "Fallout 2: LK + Perks",
 			"expected": case.expected,
 			"actual": actual,
 			"passed": passed,
@@ -304,7 +307,7 @@ func test_carry_weight():
 		var note = "Implemented" if has_carry_weight else "MISSING from get_derived_stats"
 		_test_results.append({
 			"name": "Carry Weight (Might=" + str(case.might) + ")",
-			"formula": "Fallout 2: 25 * ST",
+			"formula": "Fallout 2: 25 + ST*25",
 			"expected": case.expected,
 			"actual": actual,
 			"passed": passed,
@@ -337,7 +340,7 @@ func test_melee_damage():
 		var note = "Implemented" if has_melee_damage else "MISSING from get_derived_stats"
 		_test_results.append({
 			"name": "Melee Damage (Might=" + str(case.might) + ")",
-			"formula": "Fallout 2: ST/2 (round down)",
+			"formula": "Fallout 2: max(1, ST-5) + perks",
 			"expected": case.expected,
 			"actual": actual,
 			"passed": passed,
@@ -375,34 +378,107 @@ func test_level_up_hp_gain():
 		})
 
 func test_skill_points_per_level():
-	# Fallout 2: Skill points = 5 + INT/2 + Educated (+2)
-	# Current Godot: 5 + INT/2 + Educated (+2)
-	
-	var test_cases = [
-		{"intellect": 1, "educated": 0, "expected": 5 + 0},   # 5 + 0 = 5
-		{"intellect": 2, "educated": 0, "expected": 5 + 1},   # 5 + 1 = 6
-		{"intellect": 3, "educated": 0, "expected": 5 + 1},   # 5 + 1 = 6
-		{"intellect": 4, "educated": 0, "expected": 5 + 2},   # 5 + 2 = 7
-		{"intellect": 5, "educated": 0, "expected": 5 + 2},   # 5 + 2 = 7
-		{"intellect": 6, "educated": 0, "expected": 5 + 3},   # 5 + 3 = 8
-		{"intellect": 10, "educated": 0, "expected": 5 + 5},  # 5 + 5 = 10
-		{"intellect": 5, "educated": 1, "expected": 5 + 2 + 2}, # 5 + 2 + 2 = 9
+	# character_editor.cc:5681-5701
+	var cases = [
+		{"intellect": 5, "perks": [], "traits": [], "expected": 15, "name": "INT5"},
+		{"intellect": 6, "perks": [], "traits": ["gifted"], "expected": 12, "name": "INT5+Gifted (effective INT6)"},
+		{"intellect": 10, "perks": [{"perk_id": "educated"}], "traits": ["skilled"], "expected": 32, "name": "INT10+Educated+Skilled"},
 	]
-	
-	for case in test_cases:
-		# Calculate skill points directly from formula
-		var sp = 5 + int(case.intellect / 2)
-		sp += case.educated * 2
-		
-		var passed = sp == case.expected
-		
+	for case in cases:
+		var sp = Rules.skill_points_per_level({"intellect": case.intellect}, case.perks, case.traits)
 		_test_results.append({
-			"name": "Skill Points/Level (INT=" + str(case.intellect) + ", Educated=" + str(case.educated) + ")",
-			"formula": "Fallout 2: 5 + INT/2 + Educated*2",
+			"name": "Skill Points/Level (" + case.name + ")",
+			"formula": "Fallout 2: 5 + 2*INT + Educated*2 + Skilled*5 - Gifted*5",
 			"expected": case.expected,
 			"actual": sp,
-			"passed": passed
+			"passed": sp == case.expected
 		})
+
+func test_source_backed_derived_and_perks():
+	var base := {
+		"might": 5, "awareness": 5, "vigor": 5, "presence": 5,
+		"intellect": 5, "dexterity": 5, "fortune": 5
+	}
+	var d = Rules.derive_stats(base, [], 1, base)
+	var expected_stats = [
+		{"key": "max_hp", "value": 30},
+		{"key": "hp_per_level", "value": 4},
+		{"key": "max_action_points", "value": 7},
+		{"key": "healing_rate", "value": 1},
+		{"key": "sequence", "value": 10},
+		{"key": "critical_chance", "value": 5},
+		{"key": "carry_weight", "value": 150},
+		{"key": "melee_damage", "value": 1},
+		{"key": "armor_class", "value": 5},
+	]
+	for item in expected_stats:
+		var actual = int(d.get(item.key, -1))
+		_test_results.append({
+			"name": "Derived " + str(item.key) + " (all-5)",
+			"formula": "stat.cc:554-578 / trait.cc:180-279",
+			"expected": item.value,
+			"actual": actual,
+			"passed": actual == item.value
+		})
+
+	var kamikaze = Rules.derive_stats(base, ["kamikaze"], 1, base)
+	_test_results.append({
+		"name": "Kamikaze zeroes only base AC",
+		"formula": "trait.cc:231-235",
+		"expected": 0,
+		"actual": int(kamikaze.get("armor_class", -1)),
+		"passed": int(kamikaze.get("armor_class", -1)) == 0
+	})
+	var small_frame = Rules.derive_stats(base, ["small_frame"], 1, base)
+	_test_results.append({
+		"name": "Small Frame carry uses base Might",
+		"formula": "trait.cc:241-245",
+		"expected": 100,
+		"actual": int(small_frame.get("carry_weight", -1)),
+		"passed": int(small_frame.get("carry_weight", -1)) == 100
+	})
+
+	var cs = _character_script.new()
+	cs._init_default_character()
+	cs.character_data.level = 12
+	cs.character_data.special.intellect = 7
+	cs.character_data["effective_special"] = cs.character_data.special.duplicate(true)
+	cs.character_data.skills["barter"] = 75
+	cs._update_available_perks()
+	var has_mt = false
+	for perk in cs.get_available_perks():
+		if str(perk.get("perk_id", "")) == "master_trader":
+			has_mt = true
+	_test_results.append({
+		"name": "Master Trader available at L12/INT7/Barter75",
+		"formula": "perk.cc:74 row 17",
+		"expected": true,
+		"actual": has_mt,
+		"passed": has_mt
+	})
+	cs.character_data.skills["barter"] = 74
+	cs._update_available_perks()
+	var mt_at_74 = false
+	for perk in cs.get_available_perks():
+		if str(perk.get("perk_id", "")) == "master_trader":
+			mt_at_74 = true
+	_test_results.append({
+		"name": "Master Trader blocked at Barter74",
+		"formula": "perk.cc:74 row 17",
+		"expected": false,
+		"actual": mt_at_74,
+		"passed": not mt_at_74
+	})
+	cs.character_data.skills["barter"] = 300
+	cs.character_data.unspent_skill_points = 5
+	var cap_spent = cs.spend_skill_point("barter")
+	_test_results.append({
+		"name": "Skill cap 300 enforced",
+		"formula": "skill.cc:264-266",
+		"expected": false,
+		"actual": cap_spent,
+		"passed": not cap_spent and int(cs.character_data.skills["barter"]) == 300
+	})
 
 func print_results():
 	var passed = 0
