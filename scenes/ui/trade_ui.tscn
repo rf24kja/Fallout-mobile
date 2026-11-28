@@ -1,0 +1,267 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/trade_ui.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="PanelStyle"]
+bg_color = Color(0.07, 0.08, 0.07, 0.98)
+border_width_top = 2
+border_width_bottom = 2
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.45, 0.55, 0.35, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+
+[sub_resource type="StyleBoxFlat" id="PaneStyle"]
+bg_color = Color(0.1, 0.12, 0.1, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.3, 0.4, 0.25, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="ButtonStyle"]
+bg_color = Color(0.18, 0.22, 0.16, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.4, 0.6, 0.3, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="ButtonHover"]
+bg_color = Color(0.24, 0.32, 0.2, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.5, 0.8, 0.4, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+
+[node name="TradeUI" type="CanvasLayer" layout_mode=3]
+layer = 25
+script = ExtResource("1")
+
+[node name="TradePanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+custom_styles/panel = SubResource("PanelStyle")
+
+[node name="TitleLabel" type="Label" parent="TradePanel"]
+anchors_preset = 10
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = 52.0
+text = "BARTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.85, 1.0, 0.75, 1)
+theme_override_font_sizes/font_size = 28
+
+[node name="MerchantCapsLabel" type="Label" parent="TradePanel"]
+offset_left = 20.0
+offset_top = 58.0
+offset_right = 620.0
+offset_bottom = 94.0
+text = "Торговец: 0 caps"
+vertical_alignment = 1
+theme_override_colors/font_color = Color(1.0, 0.9, 0.55, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="PlayerCapsLabel" type="Label" parent="TradePanel"]
+offset_left = 660.0
+offset_top = 58.0
+offset_right = -20.0
+offset_bottom = 94.0
+text = "Вы: 0 caps"
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_colors/font_color = Color(1.0, 0.9, 0.55, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="MerchantPane" type="Panel" parent="TradePanel"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 100.0
+offset_right = -660.0
+offset_bottom = -196.0
+custom_styles/panel = SubResource("PaneStyle")
+
+[node name="PaneTitle" type="Label" parent="TradePanel/MerchantPane"]
+anchors_preset = 10
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 12.0
+offset_top = 6.0
+offset_right = -12.0
+offset_bottom = 42.0
+text = "ТОВАРЫ ТОРГОВЦА"
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.7, 0.85, 0.65, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TradePanel/MerchantPane"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 48.0
+offset_right = -12.0
+offset_bottom = -12.0
+
+[node name="Rows" type="VBoxContainer" parent="TradePanel/MerchantPane/ScrollContainer"]
+size_flags_horizontal = 3
+
+[node name="PlayerPane" type="Panel" parent="TradePanel"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 660.0
+offset_top = 100.0
+offset_right = -20.0
+offset_bottom = -196.0
+custom_styles/panel = SubResource("PaneStyle")
+
+[node name="PaneTitle" type="Label" parent="TradePanel/PlayerPane"]
+anchors_preset = 10
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 12.0
+offset_top = 6.0
+offset_right = -12.0
+offset_bottom = 42.0
+text = "ВАШИ ВЕЩИ"
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.7, 0.85, 0.65, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TradePanel/PlayerPane"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 48.0
+offset_right = -12.0
+offset_bottom = -12.0
+
+[node name="Rows" type="VBoxContainer" parent="TradePanel/PlayerPane/ScrollContainer"]
+size_flags_horizontal = 3
+
+[node name="SelectionLabel" type="Label" parent="TradePanel"]
+offset_left = 20.0
+offset_top = 516.0
+offset_right = -20.0
+offset_bottom = 552.0
+text = "Выберите товар"
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.85, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="DealLabel" type="Label" parent="TradePanel"]
+offset_left = 20.0
+offset_top = 552.0
+offset_right = -20.0
+offset_bottom = 586.0
+text = "Покупка: 0 | Продажа: 0"
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.85, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="DiffLabel" type="Label" parent="TradePanel"]
+offset_left = 20.0
+offset_top = 586.0
+offset_right = -20.0
+offset_bottom = 620.0
+text = "Разница: 0"
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.8, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="MessageLabel" type="Label" parent="TradePanel"]
+offset_left = 20.0
+offset_top = 620.0
+offset_right = -20.0
+offset_bottom = 654.0
+text = ""
+vertical_alignment = 1
+theme_override_colors/font_color = Color(1.0, 0.6, 0.5, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="BuyButton" type="Button" parent="TradePanel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -72.0
+offset_right = 210.0
+offset_bottom = -10.0
+custom_minimum_size = Vector2(190, 62)
+text = "КУПИТЬ"
+theme_override_styles/normal = SubResource("ButtonStyle")
+theme_override_styles/hover = SubResource("ButtonHover")
+theme_override_font_sizes/font_size = 22
+
+[node name="SellButton" type="Button" parent="TradePanel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 230.0
+offset_top = -72.0
+offset_right = 420.0
+offset_bottom = -10.0
+custom_minimum_size = Vector2(190, 62)
+text = "ПРОДАТЬ"
+theme_override_styles/normal = SubResource("ButtonStyle")
+theme_override_styles/hover = SubResource("ButtonHover")
+theme_override_font_sizes/font_size = 22
+
+[node name="CancelButton" type="Button" parent="TradePanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -72.0
+offset_right = -20.0
+offset_bottom = -10.0
+custom_minimum_size = Vector2(190, 62)
+text = "ОТМЕНА"
+theme_override_styles/normal = SubResource("ButtonStyle")
+theme_override_styles/hover = SubResource("ButtonHover")
+theme_override_font_sizes/font_size = 22

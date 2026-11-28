@@ -12,7 +12,11 @@ mouse_filter = 2
 
 [node name="APContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-anchors_preset = 5
+anchors_preset = 10
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = -20.0
@@ -33,7 +37,11 @@ value = 10
 
 [node name="HPContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-anchors_preset = 5
+anchors_preset = 10
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
 offset_left = 20.0
 offset_top = 70.0
 offset_right = -20.0
@@ -54,7 +62,11 @@ value = 100
 
 [node name="WeaponPanel" type="PanelContainer" parent="."]
 layout_mode = 2
-anchors_preset = 1
+anchors_preset = 10
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
 offset_left = 20.0
 offset_top = 140.0
 offset_right = -20.0
@@ -65,37 +77,45 @@ theme_type_variation = "WeaponPanel"
 [node name="WeaponVBox" type="VBoxContainer" parent="WeaponPanel"]
 layout_mode = 3
 anchors_preset = 15
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
 offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
 offset_bottom = -10.0
 
-[node name="WeaponName" type="Label" parent="WeaponVBox"]
+[node name="WeaponName" type="Label" parent="WeaponPanel/WeaponVBox"]
 text = "Оружие не выбрано"
 theme_type_variation = "WeaponTitle"
 custom_minimum_size = Vector2(0, 30)
 
-[node name="WeaponStats" type="HBoxContainer" parent="WeaponVBox"]
+[node name="WeaponStats" type="HBoxContainer" parent="WeaponPanel/WeaponVBox"]
 custom_minimum_size = Vector2(0, 30)
 
-[node name="WeaponAmmo" type="RichTextLabel" parent="WeaponStats"]
+[node name="WeaponAmmo" type="RichTextLabel" parent="WeaponPanel/WeaponVBox/WeaponStats"]
 bbcode_enabled = true
 custom_minimum_size = Vector2(100, 30)
 h_size_flags = 3
 
-[node name="WeaponAPCost" type="RichTextLabel" parent="WeaponStats"]
+[node name="WeaponAPCost" type="RichTextLabel" parent="WeaponPanel/WeaponVBox/WeaponStats"]
 bbcode_enabled = true
 custom_minimum_size = Vector2(100, 30)
 h_size_flags = 3
 
-[node name="WeaponRange" type="RichTextLabel" parent="WeaponStats"]
+[node name="WeaponRange" type="RichTextLabel" parent="WeaponPanel/WeaponVBox/WeaponStats"]
 bbcode_enabled = true
 custom_minimum_size = Vector2(100, 30)
 h_size_flags = 3
 
 [node name="HitChancePanel" type="PanelContainer" parent="."]
 layout_mode = 2
-anchors_preset = 9
+anchors_preset = 1
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
 offset_left = -320.0
 offset_top = 20.0
 offset_right = -20.0
@@ -106,17 +126,21 @@ theme_type_variation = "HitChancePanel"
 [node name="HitChanceVBox" type="VBoxContainer" parent="HitChancePanel"]
 layout_mode = 3
 anchors_preset = 15
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
 offset_left = 15.0
 offset_top = 10.0
 offset_right = -15.0
 offset_bottom = -10.0
 
-[node name="HitChanceLabel" type="RichTextLabel" parent="HitChanceVBox"]
+[node name="HitChanceLabel" type="RichTextLabel" parent="HitChancePanel/HitChanceVBox"]
 bbcode_enabled = true
 custom_minimum_size = Vector2(0, 30)
 horizontal_alignment = 1
 
-[node name="HitChanceBar" type="ProgressBar" parent="HitChanceVBox"]
+[node name="HitChanceBar" type="ProgressBar" parent="HitChancePanel/HitChanceVBox"]
 custom_minimum_size = Vector2(0, 15)
 min_value = 0
 max_value = 100
@@ -124,7 +148,11 @@ value = 0
 
 [node name="TurnPanel" type="PanelContainer" parent="."]
 layout_mode = 2
-anchors_preset = 9
+anchors_preset = 1
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
 offset_left = -320.0
 offset_top = 90.0
 offset_right = -20.0
@@ -135,16 +163,20 @@ theme_type_variation = "TurnPanel"
 [node name="TurnVBox" type="HBoxContainer" parent="TurnPanel"]
 layout_mode = 3
 anchors_preset = 15
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
 offset_left = 15.0
 offset_top = 10.0
 offset_right = -15.0
 offset_bottom = -10.0
 
-[node name="ActorPortrait" type="TextureRect" parent="TurnVBox"]
+[node name="ActorPortrait" type="TextureRect" parent="TurnPanel/TurnVBox"]
 custom_minimum_size = Vector2(40, 40)
 stretch_mode = 2
 
-[node name="TurnLabel" type="RichTextLabel" parent="TurnVBox"]
+[node name="TurnLabel" type="RichTextLabel" parent="TurnPanel/TurnVBox"]
 bbcode_enabled = true
 custom_minimum_size = Vector2(220, 40)
 vertical_alignment = 1
@@ -152,7 +184,11 @@ h_size_flags = 3
 
 [node name="ActionPanel" type="PanelContainer" parent="."]
 layout_mode = 2
-anchors_preset = 4
+anchors_preset = 12
+anchor_left = 0
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
 offset_left = 20.0
 offset_top = -180.0
 offset_right = -20.0
@@ -163,43 +199,47 @@ theme_type_variation = "ActionPanel"
 [node name="ActionVBox" type="VBoxContainer" parent="ActionPanel"]
 layout_mode = 3
 anchors_preset = 15
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
 offset_left = 15.0
 offset_top = 15.0
 offset_right = -15.0
 offset_bottom = -15.0
 
-[node name="ActionButtons" type="GridContainer" parent="ActionVBox"]
+[node name="ActionButtons" type="GridContainer" parent="ActionPanel/ActionVBox"]
 columns = 5
 custom_minimum_size = Vector2(0, 100)
 h_size_flags = 3
 v_size_flags = 3
 
-[node name="AttackButton" type="Button" parent="ActionButtons"]
+[node name="AttackButton" type="Button" parent="ActionPanel/ActionVBox/ActionButtons"]
 text = "Атака\n[color=yellow]5 ОД[/color]"
 custom_minimum_size = Vector2(100, 80)
 tooltip_text = "Обычная атака"
 
-[node name="CalledShotButton" type="Button" parent="ActionButtons"]
+[node name="CalledShotButton" type="Button" parent="ActionPanel/ActionVBox/ActionButtons"]
 text = "Прицельный выстрел\n[color=yellow]7 ОД[/color]"
 custom_minimum_size = Vector2(100, 80)
 tooltip_text = "Выбор части тела для атаки"
 
-[node name="ReloadButton" type="Button" parent="ActionButtons"]
+[node name="ReloadButton" type="Button" parent="ActionPanel/ActionVBox/ActionButtons"]
 text = "Перезарядка\n[color=yellow]2 ОД[/color]"
 custom_minimum_size = Vector2(100, 80)
 tooltip_text = "Перезарядить оружие"
 
-[node name="DefendButton" type="Button" parent="ActionButtons"]
+[node name="DefendButton" type="Button" parent="ActionPanel/ActionVBox/ActionButtons"]
 text = "Оборона\n[color=yellow]1 ОД[/color]"
 custom_minimum_size = Vector2(100, 80)
 tooltip_text = "Увеличить защиту до следующего хода"
 
-[node name="UseItemButton" type="Button" parent="ActionButtons"]
+[node name="UseItemButton" type="Button" parent="ActionPanel/ActionVBox/ActionButtons"]
 text = "Предмет\n[color=yellow]2-4 ОД[/color]"
 custom_minimum_size = Vector2(100, 80)
 tooltip_text = "Использовать предмет из инвентаря"
 
-[node name="EndTurnButton" type="Button" parent="ActionVBox"]
+[node name="EndTurnButton" type="Button" parent="ActionPanel/ActionVBox"]
 text = "ЗАВЕРШИТЬ ХОД"
 custom_minimum_size = Vector2(0, 50)
 theme_type_variation = "EndTurnButton"

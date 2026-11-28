@@ -14,6 +14,12 @@ var move_path: Array[Vector2] = []
 var path_index: int = 0
 var navigation_agent: NavigationAgent2D = NavigationAgent2D.new()
 
+# Mobile touch controls (additive: joystick vector has priority over tap-to-move)
+var _joystick_vector: Vector2 = Vector2.ZERO
+var _mobile_controls = null
+var _camera: Camera2D = null
+var _camera_base_zoom: Vector2 = Vector2(1.0, 1.0)
+
 # Character visual type (survivor, npc_friendly, hostile)
 @export var character_type: String = "survivor"
 
@@ -69,16 +75,64 @@ func _ready() -> void:
 	# Find InteractButton in scene (for mobile touch interaction)
 	_find_interact_button()
 	
-	# Load player position from GameManager
+	# Wire virtual joystick / action buttons if a MobileControls overlay exists
+	_setup_mobile_controls()
+	
+	# Load player position from GameManager.
+	# JSON roundtrips (save/load) turn Vector2 into a String like "(200.0, 200.0)".
+	# Accept Vector2, Vector2i, Array [x,y], Dictionary {x,y} or such a String —
+	# never assign an unvalidated Variant to global_position (causes a SCRIPT ERROR).
 	if _game_manager and _game_manager.player_data.has("position"):
-		global_position = _game_manager.player_data.position
-		target_position = global_position
+		var pos_variant: Variant = _game_manager.player_data.get("position")
+		var restored_pos := _coerce_position(pos_variant)
+		if restored_pos != Vector2.ZERO or _is_zero_position(pos_variant):
+			global_position = restored_pos
+			target_position = global_position
 	
 	# Set up character visuals
 	if character_visual:
 		character_visual.character_type = character_type
 		# Initial equipment sync
 		_sync_equipment_visual()
+
+## Coerce a saved position (Vector2, Array, Dict, or "(x, y)" String after a
+## JSON roundtrip) into a valid Vector2. Returns Vector2.ZERO for junk input.
+func _coerce_position(v: Variant) -> Vector2:
+	if v is Vector2:
+		return v
+	if v is Vector2i:
+		return Vector2(v)
+	if v is Array and (v as Array).size() >= 2:
+		return Vector2(float(v[0]), float(v[1]))
+	if v is Dictionary:
+		var d: Dictionary = v
+		return Vector2(float(d.get("x", 0.0)), float(d.get("y", 0.0)))
+	if v is String:
+		var s := (v as String).strip_edges().trim_prefix("(").trim_suffix(")")
+		var parts := s.split(",", false)
+		if parts.size() >= 2:
+			return Vector2(float(parts[0]), float(parts[1]))
+	return Vector2.ZERO
+
+
+## True when the saved position is genuinely (0,0) rather than corrupt/missing.
+func _is_zero_position(v: Variant) -> bool:
+	if v is Vector2:
+		return (v as Vector2) == Vector2.ZERO
+	if v is Vector2i:
+		return (v as Vector2i) == Vector2i.ZERO
+	if v is Array and (v as Array).size() >= 2:
+		return float(v[0]) == 0.0 and float(v[1]) == 0.0
+	if v is Dictionary:
+		var d: Dictionary = v
+		return float(d.get("x", 0.0)) == 0.0 and float(d.get("y", 0.0)) == 0.0
+	if v is String:
+		var s := (v as String).strip_edges().trim_prefix("(").trim_suffix(")")
+		var parts := s.split(",", false)
+		if parts.size() >= 2:
+			return float(parts[0]) == 0.0 and float(parts[1]) == 0.0
+	return false
+
 
 func _find_interact_button() -> void:
 	# Find the InteractButton in the current scene's HUD
@@ -106,6 +160,16 @@ func _physics_process(delta: float) -> void:
 		gm.player_data.position = global_position
 
 func _handle_movement(delta: float) -> void:
+	# Virtual joystick (mobile) drives movement directly and takes priority over
+	# the tap-to-move path. When the joystick is released the old logic resumes.
+	if _joystick_vector.length() > 0.15 and not _is_ui_focused():
+		is_moving = false
+		move_path.clear()
+		path_index = 0
+		velocity = _joystick_vector.normalized() * move_speed
+		move_and_slide()
+		return
+	
 	if is_moving and move_path.size() > 0:
 		_follow_path(delta)
 	else:
@@ -335,3 +399,108 @@ func _on_interactable_far(interactable: Node) -> void:
 func _on_interact_button_pressed() -> void:
 	print("Player._on_interact_button_pressed: Interact button pressed!")
 	_attempt_interaction()
+
+# ---------------------------------------------------------------- mobile controls
+
+func set_joystick_vector(v: Vector2) -> void:
+	_joystick_vector = v.limit_length(1.0)
+
+func get_joystick_vector() -> Vector2:
+	return _joystick_vector
+
+func _find_mobile_controls() -> Node:
+	var root := get_tree().get_root()
+	if root == null:
+		return null
+	for i in range(root.get_child_count()):
+		var found := _search_mobile_controls(root.get_child(i))
+		if found != null:
+			return found
+	return null
+
+func _search_mobile_controls(node: Node) -> Node:
+	if node == null or node == self:
+		return null
+	if node.has_method("set_visible_controls") and node.has_signal("move_vector_changed"):
+		return node
+	for c in node.get_children():
+		var found := _search_mobile_controls(c)
+		if found != null:
+			return found
+	return null
+
+func _setup_mobile_controls() -> void:
+	_mobile_controls = _find_mobile_controls()
+	if _mobile_controls == null:
+		print("Player: no MobileControls node found (keyboard/mouse input only)")
+		return
+	print("Player: MobileControls found -> ", _mobile_controls.name)
+	if _mobile_controls.has_signal("move_vector_changed"):
+		_mobile_controls.connect("move_vector_changed", Callable(self, "set_joystick_vector"))
+	if _mobile_controls.has_signal("interact_pressed"):
+		_mobile_controls.connect("interact_pressed", Callable(self, "_on_mobile_interact"))
+	if _mobile_controls.has_signal("inventory_pressed"):
+		_mobile_controls.connect("inventory_pressed", Callable(self, "_on_mobile_inventory"))
+	if _mobile_controls.has_signal("attack_pressed"):
+		_mobile_controls.connect("attack_pressed", Callable(self, "_on_mobile_attack"))
+	if _mobile_controls.has_signal("pause_pressed"):
+		_mobile_controls.connect("pause_pressed", Callable(self, "_on_mobile_pause"))
+	if _mobile_controls.has_signal("map_pressed"):
+		_mobile_controls.connect("map_pressed", Callable(self, "_on_mobile_map"))
+	if _mobile_controls.has_signal("camera_zoom_changed"):
+		_mobile_controls.connect("camera_zoom_changed", Callable(self, "_on_camera_zoom_changed"))
+	if _mobile_controls.has_signal("camera_pan_requested"):
+		_mobile_controls.connect("camera_pan_requested", Callable(self, "_on_camera_pan_requested"))
+
+func _on_mobile_interact() -> void:
+	print("Player: mobile Interact button")
+	_attempt_interaction()
+
+func _on_mobile_inventory() -> void:
+	print("Player: mobile Inventory button")
+	_toggle_inventory()
+
+func _on_mobile_pause() -> void:
+	print("Player: mobile Pause button")
+	var gm = _get_gamemanager()
+	if gm:
+		gm.change_state(2)
+
+func _on_mobile_attack() -> void:
+	print("Player: mobile Attack button")
+	var cs = get_node_or_null("/root/CombatSystem")
+	if cs == null:
+		return
+	if cs.has_method("get_combat_state"):
+		var st: Dictionary = cs.get_combat_state()
+		if not bool(st.get("is_active", false)):
+			print("Player: mobile attack ignored - combat is not active")
+			return
+	if cs.has_method("perform_player_action"):
+		cs.perform_player_action("attack")
+
+func _on_mobile_map() -> void:
+	print("Player: mobile Map button (no map screen implemented yet)")
+
+func _setup_camera() -> void:
+	if _camera != null:
+		return
+	_camera = get_node_or_null("Camera2D") as Camera2D
+	if _camera != null:
+		_camera_base_zoom = _camera.zoom
+
+func _on_camera_zoom_changed(zoom_value: Vector2) -> void:
+	_setup_camera()
+	if _camera == null:
+		return
+	_camera.zoom = Vector2(
+		clampf(zoom_value.x, 0.5, 2.5),
+		clampf(zoom_value.y, 0.5, 2.5)
+	)
+	print("Player: camera zoom -> ", _camera.zoom)
+
+func _on_camera_pan_requested(delta: Vector2) -> void:
+	_setup_camera()
+	if _camera == null:
+		return
+	_camera.offset = (_camera.offset - delta).clamp(Vector2(-240, -180), Vector2(240, 180))

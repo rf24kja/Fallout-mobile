@@ -1,7 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=1 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/quest_log.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/ui/quest_log_entry.tscn" id="2"]
 
 [node name="QuestLog" type="Control" layout_mode=3]
 script = ExtResource(1)
@@ -15,6 +14,10 @@ offset_top = 20.0
 [node name="Background" type="Panel" parent="."]
 layout_mode = 3
 anchors_preset = 15
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
@@ -23,7 +26,11 @@ theme_type_variation = "QuestPanel"
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 3
-anchors_preset = 9
+anchors_preset = 1
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
 offset_left = -120.0
 offset_top = 10.0
 offset_right = -10.0
@@ -32,7 +39,11 @@ text = "Закрыть"
 
 [node name="MainContainer" type="HBoxContainer" parent="."]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 10
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
@@ -41,44 +52,44 @@ offset_bottom = 70.0
 [node name="LeftPanel" type="VBoxContainer" parent="MainContainer"]
 custom_minimum_size = Vector2(300, 0)
 
-[node name="Title" type="Label" parent="LeftPanel"]
+[node name="Title" type="Label" parent="MainContainer/LeftPanel"]
 text = "ЖУРНАЛ ЗАДАНИЙ"
 horizontal_alignment = 1
 theme_type_variation = "Header"
 custom_minimum_size = Vector2(0, 40)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="LeftPanel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainContainer/LeftPanel"]
 v_size_flags = 3
 custom_minimum_size = Vector2(300, 0)
 
-[node name="QuestList" type="VBoxContainer" parent="ScrollContainer"]
+[node name="QuestList" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer"]
 custom_minimum_size = Vector2(280, 0)
 
 [node name="DetailsPanel" type="VBoxContainer" parent="MainContainer"]
 v_size_flags = 3
 custom_minimum_size = Vector2(400, 0)
 
-[node name="QuestDetails" type="RichTextLabel" parent="DetailsPanel"]
+[node name="QuestDetails" type="RichTextLabel" parent="MainContainer/DetailsPanel"]
 custom_minimum_size = Vector2(0, 150)
 bbcode_enabled = true
 vertical_scroll_mode = 1
 
-[node name="HSeparator1" type="HSeparator" parent="DetailsPanel"]
+[node name="HSeparator1" type="HSeparator" parent="MainContainer/DetailsPanel"]
 custom_minimum_size = Vector2(0, 10)
 
-[node name="ObjectivesTitle" type="Label" parent="DetailsPanel"]
+[node name="ObjectivesTitle" type="Label" parent="MainContainer/DetailsPanel"]
 text = "ЦЕЛИ:"
 theme_type_variation = "SubHeader"
 custom_minimum_size = Vector2(0, 30)
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="DetailsPanel"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="MainContainer/DetailsPanel"]
 v_size_flags = 3
 
-[node name="ObjectiveList" type="VBoxContainer" parent="ScrollContainer2"]
+[node name="ObjectiveList" type="VBoxContainer" parent="MainContainer/DetailsPanel/ScrollContainer2"]
 custom_minimum_size = Vector2(0, 0)
 
-[node name="HSeparator2" type="HSeparator" parent="DetailsPanel"]
+[node name="HSeparator2" type="HSeparator" parent="MainContainer/DetailsPanel"]
 custom_minimum_size = Vector2(0, 10)
 
-[node name="ChoicePanel" type="VBoxContainer" parent="DetailsPanel"]
+[node name="ChoicePanel" type="VBoxContainer" parent="MainContainer/DetailsPanel"]
 custom_minimum_size = Vector2(0, 0)

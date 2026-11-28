@@ -1,6 +1,8 @@
 class_name GameManager
 extends Node
 
+const CharacterCreationRules = preload("res://scripts/systems/character_creation.gd")
+
 ## Central game state manager. Handles game flow, state persistence, and system coordination.
 
 var save_system
@@ -110,6 +112,82 @@ func _load_default_state() -> void:
 	quest_flags = {}
 	game_time = 0.0
 
+## Apply a validated PHASE 1 character-creation config and enter the campaign.
+## Returns false (leaving the current state untouched) when the config is invalid.
+func apply_character_config(config: Dictionary) -> bool:
+	var validation: Dictionary = CharacterCreationRules.validate(config)
+	if not bool(validation.get("ok", false)):
+		print("GameManager: character config rejected: ", validation.get("errors", []))
+		return false
+
+	var calculated: Dictionary = CharacterCreationRules.calculate(config)
+	var character_system = _get_character_system()
+	if character_system and character_system.has_method("apply_created_character"):
+		character_system.apply_created_character(config, calculated)
+
+	var effective: Dictionary = calculated.get("special_effective", {}).duplicate(true)
+	var skills: Dictionary = calculated.get("skills", {}).duplicate(true)
+	var derived: Dictionary = calculated.get("derived", {})
+	var caps := 150
+	var max_hp := int(derived.get("max_hp", 15 + int(effective.get("might", 5)) + int(effective.get("vigor", 5)) * 2))
+	var max_ap := int(derived.get("max_action_points", 5 + int(int(effective.get("dexterity", 5)) / 2)))
+
+	player_data = {
+		"name": str(config.get("name", "Vault Dweller")).strip_edges(),
+		"gender": str(config.get("gender", "male")),
+		"age": int(config.get("age", 25)),
+		"level": 1,
+		"xp": 0,
+		"xp_to_next": 1000,
+		"hp": max_hp,
+		"max_hp": max_hp,
+		"ap": max_ap,
+		"max_ap": max_ap,
+		"caps": caps,
+		"special": (config.get("special", {}) as Dictionary).duplicate(true),
+		"effective_special": effective,
+		"traits": (config.get("traits", []) as Array).duplicate(),
+		"skills": skills,
+		"tag_skills": (config.get("tag_skills", []) as Array).duplicate(),
+		"perks": [],
+		"inventory": [],
+		"equipment": {
+			"weapon": null,
+			"armor": null
+		},
+		"position": Vector2(200, 200)
+	}
+
+	# CharacterSystem is the single source of truth for the created character.
+	var sheet: Dictionary = get_character_sheet()
+	if not sheet.is_empty():
+		player_data["hp"] = int(sheet.get("hp", max_hp))
+		player_data["max_hp"] = int(sheet.get("max_hp", max_hp))
+		player_data["ap"] = int(sheet.get("ap", max_ap))
+		player_data["max_ap"] = int(sheet.get("max_ap", max_ap))
+		player_data["skills"] = (sheet.get("skills", skills) as Dictionary).duplicate(true)
+
+	world_state = {}
+	quest_flags = {}
+	game_time = 0.0
+	var inventory = get_node_or_null("/root/Inventory")
+	if inventory:
+		# A new game must never inherit items/equipment from a previous session.
+		# Clear equipment slots directly: unequip_item() puts items back into `items`.
+		var equipment_slots = inventory.get("equipment")
+		if equipment_slots is Dictionary:
+			for slot in (equipment_slots as Dictionary).keys():
+				equipment_slots[slot] = null
+		if inventory.has_method("clear"):
+			inventory.call("clear")
+		inventory.caps = caps
+	current_map = "campaign_root"
+	change_state(1)
+	var event_bus = _get_eventbus()
+	if event_bus:
+		event_bus.emit("stats_changed", ["special", effective])
+	return true
+
 func change_state(new_state: int) -> void:
 	if current_state == new_state:
 		return
@@ -155,17 +233,19 @@ func modify_player_stat(stat: String, delta: int) -> void:
 	set_player_stat(stat, get_player_stat(stat) + delta)
 
 func _recalculate_derived_stats() -> void:
-	var s = player_data.special
-	# HP = 15 + Might + Vigor * 2
-	player_data.max_hp = 15 + s.might + s.vigor * 2
-	player_data.hp = min(player_data.hp, player_data.max_hp)
-	# AP = 5 + Dexterity / 2
-	player_data.max_ap = 5 + int(s.dexterity / 2)
-	player_data.ap = min(player_data.ap, player_data.max_ap)
-	# Carry Weight = 25 + Might * 25
-	# Sequence = Awareness * 2
-	# Healing Rate = Vigor / 3
-	# Critical Chance = Fortune / 2
+	# Mirror the shared vanilla calculation used at character creation. Traits
+	# and level are included; HP/AP are clamped but other derived values are
+	# exposed for combat, dialogue and inventory consumers.
+	var base_special: Dictionary = player_data.get("special", {})
+	var effective: Dictionary = player_data.get("effective_special", base_special)
+	var traits: Array = player_data.get("traits", [])
+	var derived: Dictionary = CharacterCreationRules.derive_stats(
+		effective, traits, int(player_data.get("level", 1)), base_special)
+	player_data["derived"] = derived.duplicate(true)
+	player_data.max_hp = int(derived.get("max_hp", player_data.max_hp))
+	player_data.hp = min(int(player_data.hp), player_data.max_hp)
+	player_data.max_ap = int(derived.get("max_action_points", player_data.max_ap))
+	player_data.ap = min(int(player_data.ap), player_data.max_ap)
 
 func add_xp(amount: int) -> void:
 	player_data.xp += amount
@@ -204,10 +284,12 @@ func advance_time(hours: float) -> void:
 
 func get_save_data() -> Dictionary:
 	var inventory = get_node_or_null("/root/Inventory")
+	var trade_system = get_node_or_null("/root/TradeSystem")
 	return {
 		"version": 2,
 		"player": player_data,
 		"inventory": inventory.get_save_data() if inventory else [],
+		"merchants": trade_system.get_save_data() if trade_system else {},
 		"world": world_state,
 		"quests": quest_flags,
 		"time": game_time,
@@ -275,6 +357,11 @@ func load_save_data(data: Dictionary) -> void:
 	if inventory:
 		inventory.load_save_data(migrated_data.get("inventory", []))
 	
+	# Restore merchant stock/caps. Older saves have no "merchants" key -> skip.
+	var trade_system = get_node_or_null("/root/TradeSystem")
+	if trade_system and migrated_data.has("merchants"):
+		trade_system.load_save_data(migrated_data.get("merchants", {}))
+	
 	var cs = _get_character_system()
 	if cs and cs.has_method("load_save_data"):
 		cs.load_save_data(migrated_data.get("player", player_data))
@@ -311,7 +398,16 @@ func _on_load_requested(slot: int) -> void:
 	var data = save_system.load_game(slot)
 	if data:
 		load_save_data(data)
-		_get_eventbus().emit("scene_change_requested", ["res://scenes/world/" + current_map + ".tscn"])
+		# Resolve current_map to a scene path: full res:// paths and the campaign
+		# root are used directly; bare identifiers keep the legacy world/ layout.
+		var scene_path := ""
+		if current_map.begins_with("res://") or current_map.begins_with("user://"):
+			scene_path = current_map
+		elif current_map == "campaign_root":
+			scene_path = "res://scenes/campaign/campaign_root.tscn"
+		else:
+			scene_path = "res://scenes/world/" + current_map + ".tscn"
+		_get_eventbus().emit("scene_change_requested", [scene_path])
 
 func _on_scene_change_requested(scene_path: String) -> void:
 	print("GameManager: changing scene to ", scene_path)

@@ -302,3 +302,219 @@ See `docs/NEXT_ACTIONS.md` for full execution queue.
 - Fresh-clone check: shallow clone of `origin/master` (`616cfcb`) into a clean directory — all 8 ctex/md5 present and `test_radzone_scene_integration.gd` reports ALL PASS with exit 0. Confirms the committed import metadata makes the integration work without an editor import pass.
 
 **Status constraints:** All RADZONE PNGs remain `staged_unapproved` / `published_draft_asset` per `art/production/catalog/asset_registry.json` and `docs/art/VISUAL_CONSISTENCY_CONTRACT.md` — no asset is approved for gameplay integration merely by being committed. Only the 10 concept screens are the approved visual target. This integration is a draft-art scene candidate, not production approval.
+---
+
+## RADZONE Inventory Icon Integration (2026-11-17)
+
+**7 items mapped to real RADZONE PNGs via `icon_path`** (previously every `icon_path`
+pointed at `res://assets/ui/icons/<id>.png`, a directory that does not exist on master,
+so the whole grid rendered blue placeholder squares):
+
+| item_id | icon_path |
+|---------|-----------|
+| `combat_knife` | `res://art/production/painterly_v3/items/combat_knife.png` |
+| `combat_shotgun` | `res://art/production/painterly_v3/items/combat_shotgun.png` |
+| `hunting_rifle` | `res://art/production/painterly_v3/items/hunting_rifle.png` |
+| `gas_mask` | `res://art/production/painterly_v3/items/gas_mask.png` |
+| `lockpick_set` | `res://art/production/painterly_v3/items/lockpick_set.png` |
+| `laser_pistol` | `res://art/production/painterly_v4/wave01/objects/weapons/laser_pistol.png` |
+| `pump_shotgun` | `res://art/production/painterly_v4/wave01/objects/weapons/pump_shotgun.png` |
+
+Paths point straight at the art under `art/production/...` (no copies into
+`assets/ui/icons/`), so each object keeps a single file and its provenance.
+Ambiguous crops were intentionally left unmapped — see
+`artifacts/qa/inventory_radzone/README.md` for the full mapping and the gap list.
+
+### Three real engine/UI defects found and fixed while integrating
+
+1. **`.tscn` theme overrides used method-call syntax.** `scenes/**/*.tscn` contained
+   lines such as `add_theme_color_override("font_color", Color(...))`. Godot 4
+   serializes these as properties (`theme_override_colors/font_color = ...`); the
+   method-call form is not a valid property line, and the loader silently swallows it
+   **and the following `[node ...]` header**. Affected: `scenes/ui/inventory_ui.tscn`
+   (17 declared / 9 parsed), `scenes/ui/dialogue_ui.tscn` (6/4),
+   `scenes/ui/main_menu.tscn` (12/10). Fixed by rewriting 77 lines across 6 scenes to
+   the `theme_override_*` property form. Regression test added:
+   `scripts/tests/test_scene_parse_integrity.gd` (19 scenes, MISMATCH=0).
+
+2. **`anchors_preset` is inert at load time.** `Control.set_anchors_preset()` is a
+   runtime method; the `anchors_preset` property written in a `.tscn` is not applied on
+   load. Every UI scene relied on it, so at runtime `InventoryPanel` had size 0x0 and
+   `ScrollContainer` had height 0 with `clip=true` — the icon grid was laid out but
+   clipped away. Fixed `scenes/ui/inventory_ui.tscn` by materialising explicit
+   `anchor_left/top/right/bottom` on all 12 nodes (derived from the encoded offsets).
+   **Still open:** the same defect class remains in `called_shot_panel.tscn` (16),
+   `combat_hud.tscn` (10), `combat_ui.tscn` (8), `quest_log.tscn` (3),
+   `dialogue_ui.tscn` (4), `main_menu.tscn` (several), `entities/npc.tscn`,
+   `entities/world_item.tscn`, `world/test_map.tscn` — 64 nodes across 9 scenes.
+
+3. **`TextureButton` rendered icons at native resolution.** `scripts/ui/inventory_ui.gd`
+   set `custom_minimum_size = Vector2(64, 64)` and
+   `stretch_mode = STRETCH_KEEP_ASPECT_CENTERED` but not `ignore_texture_size`, which
+   defaults to `false` in Godot 4 — so the button's minimum size came from the texture
+   (479x151, 900x226, ...) and the icons overflowed the 72x72 grid cell. Fixed by
+   setting `btn.ignore_texture_size = true`.
+
+Also fixed: the stack amount label was parented to the `TextureButton` and positioned
+with `set_anchors_preset(PRESET_BOTTOM_RIGHT)` followed by positive offsets, which are
+relative to the anchor and pushed the label outside the button. Now uses
+`set_anchors_and_offsets_preset(PRESET_BOTTOM_RIGHT, PRESET_MODE_MINSIZE, 4)`.
+
+### Evidence
+
+- `artifacts/qa/inventory_radzone/inventory_radzone_icons.png` — real capture, grid at 64x64
+- `artifacts/qa/inventory_radzone/inventory_radzone_details.png` — real capture, details panel populated
+- `artifacts/qa/inventory_radzone/README.md` — mapping table, gap list, test results
+- Capture driver `scripts/art/inventory_radzone_review_capture.gd`, preview scene
+  `scenes/art_preview/inventory_radzone_review.tscn`
+
+### Verification
+
+- `scripts/tests/test_inventory_icons.gd` — 7/7 PASS, exit 0
+  (`SUMMARY: 8/88 items resolve to a real icon; 80 still point at missing files`)
+- `scripts/tests/test_scene_parse_integrity.gd` — `SCENES_CHECKED=19 MISMATCH=0`, exit 0
+- `scripts/tests/test_radzone_scene_integration.gd` — ALL PASS, exit 0
+- `scripts/tests/test_critical_fidelity.gd` — ALL TESTS PASSED, exit 0
+- `tests/test_ap_fidelity.gd`, `test_dtdr_fidelity.gd`, `test_special_fidelity.gd`,
+  `test_xp_progression.gd` — ALL TESTS PASSED, exit 0
+- `tests/test_asset_uniqueness_guard.py` — 6 tests OK
+- `tests/test_art_visual_duplicate_gate.py` — 3 tests OK
+- `scripts/test_combat_damage.py`, `scripts/test_item_database.py` — ALL TESTS PASSED
+
+**Status:** draft art only. All RADZONE PNGs remain `staged_unapproved` /
+`published_draft_asset`; nothing is `production_approved`. Not Android-validated.
+
+**PR:** https://github.com/rf24kja/Fallout-mobile/pull/36 — `feature/inventory-radzone-icons` (head `a569163aa3a0fd9d596607ddb53aa2e1b3653ab1`, base `master`), 20 files, state OPEN.
+
+---
+
+## RADZONE UI Anchor Materialization (Task A-2, 2026-11-21)
+
+**Problem:** `anchors_preset` written in `.tscn` files is inert at load time — Godot 4 does not apply it during scene parsing. 64 nodes across 9 UI scenes relied on it, causing controls to collapse to 0×0 or drift off-screen at runtime (e.g., `InventoryPanel` size 0×0, `ScrollContainer` height 0 with `clip=true`, combat panels at X=-320 off the left edge). Additionally, 26 nodes in `combat_hud.tscn`/`quest_log.tscn` used parent paths that caused orphan nodes ("Parent path has vanished" warnings), and `called_shot_panel.tscn` lacked `unique_name_in_owner=true`, so all 15 `%Name` lookups in `called_shot_panel.gd` failed.
+
+**Fix (branch `fix/ui-anchor-presets`, commit `c6afd2f`):**
+- Materialized `anchors_preset` → explicit `anchor_left/top/right/bottom` on 47 nodes across 8 scenes: `scenes/ui/called_shot_panel.tscn` (16), `scenes/ui/combat_hud.tscn` (10), `scenes/ui/combat_ui.tscn` (8), `scenes/ui/dialogue_ui.tscn` (4), `scenes/ui/quest_log.tscn` (3), `scenes/world/test_map.tscn` (4), `scenes/entities/npc.tscn` (1), `scenes/entities/world_item.tscn` (1). Rule derived and verified on all 44 non-degenerate cases: for each (off_a, off_b) pair, try 4 anchor candidates, reject those giving non-positive extent, maximize score where score counts whether each negative offset maps to anchor=1; all-zero offsets → (0,0,1,1).
+- Fixed root-relative parent paths: 15 nodes in `combat_hud.tscn`, 11 nodes in `quest_log.tscn` (e.g., `parent="WeaponVBox"` → `parent="WeaponPanel/WeaponVBox"`).
+- Added `unique_name_in_owner = true` to all 15 named nodes in `called_shot_panel.tscn` so `%Name` lookups resolve.
+- New regression test: `scripts/tests/test_ui_layout_integrity.gd` — source-based `.tscn` parsing (avoids pre-existing .gd script parse errors in combat_hud/quest_log). Verifies all anchors_preset!=0 nodes have anchor_* materialized and called_shot_panel %Name lookup resolves.
+
+**Verification:**
+- `scripts/tests/test_ui_layout_integrity.gd` — SCENES=19, CHECKS=72, FAILURES=0, RESULT: ALL PASS, exit 0
+- `scripts/tests/test_scene_parse_integrity.gd` — SCENES_CHECKED=19 MISMATCH=0, exit 0
+- Pre-existing unrelated defects (not in scope A-2): `quest_log.gd:36` calls `_select_quest()` which is not defined; `quest_log_entry.tscn` is missing; `combat_hud.gd:42` type mismatch RichTextLabel→Label.
+
+**PR:** https://github.com/rf24kja/Fallout-mobile/pull/38 — `fix/ui-anchor-presets` (head `c6afd2fd04c8ba43a108cb4b859b741871ac0cbd`, base `master`), 9 files, state OPEN.
+
+*Last Updated: 2026-11-21 — RADZONE UI anchor materialization (branch `fix/ui-anchor-presets`, PR #38)*
+
+---
+
+## Release 1.0 Integration + APK (2026-11-24)
+
+**Branch:** `release/1.0-integration` (from master `5629508`, ff-merged `fix/ui-anchor-presets` at `93f2c81`). Pushed no-force. master untouched.
+
+**Real fixes (code, not tests):**
+- `character_system.gd:_recalculate_derived_stats()` HP formula `level`→`max(0,level-1)` (vanilla HP 75/197/57 now matches; was 80/205/63).
+- `combat_system.gd` `_check_stat`/`_apply_critical_effect` String/int comparisons type-guarded (GDScript 4.7 SCRIPT ERROR eliminated).
+- `character_system.gd` added symmetric `get_save_data()`.
+- `test_special_fidelity.gd` `.new()` on class + `_init_default_character()`.
+
+**Commits:** `d5370f6` (fidelity fixes), `092b1ce` (save/load round-trip test, 21 checks).
+
+**Verification:** 10 Godot tests + 4 Python tests ALL GREEN, SCRIPT_ERROR=0, FAIL=0. Boot test exit 0, 0 errors.
+
+**APK:** `builds/android/Fallout2_Reborn_Mobile_Release_1.0.apk` (185,468,775 B), SHA256 `61cca9564075d3cd00ffdc3c6e382804c305106a5530b3f8d814444680bb23ab`, apksigner v2+v3 verified, 4 ABIs, package `com.example.wastelandrpgprototype` v1.0.0. Signed via manual apksigner workaround (Godot 4.7.2 keystore bug). No device attached → runtime playthrough pending.
+
+**Full report:** `docs/RELEASE_1.0_INTEGRATION_REPORT.md`.
+
+**PRs NOT merged:** #36/#38 + Wave13 review (owner decision pending).
+
+**Status:** draft RADZONE art (staged_unapproved); mobile controls partial (no virtual joystick/safe-area); Android runtime not verified.
+
+*Last Updated: 2026-11-24 — Release 1.0 integration branch, fidelity fixes, signed APK*
+
+
+## Campaign Engine + Original Fallout 2 Data Importer (2026-11-24)
+
+**Goal (m01690)**: turn `release/1.0-integration` from a systems prototype into a complete mobile Fallout 2 RPG; work autonomously, no merge without owner, no force push.
+
+**Original data found (local GOG install only, never published)**: `C:\Code\REA_FALLOUT\Fallout2\` — `master.dat` (333,177,805 B), `critter.dat` (166,951,131 B), `patch000.dat`, `data/MAPS/` 81 `.SAV`, `data/SAVEGAME/SLOT01..18`, `data/proto/`. Decoded DAT directory format `[LE u32 len][name][flag][LE u32 uncomp][LE u32 comp][LE u32 ofs]`, flag==1 = zlib. Extracted to gitignored `.local/` (master 11855 files, critter 7120, patch000 487). `.local/` added to `.gitignore`.
+
+**Importer** (`tools/fallout2_import/`): `dat_reader.py`, `msg_parser.py`, `pro_parser.py`, `map_parser.py`, `import_all.py`, `README.md`. CLI `python tools/fallout2_import/import_all.py --source <dir> [--verify]` writes 7 JSON to gitignored `.local/generated/`. `VERIFY OK: items 492 / critters 483 / quests 113 / locations 80 / maps_index 171 / dialog_index 801`. Fixed two bugs: (1) main() passed install dir instead of extracted master → 0 items; (2) msg_parser regex left trailing `}`. **License**: no game text or absolute paths in committed source; all original content stays local-only.
+
+**Campaign engine** (`scripts/campaign/`, 9 files + `scenes/campaign/campaign_root.tscn`): defensive JSON adapter, location graph with bidirectional exits + world_state gates, headless-safe 2D location scene, quest/dialogue registration into QuestManager/DialogueManager, `travel_to` events + save/load. `test_campaign_engine.gd`: 53 checks PASS, synthetic fixtures, no licensed text.
+
+**Mobile controls** (`scripts/ui/mobile_controls.gd`, `scenes/ui/mobile_controls.tscn`): virtual joystick + 5 action buttons, safe-area insets, pinch zoom/pan; additive joystick branch in `scripts/entities/player.gd`; instanced in `test_map.tscn`. `test_mobile_controls.gd`: 54 checks PASS.
+
+**Bug fixes**: `scripts/quest_manager.gd` `_load_player_quests()` and `scripts/core/save_system.gd` `list_saves()` — Godot 4 `JSON.parse_string` returns Dictionary directly (was using Godot 3 `{error,result}` shape).
+
+**Verification (HEAD + working tree)**: 12 Godot tests all exit 0, 0 SCRIPT ERROR, 0 FAIL; 9 Python unittest OK; combat_damage/item_database ALL PASSED; importer VERIFY OK; boot exit 0 with 0 errors.
+
+**Status**: NOT a complete Fallout 2 campaign yet — campaign engine + data layer built but not wired into the main playable loop; real 19-step playthrough and Android runtime not done; APK still the Release 1.0 build (no rebuild with new code). PR #39 open, not merged.
+
+*Last Updated: 2026-11-24 — campaign engine + original data importer + mobile joystick*
+
+## Playable Campaign Scene + On-Device QA (2026-11-24)
+
+**Blocker root cause**: `scenes/campaign/campaign_root.tscn` had only 3 empty Nodes — no visuals, Player or camera. `location_scene.gd` could build a 2D scene but was never instantiated; `world_map._current_id` was never set. Real Android test: Start Game → uniform gray screen.
+
+**Fix (commit `dd16b2a`)**: `campaign_root.gd` now selects initial location `arroyo`, calls `world_map.travel_to()`, instantiates `LocationScene` (Ground/Boundary/PlayerSpawn/NPC+exit markers), creates a real `Player` (CharacterBody2D + CollisionShape2D + Camera2D + CharacterVisual with 8 typed sprite children), wires mobile-control signals and `exit_interacted → travel_to`. `location_scene.gd`: added `get_player_spawn()`/`get_map_size()`, changed `_clear_built_children()` to immediate `free()` so rebuilt nodes keep canonical names. New `scripts/tests/test_campaign_playable_scene.gd`: 14/14 PASS, 0 SCRIPT ERROR.
+
+**Bugs fixed during QA**: (1) `Camera2D.current` is not assignable in Godot 4.7 — use `make_current()`/`is_current()`; (2) `@onready` sprite type mismatch (ShadowSprite must be `Sprite2D`, others `AnimatedSprite2D`); (3) deferred `queue_free()` caused same-named rebuilds to be auto-renamed.
+
+**Verification**: all 13 Godot tests exit 0, 0 SCRIPT ERROR, 0 FAIL. Desktop non-headless viewport capture (`artifacts/qa/campaign_playable_desktop.png`, 1280x720) visually confirms rendered scene: exit labels `ardead`/`artemple`, joystick base, 5 mobile buttons — 90 distinct colors, not a blank screen.
+
+**Android status**: x86_64 debug APK rebuilt and re-signed (`playtest_v2_final.apk`, cert SHA-256 `3208ad898e6ee99f8979181a40ecb29f4e2885e1b9a36a003491fcfaac404794`). On-device `logcat` confirms `CampaignRoot: location='arroyo' rendered children=9`, Player created, InteractionManager found player, full node tree built, **0 SCRIPT ERROR** — game logic runs on Android. However `screencap` is uniform gray because the emulator's SwiftShader GLES3 cannot link Godot shaders (`Fragment shader active uniforms exceed GL_MAX_FRAGMENT_UNIFORM_VECTORS (261)`) — this also affected the main menu from first launch, so it is an emulator GPU limitation, NOT a game defect. Retrying with host GPU backend (`-gpu host`).
+
+**Data on Android**: licensed JSON pushed to `user://fallout2_data/` via `adb push` + `run-as cp` (7 files); campaign loader reports `available=true quests=113`. Data stays local-only, never in the repo/APK.
+
+**Status**: game logic playable & verified headless + desktop render; Android visual verification pending GPU backend fix. PR #39 open at `dd16b2a`, not merged.
+
+## Full Playthrough + Release APK Rebuild (2026-11-24)
+
+**19-step playthrough** (`scripts/tests/test_full_playthrough.gd`): 19 steps, 0 FAIL, 0 SCRIPT ERROR, exit 0. Covers launch → new_game → starting location (arroyo, 80 locations) → movement → NPC interaction → dialogue (state 3→1) → quest accept/complete → combat (foe killed) → XP (300/300) → level up (2/2) → inventory (`power_cell`) → travel to real neighbour `ardead` → save (slot 8) → restart → load → world restore. 2 documented SKIPs: character creation (no scene/API — default character created by autoloads) and trade/barter (no vendor system/API). No gameplay was faked.
+
+**Production bug fixed** (`player.gd`): after JSON save/load roundtrip `player_data.position` became a String, causing `SCRIPT ERROR: Error setting property 'global_position' with value of type String` when the campaign scene was recreated. Added `_coerce_position()` (Vector2/Vector2i/Array/Dict/"(x, y)" → Vector2) and `_is_zero_position()`.
+
+**Commit** `0dd3c45` (3 files, +381/−3): test_full_playthrough.gd + player.gd hardening + `artifacts/qa/campaign_playable_android.png`; pushed to `release/1.0-integration`; local HEAD = remote SHA.
+
+**Release APK rebuilt** after these fixes: `builds/android/Fallout2_Reborn_Mobile_Release_1.0.apk`, 185,570,034 B, SHA256 `ec8d10c9b8ac7a9cef7c27341a0b275dd2d4c36dd8af7a0399af499a4c437f8b` (replaces `61cca956...`), zipalign + manual apksigner v2+v3, cert `ddf58ce4...9b914aaabf`, `apksigner verify` OK. On-device boot (emulator x86_64, -gpu host): Godot 4.7.2, Vulkan/Intel Arc, 88 items, MainMenu ready, **0 SCRIPT ERROR / 0 crash**. ADB screencap remains black on the release APK (emulator GPU/compositor capture limitation); same code visually confirmed via the debug APK and desktop viewport capture. Licensed campaign JSON pushed device-locally only (gitignored, never in repo/APK).
+
+**Open**: final report + docs sync, PR #39 head update. PR #39/#36/#38/Wave13 NOT merged without owner.
+
+*Last Updated: 2026-11-24 — full playthrough + Release APK rebuild*
+
+## Character Creation Implemented (2026-11-25, m01691)
+
+- Commit `9897e08` `feat(character): implement full new-game character creation with vanilla formulas` on `release/1.0-integration` (9 files, +1574/−52). NOT pushed yet.
+- Main Menu → New Game now opens `scenes/ui/character_creation_ui.tscn`; confirm applies config through `GameManager.apply_character_config()` → `CharacterSystem.apply_created_character()` → campaign. Back/edit available before start.
+- SPECIAL keys remain original-IP (`might`/`awareness`/`vigor`/`presence`/`intellect`/`dexterity`/`fortune`): 5 base + 5 points, 1..10, max 2 optional traits, exactly 3 tag skills. Skills use verified `default + stat_modifier*(stat1+stat2) + invested` (+tag invested +20), trait modifiers, clamp 0..300. Derived stats use verified `stat.cc:567-577` formulas; new game resets Inventory items/equipment/caps.
+- Verified locally with Godot 4.7.2: `scripts/tests/test_character_creation.gd` Passed 12 / Failed 0 (incl. `inventory_reset_on_new_game`), `scripts/tests/test_full_playthrough.gd` STEPS=19 FAILURES=0 (step 3 now PASS, step 14 still SKIP), `tests/test_special_fidelity.gd` Passed 72 / Failed 0; all exit 0, no SCRIPT ERROR.
+- One documented blocker: exact age-related SPECIAL modifiers could not be confirmed from available sources (`pc.cc` 404; `character_editor.cc` stores age descriptively). Age is stored/displayed but does not alter stats; no coefficients invented.
+- Trade/barter implementation is IN PROGRESS (Phase 2); APK not rebuilt yet.
+
+*Last Updated: 2026-11-25 — character creation implemented and verified*
+
+## Character Creation + Barter — Final State (2026-11-25, m01691)
+
+- Local commits on `release/1.0-integration`: `9897e08` (character creation), `1105993` (docs), `64830b4` (`feat(trade): implement full barter with merchants and vanilla pricing`, 11 files, +1614/−5, 4 new files), plus the UI-anchor fix commit recorded in `docs/DEVELOPMENT_HISTORY.md`.
+- Trade: `TradeSystem` autoload, `EventBus.trade_requested/trade_closed`, `scenes/ui/trade_ui.tscn` + `scripts/ui/trade_ui.gd`, merchant NPCs in `scenes/world/test_map.tscn` (original `TestNPC` preserved; separate `MerchantNPC` with id `test_trader`). Buy price uses the verified vanilla `_barter_compute_value()` formula (`(160+npcBarter)/(160+playerBarter)*2*rawCost`, reaction mod, Master Trader −25, clamp ≥0.01, `int()` truncation); sell price is raw `item.value*amount`. Both sides are atomic with rollback; caps are synchronised between `Inventory.caps` and `GameManager.player_data["caps"]`; merchant stock/caps persist in the `merchants` save key.
+- Verification (Godot 4.7.2 console, fresh supervisor runs): `scripts/tests/test_trade.gd` 15/15 PASS; `scripts/tests/test_character_creation.gd` 12/12 PASS; `scripts/tests/test_full_playthrough.gd` STEPS=19 FAILURES=0 (`STEP 3 character_creation: PASS`, `STEP 14 trade: PASS buy=ok price=202 sell=ok price=40 caps=488`); `scripts/tests/test_ui_layout_integrity.gd` CHECKS=80 FAILURES=0; `tests/test_special_fidelity.gd` 72/72 PASS. Python: `scripts/test_item_database.py` and `scripts/test_combat_damage.py` ALL TESTS PASSED; pytest 9 passed / 8 warnings (Pillow deprecation only). Zero assertion failures; remaining engine warnings are pre-existing non-fatal RID/resource-in-use notices.
+- New signed APK (rebuilt AFTER the UI-anchor fix): `builds/android/Fallout2_Reborn_Mobile_Release_Final.apk`, 185,661,660 bytes, SHA256 `9E7ECF6C3922874C33595A61CA54FCFE021A227CF762DF941BADD9A272AE0D65`, `apksigner verify` OK (v2+v3, v1/v3.1/v4 false), cert SHA-256 `ddf58ce43722e01fce71483867761b4d7975870831a4de9f7052159b914aaabf`; badging package `com.example.wastelandrpgprototype`, versionName 1.0.0, versionCode 1, minSdk 24, targetSdk 36, ABIs arm64-v8a/armeabi-v7a/x86/x86_64. An earlier build `Fallout2_Reborn_Mobile_Release_CharCreation_Barter.apk` (SHA `F5C5DE...C363`) predates the UI fix and is retained only as history.
+- Device: final APK installed on `emulator-5554` (`Success`) and launched via `com.example.wastelandrpgprototype/com.godot.game.GodotAppLauncher`, `pidof` 2605, no SCRIPT ERROR/FATAL in logcat. ADB screencap of the running app remains uniformly black (1920x1080, mean/stddev 0, 1 color) — Android VISUAL verification NOT achieved and is not claimed from desktop shots. Desktop rendering of both new screens with verified non-zero trade panes was captured separately in gitignored `.local/qa_character.png` / `.local/qa_trade.png` (trade image 1397 colors, stddev 22.326); this is desktop-only evidence.
+- Known blocker unchanged: exact age-related SPECIAL modifiers still unconfirmed (missing licensed age module); age stored/displayed, no invented coefficients.
+- PR #39 remains OPEN and must not be merged without owner approval. No merge of PR #36/#38/Wave13. Untracked user files `commit_msg.txt`, `fix_combat.py`, `fix_combat2.py` preserved and never committed.
+
+*Last Updated: 2026-11-25 — character creation + barter implemented, tested, APK rebuilt; PR #39 open*
+
+## Fallout 2 Fidelity Corrections (m01692, 2026-11-28)
+
+- Audit source: full fallout2-ce tree; all fixes are source-verified. No invented coefficients. Both parallel executors hit `Free usage limit reached...`; the primary agent completed the remaining edits and QA directly.
+- Character rules: all 16 vanilla traits now selectable. Source-verified effects: One Handed ToHit -40/+20, Jinxed 50% miss->critical failure, Chem Reliant/Resistant addiction/duration, Good Natured, Skilled/Gifted, Small Frame base Might, Kamikaze base AC, Fast Shot AP/aimed. Bloody Mess is visual-only (`actions.cc:208-235`); Sex Appeal is a flag only because its mechanical effect could not be located (enum only in `trait_defs.h:24`).
+- Derived stats are computed by one shared `CharacterCreationRules.derive_stats()` used by creation, CharacterSystem and GameManager. Corrected HP/level `2+EN/2`, HP base `15+ST+2*EN`, AC=AG, healing `max(1,EN/3)`, crit=LK, carry `25+25*ST` (Small Frame -10*BASE ST), melee `max(1,ST-5)`, skill cap 300. SP/level is `5+2*effective INT+Educated*2+Skilled*5-Gifted*5` (0..99) instead of the old wrong `5+INT/2`.
+- Perks: progression 3 (+1 Skilled), 37-rank cap; Master Trader added with level 12 / Barter 75 / INT 7 and skill requirement checked. `tests/test_special_fidelity.gd` 81/81 PASS; `scripts/tests/test_character_creation.gd` 13/13 PASS.
+- Barter: reaction modifier split from dialogue `barter_mod` using vanilla thresholds (>10 -15, >-10 0, else +25); party-best Barter includes the player (index 0) plus active visible companions (`party_member.cc:1182`); non-vanilla `max(1, barter)` removed; NPC exports `trade_barter_mod`/`reaction_value`, trade UI applies them, and real `set_barter_mod` caller exists via DialogueConsequence and dialogue action. Save wrapper persists both modifiers and remains backward compatible. `scripts/tests/test_trade.gd` 19/19 PASS.
+- Full regression: all 16 Godot scripts EXIT=0, zero assertion failures (pre-existing 6 non-fatal engine notices only); playthrough STEPS=19 FAILURES=0; save/load CHECKS=21; campaign CHECKS=53; UI 67/82 checks; Python 2 ALL TESTS PASSED + pytest 9 passed (8 Pillow warnings).
+- Docs updated: `docs/FALLOUT2_FIDELITY_MATRIX.md`, `docs/NEXT_ACTIONS.md`, `docs/DEVELOPMENT_HISTORY.md`, `docs/RELEASE_1.0_INTEGRATION_REPORT.md`, `PROJECT_STATE.md`. QA logs: `C:\Users\rf24k\AppData\Local\Temp\opencode\M01692_TASK_A_QA.txt` and `M01692_TASK_B_QA.txt`.
+- Unresolved blockers: exact age modifiers (licensed age module absent), Sex Appeal mechanical effect, full Fallout 2 critical/called-shot tables. Android APK was NOT rebuilt for m01692; the existing signed APK still reflects m01691 only.
+- PR #39 stays OPEN and is not merged. Untracked user files `commit_msg.txt`, `fix_combat.py`, `fix_combat2.py` preserved.

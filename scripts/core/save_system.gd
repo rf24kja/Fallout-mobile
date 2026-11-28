@@ -81,8 +81,10 @@ func list_saves():
 				var json_str = file.get_as_text()
 				file.close()
 				var parse_result = JSON.parse_string(json_str)
-				if parse_result.get("error") == OK:
-					var data = parse_result.get("result")
+				# Godot 4 returns the parsed value directly; the Godot 3
+				# `{error, result}` wrapper no longer applies.
+				if parse_result is Dictionary:
+					var data = parse_result
 					saves.append({
 						"slot": slot,
 						"player_name": data.get("player", {}).get("name", "Unknown"),

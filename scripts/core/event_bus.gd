@@ -24,6 +24,8 @@ signal quest_updated(quest_id: String, state: String)
 signal save_requested(slot: int)
 signal load_requested(slot: int)
 signal scene_change_requested(scene_path: String)
+signal trade_requested(npc: Node)
+signal trade_closed
 
 func emit(event_name: StringName, args: Array = []) -> void:
 	var args_array: Array = args
